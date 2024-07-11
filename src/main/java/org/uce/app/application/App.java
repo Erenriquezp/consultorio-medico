@@ -3,21 +3,26 @@ package org.uce.app.application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.uce.app.utilities.Paths;
 
 public class App extends Application {
-    public static void main(String[] args) {
-        launch();
-    }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PantallaPrincipal.fxml"));
+        VBox root = loader.load();
+        Scene scene = new Scene(root);
 
-        AnchorPane load = FXMLLoader.load(getClass().getResource(Paths.helloWorld));
-        Scene scene = new Scene(load);
-        stage.setScene(scene);
-        stage.show();
+        // Cargar el archivo CSS
+        scene.getStylesheets().add(getClass().getResource("/styles/styles.css").toExternalForm());
+
+        primaryStage.setTitle("Sistema de Gestión de Consultorio Médico");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

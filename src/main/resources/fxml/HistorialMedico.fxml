@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.uce.app.controllers.HistorialMedicoController" spacing="10" alignment="CENTER" >
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <TextField fx:id="idPacienteField" promptText="ID Paciente"/>
+    <TextField fx:id="fechaField" promptText="Fecha"/>
+    <TextArea fx:id="diagnosticoField" promptText="Diagnóstico"/>
+    <TextArea fx:id="tratamientoField" promptText="Tratamiento"/>
+    <Button text="Agregar Entrada" onAction="#agregarEntrada"/>
+    <TableView fx:id="tablaHistorial">
+        <columns>
+            <TableColumn text="ID"/>
+            <TableColumn text="Fecha"/>
+            <TableColumn text="Diagnóstico"/>
+            <TableColumn text="Tratamiento"/>
+            <TableColumn text="ID Paciente"/>
+        </columns>
+    </TableView>
+</VBox>

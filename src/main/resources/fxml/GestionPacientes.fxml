@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.uce.app.controllers.GestionPacientesController" spacing="10" alignment="CENTER" >
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <TextField fx:id="nombreField" promptText="Nombre"/>
+    <TextField fx:id="fechaNacimientoField" promptText="Fecha de Nacimiento"/>
+    <TextField fx:id="sexoField" promptText="Sexo"/>
+    <TextField fx:id="telefonoField" promptText="Teléfono"/>
+    <TextField fx:id="emailField" promptText="Email"/>
+    <TextField fx:id="direccionField" promptText="Dirección"/>
+    <Button text="Agregar Paciente" onAction="#agregarPaciente"/>
+    <TableView fx:id="tablaPacientes">
+        <columns>
+            <TableColumn text="ID"/>
+            <TableColumn text="Nombre"/>
+            <TableColumn text="Fecha de Nacimiento"/>
+            <TableColumn text="Sexo"/>
+            <TableColumn text="Teléfono"/>
+            <TableColumn text="Email"/>
+            <TableColumn text="Dirección"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.uce.app.controllers.GestionCitasController" spacing="10" alignment="CENTER" >
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <TextField fx:id="idMedicoField" promptText="ID Médico"/>
+    <TextField fx:id="idPacienteField" promptText="ID Paciente"/>
+    <DatePicker fx:id="fechaField" promptText="Fecha"/>
+    <TextField fx:id="horaField" promptText="Hora"/>
+    <TextArea fx:id="motivoField" promptText="Motivo"/>
+    <Button text="Agregar Cita" onAction="#agregarCita"/>
+    <TableView fx:id="tablaCitas">
+        <columns>
+            <TableColumn text="ID"/>
+            <TableColumn text="Fecha y Hora"/>
+            <TableColumn text="Motivo"/>
+            <TableColumn text="Estado"/>
+            <TableColumn text="ID Médico"/>
+            <TableColumn text="ID Paciente"/>
+        </columns>
+    </TableView>
+</VBox>
