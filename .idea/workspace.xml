@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/PantallaPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/CitaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistorialMedico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistorialMedicoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Medico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/MedicoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/PacienteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionPacientes.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistorialMedico.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Primera version del proyecto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/application/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/application/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HelloWorld.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HelloWorld.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/PantallaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/PantallaPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/MedicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/MedicoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HistorialMedico.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistorialMedico.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +84,8 @@
       <workItem from="1720568736810" duration="693000" />
       <workItem from="1720570592998" duration="11478000" />
       <workItem from="1720620871294" duration="78000" />
-      <workItem from="1720666040497" duration="4629000" />
+      <workItem from="1720666040497" duration="5755000" />
+      <workItem from="1720707609675" duration="1584000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
       <option name="closed" value="true" />
@@ -109,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720576815185</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Primera version del proyecto">
+      <option name="closed" value="true" />
+      <created>1720670851492</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720670851492</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +122,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inicializacion del proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicializacion del proyecto" />
+    <MESSAGE value="Primera version del proyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primera version del proyecto" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
