@@ -41,9 +41,12 @@ public class GestionCitasController {
     @FXML
     private void agregarCita() {
         Cita cita = new Cita();
-        cita.setIdMedico(Integer.parseInt(idMedicoField.getText()));
-        cita.setIdPaciente(Integer.parseInt(idPacienteField.getText()));
-        cita.setFechaHora(LocalDateTime.of(fechaField.getValue(), LocalTime.parse(horaField.getText())));
+//        cita.setId_cita("1");
+//        cita.setCi_paciente("123");
+//        cita.setCi_medico(idPacienteField.getText());
+
+        //cita.setIdMedico(Integer.parseInt(idMedicoField.getText()));
+        //cita.setIdPaciente(Integer.parseInt(idPacienteField.getText()));
         cita.setMotivo(motivoField.getText());
         cita.setEstado("pendiente");
 

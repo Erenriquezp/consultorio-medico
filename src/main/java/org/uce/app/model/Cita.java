@@ -1,41 +1,58 @@
 package org.uce.app.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Cita {
-    private int id;
-    private LocalDateTime fechaHora;
+    private String idCita;
+    private String ciPaciente;
+    private String ciMedico;
+    private Date fechaCita;
     private String motivo;
     private String estado;
-    private int idMedico;
-    private int idPaciente;
-
-    public Cita(int id, LocalDateTime fechaHora, String motivo, String estado, int idMedico, int idPaciente) {
-        this.id = id;
-        this.fechaHora = fechaHora;
-        this.motivo = motivo;
-        this.estado = estado;
-        this.idMedico = idMedico;
-        this.idPaciente = idPaciente;
-    }
 
     public Cita() {
     }
 
-    public int getId() {
-        return id;
+    public Cita(String idCita, String ciPaciente, String ciMedico, Date fechaCita, String motivo, String estado) {
+        this.idCita = idCita;
+        this.ciPaciente = ciPaciente;
+        this.ciMedico = ciMedico;
+        this.fechaCita = fechaCita;
+        this.motivo = motivo;
+        this.estado = estado;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getIdCita() {
+        return idCita;
     }
 
-    public LocalDateTime getFechaHora() {
-        return fechaHora;
+    public void setIdCita(String idCita) {
+        this.idCita = idCita;
     }
 
-    public void setFechaHora(LocalDateTime fechaHora) {
-        this.fechaHora = fechaHora;
+    public String getCiPaciente() {
+        return ciPaciente;
+    }
+
+    public void setCiPaciente(String ciPaciente) {
+        this.ciPaciente = ciPaciente;
+    }
+
+    public String getCiMedico() {
+        return ciMedico;
+    }
+
+    public void setCiMedico(String ciMedico) {
+        this.ciMedico = ciMedico;
+    }
+
+    public Date getFechaCita() {
+        return fechaCita;
+    }
+
+    public void setFechaCita(Date fechaCita) {
+        this.fechaCita = fechaCita;
     }
 
     public String getMotivo() {
@@ -52,21 +69,5 @@ public class Cita {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public int getIdMedico() {
-        return idMedico;
-    }
-
-    public void setIdMedico(int idMedico) {
-        this.idMedico = idMedico;
-    }
-
-    public int getIdPaciente() {
-        return idPaciente;
-    }
-
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = idPaciente;
     }
 }
