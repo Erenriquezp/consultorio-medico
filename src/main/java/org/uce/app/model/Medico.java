@@ -1,45 +1,45 @@
 package org.uce.app.model;
 
 public class Medico {
-    private int id;
-    private String nombre;
-    private String especialidad;
+    private String ciMedico;
+    private String apellidos;
+    private String nombres;
     private String telefono;
     private String email;
-
-    public Medico(int id, String nombre, String especialidad, String telefono, String email) {
-        this.id = id;
-        this.nombre = nombre;
-        this.especialidad = especialidad;
-        this.telefono = telefono;
-        this.email = email;
-    }
 
     public Medico() {
     }
 
-    public int getId() {
-        return id;
+    public Medico(String ciMedico, String apellidos, String nombres, String telefono, String email) {
+        this.ciMedico = ciMedico;
+        this.apellidos = apellidos;
+        this.nombres = nombres;
+        this.telefono = telefono;
+        this.email = email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getCiMedico() {
+        return ciMedico;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setCiMedico(String ciMedico) {
+        this.ciMedico = ciMedico;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getTelefono() {

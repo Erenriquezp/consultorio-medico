@@ -1,4 +1,4 @@
-package org.uce.app.model; // Paquete en el que se encuentra esta clase
+package org.uce.app.dao; // Paquete en el que se encuentra esta clase
 
 import java.sql.*; // Importa todas las clases del paquete java.sql para manejo de la base de datos
 import java.util.ArrayList; // Importa la clase ArrayList

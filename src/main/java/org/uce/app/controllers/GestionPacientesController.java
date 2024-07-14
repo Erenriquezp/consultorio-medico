@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.uce.app.model.Paciente;
-import org.uce.app.model.PacienteDAO;
+import org.uce.app.dao.PacienteDAO;
 
 public class GestionPacientesController {
 
@@ -38,12 +38,12 @@ public class GestionPacientesController {
     @FXML
     private void agregarPaciente() {
         Paciente paciente = new Paciente();
-        paciente.setNombre(nombreField.getText());
-        paciente.setFechaNacimiento(fechaNacimientoField.getText());
-        paciente.setSexo(sexoField.getText());
-        paciente.setTelefono(telefonoField.getText());
-        paciente.setEmail(emailField.getText());
-        paciente.setDireccion(direccionField.getText());
+//        paciente.setNombre(nombreField.getText());
+//        paciente.setFechaNacimiento(fechaNacimientoField.getText());
+//        paciente.setSexo(sexoField.getText());
+//        paciente.setTelefono(telefonoField.getText());
+//        paciente.setEmail(emailField.getText());
+//        paciente.setDireccion(direccionField.getText());
 
         pacienteDAO.addPaciente(paciente);
         listaPacientes.add(paciente);

@@ -1,0 +1,232 @@
+@startuml
+class org.uce.app.controllers.GestionPacientesController {
+- TextField nombreField
+- TextField fechaNacimientoField
+- TextField sexoField
+- TextField telefonoField
+- TextField emailField
+- TextField direccionField
+- TableView<Paciente> tablaPacientes
+- ObservableList<Paciente> listaPacientes
+- PacienteDAO pacienteDAO
++ void initialize()
+- void agregarPaciente()
+}
+
+
+class org.uce.app.dao.MedicoDAO {
+- Connection connection
+}
+
+class org.uce.app.dao.PacienteDAO {
++ Object getAllPacientes()
++ void addPaciente(Paciente)
+}
+
+class org.uce.app.utilities.Paths {
++ {static} String helloWorld
++ {static} String gestionCitas
++ {static} String pantallaPrincipal
++ {static} String gestionPacientes
++ {static} String historialMedico
++ {static} String stylesheet
+}
+
+class org.uce.app.model.Medico {
+- String ciMedico
+- String apellidos
+- String nombres
+- String telefono
+- String email
++ String getCiMedico()
++ void setCiMedico(String)
++ String getApellidos()
++ void setApellidos(String)
++ String getNombres()
++ void setNombres(String)
++ String getTelefono()
++ void setTelefono(String)
++ String getEmail()
++ void setEmail(String)
+}
+
+
+class org.uce.app.dao.HistorialMedicoDAO {
++ Object getAllHistorialMedico()
++ void addHistorialMedico(HistorialMedico)
+}
+
+class org.uce.app.model.HistorialMedico {
+- int id
+- String fecha
+- String diagnostico
+- String tratamiento
+- int idPaciente
++ int getId()
++ void setId(int)
++ String getFecha()
++ void setFecha(String)
++ String getDiagnostico()
++ void setDiagnostico(String)
++ String getTratamiento()
++ void setTratamiento(String)
++ int getIdPaciente()
++ void setIdPaciente(int)
+}
+
+
+class org.uce.app.controllers.PantallaPrincipalController {
+- void gestionarPacientes()
+- void gestionarCitas()
+- void gestionarHistorialMedico()
+- void cargarPantalla(String,String)
+}
+
+class org.uce.app.model.Cita {
+- String idCita
+- String ciPaciente
+- String ciMedico
+- Date fechaCita
+- String motivo
+- String estado
++ String getIdCita()
++ void setIdCita(String)
++ String getCiPaciente()
++ void setCiPaciente(String)
++ String getCiMedico()
++ void setCiMedico(String)
++ Date getFechaCita()
++ void setFechaCita(Date)
++ String getMotivo()
++ void setMotivo(String)
++ String getEstado()
++ void setEstado(String)
+}
+
+
+class org.uce.app.application.App {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+class org.uce.app.controllers.GestionCitasController {
+- TextField idMedicoField
+- TextField idPacienteField
+- DatePicker fechaField
+- TextField horaField
+- TextArea motivoField
+- TableView<Cita> tablaCitas
+- ObservableList<Cita> listaCitas
+- CitaDAO citaDAO
++ void initialize()
+- void agregarCita()
+}
+
+
+class org.uce.app.controllers.HistorialMedicoController {
+- TextField idPacienteField
+- TextField fechaField
+- TextArea diagnosticoField
+- TextArea tratamientoField
+- TableView<HistorialMedico> tablaHistorial
+- ObservableList<HistorialMedico> listaHistorial
+- HistorialMedicoDAO historialMedicoDAO
++ void initialize()
+- void agregarEntrada()
+}
+
+
+class org.uce.app.dao.CitaDAO {
++ void addCita(Cita)
++ Object getAllCitas()
+}
+
+class org.uce.app.model.Paciente {
+- String ci_paciente
+- String primer_nombre
+- String segundo_nombre
+- String appellido_paterno
+- String apellido_materno
+- String direccion_recidencia
+- String barrio
+- String parroquia
+- String canton
+- String provincia
+- String telefono
+- LocalDate fecha_nacimiento
+- String lugar_nacimiento
+- String nacionalidad
+- String grupo_cultural
+- int edad
+- String estado_civil
+- String instruccion
+- Date fecha_admision
+- String ocupacion
+- String lugar_trabajo
+- String tipo_seguro
+- String referencia
+- String contacto_emergencia_parentesco
+- String contacto_emergencia_nombre
+- String contacto_emergencia_direccion
+- String contacto_emergencia_telefono
++ String getCi_paciente()
++ void setCi_paciente(String)
++ String getPrimer_nombre()
++ void setPrimer_nombre(String)
++ String getSegundo_nombre()
++ void setSegundo_nombre(String)
++ String getAppellido_paterno()
++ void setAppellido_paterno(String)
++ String getApellido_materno()
++ void setApellido_materno(String)
++ String getDireccion_recidencia()
++ void setDireccion_recidencia(String)
++ String getBarrio()
++ void setBarrio(String)
++ String getParroquia()
++ void setParroquia(String)
++ String getCanton()
++ void setCanton(String)
++ String getProvincia()
++ void setProvincia(String)
++ String getTelefono()
++ void setTelefono(String)
++ LocalDate getFecha_nacimiento()
++ void setFecha_nacimiento(LocalDate)
++ String getLugar_nacimiento()
++ void setLugar_nacimiento(String)
++ String getNacionalidad()
++ void setNacionalidad(String)
++ String getGrupo_cultural()
++ void setGrupo_cultural(String)
++ int getEdad()
++ void setEdad(int)
++ String getEstado_civil()
++ void setEstado_civil(String)
++ String getInstruccion()
++ void setInstruccion(String)
++ Date getFecha_admision()
++ void setFecha_admision(Date)
++ String getOcupacion()
++ void setOcupacion(String)
++ String getLugar_trabajo()
++ void setLugar_trabajo(String)
++ String getTipo_seguro()
++ void setTipo_seguro(String)
++ String getReferencia()
++ void setReferencia(String)
++ String getContacto_emergencia_parentesco()
++ void setContacto_emergencia_parentesco(String)
++ String getContacto_emergencia_nombre()
++ void setContacto_emergencia_nombre(String)
++ String getContacto_emergencia_direccion()
++ void setContacto_emergencia_direccion(String)
++ String getContacto_emergencia_telefono()
++ void setContacto_emergencia_telefono(String)
+}
+
+
+
+
+javafx.application.Application <|-- org.uce.app.application.App
+@enduml
