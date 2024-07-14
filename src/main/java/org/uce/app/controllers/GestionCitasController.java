@@ -8,10 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.DatePicker;
 import org.uce.app.model.Cita;
-import org.uce.app.model.CitaDAO;
-
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import org.uce.app.dao.CitaDAO;
 
 public class GestionCitasController {
 

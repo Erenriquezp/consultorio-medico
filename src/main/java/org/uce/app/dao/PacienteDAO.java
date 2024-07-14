@@ -1,4 +1,6 @@
-package org.uce.app.model;
+package org.uce.app.dao;
+
+import org.uce.app.model.Paciente;
 
 public class PacienteDAO {
     public Object getAllPacientes() {

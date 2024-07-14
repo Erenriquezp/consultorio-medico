@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.uce.app.model.Paciente;
-import org.uce.app.model.PacienteDAO;
+import org.uce.app.dao.PacienteDAO;
 
 public class GestionPacientesController {
 

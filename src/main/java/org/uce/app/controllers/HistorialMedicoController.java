@@ -7,7 +7,7 @@ import javafx.scene.control.TableView; // Importa la clase TableView para tablas
 import javafx.scene.control.TextArea; // Importa la clase TextArea para áreas de texto
 import javafx.scene.control.TextField; // Importa la clase TextField para campos de texto
 import org.uce.app.model.HistorialMedico; // Importa la clase HistorialMedico del modelo
-import org.uce.app.model.HistorialMedicoDAO; // Importa la clase HistorialMedicoDAO para acceso a la base de datos
+import org.uce.app.dao.HistorialMedicoDAO; // Importa la clase HistorialMedicoDAO para acceso a la base de datos
 
 public class HistorialMedicoController {
 
