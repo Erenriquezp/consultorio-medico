@@ -14,6 +14,13 @@ class org.uce.app.controllers.GestionPacientesController {
 }
 
 
+class org.uce.app.controllers.loginController{
+- TextField PasswordField
+- TextField UsuarioField
+- void pantallaPrincipal()
+- void cargarPantalla(String,String)
+}
+
 class org.uce.app.dao.MedicoDAO {
 - Connection connection
 }
@@ -23,12 +30,14 @@ class org.uce.app.dao.PacienteDAO {
 + void addPaciente(Paciente)
 }
 
+
 class org.uce.app.utilities.Paths {
 + {static} String helloWorld
 + {static} String gestionCitas
 + {static} String pantallaPrincipal
 + {static} String gestionPacientes
 + {static} String historialMedico
++ {static} String Ingresar
 + {static} String stylesheet
 }
 
