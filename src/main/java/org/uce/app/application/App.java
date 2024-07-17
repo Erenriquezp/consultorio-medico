@@ -13,17 +13,22 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         //-- Me sale error cuando quiero iniciar el login :(
         //FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.Ingresar));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+//
+//        VBox root = loader.load();
+//        Scene scene = new Scene(root);
+//
+//        // Cargar el archivo CSS
+//        scene.getStylesheets().add(getClass().getResource(Paths.stylesheet).toExternalForm());
+//
+//
+//        primaryStage.setTitle("Sistema de Gestión de Consultorio Médico");
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
 
-        VBox root = loader.load();
-        Scene scene = new Scene(root);
-
-        // Cargar el archivo CSS
-        scene.getStylesheets().add(getClass().getResource(Paths.stylesheet).toExternalForm());
-
-
-        primaryStage.setTitle("Sistema de Gestión de Consultorio Médico");
-        primaryStage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.loginScreen));
+        primaryStage.setTitle("Login");
+        primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
     }
 

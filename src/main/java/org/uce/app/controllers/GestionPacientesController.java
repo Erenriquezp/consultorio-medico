@@ -45,7 +45,7 @@ public class GestionPacientesController {
 //        paciente.setEmail(emailField.getText());
 //        paciente.setDireccion(direccionField.getText());
 
-        pacienteDAO.addPaciente(paciente);
+        pacienteDAO.createPaciente(paciente);
         listaPacientes.add(paciente);
 
         nombreField.clear();

@@ -47,7 +47,7 @@ public class GestionCitasController {
         cita.setMotivo(motivoField.getText());
         cita.setEstado("pendiente");
 
-        citaDAO.addCita(cita);
+        citaDAO.createCita(cita);
         listaCitas.add(cita);
 
         idMedicoField.clear();

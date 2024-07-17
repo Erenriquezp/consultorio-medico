@@ -8,9 +8,9 @@ public class ConexionDAO {
 
     private static ConexionDAO instancia;
     private Connection conexion;
-    private String url = "jdbc:mysql://localhost:3306/consultorio-medico";
+    private String url = "jdbc:mysql://localhost:3306/consultorio";
     private String username = "root";
-    private String password = "admin";
+    private String password = "patrones123";
 
     private ConexionDAO() throws SQLException {
         try {

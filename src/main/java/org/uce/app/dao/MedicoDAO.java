@@ -1,46 +1,105 @@
-package org.uce.app.dao; // Paquete en el que se encuentra esta clase
+package org.uce.app.dao;
 
-import java.sql.*; // Importa todas las clases del paquete java.sql para manejo de la base de datos
-import java.util.ArrayList; // Importa la clase ArrayList
-import java.util.List; // Importa la interfaz List
+import org.uce.app.model.Medico;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MedicoDAO {
-    private Connection connection; // Objeto Connection para establecer la conexión a la base de datos
 
-    // Constructor de la clase
-//    public MedicoDAO() {
-//        try {
-//            // Obtiene una instancia de la conexión a la base de datos
-//            connection = DatabaseConnection.getInstance().getConnection();
-//        } catch (SQLException e) {
-//            // Manejo de la excepción en caso de error al conectar
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    // Método para obtener todos los médicos de la base de datos
-//    public List<Medico> getAllMedicos() {
-//        List<Medico> medicos = new ArrayList<>(); // Lista para almacenar los médicos
-//        String query = "SELECT * FROM medico"; // Consulta SQL para obtener todos los médicos
-//        try (Statement stmt = connection.createStatement();
-//             ResultSet rs = stmt.executeQuery(query)) {
-//            // Crea una declaración y ejecuta la consulta
-//            while (rs.next()) {
-//                // Recorre el resultado de la consulta
-//                Medico medico = new Medico(); // Crea una nueva instancia de Medico
-//                medico.setId(rs.getInt("id")); // Establece el ID del médico
-//                medico.setNombre(rs.getString("nombre")); // Establece el nombre del médico
-//                medico.setEspecialidad(rs.getString("especialidad")); // Establece la especialidad del médico
-//                medico.setTelefono(rs.getString("telefono")); // Establece el teléfono del médico
-//                medico.setEmail(rs.getString("email")); // Establece el email del médico
-//                medicos.add(medico); // Agrega el médico a la lista
-//            }
-//        } catch (SQLException e) {
-//            // Manejo de la excepción en caso de error al ejecutar la consulta
-//            e.printStackTrace();
-//        }
-//        return medicos; // Retorna la lista de médicos
-//    }
-//
-//    // Métodos CRUD para Medico (Create, Read, Update, Delete)
+    // Método para crear un nuevo médico
+    public boolean createMedico(Medico medico) {
+        String query = "INSERT INTO medico (ciMedico, apellidos, nombres, telefono, email) VALUES (?, ?, ?, ?, ?)";
+        try (Connection connection = ConexionDAO.getInstancia().getConexion();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, medico.getCiMedico());
+            stmt.setString(2, medico.getApellidos());
+            stmt.setString(3, medico.getNombres());
+            stmt.setString(4, medico.getTelefono());
+            stmt.setString(5, medico.getEmail());
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Método para obtener todos los médicos
+    public List<Medico> getAllMedicos() {
+        List<Medico> medicos = new ArrayList<>();
+        String query = "SELECT * FROM medico";
+        try (Connection connection = ConexionDAO.getInstancia().getConexion();
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                Medico medico = new Medico();
+                medico.setCiMedico(rs.getString("ciMedico"));
+                medico.setApellidos(rs.getString("apellidos"));
+                medico.setNombres(rs.getString("nombres"));
+                medico.setTelefono(rs.getString("telefono"));
+                medico.setEmail(rs.getString("email"));
+                medicos.add(medico);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return medicos;
+    }
+
+    // Método para obtener un médico por CI
+    public Medico getMedicoByCi(String ciMedico) {
+        Medico medico = null;
+        String query = "SELECT * FROM medico WHERE ciMedico = ?";
+        try (Connection connection = ConexionDAO.getInstancia().getConexion();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, ciMedico);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    medico = new Medico();
+                    medico.setCiMedico(rs.getString("ciMedico"));
+                    medico.setApellidos(rs.getString("apellidos"));
+                    medico.setNombres(rs.getString("nombres"));
+                    medico.setTelefono(rs.getString("telefono"));
+                    medico.setEmail(rs.getString("email"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return medico;
+    }
+
+    // Método para actualizar un médico
+    public boolean updateMedico(Medico medico) {
+        String query = "UPDATE medico SET apellidos = ?, nombres = ?, telefono = ?, email = ? WHERE ciMedico = ?";
+        try (Connection connection = ConexionDAO.getInstancia().getConexion();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, medico.getApellidos());
+            stmt.setString(2, medico.getNombres());
+            stmt.setString(3, medico.getTelefono());
+            stmt.setString(4, medico.getEmail());
+            stmt.setString(5, medico.getCiMedico());
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Método para eliminar un médico
+    public boolean deleteMedico(String ciMedico) {
+        String query = "DELETE FROM medico WHERE ciMedico = ?";
+        try (Connection connection = ConexionDAO.getInstancia().getConexion();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, ciMedico);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
