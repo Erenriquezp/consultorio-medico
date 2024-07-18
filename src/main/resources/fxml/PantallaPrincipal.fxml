@@ -1,35 +1,136 @@
-<?xml version="1.0" encoding="UTF-8"?> <!-- Define la versión XML y la codificación utilizada -->
+<?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Define la versión XML y la codificación utilizada -->
 <!-- Importa clases necesarias para el diseño de la interfaz -->
-<?import javafx.geometry.Insets?> <!-- Para manejar el espacio interno (padding) de los elementos -->
-<?import javafx.scene.control.Button?> <!-- Para usar el elemento Button -->
-<?import javafx.scene.layout.VBox?> <!-- Para usar el layout VBox -->
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Para manejar el espacio interno (padding) de los elementos -->
+<!-- Para usar el elemento Button -->
+<!-- Para usar el layout VBox -->
 <!-- Define un VBox como contenedor principal con propiedades específicas -->
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.uce.app.controllers.PantallaPrincipalController" spacing="20" alignment="CENTER" styleClass="main-vbox">
-    <!-- xmlns:fx define el espacio de nombres para FXML -->
-    <!-- fx:controller especifica el controlador asociado a esta vista -->
-    <!-- spacing define el espacio entre los elementos del VBox -->
-    <!-- alignment alinea los elementos en el centro -->
-    <!-- styleClass aplica una clase de estilo CSS -->
 
-    <!-- Define el padding (espacio interno) del VBox -->
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/> <!-- Establece 20 píxeles de padding en cada lado -->
-    </padding>
 
-    <!-- Botón para gestionar pacientes -->
-    <Button text="Gestión de Pacientes" onAction="#gestionarPacientes" styleClass="menu-button"/>
-    <!-- text define el texto que aparece en el botón -->
-    <!-- onAction especifica el método en el controlador que se llama al hacer clic en el botón -->
-    <!-- styleClass aplica una clase de estilo CSS -->
-
-    <!-- Botón para gestionar citas -->
-    <Button text="Gestión de Citas" onAction="#gestionarCitas" styleClass="menu-button"/>
-    <!-- Igual que el botón anterior, pero para gestionar citas -->
-
-    <!-- Botón para gestionar el historial médico -->
-    <Button text="Historial Médico" onAction="#gestionarHistorialMedico" styleClass="menu-button"/>
-    <!-- Igual que los botones anteriores, pero para gestionar el historial médico -->
-
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="600.0" style="-fx-background-color: #E0F7FA; -fx-border-color: #000080;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label alignment="CENTER" prefHeight="71.0" prefWidth="648.0" style="-fx-border-color: #B2EBF2;" text="PRINCIPAL" textFill="#1a237e" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="317.0" prefWidth="634.0" style="-fx-border-color: #B2EBF2;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="154.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.0" minWidth="10.0" prefWidth="440.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <MenuButton fx:id="ButtonUser_Doctor" mnemonicParsing="false" text="Usuario:">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Paciente" />
+                      <MenuItem mnemonicParsing="false" text="Doctor" />
+                    </items>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </MenuButton>
+                  <Button fx:id="ButtonGestPaciente" mnemonicParsing="false" text="Gestion Pacientes" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonGestCitas" mnemonicParsing="false" text="Gestion Citas" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label text="Escoge (Paciente/Doctor)*" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="33.0" prefWidth="440.0" text="Podrás crear, editar, eliminar y buscar pacientes*" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="En esta sección podrás ver y editar el historial médico de un paciente*" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonHistorialMed" mnemonicParsing="false" text="Historial Medico" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label text="Podrás crear, editar, eliminar y buscar citas*" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Button fx:id="buttonSalir" alignment="BOTTOM_RIGHT" mnemonicParsing="false" text="SALIR" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="2.0" top="2.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>

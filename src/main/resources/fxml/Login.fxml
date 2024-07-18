@@ -7,12 +7,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <!-- Define un VBox como contenedor principal con propiedades específicas -->
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" styleClass="main-vbox">
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #E0F7FA;" styleClass="main-vbox" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
 
    <!-- Define un VBOx HIJO como contenedor secundario de label Inicia sesion -->
    <children>
@@ -29,7 +32,7 @@
          <children>
             <Label alignment="CENTER" prefHeight="190.0" prefWidth="413.0" text="INICIAR SESIÓN" VBox.vgrow="ALWAYS">
                <font>
-                  <Font size="40.0" />
+                  <Font name="Yu Gothic Light" size="40.0" />
                </font>
             </Label>
             <!-- Define VBox hijo, que va a contener lo siguiente....-->
@@ -40,16 +43,25 @@
                      <VBox.margin>
                         <!--con un margen -->
                         <Insets />
-                     </VBox.margin></Label>
+                     </VBox.margin>
+                     <font>
+                        <Font name="Yu Gothic Light" size="12.0" />
+                     </font></Label>
                   <!--Define un TextField para ingresar el usuario del cliente -->
-                  <TextField fx:id="userField" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="userField" promptText="Ingresa tu usuario" VBox.vgrow="ALWAYS">
                      <!--Con su margen -->
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin></TextField>
                   <!--Define un TextField para ingresar la contrasenia -->
-                  <Label text="INGRESA TU CONTRASEÑA" VBox.vgrow="ALWAYS" />
-                  <TextField fx:id="passwordField" VBox.vgrow="ALWAYS">
+                  <Label text="INGRESA TU CONTRASEÑA" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Yu Gothic Light" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <TextField fx:id="passwordField" promptText="Ingresa tu contraseña" VBox.vgrow="ALWAYS">
                      <!--margen 10 -->
                      <VBox.margin>
                         <Insets top="10.0" />
@@ -63,6 +75,9 @@
                            <HBox.margin>
                               <Insets left="30.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
 
                         </Button>
                         <!--button cerrar app -->
@@ -71,6 +86,9 @@
                            <HBox.margin>
                               <Insets left="30.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Button>
                      </children>
                   </HBox>
@@ -82,18 +100,32 @@
          </children>
       </VBox>
       <!--Creo un Vbox alado derecho con un fondo azul y con el texto "CONSULTORIO MEDICO" -->
-      <VBox prefHeight="380.0" prefWidth="333.0" style="-fx-background-color: #22CBCE;" HBox.hgrow="ALWAYS">
+      <VBox prefHeight="380.0" prefWidth="333.0" style="-fx-background-color: #E8F5E9;" HBox.hgrow="ALWAYS">
          <HBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </HBox.margin>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="200.0" text="CONSULTORIO MEDICO " textFill="#0815cd">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="332.0" style="-fx-border-color: #B2EBF2;" text="CONSULTORIO MEDICO " textFill="#1a237e">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
+            <ImageView fitHeight="194.0" fitWidth="211.0" pickOnBounds="true">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../imagenes/png-transparent-physician-medicine-staff-of-hermes-symbol-symbol-miscellaneous-text-logo-thumbnail.png" />
+               </image>
+            </ImageView>
             <!--informacion del consultorio -->
-            <Label prefHeight="190.0" prefWidth="334.0" text="MAS INFORMACION 099999999999" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="92.0" prefWidth="333.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
          </children>
       </VBox>
    </children>

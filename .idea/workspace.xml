@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Primera version del proyecto">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagenes/png-transparent-physician-medicine-staff-of-hermes-symbol-symbol-miscellaneous-text-logo-thumbnail.png" afterDir="false" />
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Mejore la visualizacion del login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/Java fx/javafx-sdk-22.0.1/lib/javafx.web.jar",
+    "last_opened_file_path": "C:/Users/HP/Proyectos Intellij/consultorio-medico/src/main/resources/fxml",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +76,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Proyectos Intellij\consultorio-medico\src\main\resources\fxml" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Proyectos Intellij\consultorio-medico\src\main\resources\imagenes" />
       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\styles" />
@@ -151,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720977147429</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Mejore la visualizacion del login">
+      <option name="closed" value="true" />
+      <created>1721271381109</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721271381109</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +183,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inicializacion del proyecto" />
     <MESSAGE value="Primera version del proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primera version del proyecto" />
+    <MESSAGE value="Mejore la visualizacion del login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejore la visualizacion del login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
