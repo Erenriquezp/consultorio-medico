@@ -5,11 +5,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!-- Para manejar el espacio interno (padding) de los elementos -->
 <!-- Para usar el elemento Button -->
@@ -20,7 +23,7 @@
 <!-- Para usar el layout VBox -->
 <!-- Define un VBox como contenedor principal con propiedades específicas -->
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="org.uce.app.controllers.HistorialMedicoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.HistorialMedicoController">
     <!-- xmlns:fx define el espacio de nombres para FXML -->
     <!-- fx:controller especifica el controlador asociado a esta vista -->
     <!-- spacing define el espacio entre los elementos del VBox -->
@@ -30,9 +33,26 @@
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" /> <!-- Establece 10 píxeles de padding en cada lado -->
     </padding>
-
-    <!-- Campo de texto para el ID del paciente -->
-    <TextField fx:id="idPacienteField" promptText="ID Paciente" />
+   <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; GESTION DE HISTORIAL MEDICO &lt;&lt;" textFill="#1a237e">
+      <font>
+         <Font name="Yu Gothic Light" size="22.0" />
+      </font>
+   </Label>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+      
+          <!-- Campo de texto para el ID del paciente -->
+          <TextField fx:id="idPacienteField" prefHeight="25.0" prefWidth="202.0" promptText="ID Paciente" />
+         <Label text="campo obligatorio*" textFill="RED">
+            <font>
+               <Font name="System Italic" size="12.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </Label>
+      </children>
+   </HBox>
     <!-- fx:id asigna un identificador al campo para ser referenciado en el controlador -->
     <!-- promptText muestra un texto de sugerencia dentro del campo -->
 
@@ -41,7 +61,7 @@
     <!-- Igual que el campo anterior, pero para la fecha -->
 
     <!-- Área de texto para el diagnóstico -->
-    <TextArea fx:id="diagnosticoField" promptText="Diagnóstico" />
+    <TextArea fx:id="diagnosticoField" prefHeight="300.0" promptText="Diagnóstico" />
     <!-- Área de texto para ingresar el diagnóstico -->
 
     <!-- Área de texto para el tratamiento -->
@@ -49,7 +69,7 @@
     <!-- Área de texto para ingresar el tratamiento -->
 
     <!-- Botón para agregar una nueva entrada al historial -->
-    <Button onAction="#agregarEntrada" text="Agregar Entrada" />
+    <Button onAction="#agregarEntrada" text="Ingresar Paciente" />
     <!-- text define el texto que aparece en el botón -->
     <!-- onAction especifica el método en el controlador que se llama al hacer clic en el botón -->
 
@@ -65,5 +85,22 @@
             <TableColumn text="ID Paciente" /> <!-- Columna para el ID del paciente -->
         </columns>
     </TableView>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Regresar">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" text="Salir">
+            <HBox.margin>
+               <Insets left="505.0" />
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+      </children>
+   </HBox>
 
 </VBox>
