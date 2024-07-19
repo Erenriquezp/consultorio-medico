@@ -3,6 +3,7 @@ package org.uce.app.controllers; // Paquete en el que se encuentra esta clase
 import javafx.fxml.FXML; // Importa la anotación FXML para marcar métodos y campos
 import javafx.fxml.FXMLLoader; // Importa la clase FXMLLoader para cargar archivos FXML
 import javafx.scene.Scene; // Importa la clase Scene para representar la escena de JavaFX
+import javafx.scene.control.Button;
 import javafx.stage.Stage; // Importa la clase Stage para representar la ventana de JavaFX
 import org.uce.app.utilities.Paths;
 
@@ -10,6 +11,8 @@ import java.io.IOException; // Importa la clase IOException para manejar errores
 import java.nio.file.Path;
 
 public class PantallaPrincipalController {
+    @FXML
+    private Button buttonSalir;
 
     // Método llamado al hacer clic en el botón "Gestión de Pacientes"
     @FXML
@@ -27,6 +30,12 @@ public class PantallaPrincipalController {
     @FXML
     private void gestionarHistorialMedico() {
         cargarPantalla(Paths.historialMedico, "Historial Médico");
+    }
+    @FXML
+    private void handleSalir() {
+        // Close the current stage
+        Stage stage = (Stage) buttonSalir.getScene().getWindow();
+        stage.close();
     }
 
     // Método privado para cargar una nueva pantalla

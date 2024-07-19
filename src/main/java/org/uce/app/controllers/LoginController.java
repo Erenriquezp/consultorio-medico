@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.uce.app.services.AuthService;
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
@@ -14,43 +16,52 @@ import java.io.IOException;
 public class LoginController {
 
     @FXML
-    private TextField passwordField;
-
-    @FXML
     private TextField userField;
 
     @FXML
-    private Button loginButton;
+    private PasswordField passwordField;
+
+    private AuthService authService = new AuthService();
 
     @FXML
     private void handleLogin(ActionEvent event) {
         String username = userField.getText();
         String password = passwordField.getText();
 
-        // Implementar la lógica de autenticación aquí
-        if (authenticate(username, password)) {
-            // Si la autenticación es exitosa, cargar la PantallaPrincipal
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
-                Stage stage = new Stage();
-                stage.setTitle("Pantalla Principal");
-                stage.setScene(new Scene(loader.load()));
-                stage.show();
-
-                // Cerrar la pantalla de login
-                Stage loginStage = (Stage) loginButton.getScene().getWindow();
-                loginStage.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        if (authService.authenticate(username, password)) {
+            loadMainScreen();
         } else {
-            // Mostrar mensaje de error si la autenticación falla
-            System.out.println("Autenticación fallida");
+            showAlert("Login Failed", "Invalid username or password.");
         }
     }
 
-    private boolean authenticate(String username, String password) {
-        // Lógica de autenticación (esto es solo un ejemplo, debes implementar la lógica real)
-        return "admin".equals(username) && "admin".equals(password);
+    @FXML
+    private void handleCloseApp(ActionEvent event) {
+        Stage stage = (Stage) userField.getScene().getWindow();
+        stage.close();
+    }
+
+    private void loadMainScreen() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+            Stage stage = new Stage();
+            stage.setTitle("Pantalla Principal");
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+
+            // Close the login window
+            Stage loginStage = (Stage) userField.getScene().getWindow();
+            loginStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
