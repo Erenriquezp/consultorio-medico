@@ -61,8 +61,8 @@
       </SplitMenuButton>
       <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Estado Civil" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <items>
-          <MenuItem mnemonicParsing="false" text="Soltero/a" />
-          <MenuItem mnemonicParsing="false" text="Casado/a" />
+          <MenuItem mnemonicParsing="false" text="Soltero" />
+          <MenuItem mnemonicParsing="false" text="Casada" />
             <MenuItem mnemonicParsing="false" text="Otro" />
         </items>
       </SplitMenuButton>
@@ -72,7 +72,21 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
     </GridPane>
    <GridPane prefHeight="224.0" prefWidth="877.0">
      <columnConstraints>
@@ -101,7 +115,6 @@
                <Insets right="5.0" top="10.0" />
             </GridPane.margin>
          </TextField>
-
               <TextField fx:id="contactoEmergenciaDireccionField" promptText="Dirección del Contacto de Emergencia" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                <Insets left="10.0" top="10.0" />
@@ -119,7 +132,6 @@
          </Label>
       </children>
    </GridPane>
-
                 <Button fx:id="buttonAgregaPaciente" alignment="CENTER" contentDisplay="CENTER" onAction="#agregarPaciente" prefHeight="45.0" prefWidth="118.0" text="Agregar Paciente">
       <opaqueInsets>
          <Insets />
@@ -129,18 +141,17 @@
       </VBox.margin>
    </Button>
    <HBox prefHeight="100.0" prefWidth="200.0" />
-
     <TableView fx:id="tablaPacientes" prefHeight="313.0" prefWidth="482.0" style="-fx-background-color: #E8F5E9;">
         <columns>
-            <TableColumn fx:id="ciPacienteColumn" text="Cédula" />
-            <TableColumn fx:id="primerNombreColumn" text="Primer Nombre" />
-            <TableColumn fx:id="segundoNombreColumn" text="Segundo Nombre" />
-            <TableColumn fx:id="apellidoPaternoColumn" text="Apellido Paterno" />
-            <TableColumn fx:id="apellidoMaternoColumn" text="Apellido Materno" />
-            <TableColumn fx:id="direccionResidenciaColumn" text="Dirección Residencia" />
-            <TableColumn fx:id="barrioColumn" text="Barrio" />
-            <TableColumn fx:id="parroquiaColumn" text="Parroquia" />
-            <TableColumn fx:id="cantonColumn" text="Cantón" />
+            <TableColumn prefWidth="94.0" fx:id="ciPacienteColumn" text="Cédula" />
+            <TableColumn prefWidth="83.0" fx:id="primerNombreColumn" text="Primer Nombre" />
+            <TableColumn prefWidth="64.0" fx:id="segundoNombreColumn" text="Segundo Nombre" />
+            <TableColumn prefWidth="79.0" fx:id="apellidoPaternoColumn" text="Apellido Paterno" />
+            <TableColumn prefWidth="91.0" fx:id="apellidoMaternoColumn" text="Apellido Materno" />
+            <TableColumn prefWidth="91.0" fx:id="direccionResidenciaColumn" text="Dirección Residencia" />
+            <TableColumn prefWidth="85.0" fx:id="barrioColumn" text="Barrio" />
+            <TableColumn prefWidth="71.0" fx:id="parroquiaColumn" text="Parroquia" />
+            <TableColumn prefWidth="73.0" fx:id="cantonColumn" text="Cantón" />
             <TableColumn fx:id="provinciaColumn" text="Provincia" />
             <TableColumn fx:id="telefonoColumn" text="Teléfono" />
             <TableColumn fx:id="fechaNacimientoColumn" text="Fecha de Nacimiento" />
@@ -162,11 +173,12 @@
     </TableView>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button fx:id="buttonRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Regresar">
+         <Button fx:id="buttonRegresar" onAction="#handleRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Regresar">
             <font>
                <Font name="System Bold Italic" size="12.0" />
-            </font></Button>
-         <Button fx:id="ButtonSalir" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Salir">
+            </font>
+         </Button>
+         <Button fx:id="buttonSalir" onAction="#handleSalir" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Salir">
             <HBox.margin>
                <Insets left="767.0" />
             </HBox.margin>

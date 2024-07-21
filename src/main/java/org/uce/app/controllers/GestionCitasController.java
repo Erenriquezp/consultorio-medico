@@ -95,10 +95,9 @@ public class GestionCitasController {
     }
 
     @FXML
-    private void regresar() {
+    private void handleRegresar() {
         Stage stage = (Stage) buttonRegresar.getScene().getWindow();
         stage.close();
-        cargarPantallaPrincipal();
     }
 
     @FXML

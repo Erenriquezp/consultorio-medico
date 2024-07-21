@@ -11,6 +11,7 @@ import java.io.IOException; // Importa la clase IOException para manejar errores
 import java.nio.file.Path;
 
 public class PantallaPrincipalController {
+    public Button buttonRegresar;
     @FXML
     private Button buttonSalir;
 
@@ -32,12 +33,16 @@ public class PantallaPrincipalController {
         cargarPantalla(Paths.historialMedico, "Historial Médico");
     }
     @FXML
+    private void handleRegresar() {
+        Stage stage = (Stage) buttonRegresar.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
     private void handleSalir() {
         // Close the current stage
         Stage stage = (Stage) buttonSalir.getScene().getWindow();
         stage.close();
     }
-
     // Método privado para cargar una nueva pantalla
     private void cargarPantalla(String fxmlPath, String titulo) {
         try {

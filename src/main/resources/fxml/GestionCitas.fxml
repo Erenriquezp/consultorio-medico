@@ -22,7 +22,6 @@
       </font>
    </Label>
     <TextField fx:id="idCitaField" promptText="ID Cita" />
-    <TextField fx:id="ciMedicoField" promptText="Cédula Médico" />
     <TextField fx:id="ciPacienteField" promptText="Cédula Paciente" />
     <DatePicker fx:id="fechaCitaField" promptText="Fecha de Cita" />
     <TextArea fx:id="motivoField" promptText="Motivo" />
@@ -30,18 +29,26 @@
     <Button onAction="#agregarCita" text="Agregar Cita" />
     <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
         <columns>
-            <TableColumn text="ID Cita" />
-            <TableColumn text="Cédula Médico" />
-            <TableColumn text="Cédula Paciente" />
-            <TableColumn text="Fecha de Cita" />
-            <TableColumn text="Motivo" />
-            <TableColumn text="Estado" />
+            <TableColumn prefWidth="106.0" fx:id="idCitaColumn" text="ID Cita" />
+            <TableColumn prefWidth="85.0" fx:id="ciPacienteColumn" text="Cédula Paciente" />
+            <TableColumn prefWidth="108.0" fx:id="fechaCitaColumn" text="Fecha de Cita" />
+            <TableColumn prefWidth="130.0" fx:id="motivoColumn" text="Motivo" />
+            <TableColumn prefWidth="110.0" fx:id="estadoColumn" text="Estado" />
         </columns>
     </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Button mnemonicParsing="false" text="Regresar" />
-         <Button mnemonicParsing="false" text="Salir" />
-      </children>
-   </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <Button fx:id="buttonRegresar" onAction="#handleRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Regresar">
+            <font>
+                <Font name="System Bold Italic" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="buttonSalir" onAction="#handleSalir" mnemonicParsing="false" text="Salir">
+            <HBox.margin>
+                <Insets left="506.0"/>
+            </HBox.margin>
+            <font>
+                <Font name="System Bold Italic" size="12.0"/>
+            </font>
+        </Button>
+    </HBox>
 </VBox>

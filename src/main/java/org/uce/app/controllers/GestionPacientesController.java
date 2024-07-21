@@ -251,11 +251,10 @@ public class GestionPacientesController {
     }
 
     @FXML
-    private void regresar() {
+    private void handleRegresar() {
         // Regresar a la pantalla principal
         Stage stage = (Stage) buttonRegresar.getScene().getWindow();
         stage.close();
-        cargarPantallaPrincipal();
     }
 
     @FXML

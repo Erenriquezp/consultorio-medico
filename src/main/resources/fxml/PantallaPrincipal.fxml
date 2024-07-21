@@ -37,7 +37,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="ButtonGestPaciente" mnemonicParsing="false" onAction="#gestionarPacientes" text="Gestion Pacientes">
+                  <Button fx:id="buttonGestPaciente" mnemonicParsing="false" onAction="#gestionarPacientes" text="Gestion Pacientes">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -101,7 +101,7 @@
    <bottom>
       <HBox prefHeight="28.0" prefWidth="598.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Regresar">
+            <Button fx:id="buttonRegresar" onAction="#handleRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Regresar">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -109,7 +109,7 @@
                   <Insets bottom="2.0" top="2.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Salir">
+            <Button fx:id="buttonSalir" onAction="#handleSalir" mnemonicParsing="false" text="Salir">
                <HBox.margin>
                   <Insets bottom="2.0" left="475.0" top="2.0" />
                </HBox.margin>
