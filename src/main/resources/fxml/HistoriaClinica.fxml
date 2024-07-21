@@ -33,7 +33,7 @@
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" /> <!-- Establece 10 píxeles de padding en cada lado -->
     </padding>
-   <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; GESTION DE HISTORIAL MEDICO &lt;&lt;" textFill="#1a237e">
+   <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; HISTORIA CLINICA&lt;&lt;" textFill="#1a237e">
       <font>
          <Font name="Yu Gothic Light" size="22.0" />
       </font>
