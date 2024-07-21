@@ -22,7 +22,6 @@
       </font>
    </Label>
     <TextField fx:id="idCitaField" promptText="ID Cita" />
-    <TextField fx:id="ciMedicoField" promptText="Cédula Médico" />
     <TextField fx:id="ciPacienteField" promptText="Cédula Paciente" />
     <DatePicker fx:id="fechaCitaField" promptText="Fecha de Cita" />
     <TextArea fx:id="motivoField" promptText="Motivo" />
@@ -30,17 +29,16 @@
     <Button onAction="#agregarCita" text="Agregar Cita" />
     <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
         <columns>
-            <TableColumn text="ID Cita" />
-            <TableColumn text="Cédula Médico" />
-            <TableColumn text="Cédula Paciente" />
-            <TableColumn text="Fecha de Cita" />
-            <TableColumn text="Motivo" />
-            <TableColumn text="Estado" />
+            <TableColumn fx:id="idCitaColumn" text="ID Cita" />
+            <TableColumn fx:id="ciPacienteColumn" text="Cédula Paciente" />
+            <TableColumn fx:id="fechaCitaColumn" text="Fecha de Cita" />
+            <TableColumn fx:id="motivoColumn" text="Motivo" />
+            <TableColumn fx:id="estadoColumn" text="Estado" />
         </columns>
     </TableView>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button mnemonicParsing="false" text="Regresar" />
+         <Button onAction="#regresar" text="Regresar" />
          <Button mnemonicParsing="false" text="Salir" />
       </children>
    </HBox>

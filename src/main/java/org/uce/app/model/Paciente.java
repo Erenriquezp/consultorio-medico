@@ -1,116 +1,115 @@
 package org.uce.app.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Paciente {
-    private String ci_paciente;
-    private String primer_nombre;
-    private String segundo_nombre;
-    private String appellido_paterno;
-    private String apellido_materno;
-    private String direccion_recidencia;
+    private String ciPaciente;
+    private String primerNombre;
+    private String segundoNombre;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
+    private String direccionResidencia;
     private String barrio;
     private String parroquia;
     private String canton;
     private String provincia;
     private String telefono;
-    private LocalDate fecha_nacimiento;
-    private String lugar_nacimiento;
+    private LocalDate fechaNacimiento;
+    private String lugarNacimiento;
     private String nacionalidad;
-    private String grupo_cultural;
+    private String grupoCultural;
     private int edad;
-    private String estado_civil;
-    private String instruccion;
-    private Date fecha_admision;
+    private String estadoCivil;
+    private String instruccionUltimoAnio;
+    private LocalDate fechaAdmision;
     private String ocupacion;
-    private String lugar_trabajo;
-    private String tipo_seguro;
+    private String lugarTrabajo;
+    private String tipoSeguro;
     private String referencia;
-    private String contacto_emergencia_parentesco;
-    private String contacto_emergencia_nombre;
-    private String contacto_emergencia_direccion;
-    private String contacto_emergencia_telefono;
+    private String contactoEmergenciaParentesco;
+    private String contactoEmergenciaNombre;
+    private String contactoEmergenciaDireccion;
+    private String contactoEmergenciaTelefono;
 
-    public Paciente(String ci_paciente, String primer_nombre, String segundo_nombre, String appellido_paterno, String apellido_materno, String direccion_recidencia, String barrio, String parroquia, String canton, String provincia, String telefono, LocalDate fecha_nacimiento, String lugar_nacimiento, String nacionalidad, String grupo_cultural, int edad, String estado_civil, String instruccion, Date fecha_admision, String ocupacion, String lugar_trabajo, String tipo_seguro, String referencia, String contacto_emergencia_parentesco, String contacto_emergencia_nombre, String contacto_emergencia_direccion, String contacto_emergencia_telefono) {
-        this.ci_paciente = ci_paciente;
-        this.primer_nombre = primer_nombre;
-        this.segundo_nombre = segundo_nombre;
-        this.appellido_paterno = appellido_paterno;
-        this.apellido_materno = apellido_materno;
-        this.direccion_recidencia = direccion_recidencia;
+    public Paciente(String ciPaciente, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccionResidencia, String barrio, String parroquia, String canton, String provincia, String telefono, LocalDate fechaNacimiento, String lugarNacimiento, String nacionalidad, String grupoCultural, int edad, String estadoCivil, String instruccionUltimoAnio, LocalDate fechaAdmision, String ocupacion, String lugarTrabajo, String tipoSeguro, String referencia, String contactoEmergenciaParentesco, String contactoEmergenciaNombre, String contactoEmergenciaDireccion, String contactoEmergenciaTelefono) {
+        this.ciPaciente = ciPaciente;
+        this.primerNombre = primerNombre;
+        this.segundoNombre = segundoNombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.direccionResidencia = direccionResidencia;
         this.barrio = barrio;
         this.parroquia = parroquia;
         this.canton = canton;
         this.provincia = provincia;
         this.telefono = telefono;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.lugar_nacimiento = lugar_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
+        this.lugarNacimiento = lugarNacimiento;
         this.nacionalidad = nacionalidad;
-        this.grupo_cultural = grupo_cultural;
+        this.grupoCultural = grupoCultural;
         this.edad = edad;
-        this.estado_civil = estado_civil;
-        this.instruccion = instruccion;
-        this.fecha_admision = fecha_admision;
+        this.estadoCivil = estadoCivil;
+        this.instruccionUltimoAnio = instruccionUltimoAnio;
+        this.fechaAdmision = fechaAdmision;
         this.ocupacion = ocupacion;
-        this.lugar_trabajo = lugar_trabajo;
-        this.tipo_seguro = tipo_seguro;
+        this.lugarTrabajo = lugarTrabajo;
+        this.tipoSeguro = tipoSeguro;
         this.referencia = referencia;
-        this.contacto_emergencia_parentesco = contacto_emergencia_parentesco;
-        this.contacto_emergencia_nombre = contacto_emergencia_nombre;
-        this.contacto_emergencia_direccion = contacto_emergencia_direccion;
-        this.contacto_emergencia_telefono = contacto_emergencia_telefono;
+        this.contactoEmergenciaParentesco = contactoEmergenciaParentesco;
+        this.contactoEmergenciaNombre = contactoEmergenciaNombre;
+        this.contactoEmergenciaDireccion = contactoEmergenciaDireccion;
+        this.contactoEmergenciaTelefono = contactoEmergenciaTelefono;
     }
 
     public Paciente() {
     }
 
-    public String getCi_paciente() {
-        return ci_paciente;
+    public String getCiPaciente() {
+        return ciPaciente;
     }
 
-    public void setCi_paciente(String ci_paciente) {
-        this.ci_paciente = ci_paciente;
+    public void setCiPaciente(String ciPaciente) {
+        this.ciPaciente = ciPaciente;
     }
 
-    public String getPrimer_nombre() {
-        return primer_nombre;
+    public String getPrimerNombre() {
+        return primerNombre;
     }
 
-    public void setPrimer_nombre(String primer_nombre) {
-        this.primer_nombre = primer_nombre;
+    public void setPrimerNombre(String primerNombre) {
+        this.primerNombre = primerNombre;
     }
 
-    public String getSegundo_nombre() {
-        return segundo_nombre;
+    public String getSegundoNombre() {
+        return segundoNombre;
     }
 
-    public void setSegundo_nombre(String segundo_nombre) {
-        this.segundo_nombre = segundo_nombre;
+    public void setSegundoNombre(String segundoNombre) {
+        this.segundoNombre = segundoNombre;
     }
 
-    public String getAppellido_paterno() {
-        return appellido_paterno;
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
     }
 
-    public void setAppellido_paterno(String appellido_paterno) {
-        this.appellido_paterno = appellido_paterno;
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
     }
 
-    public String getApellido_materno() {
-        return apellido_materno;
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
     }
 
-    public void setApellido_materno(String apellido_materno) {
-        this.apellido_materno = apellido_materno;
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
     }
 
-    public String getDireccion_recidencia() {
-        return direccion_recidencia;
+    public String getDireccionResidencia() {
+        return direccionResidencia;
     }
 
-    public void setDireccion_recidencia(String direccion_recidencia) {
-        this.direccion_recidencia = direccion_recidencia;
+    public void setDireccionResidencia(String direccionResidencia) {
+        this.direccionResidencia = direccionResidencia;
     }
 
     public String getBarrio() {
@@ -153,20 +152,20 @@ public class Paciente {
         this.telefono = telefono;
     }
 
-    public LocalDate getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getLugar_nacimiento() {
-        return lugar_nacimiento;
+    public String getLugarNacimiento() {
+        return lugarNacimiento;
     }
 
-    public void setLugar_nacimiento(String lugar_nacimiento) {
-        this.lugar_nacimiento = lugar_nacimiento;
+    public void setLugarNacimiento(String lugarNacimiento) {
+        this.lugarNacimiento = lugarNacimiento;
     }
 
     public String getNacionalidad() {
@@ -177,12 +176,12 @@ public class Paciente {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getGrupo_cultural() {
-        return grupo_cultural;
+    public String getGrupoCultural() {
+        return grupoCultural;
     }
 
-    public void setGrupo_cultural(String grupo_cultural) {
-        this.grupo_cultural = grupo_cultural;
+    public void setGrupoCultural(String grupoCultural) {
+        this.grupoCultural = grupoCultural;
     }
 
     public int getEdad() {
@@ -193,28 +192,28 @@ public class Paciente {
         this.edad = edad;
     }
 
-    public String getEstado_civil() {
-        return estado_civil;
+    public String getEstadoCivil() {
+        return estadoCivil;
     }
 
-    public void setEstado_civil(String estado_civil) {
-        this.estado_civil = estado_civil;
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
     }
 
-    public String getInstruccion() {
-        return instruccion;
+    public String getInstruccionUltimoAnio() {
+        return instruccionUltimoAnio;
     }
 
-    public void setInstruccion(String instruccion) {
-        this.instruccion = instruccion;
+    public void setInstruccionUltimoAnio(String instruccionUltimoAnio) {
+        this.instruccionUltimoAnio = instruccionUltimoAnio;
     }
 
-    public Date getFecha_admision() {
-        return fecha_admision;
+    public LocalDate getFechaAdmision() {
+        return fechaAdmision;
     }
 
-    public void setFecha_admision(Date fecha_admision) {
-        this.fecha_admision = fecha_admision;
+    public void setFechaAdmision(LocalDate fechaAdmision) {
+        this.fechaAdmision = fechaAdmision;
     }
 
     public String getOcupacion() {
@@ -225,20 +224,20 @@ public class Paciente {
         this.ocupacion = ocupacion;
     }
 
-    public String getLugar_trabajo() {
-        return lugar_trabajo;
+    public String getLugarTrabajo() {
+        return lugarTrabajo;
     }
 
-    public void setLugar_trabajo(String lugar_trabajo) {
-        this.lugar_trabajo = lugar_trabajo;
+    public void setLugarTrabajo(String lugarTrabajo) {
+        this.lugarTrabajo = lugarTrabajo;
     }
 
-    public String getTipo_seguro() {
-        return tipo_seguro;
+    public String getTipoSeguro() {
+        return tipoSeguro;
     }
 
-    public void setTipo_seguro(String tipo_seguro) {
-        this.tipo_seguro = tipo_seguro;
+    public void setTipoSeguro(String tipoSeguro) {
+        this.tipoSeguro = tipoSeguro;
     }
 
     public String getReferencia() {
@@ -249,36 +248,35 @@ public class Paciente {
         this.referencia = referencia;
     }
 
-    public String getContacto_emergencia_parentesco() {
-        return contacto_emergencia_parentesco;
+    public String getContactoEmergenciaParentesco() {
+        return contactoEmergenciaParentesco;
     }
 
-    public void setContacto_emergencia_parentesco(String contacto_emergencia_parentesco) {
-        this.contacto_emergencia_parentesco = contacto_emergencia_parentesco;
+    public void setContactoEmergenciaParentesco(String contactoEmergenciaParentesco) {
+        this.contactoEmergenciaParentesco = contactoEmergenciaParentesco;
     }
 
-    public String getContacto_emergencia_nombre() {
-        return contacto_emergencia_nombre;
+    public String getContactoEmergenciaNombre() {
+        return contactoEmergenciaNombre;
     }
 
-    public void setContacto_emergencia_nombre(String contacto_emergencia_nombre) {
-        this.contacto_emergencia_nombre = contacto_emergencia_nombre;
+    public void setContactoEmergenciaNombre(String contactoEmergenciaNombre) {
+        this.contactoEmergenciaNombre = contactoEmergenciaNombre;
     }
 
-    public String getContacto_emergencia_direccion() {
-        return contacto_emergencia_direccion;
+    public String getContactoEmergenciaDireccion() {
+        return contactoEmergenciaDireccion;
     }
 
-    public void setContacto_emergencia_direccion(String contacto_emergencia_direccion) {
-        this.contacto_emergencia_direccion = contacto_emergencia_direccion;
+    public void setContactoEmergenciaDireccion(String contactoEmergenciaDireccion) {
+        this.contactoEmergenciaDireccion = contactoEmergenciaDireccion;
     }
 
-    public String getContacto_emergencia_telefono() {
-        return contacto_emergencia_telefono;
+    public String getContactoEmergenciaTelefono() {
+        return contactoEmergenciaTelefono;
     }
 
-    public void setContacto_emergencia_telefono(String contacto_emergencia_telefono) {
-        this.contacto_emergencia_telefono = contacto_emergencia_telefono;
+    public void setContactoEmergenciaTelefono(String contactoEmergenciaTelefono) {
+        this.contactoEmergenciaTelefono = contactoEmergenciaTelefono;
     }
 }
-

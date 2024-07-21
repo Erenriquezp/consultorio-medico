@@ -1,23 +1,20 @@
 package org.uce.app.model;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Cita {
     private String idCita;
     private String ciPaciente;
-    private String ciMedico;
-    private Date fechaCita;
+    private LocalDateTime fechaCita;
     private String motivo;
     private String estado;
 
     public Cita() {
     }
 
-    public Cita(String idCita, String ciPaciente, String ciMedico, Date fechaCita, String motivo, String estado) {
+    public Cita(String idCita, String ciPaciente, LocalDateTime fechaCita, String motivo, String estado) {
         this.idCita = idCita;
         this.ciPaciente = ciPaciente;
-        this.ciMedico = ciMedico;
         this.fechaCita = fechaCita;
         this.motivo = motivo;
         this.estado = estado;
@@ -39,19 +36,11 @@ public class Cita {
         this.ciPaciente = ciPaciente;
     }
 
-    public String getCiMedico() {
-        return ciMedico;
-    }
-
-    public void setCiMedico(String ciMedico) {
-        this.ciMedico = ciMedico;
-    }
-
-    public Date getFechaCita() {
+    public LocalDateTime getFechaCita() {
         return fechaCita;
     }
 
-    public void setFechaCita(Date fechaCita) {
+    public void setFechaCita(LocalDateTime fechaCita) {
         this.fechaCita = fechaCita;
     }
 

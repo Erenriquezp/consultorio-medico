@@ -33,7 +33,7 @@
         <TextField fx:id="apellidoPaternoField" promptText="Apellido Paterno" GridPane.columnIndex="3" GridPane.rowIndex="0" />
         <TextField fx:id="apellidoMaternoField" promptText="Apellido Materno" GridPane.columnIndex="4" GridPane.rowIndex="0" />
 
-        <TextField fx:id="direccionRecidenciaField" promptText="Dirección de Residencia" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="direccionResidenciaField" promptText="Dirección de Residencia" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <TextField fx:id="barrioField" promptText="Barrio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="parroquiaField" promptText="Parroquia" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <TextField fx:id="cantonField" promptText="Cantón" GridPane.columnIndex="3" GridPane.rowIndex="1" />
@@ -72,21 +72,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
-         <ColumnConstraints />
-         <ColumnConstraints />
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-      </rowConstraints>
+
     </GridPane>
    <GridPane prefHeight="224.0" prefWidth="877.0">
      <columnConstraints>
@@ -115,7 +101,7 @@
                <Insets right="5.0" top="10.0" />
             </GridPane.margin>
          </TextField>
-   
+
               <TextField fx:id="contactoEmergenciaDireccionField" promptText="Dirección del Contacto de Emergencia" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                <Insets left="10.0" top="10.0" />
@@ -146,33 +132,32 @@
 
     <TableView fx:id="tablaPacientes" prefHeight="313.0" prefWidth="482.0" style="-fx-background-color: #E8F5E9;">
         <columns>
-            <TableColumn prefWidth="94.0" text="CCI" />
-            <TableColumn prefWidth="83.0" text="1° Nombre" />
-            <TableColumn prefWidth="64.0" text="2° Nombre" />
-            <TableColumn prefWidth="79.0" text="Apellido(P)" />
-            <TableColumn text="Apellido(M)" />
-            <TableColumn prefWidth="91.0" text="Dirección de Residencia" />
-            <TableColumn prefWidth="85.0" text="Barrio" />
-            <TableColumn prefWidth="71.0" text="Parroquia" />
-            <TableColumn prefWidth="73.0" text="Cantón" />
-            <TableColumn text="Provincia" />
-            <TableColumn text="Teléfono" />
-            <TableColumn text="Fecha de Nacimiento" />
-            <TableColumn text="Lugar de Nacimiento" />
-            <TableColumn text="Nacionalidad" />
-            <TableColumn text="Grupo Cultural" />
-            <TableColumn text="Edad" />
-            <TableColumn text="Estado Civil" />
-            <TableColumn text="Instrucción" />
-            <TableColumn text="Fecha de Admisión" />
-            <TableColumn text="Ocupación" />
-            <TableColumn text="Lugar de Trabajo" />
-            <TableColumn text="Tipo de Seguro" />
-            <TableColumn text="Referencia" />
-            <TableColumn text="Parentesco del Contacto de Emergencia" />
-            <TableColumn text="Nombre del Contacto de Emergencia" />
-            <TableColumn text="Dirección del Contacto de Emergencia" />
-            <TableColumn text="Teléfono del Contacto de Emergencia" />
+            <TableColumn fx:id="ciPacienteColumn" text="Cédula" />
+            <TableColumn fx:id="primerNombreColumn" text="Primer Nombre" />
+            <TableColumn fx:id="segundoNombreColumn" text="Segundo Nombre" />
+            <TableColumn fx:id="apellidoPaternoColumn" text="Apellido Paterno" />
+            <TableColumn fx:id="apellidoMaternoColumn" text="Apellido Materno" />
+            <TableColumn fx:id="direccionResidenciaColumn" text="Dirección Residencia" />
+            <TableColumn fx:id="barrioColumn" text="Barrio" />
+            <TableColumn fx:id="parroquiaColumn" text="Parroquia" />
+            <TableColumn fx:id="cantonColumn" text="Cantón" />
+            <TableColumn fx:id="provinciaColumn" text="Provincia" />
+            <TableColumn fx:id="telefonoColumn" text="Teléfono" />
+            <TableColumn fx:id="fechaNacimientoColumn" text="Fecha de Nacimiento" />
+            <TableColumn fx:id="lugarNacimientoColumn" text="Lugar de Nacimiento" />
+            <TableColumn fx:id="nacionalidadColumn" text="Nacionalidad" />
+            <TableColumn fx:id="edadColumn" text="Edad" />
+            <TableColumn fx:id="estadoCivilColumn" text="Estado Civil" />
+            <TableColumn fx:id="instruccionColumn" text="Instrucción" />
+            <TableColumn fx:id="fechaAdmisionColumn" text="Fecha de Admisión" />
+            <TableColumn fx:id="ocupacionColumn" text="Ocupación" />
+            <TableColumn fx:id="lugarTrabajoColumn" text="Lugar de Trabajo" />
+            <TableColumn fx:id="tipoSeguroColumn" text="Tipo de Seguro" />
+            <TableColumn fx:id="referenciaColumn" text="Referencia" />
+            <TableColumn fx:id="contactoEmergenciaNombreColumn" text="Contacto de Emergencia Nombre" />
+            <TableColumn fx:id="contactoEmergenciaParentescoColumn" text="Contacto de Emergencia Parentesco" />
+            <TableColumn fx:id="contactoEmergenciaDireccionColumn" text="Contacto de Emergencia Dirección" />
+            <TableColumn fx:id="contactoEmergenciaTelefonoColumn" text="Contacto de Emergencia Teléfono" />
         </columns>
     </TableView>
    <HBox prefHeight="100.0" prefWidth="200.0">
