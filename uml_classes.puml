@@ -1,0 +1,523 @@
+@startuml
+class org.uce.app.controllers.GestionPacientesController {
++ TextField instruccionField
++ TableColumn<Object,Object> ciPacienteColumn
++ TableColumn<Object,Object> primerNombreColumn
++ TableColumn<Object,Object> segundoNombreColumn
++ TableColumn apellidoPaternoColumn
++ TableColumn apellidoMaternoColumn
++ TableColumn direccionResidenciaColumn
++ TableColumn barrioColumn
++ TableColumn parroquiaColumn
++ TableColumn cantonColumn
++ TableColumn provinciaColumn
++ TableColumn telefonoColumn
++ TableColumn fechaNacimientoColumn
++ TableColumn lugarNacimientoColumn
++ TableColumn nacionalidadColumn
++ TableColumn edadColumn
++ TableColumn estadoCivilColumn
++ TableColumn instruccionColumn
++ TableColumn fechaAdmisionColumn
++ TableColumn lugarTrabajoColumn
++ TableColumn referenciaColumn
++ TableColumn contactoEmergenciaNombreColumn
++ TableColumn tipoSeguroColumn
++ TableColumn ocupacionColumn
++ TableColumn contactoEmergenciaParentescoColumn
++ TableColumn contactoEmergenciaDireccionColumn
++ TableColumn contactoEmergenciaTelefonoColumn
+- TextField ciPacienteField
+- TextField primerNombreField
+- TextField segundoNombreField
+- TextField apellidoPaternoField
+- TextField apellidoMaternoField
+- TextField direccionResidenciaField
+- TextField barrioField
+- TextField parroquiaField
+- TextField cantonField
+- TextField provinciaField
+- TextField telefonoField
+- TextField fechaNacimientoField
+- TextField lugarNacimientoField
+- TextField nacionalidadField
+- TextField grupoCulturalField
+- TextField edadField
+- TextField estadoCivilField
+- TextField instruccionUltimoAnioField
+- TextField fechaAdmisionField
+- TextField ocupacionField
+- TextField lugarTrabajoField
+- TextField tipoSeguroField
+- TextField referenciaField
+- TextField contactoEmergenciaParentescoField
+- TextField contactoEmergenciaNombreField
+- TextField contactoEmergenciaDireccionField
+- TextField contactoEmergenciaTelefonoField
+- SplitMenuButton grupoCulturalMenu
+- SplitMenuButton estadoCivilMenu
+- DatePicker fechaAdmisionPicker
+- Button buttonRegresar
+- Button buttonSalir
+- Button buttonAgregaPaciente
+- TableView<Paciente> tablaPacientes
+- PacienteService pacienteService
+- void initialize()
+- void loadPacientes()
+- void agregarPaciente()
+- void handleRegresar()
+- void handleSalir()
+- void cargarPantallaPrincipal()
+}
+
+
+class org.uce.app.dao.MedicoDAO {
++ boolean createMedico(Medico)
++ List<Medico> getAllMedicos()
++ Medico getMedicoByCi(String)
++ boolean updateMedico(Medico)
++ boolean deleteMedico(String)
+}
+
+class org.uce.app.dao.PacienteDAO {
++ boolean createPaciente(Paciente)
++ List<Paciente> getAllPacientes()
++ Paciente getPacienteByCi(String)
++ boolean updatePaciente(Paciente)
++ boolean deletePaciente(String)
+}
+
+class org.uce.app.controllers.LoginController {
+- TextField userField
+- PasswordField passwordField
+- AuthService authService
+- void handleLogin(ActionEvent)
+- void handleCloseApp(ActionEvent)
+- void loadMainScreen()
+- void showAlert(String,String)
+}
+
+
+class org.uce.app.utilities.Paths {
++ {static} String gestionCitas
++ {static} String pantallaPrincipal
++ {static} String gestionPacientes
++ {static} String historialMedico
++ {static} String loginScreen
++ {static} String stylesheet
+}
+
+class org.uce.app.model.Medico {
+- String ciMedico
+- String apellidos
+- String nombres
+- String telefono
+- String email
++ String getCiMedico()
++ void setCiMedico(String)
++ String getApellidos()
++ void setApellidos(String)
++ String getNombres()
++ void setNombres(String)
++ String getTelefono()
++ void setTelefono(String)
++ String getEmail()
++ void setEmail(String)
+}
+
+
+class org.uce.app.dao.RecetaDAO {
++ boolean createReceta(Receta)
++ List<Receta> getAllRecetas()
++ Receta getRecetaById(int)
++ boolean updateReceta(Receta)
++ boolean deleteReceta(int)
+}
+
+class org.uce.app.services.CitaService {
+- CitaDAO citaDAO
++ boolean createCita(Cita)
++ List<Cita> getAllCitas()
++ Cita getCitaById(String)
++ boolean updateCita(Cita)
++ boolean deleteCita(String)
+}
+
+
+class org.uce.app.controllers.HistoriaClinicaController {
+- TextField idHistoriaClinicaField
+- TextField ciMedicoField
+- TextField ciPacienteField
+- TextArea motivoConsultaField
+- TextArea antecedentesPersonalesField
+- TextArea antecedentesFamiliaresField
+- TextArea enfermedadesActualesField
+- TextArea raosOrganosSentidosField
+- TextArea raosRespiratorioField
+- TextArea raosCardiovascularField
+- TextArea raosDigestivoField
+- TextArea raosGenitalField
+- TextArea raosUrinarioField
+- TextArea raosMusculoEsqueleticoField
+- TextArea raosEndocrinoField
+- TextArea raosHemoLinfaticoField
+- TextArea raosNerviosoField
+- TextField svaFechaMedicionField
+- TextField svaTemperaturaField
+- TextField svaPresionArterialField
+- TextField svaPulsoMinFreRespiratoriaField
+- TextField svaPesoKgTallaCmField
+- TextArea efrCabezaField
+- TextArea efrCuelloField
+- TextArea efrToraxField
+- TextArea efrAbdomenField
+- TextArea efrPelvsField
+- TextArea efrExtremidadesField
+- TextArea diagnosticoDescField
+- TextField diagnosticoCIEField
+- TableView<HistoriaClinica> tablaHistoriasClinicas
+- ObservableList<HistoriaClinica> listaHistoriasClinicas
+- HistoriaClinicaDAO historiaClinicaDAO
++ void initialize()
+- void agregarHistoriaClinica()
+- void limpiarCampos()
+}
+
+
+class org.uce.app.dao.EvolucionDAO {
+- Connection conexion
++ void crearEvolucion(Evolucion)
++ Evolucion obtenerEvolucionPorId(int)
++ List<Evolucion> obtenerTodasLasEvoluciones()
++ void actualizarEvolucion(Evolucion)
++ void eliminarEvolucion(int)
+}
+
+
+class org.uce.app.controllers.PantallaPrincipalController {
++ Button buttonRegresar
+- Button buttonSalir
+- void gestionarPacientes()
+- void gestionarCitas()
+- void gestionarHistorialMedico()
+- void handleRegresar()
+- void handleSalir()
+- void cargarPantalla(String,String)
+}
+
+
+class org.uce.app.dao.ConexionDAO {
+- {static} ConexionDAO instancia
+- Connection conexion
+- String url
+- String username
+- String password
++ Connection getConexion()
++ {static} ConexionDAO getInstancia()
+}
+
+
+class org.uce.app.model.Cita {
+- String idCita
+- String ciPaciente
+- LocalDateTime fechaCita
+- String motivo
+- String estado
++ String getIdCita()
++ void setIdCita(String)
++ String getCiPaciente()
++ void setCiPaciente(String)
++ LocalDateTime getFechaCita()
++ void setFechaCita(LocalDateTime)
++ String getMotivo()
++ void setMotivo(String)
++ String getEstado()
++ void setEstado(String)
+}
+
+
+class org.uce.app.application.App {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+class org.uce.app.controllers.GestionCitasController {
++ TableColumn idCitaColumn
++ TableColumn ciPacienteColumn
++ TableColumn fechaCitaColumn
++ TableColumn motivoColumn
++ TableColumn estadoColumn
+- TextField idCitaField
+- TextField ciPacienteField
+- DatePicker fechaCitaField
+- TextArea motivoField
+- TextField estadoField
+- Button buttonRegresar
+- Button buttonSalir
+- Button buttonAgregaCita
+- TableView<Cita> tablaCitas
+- CitaService citaService
+- void initialize()
+- void loadCitas()
+- void agregarCita()
+- void handleRegresar()
+- void handleSalir()
+- void cargarPantallaPrincipal()
+}
+
+
+class org.uce.app.model.HistoriaClinica {
+- String idHistoriaClinica
+- String ciMedico
+- String ciPaciente
+- String motivoConsulta
+- String antecedentesPersonales
+- String antecedentesFamiliares
+- String enfermedadesActuales
+- String raosOrganosSentidos
+- String raosRespiratorio
+- String raosCardiovascular
+- String raosDigestivo
+- String raosGenital
+- String raosUrinario
+- String raosMusculoEsqueletico
+- String raosEndocrino
+- String raosHemoLinfatico
+- String raosNervioso
+- String svaFechaMedicion
+- String svaTemperatura
+- String svaPresionArterial
+- String svaPulsoMinFreRespiratoria
+- String svaPesoKgTallaCm
+- String efrCabeza
+- String efrCuello
+- String efrTorax
+- String efrAbdomen
+- String efrPelvs
+- String efrExtremidades
+- String diagnosticoDesc
+- String diagnosticoCIE
++ String getIdHistoriaClinica()
++ void setIdHistoriaClinica(String)
++ String getCiMedico()
++ void setCiMedico(String)
++ String getCiPaciente()
++ void setCiPaciente(String)
++ String getMotivoConsulta()
++ void setMotivoConsulta(String)
++ String getAntecedentesPersonales()
++ void setAntecedentesPersonales(String)
++ String getAntecedentesFamiliares()
++ void setAntecedentesFamiliares(String)
++ String getEnfermedadesActuales()
++ void setEnfermedadesActuales(String)
++ String getRaosOrganosSentidos()
++ void setRaosOrganosSentidos(String)
++ String getRaosRespiratorio()
++ void setRaosRespiratorio(String)
++ String getRaosCardiovascular()
++ void setRaosCardiovascular(String)
++ String getRaosDigestivo()
++ void setRaosDigestivo(String)
++ String getRaosGenital()
++ void setRaosGenital(String)
++ String getRaosUrinario()
++ void setRaosUrinario(String)
++ String getRaosMusculoEsqueletico()
++ void setRaosMusculoEsqueletico(String)
++ String getRaosEndocrino()
++ void setRaosEndocrino(String)
++ String getRaosHemoLinfatico()
++ void setRaosHemoLinfatico(String)
++ String getRaosNervioso()
++ void setRaosNervioso(String)
++ String getSvaFechaMedicion()
++ void setSvaFechaMedicion(String)
++ String getSvaTemperatura()
++ void setSvaTemperatura(String)
++ String getSvaPresionArterial()
++ void setSvaPresionArterial(String)
++ String getSvaPulsoMinFreRespiratoria()
++ void setSvaPulsoMinFreRespiratoria(String)
++ String getSvaPesoKgTallaCm()
++ void setSvaPesoKgTallaCm(String)
++ String getEfrCabeza()
++ void setEfrCabeza(String)
++ String getEfrCuello()
++ void setEfrCuello(String)
++ String getEfrTorax()
++ void setEfrTorax(String)
++ String getEfrAbdomen()
++ void setEfrAbdomen(String)
++ String getEfrPelvs()
++ void setEfrPelvs(String)
++ String getEfrExtremidades()
++ void setEfrExtremidades(String)
++ String getDiagnosticoDesc()
++ void setDiagnosticoDesc(String)
++ String getDiagnosticoCIE()
++ void setDiagnosticoCIE(String)
+}
+
+
+class org.uce.app.services.AuthService {
+- Connection connection
++ boolean authenticate(String,String)
+}
+
+
+class org.uce.app.services.PacienteService {
+- PacienteDAO pacienteDAO
++ boolean createPaciente(Paciente)
++ List<Paciente> getAllPacientes()
++ Paciente getPacienteByCi(String)
++ boolean updatePaciente(Paciente)
++ boolean deletePaciente(String)
+}
+
+
+class org.uce.app.model.Receta {
+- int idReceta
+- String ciPaciente
+- String ciMedico
+- LocalDate fechaEmision
+- String medicamentos
+- String dosis
++ int getIdReceta()
++ void setIdReceta(int)
++ String getCiPaciente()
++ void setCiPaciente(String)
++ String getCiMedico()
++ void setCiMedico(String)
++ LocalDate getFechaEmision()
++ void setFechaEmision(LocalDate)
++ String getMedicamentos()
++ void setMedicamentos(String)
++ String getDosis()
++ void setDosis(String)
+}
+
+
+class org.uce.app.dao.CitaDAO {
++ boolean createCita(Cita)
++ List<Cita> getAllCitas()
++ Cita getCitaById(String)
++ boolean updateCita(Cita)
++ boolean deleteCita(String)
+}
+
+class org.uce.app.dao.HistoriaClinicaDAO {
+- Connection conexion
++ void crearHistoriaClinica(HistoriaClinica)
++ HistoriaClinica obtenerHistoriaClinicaPorId(String)
++ List<HistoriaClinica> obtenerTodasLasHistoriasClinicas()
++ void actualizarHistoriaClinica(HistoriaClinica)
++ void eliminarHistoriaClinica(String)
+}
+
+
+class org.uce.app.model.Evolucion {
+- int idEvolucion
+- String idHistoriaClinica
+- Date fecha
+- String descripcion
++ int getIdEvolucion()
++ void setIdEvolucion(int)
++ String getIdHistoriaClinica()
++ void setIdHistoriaClinica(String)
++ Date getFecha()
++ void setFecha(Date)
++ String getDescripcion()
++ void setDescripcion(String)
+}
+
+
+class org.uce.app.model.Paciente {
+- String ciPaciente
+- String primerNombre
+- String segundoNombre
+- String apellidoPaterno
+- String apellidoMaterno
+- String direccionResidencia
+- String barrio
+- String parroquia
+- String canton
+- String provincia
+- String telefono
+- LocalDate fechaNacimiento
+- String lugarNacimiento
+- String nacionalidad
+- String grupoCultural
+- int edad
+- String estadoCivil
+- String instruccionUltimoAnio
+- LocalDate fechaAdmision
+- String ocupacion
+- String lugarTrabajo
+- String tipoSeguro
+- String referencia
+- String contactoEmergenciaParentesco
+- String contactoEmergenciaNombre
+- String contactoEmergenciaDireccion
+- String contactoEmergenciaTelefono
++ String getCiPaciente()
++ void setCiPaciente(String)
++ String getPrimerNombre()
++ void setPrimerNombre(String)
++ String getSegundoNombre()
++ void setSegundoNombre(String)
++ String getApellidoPaterno()
++ void setApellidoPaterno(String)
++ String getApellidoMaterno()
++ void setApellidoMaterno(String)
++ String getDireccionResidencia()
++ void setDireccionResidencia(String)
++ String getBarrio()
++ void setBarrio(String)
++ String getParroquia()
++ void setParroquia(String)
++ String getCanton()
++ void setCanton(String)
++ String getProvincia()
++ void setProvincia(String)
++ String getTelefono()
++ void setTelefono(String)
++ LocalDate getFechaNacimiento()
++ void setFechaNacimiento(LocalDate)
++ String getLugarNacimiento()
++ void setLugarNacimiento(String)
++ String getNacionalidad()
++ void setNacionalidad(String)
++ String getGrupoCultural()
++ void setGrupoCultural(String)
++ int getEdad()
++ void setEdad(int)
++ String getEstadoCivil()
++ void setEstadoCivil(String)
++ String getInstruccionUltimoAnio()
++ void setInstruccionUltimoAnio(String)
++ LocalDate getFechaAdmision()
++ void setFechaAdmision(LocalDate)
++ String getOcupacion()
++ void setOcupacion(String)
++ String getLugarTrabajo()
++ void setLugarTrabajo(String)
++ String getTipoSeguro()
++ void setTipoSeguro(String)
++ String getReferencia()
++ void setReferencia(String)
++ String getContactoEmergenciaParentesco()
++ void setContactoEmergenciaParentesco(String)
++ String getContactoEmergenciaNombre()
++ void setContactoEmergenciaNombre(String)
++ String getContactoEmergenciaDireccion()
++ void setContactoEmergenciaDireccion(String)
++ String getContactoEmergenciaTelefono()
++ void setContactoEmergenciaTelefono(String)
+}
+
+
+
+
+javafx.application.Application <|-- org.uce.app.application.App
+@enduml

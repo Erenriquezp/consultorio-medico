@@ -1,0 +1,51 @@
+@startuml
+class org.uce.app.controllers.GestionPacientesController {
+}
+class org.uce.app.dao.MedicoDAO {
+}
+class org.uce.app.dao.PacienteDAO {
+}
+class org.uce.app.controllers.LoginController {
+}
+class org.uce.app.utilities.Paths {
+}
+class org.uce.app.model.Medico {
+}
+class org.uce.app.dao.RecetaDAO {
+}
+class org.uce.app.services.CitaService {
+}
+class org.uce.app.controllers.HistoriaClinicaController {
+}
+class org.uce.app.dao.EvolucionDAO {
+}
+class org.uce.app.controllers.PantallaPrincipalController {
+}
+class org.uce.app.dao.ConexionDAO {
+}
+class org.uce.app.model.Cita {
+}
+class org.uce.app.application.App {
+}
+class org.uce.app.controllers.GestionCitasController {
+}
+class org.uce.app.model.HistoriaClinica {
+}
+class org.uce.app.services.AuthService {
+}
+class org.uce.app.services.PacienteService {
+}
+class org.uce.app.model.Receta {
+}
+class org.uce.app.dao.CitaDAO {
+}
+class org.uce.app.dao.HistoriaClinicaDAO {
+}
+class org.uce.app.model.Evolucion {
+}
+class org.uce.app.model.Paciente {
+}
+
+
+javafx.application.Application <|-- org.uce.app.application.App
+@enduml
