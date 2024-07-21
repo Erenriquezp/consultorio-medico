@@ -19,6 +19,7 @@ public class UsuarioDAO {
                 usuario.setUsername(rs.getString("med_user"));
                 usuario.setPassword(rs.getString("med_password"));
                 usuario.setCi(rs.getString("ci_medico"));
+                System.out.println(usuario.getUsername());
                 return usuario;
             }
         } catch (SQLException e) {

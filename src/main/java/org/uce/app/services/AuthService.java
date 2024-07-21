@@ -26,6 +26,7 @@ public class AuthService {
             return false;
         } else {
             Usuario user = userAut.findByUsername(username);
+            System.out.println(user.getUsername());
             return username.equals(user.getUsername()) && password.equals(user.getPassword());
         }
     }

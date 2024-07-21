@@ -23,7 +23,7 @@
 <!-- Para usar el layout VBox -->
 <!-- Define un VBox como contenedor principal con propiedades específicas -->
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.HistorialMedicoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.HistoriaClinicaController">
     <!-- xmlns:fx define el espacio de nombres para FXML -->
     <!-- fx:controller especifica el controlador asociado a esta vista -->
     <!-- spacing define el espacio entre los elementos del VBox -->

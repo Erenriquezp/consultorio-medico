@@ -36,37 +36,37 @@
         <TextField fx:id="direccionResidenciaField" promptText="Dirección de Residencia" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <TextField fx:id="barrioField" promptText="Barrio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="parroquiaField" promptText="Parroquia" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-        <TextField fx:id="cantonField" promptText="Cantón" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <TextField fx:id="provinciaField" promptText="Provincia" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <TextField fx:id="cantonField" promptText="Cantón" text="Quito" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <TextField fx:id="provinciaField" promptText="Provincia" text="Pichincha" GridPane.columnIndex="4" GridPane.rowIndex="1" />
 
-        <TextField fx:id="telefonoField" promptText="Teléfono" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <TextField fx:id="fechaNacimientoField" promptText="Fecha de Nacimiento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="telefonoField" promptText="Teléfono" text="09" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <DatePicker fx:id="fechaNacimientoField" promptText="Fecha de Nacimiento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <TextField fx:id="lugarNacimientoField" promptText="Lugar de Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-        <TextField fx:id="nacionalidadField" promptText="Nacionalidad" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <TextField fx:id="nacionalidadField" promptText="Nacionalidad" text="Ecuatoriana" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
         <TextField fx:id="edadField" promptText="Edad" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <TextField fx:id="instruccionField" promptText="Instrucción" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <TextField fx:id="instruccionField" promptText="Instrucción" text="Bachiller" GridPane.columnIndex="2" GridPane.rowIndex="3" />
         <TextField fx:id="ocupacionField" promptText="Ocupación" GridPane.columnIndex="4" GridPane.rowIndex="3" />
 
         <TextField fx:id="lugarTrabajoField" promptText="Lugar de Trabajo" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <TextField fx:id="tipoSeguroField" promptText="Tipo de Seguro" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Grupo Cultural" GridPane.columnIndex="4" GridPane.rowIndex="2">
+        <TextField fx:id="tipoSeguroField" promptText="Tipo de Seguro" text="Privado" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <SplitMenuButton fx:id="grupoCulturalMenu" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Grupo Cultural" GridPane.columnIndex="4" GridPane.rowIndex="2">
         <items>
-          <MenuItem mnemonicParsing="false" text="Afroecuatoriano" />
-          <MenuItem mnemonicParsing="false" text="Indigena" />
-            <MenuItem mnemonicParsing="false" text="Mestizo" />
-            <MenuItem mnemonicParsing="false" text="Montubio" />
-            <MenuItem mnemonicParsing="false" text="Blanco" />
+            <MenuItem mnemonicParsing="false" text="Afroecuatoriana" onAction="#handleGrupoCulturalMenuAction"/>
+            <MenuItem mnemonicParsing="false" text="Indigena" onAction="#handleGrupoCulturalMenuAction"/>
+            <MenuItem mnemonicParsing="false" text="Mestiza" onAction="#handleGrupoCulturalMenuAction"/>
+            <MenuItem mnemonicParsing="false" text="Montubia" onAction="#handleGrupoCulturalMenuAction"/>
+            <MenuItem mnemonicParsing="false" text="Blanca" onAction="#handleGrupoCulturalMenuAction"/>
         </items>
       </SplitMenuButton>
-      <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Estado Civil" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <SplitMenuButton fx:id="estadoCivilMenu" prefHeight="25.0" prefWidth="149.0" text="Estado Civil" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <items>
-          <MenuItem mnemonicParsing="false" text="Soltero" />
-          <MenuItem mnemonicParsing="false" text="Casada" />
-            <MenuItem mnemonicParsing="false" text="Otro" />
+            <MenuItem text="SOL" onAction="#handleEstadoCivilMenuAction"/>
+            <MenuItem text="CAS" onAction="#handleEstadoCivilMenuAction"/>
+            <MenuItem text="VIU" onAction="#handleEstadoCivilMenuAction"/>
         </items>
       </SplitMenuButton>
-      <DatePicker promptText="Fecha de Admision" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <DatePicker fx:id="fechaAdmisionPicker" promptText="Fecha de Admision" GridPane.columnIndex="3" GridPane.rowIndex="3" />
       <Label text="campos obligatorios *" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <font>
             <Font name="System Italic" size="12.0" />
@@ -120,7 +120,7 @@
                <Insets left="10.0" top="10.0" />
             </GridPane.margin>
          </TextField>
-           <TextField fx:id="contactoEmergenciaTelefonoField" promptText="Teléfono del Contacto de Emergencia" GridPane.rowIndex="3">
+           <TextField fx:id="contactoEmergenciaTelefonoField" text="09" promptText="Teléfono del Contacto de Emergencia" GridPane.rowIndex="3">
             <GridPane.margin>
                <Insets right="5.0" top="20.0" />
             </GridPane.margin>

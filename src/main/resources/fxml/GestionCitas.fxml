@@ -24,8 +24,8 @@
     <TextField fx:id="idCitaField" promptText="ID Cita" />
     <TextField fx:id="ciPacienteField" promptText="Cédula Paciente" />
     <DatePicker fx:id="fechaCitaField" promptText="Fecha de Cita" />
-    <TextArea fx:id="motivoField" promptText="Motivo" />
-    <TextField fx:id="estadoField" promptText="Estado" />
+    <TextArea fx:id="motivoField" text="Chequeo general" promptText="Motivo" />
+    <TextField fx:id="estadoField" text="Pendiente" promptText="Estado" />
     <Button onAction="#agregarCita" text="Agregar Cita" />
     <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
         <columns>

@@ -16,33 +16,61 @@ import java.util.List;
 
 public class GestionPacientesController {
 
+    @FXML
     public TextField instruccionField;
-    public TableColumn<Object, Object> ciPacienteColumn;
-    public TableColumn<Object, Object> primerNombreColumn;
-    public TableColumn<Object, Object> segundoNombreColumn;
-    public TableColumn apellidoPaternoColumn;
-    public TableColumn apellidoMaternoColumn;
-    public TableColumn direccionResidenciaColumn;
-    public TableColumn barrioColumn;
-    public TableColumn parroquiaColumn;
-    public TableColumn cantonColumn;
-    public TableColumn provinciaColumn;
-    public TableColumn telefonoColumn;
-    public TableColumn fechaNacimientoColumn;
-    public TableColumn lugarNacimientoColumn;
-    public TableColumn nacionalidadColumn;
-    public TableColumn edadColumn;
-    public TableColumn estadoCivilColumn;
-    public TableColumn instruccionColumn;
-    public TableColumn fechaAdmisionColumn;
-    public TableColumn lugarTrabajoColumn;
-    public TableColumn referenciaColumn;
-    public TableColumn contactoEmergenciaNombreColumn;
-    public TableColumn tipoSeguroColumn;
-    public TableColumn ocupacionColumn;
-    public TableColumn contactoEmergenciaParentescoColumn;
-    public TableColumn contactoEmergenciaDireccionColumn;
-    public TableColumn contactoEmergenciaTelefonoColumn;
+    @FXML
+    public TableColumn<Paciente, String> ciPacienteColumn;
+    @FXML
+    public TableColumn<Paciente, String> primerNombreColumn;
+    @FXML
+    public TableColumn<Paciente, String> segundoNombreColumn;
+    @FXML
+    public TableColumn<Paciente, String> apellidoPaternoColumn;
+    @FXML
+    public TableColumn<Paciente, String> apellidoMaternoColumn;
+    @FXML
+    public TableColumn<Paciente, String> direccionResidenciaColumn;
+    @FXML
+    public TableColumn<Paciente, String> barrioColumn;
+    @FXML
+    public TableColumn<Paciente, String> parroquiaColumn;
+    @FXML
+    public TableColumn<Paciente, String> cantonColumn;
+    @FXML
+    public TableColumn<Paciente, String> provinciaColumn;
+    @FXML
+    public TableColumn<Paciente, String> telefonoColumn;
+    @FXML
+    public TableColumn<Paciente, LocalDate> fechaNacimientoColumn;
+    @FXML
+    public TableColumn<Paciente, String> lugarNacimientoColumn;
+    @FXML
+    public TableColumn<Paciente, String> nacionalidadColumn;
+    @FXML
+    public TableColumn<Paciente, Integer> edadColumn;
+    @FXML
+    public TableColumn<Paciente, String> estadoCivilColumn;
+    @FXML
+    public TableColumn<Paciente, String> instruccionColumn;
+    @FXML
+    public TableColumn<Paciente, LocalDate> fechaAdmisionColumn;
+    @FXML
+    public TableColumn<Paciente, String> lugarTrabajoColumn;
+    @FXML
+    public TableColumn<Paciente, String> referenciaColumn;
+    @FXML
+    public TableColumn<Paciente, String> contactoEmergenciaNombreColumn;
+    @FXML
+    public TableColumn<Paciente, String> tipoSeguroColumn;
+    @FXML
+    public TableColumn<Paciente, String> ocupacionColumn;
+    @FXML
+    public TableColumn<Paciente, String> contactoEmergenciaParentescoColumn;
+    @FXML
+    public TableColumn<Paciente, String> contactoEmergenciaDireccionColumn;
+    @FXML
+    public TableColumn<Paciente, String> contactoEmergenciaTelefonoColumn;
+
     @FXML
     private TextField ciPacienteField;
     @FXML
@@ -66,21 +94,13 @@ public class GestionPacientesController {
     @FXML
     private TextField telefonoField;
     @FXML
-    private TextField fechaNacimientoField;
+    private DatePicker fechaNacimientoField;
     @FXML
     private TextField lugarNacimientoField;
     @FXML
     private TextField nacionalidadField;
     @FXML
-    private TextField grupoCulturalField;
-    @FXML
     private TextField edadField;
-    @FXML
-    private TextField estadoCivilField;
-    @FXML
-    private TextField instruccionUltimoAnioField;
-    @FXML
-    private TextField fechaAdmisionField;
     @FXML
     private TextField ocupacionField;
     @FXML
@@ -113,78 +133,39 @@ public class GestionPacientesController {
     @FXML
     private TableView<Paciente> tablaPacientes;
 
-    private PacienteService pacienteService;
+    private final PacienteService pacienteService;
 
     public GestionPacientesController() {
         pacienteService = new PacienteService();
     }
     @FXML
     private void initialize() {
-        // Initialize the menu items for Grupo Cultural
-        List<MenuItem> grupoCulturalItems = new ArrayList<>();
-        grupoCulturalItems.add(new MenuItem("Afroecuatoriana"));
-        grupoCulturalItems.add(new MenuItem("Indígena"));
-        grupoCulturalItems.add(new MenuItem("Mestiza"));
-        grupoCulturalItems.add(new MenuItem("Montubia"));
-        grupoCulturalItems.add(new MenuItem("Blanca"));
-
-//        grupoCulturalItems.forEach(item -> item.setOnAction(e -> grupoCulturalMenu.setText(item.getText())));
-//        grupoCulturalMenu.getItems().addAll(grupoCulturalItems);
-
-        // Initialize the menu items for Estado Civil
-        List<MenuItem> estadoCivilItems = new ArrayList<>();
-        estadoCivilItems.add(new MenuItem("SOL"));
-        estadoCivilItems.add(new MenuItem("CAS"));
-        estadoCivilItems.add(new MenuItem("VIU"));
-
-//        estadoCivilItems.forEach(item -> item.setOnAction(e -> estadoCivilMenu.setText(item.getText())));
-//        estadoCivilMenu.getItems().addAll(estadoCivilItems);
+        // Initialize table columns
         ciPacienteColumn.setCellValueFactory(new PropertyValueFactory<>("ciPaciente"));
         primerNombreColumn.setCellValueFactory(new PropertyValueFactory<>("primerNombre"));
         segundoNombreColumn.setCellValueFactory(new PropertyValueFactory<>("segundoNombre"));
         apellidoPaternoColumn.setCellValueFactory(new PropertyValueFactory<>("apellidoPaterno"));
         apellidoMaternoColumn.setCellValueFactory(new PropertyValueFactory<>("apellidoMaterno"));
-
         direccionResidenciaColumn.setCellValueFactory(new PropertyValueFactory<>("direccionResidencia"));
-
         barrioColumn.setCellValueFactory(new PropertyValueFactory<>("barrio"));
-
         parroquiaColumn.setCellValueFactory(new PropertyValueFactory<>("parroquia"));
-
         cantonColumn.setCellValueFactory(new PropertyValueFactory<>("canton"));
-
         provinciaColumn.setCellValueFactory(new PropertyValueFactory<>("provincia"));
-
         telefonoColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-
         fechaNacimientoColumn.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
-
         lugarNacimientoColumn.setCellValueFactory(new PropertyValueFactory<>("lugarNacimiento"));
-
         nacionalidadColumn.setCellValueFactory(new PropertyValueFactory<>("nacionalidad"));
-
         edadColumn.setCellValueFactory(new PropertyValueFactory<>("edad"));
-
         estadoCivilColumn.setCellValueFactory(new PropertyValueFactory<>("estadoCivil"));
-
         instruccionColumn.setCellValueFactory(new PropertyValueFactory<>("instruccionUltimoAnio"));
-
         fechaAdmisionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaAdmision"));
-
         ocupacionColumn.setCellValueFactory(new PropertyValueFactory<>("ocupacion"));
-
         lugarTrabajoColumn.setCellValueFactory(new PropertyValueFactory<>("lugarTrabajo"));
-
         tipoSeguroColumn.setCellValueFactory(new PropertyValueFactory<>("tipoSeguro"));
-
         referenciaColumn.setCellValueFactory(new PropertyValueFactory<>("referencia"));
-
         contactoEmergenciaNombreColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaNombre"));
-
         contactoEmergenciaParentescoColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaParentesco"));
-
         contactoEmergenciaDireccionColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaDireccion"));
-
         contactoEmergenciaTelefonoColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaTelefono"));
 
         loadPacientes();
@@ -207,14 +188,14 @@ public class GestionPacientesController {
         String canton = cantonField.getText();
         String provincia = provinciaField.getText();
         String telefono = telefonoField.getText();
-        LocalDate fechaNacimiento = LocalDate.parse(fechaNacimientoField.getText());
+        LocalDate fechaNacimiento = fechaNacimientoField.getValue();
         String lugarNacimiento = lugarNacimientoField.getText();
         String nacionalidad = nacionalidadField.getText();
-        String grupoCultural = grupoCulturalField.getText();
-        int edad = Integer.parseInt(edadField.getText());
-        String estadoCivil = estadoCivilField.getText();
-        String instruccionUltimoAnio = instruccionUltimoAnioField.getText();
-        LocalDate fechaAdmision = LocalDate.parse(fechaAdmisionField.getText());
+        String grupoCultural = grupoCulturalMenu.getText();
+        Integer edad = Integer.parseInt(edadField.getText());
+        String estadoCivil = estadoCivilMenu.getText();
+        String instruccionUltimoAnio = instruccionField.getText();
+        LocalDate fechaAdmision = fechaAdmisionPicker.getValue();
         String ocupacion = ocupacionField.getText();
         String lugarTrabajo = lugarTrabajoField.getText();
         String tipoSeguro = tipoSeguroField.getText();
@@ -249,12 +230,23 @@ public class GestionPacientesController {
         }
         alert.showAndWait();
     }
-
+    // Métodos para manejar la acción de los SplitMenuButton
+    @FXML
+    private void handleGrupoCulturalMenuAction(javafx.event.ActionEvent event) {
+        MenuItem menuItem = (MenuItem) event.getSource();
+        grupoCulturalMenu.setText(menuItem.getText());
+    }
+    @FXML
+    private void handleEstadoCivilMenuAction(javafx.event.ActionEvent event) {
+        MenuItem menuItem = (MenuItem) event.getSource();
+        estadoCivilMenu.setText(menuItem.getText());
+    }
     @FXML
     private void handleRegresar() {
         // Regresar a la pantalla principal
         Stage stage = (Stage) buttonRegresar.getScene().getWindow();
         stage.close();
+        cargarPantallaPrincipal();
     }
 
     @FXML

@@ -11,16 +11,18 @@ import org.uce.app.services.CitaService;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GestionCitasController {
-
-    public TableColumn idCitaColumn;
-    public TableColumn ciPacienteColumn;
-    public TableColumn fechaCitaColumn;
-    public TableColumn motivoColumn;
-    public TableColumn estadoColumn;
+    @FXML
+    private TableColumn<Cita, String> idCitaColumn;
+    @FXML
+    private TableColumn<Cita, String> ciPacienteColumn;
+    @FXML
+    private TableColumn<Cita, LocalDate> fechaCitaColumn;
+    @FXML
+    private TableColumn<Cita, String> motivoColumn;
+    @FXML
+    private TableColumn<Cita, String> estadoColumn;
     @FXML
     private TextField idCitaField;
     @FXML
@@ -41,7 +43,7 @@ public class GestionCitasController {
     @FXML
     private TableView<Cita> tablaCitas;
 
-    private CitaService citaService;
+    private final CitaService citaService;
 
     public GestionCitasController() {
         citaService = new CitaService();
@@ -50,13 +52,9 @@ public class GestionCitasController {
     @FXML
     private void initialize() {
         idCitaColumn.setCellValueFactory(new PropertyValueFactory<>("idCita"));
-
         ciPacienteColumn.setCellValueFactory(new PropertyValueFactory<>("ciPaciente"));
-
         fechaCitaColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCita"));
-
         motivoColumn.setCellValueFactory(new PropertyValueFactory<>("motivo"));
-
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         loadCitas();
@@ -75,8 +73,16 @@ public class GestionCitasController {
         String motivo = motivoField.getText();
         String estado = estadoField.getText();
 
-        Cita cita = new Cita(idCita, ciPaciente, null, motivo, estado);
+        if (idCita.isEmpty() || ciPaciente.isEmpty() || fechaCita == null || motivo.isEmpty() || estado.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Campos incompletos");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, complete todos los campos.");
+            alert.showAndWait();
+            return;
+        }
 
+        Cita cita = new Cita(idCita, ciPaciente, fechaCita.atStartOfDay(), motivo, estado);
         boolean success = citaService.createCita(cita);
 
         Alert alert;
@@ -85,6 +91,7 @@ public class GestionCitasController {
             alert.setTitle("Éxito");
             alert.setHeaderText(null);
             alert.setContentText("Cita agregada exitosamente.");
+            loadCitas();
         } else {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -98,6 +105,7 @@ public class GestionCitasController {
     private void handleRegresar() {
         Stage stage = (Stage) buttonRegresar.getScene().getWindow();
         stage.close();
+        cargarPantallaPrincipal();
     }
 
     @FXML
@@ -108,7 +116,7 @@ public class GestionCitasController {
 
     private void cargarPantallaPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/pantalla_principal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Paths.PANTALLA_PRINCIPAL.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Pantalla Principal");
             stage.setScene(new Scene(loader.load()));

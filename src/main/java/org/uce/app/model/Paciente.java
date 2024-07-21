@@ -18,7 +18,7 @@ public class Paciente {
     private String lugarNacimiento;
     private String nacionalidad;
     private String grupoCultural;
-    private int edad;
+    private Integer edad;
     private String estadoCivil;
     private String instruccionUltimoAnio;
     private LocalDate fechaAdmision;
@@ -31,7 +31,7 @@ public class Paciente {
     private String contactoEmergenciaDireccion;
     private String contactoEmergenciaTelefono;
 
-    public Paciente(String ciPaciente, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccionResidencia, String barrio, String parroquia, String canton, String provincia, String telefono, LocalDate fechaNacimiento, String lugarNacimiento, String nacionalidad, String grupoCultural, int edad, String estadoCivil, String instruccionUltimoAnio, LocalDate fechaAdmision, String ocupacion, String lugarTrabajo, String tipoSeguro, String referencia, String contactoEmergenciaParentesco, String contactoEmergenciaNombre, String contactoEmergenciaDireccion, String contactoEmergenciaTelefono) {
+    public Paciente(String ciPaciente, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccionResidencia, String barrio, String parroquia, String canton, String provincia, String telefono, LocalDate fechaNacimiento, String lugarNacimiento, String nacionalidad, String grupoCultural, Integer edad, String estadoCivil, String instruccionUltimoAnio, LocalDate fechaAdmision, String ocupacion, String lugarTrabajo, String tipoSeguro, String referencia, String contactoEmergenciaParentesco, String contactoEmergenciaNombre, String contactoEmergenciaDireccion, String contactoEmergenciaTelefono) {
         this.ciPaciente = ciPaciente;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
@@ -184,11 +184,11 @@ public class Paciente {
         this.grupoCultural = grupoCultural;
     }
 
-    public int getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 
