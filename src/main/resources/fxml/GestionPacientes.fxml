@@ -177,11 +177,17 @@
     </TableView>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button fx:id="buttonRegresar" mnemonicParsing="false" text="Regresar" />
+         <Button fx:id="buttonRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Regresar">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font></Button>
          <Button fx:id="ButtonSalir" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Salir">
             <HBox.margin>
-               <Insets left="775.0" />
+               <Insets left="767.0" />
             </HBox.margin>
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
          </Button>
       </children>
    </HBox>
