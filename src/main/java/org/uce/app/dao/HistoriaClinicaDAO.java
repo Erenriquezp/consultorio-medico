@@ -64,37 +64,39 @@ public class HistoriaClinicaDAO {
             pstmt.setString(1, idHistoriaClinica);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    HistoriaClinica historiaClinica = new HistoriaClinica();
-                    historiaClinica.setIdHistoriaClinica(rs.getString("id_historia_clinica"));
-                    historiaClinica.setCiMedico(rs.getString("ci_medico"));
-                    historiaClinica.setCiPaciente(rs.getString("ci_paciente"));
-                    historiaClinica.setMotivoConsulta(rs.getString("motivo_consulta"));
-                    historiaClinica.setAntecedentesPersonales(rs.getString("antecedentes_personales"));
-                    historiaClinica.setAntecedentesFamiliares(rs.getString("antecedentes_familiares"));
-                    historiaClinica.setEnfermedadesActuales(rs.getString("enfermedades_actuales"));
-                    historiaClinica.setRaosOrganosSentidos(rs.getString("raos_organos_sentidos"));
-                    historiaClinica.setRaosRespiratorio(rs.getString("raos_respiratorio"));
-                    historiaClinica.setRaosCardiovascular(rs.getString("raos_cardiovascular"));
-                    historiaClinica.setRaosDigestivo(rs.getString("raos_digestivo"));
-                    historiaClinica.setRaosGenital(rs.getString("raos_genital"));
-                    historiaClinica.setRaosUrinario(rs.getString("raos_urinario"));
-                    historiaClinica.setRaosMusculoEsqueletico(rs.getString("raos_musculo_esqueletico"));
-                    historiaClinica.setRaosEndocrino(rs.getString("raos_endocrino"));
-                    historiaClinica.setRaosHemoLinfatico(rs.getString("raos_hemo_linfatico"));
-                    historiaClinica.setRaosNervioso(rs.getString("raos_nervioso"));
-                    historiaClinica.setSvaFechaMedicion(rs.getString("sva_fecha_medicion"));
-                    historiaClinica.setSvaTemperatura(rs.getString("sva_temperatura"));
-                    historiaClinica.setSvaPresionArterial(rs.getString("sva_presion_arterial"));
-                    historiaClinica.setSvaPulsoMinFreRespiratoria(rs.getString("sva_pulso_min_fre_respiratoria"));
-                    historiaClinica.setSvaPesoKgTallaCm(rs.getString("sva_peso_kg_talla_cm"));
-                    historiaClinica.setEfrCabeza(rs.getString("efr_cabeza"));
-                    historiaClinica.setEfrCuello(rs.getString("efr_cuello"));
-                    historiaClinica.setEfrTorax(rs.getString("efr_torax"));
-                    historiaClinica.setEfrAbdomen(rs.getString("efr_abdomen"));
-                    historiaClinica.setEfrPelvs(rs.getString("efr_pelvs"));
-                    historiaClinica.setEfrExtremidades(rs.getString("efr_extremidades"));
-                    historiaClinica.setDiagnosticoDesc(rs.getString("diagnostico_desc"));
-                    historiaClinica.setDiagnosticoCIE(rs.getString("diagnostico_cie"));
+                    HistoriaClinica historiaClinica = new HistoriaClinica.HistoriaClinicaBuilder()
+                            .idHistoriaClinica(rs.getString("id_historia_clinica"))
+                            .ciMedico(rs.getString("ci_medico"))
+                            .ciPaciente(rs.getString("ci_paciente"))
+                            .motivoConsulta(rs.getString("motivo_consulta"))
+                            .antecedentesPersonales(rs.getString("antecedentes_personales"))
+                            .antecedentesFamiliares(rs.getString("antecedentes_familiares"))
+                            .enfermedadesActuales(rs.getString("enfermedades_actuales"))
+                            .raosOrganosSentidos(rs.getString("raos_organos_sentidos"))
+                            .raosRespiratorio(rs.getString("raos_respiratorio"))
+                            .raosCardiovascular(rs.getString("raos_cardiovascular"))
+                            .raosDigestivo(rs.getString("raos_digestivo"))
+                            .raosGenital(rs.getString("raos_genital"))
+                            .raosUrinario(rs.getString("raos_urinario"))
+                            .raosMusculoEsqueletico(rs.getString("raos_musculo_esqueletico"))
+                            .raosEndocrino(rs.getString("raos_endocrino"))
+                            .raosHemoLinfatico(rs.getString("raos_hemo_linfatico"))
+                            .raosNervioso(rs.getString("raos_nervioso"))
+                            .svaFechaMedicion(rs.getString("sva_fecha_medicion"))
+                            .svaTemperatura(rs.getString("sva_temperatura"))
+                            .svaPresionArterial(rs.getString("sva_presion_arterial"))
+                            .svaPulsoMinFreRespiratoria(rs.getString("sva_pulso_min_fre_respiratoria"))
+                            .svaPesoKgTallaCm(rs.getString("sva_peso_kg_talla_cm"))
+                            .efrCabeza(rs.getString("efr_cabeza"))
+                            .efrCuello(rs.getString("efr_cuello"))
+                            .efrTorax(rs.getString("efr_torax"))
+                            .efrAbdomen(rs.getString("efr_abdomen"))
+                            .efrPelvs(rs.getString("efr_pelvs"))
+                            .efrExtremidades(rs.getString("efr_extremidades"))
+                            .diagnosticoDesc(rs.getString("diagnostico_desc"))
+                            .diagnosticoCIE(rs.getString("diagnostico_cie"))
+                            .build();
+
                     return historiaClinica;
                 }
             }
@@ -109,37 +111,39 @@ public class HistoriaClinicaDAO {
         try (Statement stmt = conexion.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                HistoriaClinica historiaClinica = new HistoriaClinica();
-                historiaClinica.setIdHistoriaClinica(rs.getString("id_historia_clinica"));
-                historiaClinica.setCiMedico(rs.getString("ci_medico"));
-                historiaClinica.setCiPaciente(rs.getString("ci_paciente"));
-                historiaClinica.setMotivoConsulta(rs.getString("motivo_consulta"));
-                historiaClinica.setAntecedentesPersonales(rs.getString("antecedentes_personales"));
-                historiaClinica.setAntecedentesFamiliares(rs.getString("antecedentes_familiares"));
-                historiaClinica.setEnfermedadesActuales(rs.getString("enfermedades_actuales"));
-                historiaClinica.setRaosOrganosSentidos(rs.getString("raos_organos_sentidos"));
-                historiaClinica.setRaosRespiratorio(rs.getString("raos_respiratorio"));
-                historiaClinica.setRaosCardiovascular(rs.getString("raos_cardiovascular"));
-                historiaClinica.setRaosDigestivo(rs.getString("raos_digestivo"));
-                historiaClinica.setRaosGenital(rs.getString("raos_genital"));
-                historiaClinica.setRaosUrinario(rs.getString("raos_urinario"));
-                historiaClinica.setRaosMusculoEsqueletico(rs.getString("raos_musculo_esqueletico"));
-                historiaClinica.setRaosEndocrino(rs.getString("raos_endocrino"));
-                historiaClinica.setRaosHemoLinfatico(rs.getString("raos_hemo_linfatico"));
-                historiaClinica.setRaosNervioso(rs.getString("raos_nervioso"));
-                historiaClinica.setSvaFechaMedicion(rs.getString("sva_fecha_medicion"));
-                historiaClinica.setSvaTemperatura(rs.getString("sva_temperatura"));
-                historiaClinica.setSvaPresionArterial(rs.getString("sva_presion_arterial"));
-                historiaClinica.setSvaPulsoMinFreRespiratoria(rs.getString("sva_pulso_min_fre_respiratoria"));
-                historiaClinica.setSvaPesoKgTallaCm(rs.getString("sva_peso_kg_talla_cm"));
-                historiaClinica.setEfrCabeza(rs.getString("efr_cabeza"));
-                historiaClinica.setEfrCuello(rs.getString("efr_cuello"));
-                historiaClinica.setEfrTorax(rs.getString("efr_torax"));
-                historiaClinica.setEfrAbdomen(rs.getString("efr_abdomen"));
-                historiaClinica.setEfrPelvs(rs.getString("efr_pelvs"));
-                historiaClinica.setEfrExtremidades(rs.getString("efr_extremidades"));
-                historiaClinica.setDiagnosticoDesc(rs.getString("diagnostico_desc"));
-                historiaClinica.setDiagnosticoCIE(rs.getString("diagnostico_cie"));
+                HistoriaClinica historiaClinica = new HistoriaClinica.HistoriaClinicaBuilder()
+                        .idHistoriaClinica(rs.getString("id_historia_clinica"))
+                        .ciMedico(rs.getString("ci_medico"))
+                        .ciPaciente(rs.getString("ci_paciente"))
+                        .motivoConsulta(rs.getString("motivo_consulta"))
+                        .antecedentesPersonales(rs.getString("antecedentes_personales"))
+                        .antecedentesFamiliares(rs.getString("antecedentes_familiares"))
+                        .enfermedadesActuales(rs.getString("enfermedades_actuales"))
+                        .raosOrganosSentidos(rs.getString("raos_organos_sentidos"))
+                        .raosRespiratorio(rs.getString("raos_respiratorio"))
+                        .raosCardiovascular(rs.getString("raos_cardiovascular"))
+                        .raosDigestivo(rs.getString("raos_digestivo"))
+                        .raosGenital(rs.getString("raos_genital"))
+                        .raosUrinario(rs.getString("raos_urinario"))
+                        .raosMusculoEsqueletico(rs.getString("raos_musculo_esqueletico"))
+                        .raosEndocrino(rs.getString("raos_endocrino"))
+                        .raosHemoLinfatico(rs.getString("raos_hemo_linfatico"))
+                        .raosNervioso(rs.getString("raos_nervioso"))
+                        .svaFechaMedicion(rs.getString("sva_fecha_medicion"))
+                        .svaTemperatura(rs.getString("sva_temperatura"))
+                        .svaPresionArterial(rs.getString("sva_presion_arterial"))
+                        .svaPulsoMinFreRespiratoria(rs.getString("sva_pulso_min_fre_respiratoria"))
+                        .svaPesoKgTallaCm(rs.getString("sva_peso_kg_talla_cm"))
+                        .efrCabeza(rs.getString("efr_cabeza"))
+                        .efrCuello(rs.getString("efr_cuello"))
+                        .efrTorax(rs.getString("efr_torax"))
+                        .efrAbdomen(rs.getString("efr_abdomen"))
+                        .efrPelvs(rs.getString("efr_pelvs"))
+                        .efrExtremidades(rs.getString("efr_extremidades"))
+                        .diagnosticoDesc(rs.getString("diagnostico_desc"))
+                        .diagnosticoCIE(rs.getString("diagnostico_cie"))
+                        .build();
+
                 historiasClinicas.add(historiaClinica);
             }
         }

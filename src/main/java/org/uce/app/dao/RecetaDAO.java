@@ -35,13 +35,15 @@ public class RecetaDAO {
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Receta receta = new Receta();
-                receta.setIdReceta(rs.getInt("id_receta"));
-                receta.setCiPaciente(rs.getString("ci_paciente"));
-                receta.setCiMedico(rs.getString("ci_medico"));
-                receta.setFechaEmision(rs.getDate("fecha_emision").toLocalDate());
-                receta.setMedicamentos(rs.getString("medicamentos"));
-                receta.setDosis(rs.getString("dosis"));
+                Receta receta = new Receta.RecetaBuilder()
+                        .idReceta(rs.getInt("id_receta"))
+                        .ciPaciente(rs.getString("ci_paciente"))
+                        .ciMedico(rs.getString("ci_medico"))
+                        .fechaEmision(rs.getObject("fecha_emision", LocalDate.class))
+                        .medicamentos(rs.getString("medicamentos"))
+                        .dosis(rs.getString("dosis"))
+                        .build();
+
                 recetas.add(receta);
             }
         } catch (SQLException e) {
@@ -59,13 +61,15 @@ public class RecetaDAO {
             stmt.setInt(1, idReceta);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    receta = new Receta();
-                    receta.setIdReceta(rs.getInt("id_receta"));
-                    receta.setCiPaciente(rs.getString("ci_paciente"));
-                    receta.setCiMedico(rs.getString("ci_medico"));
-                    receta.setFechaEmision(rs.getDate("fecha_emision").toLocalDate());
-                    receta.setMedicamentos(rs.getString("medicamentos"));
-                    receta.setDosis(rs.getString("dosis"));
+                    receta = new Receta.RecetaBuilder()
+                            .idReceta(rs.getInt("id_receta"))
+                            .ciPaciente(rs.getString("ci_paciente"))
+                            .ciMedico(rs.getString("ci_medico"))
+                            .fechaEmision(rs.getObject("fecha_emision", LocalDate.class))
+                            .medicamentos(rs.getString("medicamentos"))
+                            .dosis(rs.getString("dosis"))
+                            .build();
+
                 }
             }
         } catch (SQLException e) {

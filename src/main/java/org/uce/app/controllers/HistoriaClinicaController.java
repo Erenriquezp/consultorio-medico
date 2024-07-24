@@ -88,37 +88,39 @@ public class HistoriaClinicaController {
 
     @FXML
     private void agregarHistoriaClinica() throws SQLException {
-        HistoriaClinica historiaClinica = new HistoriaClinica();
-        historiaClinica.setIdHistoriaClinica(idHistoriaClinicaField.getText());
-        historiaClinica.setCiMedico(ciMedicoField.getText());
-        historiaClinica.setCiPaciente(ciPacienteField.getText());
-        historiaClinica.setMotivoConsulta(motivoConsultaField.getText());
-        historiaClinica.setAntecedentesPersonales(antecedentesPersonalesField.getText());
-        historiaClinica.setAntecedentesFamiliares(antecedentesFamiliaresField.getText());
-        historiaClinica.setEnfermedadesActuales(enfermedadesActualesField.getText());
-        historiaClinica.setRaosOrganosSentidos(raosOrganosSentidosField.getText());
-        historiaClinica.setRaosRespiratorio(raosRespiratorioField.getText());
-        historiaClinica.setRaosCardiovascular(raosCardiovascularField.getText());
-        historiaClinica.setRaosDigestivo(raosDigestivoField.getText());
-        historiaClinica.setRaosGenital(raosGenitalField.getText());
-        historiaClinica.setRaosUrinario(raosUrinarioField.getText());
-        historiaClinica.setRaosMusculoEsqueletico(raosMusculoEsqueleticoField.getText());
-        historiaClinica.setRaosEndocrino(raosEndocrinoField.getText());
-        historiaClinica.setRaosHemoLinfatico(raosHemoLinfaticoField.getText());
-        historiaClinica.setRaosNervioso(raosNerviosoField.getText());
-        historiaClinica.setSvaFechaMedicion(svaFechaMedicionField.getText());
-        historiaClinica.setSvaTemperatura(svaTemperaturaField.getText());
-        historiaClinica.setSvaPresionArterial(svaPresionArterialField.getText());
-        historiaClinica.setSvaPulsoMinFreRespiratoria(svaPulsoMinFreRespiratoriaField.getText());
-        historiaClinica.setSvaPesoKgTallaCm(svaPesoKgTallaCmField.getText());
-        historiaClinica.setEfrCabeza(efrCabezaField.getText());
-        historiaClinica.setEfrCuello(efrCuelloField.getText());
-        historiaClinica.setEfrTorax(efrToraxField.getText());
-        historiaClinica.setEfrAbdomen(efrAbdomenField.getText());
-        historiaClinica.setEfrPelvs(efrPelvsField.getText());
-        historiaClinica.setEfrExtremidades(efrExtremidadesField.getText());
-        historiaClinica.setDiagnosticoDesc(diagnosticoDescField.getText());
-        historiaClinica.setDiagnosticoCIE(diagnosticoCIEField.getText());
+        HistoriaClinica historiaClinica = new HistoriaClinica.HistoriaClinicaBuilder()
+                .idHistoriaClinica(idHistoriaClinicaField.getText())
+                .ciMedico(ciMedicoField.getText())
+                .ciPaciente(ciPacienteField.getText())
+                .motivoConsulta(motivoConsultaField.getText())
+                .antecedentesPersonales(antecedentesPersonalesField.getText())
+                .antecedentesFamiliares(antecedentesFamiliaresField.getText())
+                .enfermedadesActuales(enfermedadesActualesField.getText())
+                .raosOrganosSentidos(raosOrganosSentidosField.getText())
+                .raosRespiratorio(raosRespiratorioField.getText())
+                .raosCardiovascular(raosCardiovascularField.getText())
+                .raosDigestivo(raosDigestivoField.getText())
+                .raosGenital(raosGenitalField.getText())
+                .raosUrinario(raosUrinarioField.getText())
+                .raosMusculoEsqueletico(raosMusculoEsqueleticoField.getText())
+                .raosEndocrino(raosEndocrinoField.getText())
+                .raosHemoLinfatico(raosHemoLinfaticoField.getText())
+                .raosNervioso(raosNerviosoField.getText())
+                .svaFechaMedicion(svaFechaMedicionField.getText())
+                .svaTemperatura(svaTemperaturaField.getText())
+                .svaPresionArterial(svaPresionArterialField.getText())
+                .svaPulsoMinFreRespiratoria(svaPulsoMinFreRespiratoriaField.getText())
+                .svaPesoKgTallaCm(svaPesoKgTallaCmField.getText())
+                .efrCabeza(efrCabezaField.getText())
+                .efrCuello(efrCuelloField.getText())
+                .efrTorax(efrToraxField.getText())
+                .efrAbdomen(efrAbdomenField.getText())
+                .efrPelvs(efrPelvsField.getText())
+                .efrExtremidades(efrExtremidadesField.getText())
+                .diagnosticoDesc(diagnosticoDescField.getText())
+                .diagnosticoCIE(diagnosticoCIEField.getText())
+                .build();
+
 
         historiaClinicaDAO.crearHistoriaClinica(historiaClinica);
         listaHistoriasClinicas.add(historiaClinica);

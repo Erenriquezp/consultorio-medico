@@ -34,12 +34,13 @@ public class CitaDAO {
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Cita cita = new Cita();
-                cita.setIdCita(rs.getString("id_cita"));
-                cita.setCiPaciente(rs.getString("ci_paciente"));
-                cita.setFechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime());
-                cita.setMotivo(rs.getString("motivo"));
-                cita.setEstado(rs.getString("estado"));
+                Cita cita = new Cita.CitaBuilder()
+                        .idCita(rs.getString("id_cita"))
+                        .ciPaciente(rs.getString("ci_paciente"))
+                        .fechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime())
+                        .motivo(rs.getString("motivo"))
+                        .estado(rs.getString("estado"))
+                        .build();
                 citas.add(cita);
             }
         } catch (SQLException e) {
@@ -57,12 +58,13 @@ public class CitaDAO {
             stmt.setString(1, idCita);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    cita = new Cita();
-                    cita.setIdCita(rs.getString("id_cita"));
-                    cita.setCiPaciente(rs.getString("ci_paciente"));
-                    cita.setFechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime());
-                    cita.setMotivo(rs.getString("motivo"));
-                    cita.setEstado(rs.getString("estado"));
+                    cita = new Cita.CitaBuilder()
+                            .idCita(rs.getString("id_cita"))
+                            .ciPaciente(rs.getString("ci_paciente"))
+                            .fechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime())
+                            .motivo(rs.getString("motivo"))
+                            .estado(rs.getString("estado"))
+                            .build();
                 }
             }
         } catch (SQLException e) {

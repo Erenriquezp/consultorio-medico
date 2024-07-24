@@ -32,11 +32,12 @@ public class EvolucionDAO {
             pstmt.setInt(1, idEvolucion);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    Evolucion evolucion = new Evolucion();
-                    evolucion.setIdEvolucion(rs.getInt("id_evolucion"));
-                    evolucion.setIdHistoriaClinica(rs.getString("id_historia_clinica"));
-                    evolucion.setFecha(rs.getDate("fecha"));
-                    evolucion.setDescripcion(rs.getString("descripcion"));
+                    Evolucion evolucion = new Evolucion.EvolutionBuilder()
+                            .idEvolucion(rs.getInt("id_evolucion"))
+                            .idHistoriaClinica(rs.getString("id_historia_clinica"))
+                            .fecha(rs.getDate("fecha"))
+                            .descripcion(rs.getString("descripcion"))
+                            .build();
                     return evolucion;
                 }
             }
@@ -51,11 +52,12 @@ public class EvolucionDAO {
         try (Statement stmt = conexion.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Evolucion evolucion = new Evolucion();
-                evolucion.setIdEvolucion(rs.getInt("id_evolucion"));
-                evolucion.setIdHistoriaClinica(rs.getString("id_historia_clinica"));
-                evolucion.setFecha(rs.getDate("fecha"));
-                evolucion.setDescripcion(rs.getString("descripcion"));
+                Evolucion evolucion = new Evolucion.EvolutionBuilder()
+                        .idEvolucion(rs.getInt("id_evolucion"))
+                        .idHistoriaClinica(rs.getString("id_historia_clinica"))
+                        .fecha(rs.getDate("fecha"))
+                        .descripcion(rs.getString("descripcion"))
+                        .build();
                 evoluciones.add(evolucion);
             }
         }

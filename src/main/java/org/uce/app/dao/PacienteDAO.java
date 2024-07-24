@@ -57,34 +57,36 @@ public class PacienteDAO {
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Paciente paciente = new Paciente();
-                paciente.setCiPaciente(rs.getString("ci_paciente"));
-                paciente.setPrimerNombre(rs.getString("primer_nombre"));
-                paciente.setSegundoNombre(rs.getString("segundo_nombre"));
-                paciente.setApellidoPaterno(rs.getString("apellido_paterno"));
-                paciente.setApellidoMaterno(rs.getString("apellido_materno"));
-                paciente.setDireccionResidencia(rs.getString("direccion_residencia"));
-                paciente.setBarrio(rs.getString("barrio"));
-                paciente.setParroquia(rs.getString("parroquia"));
-                paciente.setCanton(rs.getString("canton"));
-                paciente.setProvincia(rs.getString("provincia"));
-                paciente.setTelefono(rs.getString("telefono"));
-                paciente.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
-                paciente.setLugarNacimiento(rs.getString("lugar_nacimiento"));
-                paciente.setNacionalidad(rs.getString("nacionalidad"));
-                paciente.setGrupoCultural(rs.getString("grupo_cultural"));
-                paciente.setEdad(rs.getInt("edad"));
-                paciente.setEstadoCivil(rs.getString("estado_civil"));
-                paciente.setInstruccionUltimoAnio(rs.getString("instruccion_ultimo_anio"));
-                paciente.setFechaAdmision(rs.getDate("fecha_admision").toLocalDate());
-                paciente.setOcupacion(rs.getString("ocupacion"));
-                paciente.setLugarTrabajo(rs.getString("lugar_trabajo"));
-                paciente.setTipoSeguro(rs.getString("tipo_seguro"));
-                paciente.setReferencia(rs.getString("referencia"));
-                paciente.setContactoEmergenciaNombre(rs.getString("contacto_emergencia_nombre"));
-                paciente.setContactoEmergenciaParentesco(rs.getString("contacto_emergencia_parentesco"));
-                paciente.setContactoEmergenciaDireccion(rs.getString("contacto_emergencia_direccion"));
-                paciente.setContactoEmergenciaTelefono(rs.getString("contacto_emergencia_telefono"));
+                Paciente paciente = new Paciente.PacienteBuilder()
+                        .ciPaciente(rs.getString("ci_paciente"))
+                        .primerNombre(rs.getString("primer_nombre"))
+                        .segundoNombre(rs.getString("segundo_nombre"))
+                        .apellidoPaterno(rs.getString("apellido_paterno"))
+                        .apellidoMaterno(rs.getString("apellido_materno"))
+                        .direccionResidencia(rs.getString("direccion_residencia"))
+                        .barrio(rs.getString("barrio"))
+                        .parroquia(rs.getString("parroquia"))
+                        .canton(rs.getString("canton"))
+                        .provincia(rs.getString("provincia"))
+                        .telefono(rs.getString("telefono"))
+                        .fechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate())
+                        .lugarNacimiento(rs.getString("lugar_nacimiento"))
+                        .nacionalidad(rs.getString("nacionalidad"))
+                        .grupoCultural(rs.getString("grupo_cultural"))
+                        .edad(rs.getInt("edad"))
+                        .estadoCivil(rs.getString("estado_civil"))
+                        .instruccionUltimoAnio(rs.getString("instruccion_ultimo_anio"))
+                        .fechaAdmision(rs.getDate("fecha_admision").toLocalDate())
+                        .ocupacion(rs.getString("ocupacion"))
+                        .lugarTrabajo(rs.getString("lugar_trabajo"))
+                        .tipoSeguro(rs.getString("tipo_seguro"))
+                        .referencia(rs.getString("referencia"))
+                        .contactoEmergenciaParentesco(rs.getString("contacto_emergencia_parentesco"))
+                        .contactoEmergenciaNombre(rs.getString("contacto_emergencia_nombre"))
+                        .contactoEmergenciaDireccion(rs.getString("contacto_emergencia_direccion"))
+                        .contactoEmergenciaTelefono(rs.getString("contacto_emergencia_telefono"))
+                        .build();
+
                 pacientes.add(paciente);
 
             }
@@ -103,34 +105,36 @@ public class PacienteDAO {
             stmt.setString(1, ciPaciente);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    paciente = new Paciente();
-                    paciente.setCiPaciente(rs.getString("ci_paciente"));
-                    paciente.setPrimerNombre(rs.getString("primer_nombre"));
-                    paciente.setSegundoNombre(rs.getString("segundo_nombre"));
-                    paciente.setApellidoPaterno(rs.getString("apellido_paterno"));
-                    paciente.setApellidoMaterno(rs.getString("apellido_materno"));
-                    paciente.setDireccionResidencia(rs.getString("direccion_residencia"));
-                    paciente.setBarrio(rs.getString("barrio"));
-                    paciente.setParroquia(rs.getString("parroquia"));
-                    paciente.setCanton(rs.getString("canton"));
-                    paciente.setProvincia(rs.getString("provincia"));
-                    paciente.setTelefono(rs.getString("telefono"));
-                    paciente.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
-                    paciente.setLugarNacimiento(rs.getString("lugar_nacimiento"));
-                    paciente.setNacionalidad(rs.getString("nacionalidad"));
-                    paciente.setGrupoCultural(rs.getString("grupo_cultural"));
-                    paciente.setEdad(rs.getInt("edad"));
-                    paciente.setEstadoCivil(rs.getString("estado_civil"));
-                    paciente.setInstruccionUltimoAnio(rs.getString("instruccion_ultimo_anio"));
-                    paciente.setFechaAdmision(rs.getDate("fecha_admision").toLocalDate());
-                    paciente.setOcupacion(rs.getString("ocupacion"));
-                    paciente.setLugarTrabajo(rs.getString("lugar_trabajo"));
-                    paciente.setTipoSeguro(rs.getString("tipo_seguro"));
-                    paciente.setReferencia(rs.getString("referencia"));
-                    paciente.setContactoEmergenciaNombre(rs.getString("contacto_emergencia_nombre"));
-                    paciente.setContactoEmergenciaParentesco(rs.getString("contacto_emergencia_parentesco"));
-                    paciente.setContactoEmergenciaDireccion(rs.getString("contacto_emergencia_direccion"));
-                    paciente.setContactoEmergenciaTelefono(rs.getString("contacto_emergencia_telefono"));
+                    paciente = new Paciente.PacienteBuilder()
+                            .ciPaciente(rs.getString("ci_paciente"))
+                            .primerNombre(rs.getString("primer_nombre"))
+                            .segundoNombre(rs.getString("segundo_nombre"))
+                            .apellidoPaterno(rs.getString("apellido_paterno"))
+                            .apellidoMaterno(rs.getString("apellido_materno"))
+                            .direccionResidencia(rs.getString("direccion_residencia"))
+                            .barrio(rs.getString("barrio"))
+                            .parroquia(rs.getString("parroquia"))
+                            .canton(rs.getString("canton"))
+                            .provincia(rs.getString("provincia"))
+                            .telefono(rs.getString("telefono"))
+                            .fechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate())
+                            .lugarNacimiento(rs.getString("lugar_nacimiento"))
+                            .nacionalidad(rs.getString("nacionalidad"))
+                            .grupoCultural(rs.getString("grupo_cultural"))
+                            .edad(rs.getInt("edad"))
+                            .estadoCivil(rs.getString("estado_civil"))
+                            .instruccionUltimoAnio(rs.getString("instruccion_ultimo_anio"))
+                            .fechaAdmision(rs.getDate("fecha_admision").toLocalDate())
+                            .ocupacion(rs.getString("ocupacion"))
+                            .lugarTrabajo(rs.getString("lugar_trabajo"))
+                            .tipoSeguro(rs.getString("tipo_seguro"))
+                            .referencia(rs.getString("referencia"))
+                            .contactoEmergenciaParentesco(rs.getString("contacto_emergencia_parentesco"))
+                            .contactoEmergenciaNombre(rs.getString("contacto_emergencia_nombre"))
+                            .contactoEmergenciaDireccion(rs.getString("contacto_emergencia_direccion"))
+                            .contactoEmergenciaTelefono(rs.getString("contacto_emergencia_telefono"))
+                            .build();
+
                 }
             }
         } catch (SQLException e) {

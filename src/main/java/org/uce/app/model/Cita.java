@@ -3,60 +3,76 @@ package org.uce.app.model;
 import java.time.LocalDateTime;
 
 public class Cita {
-    private String idCita;
-    private String ciPaciente;
-    private LocalDateTime fechaCita;
-    private String motivo;
-    private String estado;
+    private final String idCita;
+    private final String ciPaciente;
+    private final LocalDateTime fechaCita;
+    private final String motivo;
+    private final String estado;
 
-    public Cita() {
+    public Cita(CitaBuilder builder) {
+        this.idCita = builder.idCita;
+        this.ciPaciente = builder.ciPaciente;
+        this.fechaCita = builder.fechaCita;
+        this.motivo = builder.motivo;
+        this.estado = builder.estado;
     }
 
-    public Cita(String idCita, String ciPaciente, LocalDateTime fechaCita, String motivo, String estado) {
-        this.idCita = idCita;
-        this.ciPaciente = ciPaciente;
-        this.fechaCita = fechaCita;
-        this.motivo = motivo;
-        this.estado = estado;
-    }
+    public static class CitaBuilder {
+        private String idCita;
+        private String ciPaciente;
+        private LocalDateTime fechaCita;
+        private String motivo;
+        private String estado;
 
-    public String getIdCita() {
-        return idCita;
-    }
+        public CitaBuilder(){}
 
-    public void setIdCita(String idCita) {
-        this.idCita = idCita;
-    }
+        public CitaBuilder idCita(String idCita) {
+            this.idCita = idCita;
+            return this;
+        }
 
-    public String getCiPaciente() {
-        return ciPaciente;
-    }
+        public CitaBuilder ciPaciente(String ciPaciente) {
+            this.ciPaciente = ciPaciente;
+            return this;
+        }
 
-    public void setCiPaciente(String ciPaciente) {
-        this.ciPaciente = ciPaciente;
-    }
+        public CitaBuilder fechaCita(LocalDateTime fechaCita) {
+            this.fechaCita = fechaCita;
+            return this;
+        }
 
-    public LocalDateTime getFechaCita() {
-        return fechaCita;
-    }
+        public CitaBuilder motivo(String motivo) {
+            this.motivo = motivo;
+            return this;
+        }
 
-    public void setFechaCita(LocalDateTime fechaCita) {
-        this.fechaCita = fechaCita;
-    }
+        public CitaBuilder estado(String estado) {
+            this.estado = estado;
+            return this;
+        }
 
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+        public Cita build(){
+            return new Cita(this);
+        }
     }
 
     public String getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public LocalDateTime getFechaCita() {
+        return fechaCita;
+    }
+
+    public String getCiPaciente() {
+        return ciPaciente;
+    }
+
+    public String getIdCita() {
+        return idCita;
     }
 }

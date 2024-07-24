@@ -82,7 +82,13 @@ public class GestionCitasController {
             return;
         }
 
-        Cita cita = new Cita(idCita, ciPaciente, fechaCita.atStartOfDay(), motivo, estado);
+        Cita cita = new Cita.CitaBuilder()
+                .idCita(idCita)
+                .ciPaciente(ciPaciente)
+                .fechaCita(fechaCita.atStartOfDay())
+                .motivo(motivo)
+                .estado(estado)
+                .build();
         boolean success = citaService.createCita(cita);
 
         Alert alert;

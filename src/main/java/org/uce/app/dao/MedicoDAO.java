@@ -34,12 +34,13 @@ public class MedicoDAO {
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Medico medico = new Medico();
-                medico.setCiMedico(rs.getString("ciMedico"));
-                medico.setApellidos(rs.getString("apellidos"));
-                medico.setNombres(rs.getString("nombres"));
-                medico.setTelefono(rs.getString("telefono"));
-                medico.setEmail(rs.getString("email"));
+                Medico medico = new Medico.MedicoBuilder()
+                        .ciMedico(rs.getString("ci_medico"))
+                        .apellidos(rs.getString("apellidos"))
+                        .nombres(rs.getString("nombres"))
+                        .telefono(rs.getString("telefono"))
+                        .email(rs.getString("email"))
+                        .build();
                 medicos.add(medico);
             }
         } catch (SQLException e) {
@@ -57,12 +58,13 @@ public class MedicoDAO {
             stmt.setString(1, ciMedico);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    medico = new Medico();
-                    medico.setCiMedico(rs.getString("ciMedico"));
-                    medico.setApellidos(rs.getString("apellidos"));
-                    medico.setNombres(rs.getString("nombres"));
-                    medico.setTelefono(rs.getString("telefono"));
-                    medico.setEmail(rs.getString("email"));
+                    medico = new Medico.MedicoBuilder()
+                            .ciMedico(rs.getString("ci_medico"))
+                            .apellidos(rs.getString("apellidos"))
+                            .nombres(rs.getString("nombres"))
+                            .telefono(rs.getString("telefono"))
+                            .email(rs.getString("email"))
+                            .build();
                 }
             }
         } catch (SQLException e) {

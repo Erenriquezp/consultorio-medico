@@ -206,11 +206,36 @@ public class GestionPacientesController {
         String contactoEmergenciaTelefono = contactoEmergenciaTelefonoField.getText();
 
         // Crear una instancia de Paciente con los datos ingresados
-        Paciente paciente = new Paciente(ciPaciente, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno,
-                direccionResidencia, barrio, parroquia, canton, provincia, telefono, fechaNacimiento, lugarNacimiento,
-                nacionalidad, grupoCultural, edad, estadoCivil, instruccionUltimoAnio, fechaAdmision, ocupacion,
-                lugarTrabajo, tipoSeguro, referencia, contactoEmergenciaParentesco, contactoEmergenciaNombre,
-                contactoEmergenciaDireccion, contactoEmergenciaTelefono);
+        Paciente paciente = new Paciente.PacienteBuilder()
+                .ciPaciente(ciPaciente)
+                .primerNombre(primerNombre)
+                .segundoNombre(segundoNombre)
+                .apellidoPaterno(apellidoPaterno)
+                .apellidoMaterno(apellidoMaterno)
+                .direccionResidencia(direccionResidencia)
+                .barrio(barrio)
+                .parroquia(parroquia)
+                .canton(canton)
+                .provincia(provincia)
+                .telefono(telefono)
+                .fechaNacimiento(fechaNacimiento)
+                .lugarNacimiento(lugarNacimiento)
+                .nacionalidad(nacionalidad)
+                .grupoCultural(grupoCultural)
+                .edad(edad)
+                .estadoCivil(estadoCivil)
+                .instruccionUltimoAnio(instruccionUltimoAnio)
+                .fechaAdmision(fechaAdmision)
+                .ocupacion(ocupacion)
+                .lugarTrabajo(lugarTrabajo)
+                .tipoSeguro(tipoSeguro)
+                .referencia(referencia)
+                .contactoEmergenciaParentesco(contactoEmergenciaParentesco)
+                .contactoEmergenciaNombre(contactoEmergenciaNombre)
+                .contactoEmergenciaDireccion(contactoEmergenciaDireccion)
+                .contactoEmergenciaTelefono(contactoEmergenciaTelefono)
+                .build();
+
 
         // Intentar agregar el paciente usando PacienteService
         boolean success = pacienteService.createPaciente(paciente);

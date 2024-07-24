@@ -1,32 +1,51 @@
 package org.uce.app.model;
 
 public class Usuario {
-    private String username;
-    private String password;
-    private String ci;
+    private final String username;
+    private final String password;
+    private final String ci;
 
-    // Getters y Setters
-    public String getUsername() {
-        return username;
+    private Usuario(UsuarioBuilder builder) {
+        this.username = builder.username;
+        this.password = builder.password;
+        this.ci = builder.ci;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static class UsuarioBuilder {
+        private String username;
+        private String password;
+        private String ci;
+
+        public UsuarioBuilder username(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public UsuarioBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public UsuarioBuilder ci(String ci) {
+            this.ci = ci;
+            return this;
+        }
+
+        public Usuario build() {
+            return new Usuario(this);
+        }
+    }
+
+    // Getters (opcional)
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getCi() {
         return ci;
-    }
-
-    public void setCi(String ci) {
-        this.ci = ci;
     }
 }

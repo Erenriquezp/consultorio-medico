@@ -15,10 +15,12 @@ public class UsuarioDAO {
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Usuario usuario = new Usuario();
-                usuario.setUsername(rs.getString("med_user"));
-                usuario.setPassword(rs.getString("med_password"));
-                usuario.setCi(rs.getString("ci_medico"));
+                Usuario usuario = new Usuario.UsuarioBuilder()
+                        .username(rs.getString("med_user"))
+                        .password(rs.getString("med_password"))
+                        .ci(rs.getString("ci_medico"))
+                        .build();
+
                 System.out.println(usuario.getUsername());
                 return usuario;
             }

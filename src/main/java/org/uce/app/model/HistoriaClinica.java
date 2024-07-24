@@ -1,276 +1,378 @@
 package org.uce.app.model;
 
 public class HistoriaClinica {
+    private final String idHistoriaClinica;
+    private final String ciMedico;
+    private final String ciPaciente;
+    private final String motivoConsulta;
+    private final String antecedentesPersonales;
+    private final String antecedentesFamiliares;
+    private final String enfermedadesActuales;
+    private final String raosOrganosSentidos;
+    private final String raosRespiratorio;
+    private final String raosCardiovascular;
+    private final String raosDigestivo;
+    private final String raosGenital;
+    private final String raosUrinario;
+    private final String raosMusculoEsqueletico;
+    private final String raosEndocrino;
+    private final String raosHemoLinfatico;
+    private final String raosNervioso;
+    private final String svaFechaMedicion;
+    private final String svaTemperatura;
+    private final String svaPresionArterial;
+    private final String svaPulsoMinFreRespiratoria;
+    private final String svaPesoKgTallaCm;
+    private final String efrCabeza;
+    private final String efrCuello;
+    private final String efrTorax;
+    private final String efrAbdomen;
+    private final String efrPelvs;
+    private final String efrExtremidades;
+    private final String diagnosticoDesc;
+    private final String diagnosticoCIE;
 
-    private String idHistoriaClinica;
-    private String ciMedico;
-    private String ciPaciente;
-    private String motivoConsulta;
-    private String antecedentesPersonales;
-    private String antecedentesFamiliares;
-    private String enfermedadesActuales;
-    private String raosOrganosSentidos;
-    private String raosRespiratorio;
-    private String raosCardiovascular;
-    private String raosDigestivo;
-    private String raosGenital;
-    private String raosUrinario;
-    private String raosMusculoEsqueletico;
-    private String raosEndocrino;
-    private String raosHemoLinfatico;
-    private String raosNervioso;
-    private String svaFechaMedicion;
-    private String svaTemperatura;
-    private String svaPresionArterial;
-    private String svaPulsoMinFreRespiratoria;
-    private String svaPesoKgTallaCm;
-    private String efrCabeza;
-    private String efrCuello;
-    private String efrTorax;
-    private String efrAbdomen;
-    private String efrPelvs;
-    private String efrExtremidades;
-    private String diagnosticoDesc;
-    private String diagnosticoCIE;
-
-    // Getters and Setters
-    public String getIdHistoriaClinica() {
-        return idHistoriaClinica;
+    private HistoriaClinica(HistoriaClinicaBuilder builder) {
+        this.idHistoriaClinica = builder.idHistoriaClinica;
+        this.ciMedico = builder.ciMedico;
+        this.ciPaciente = builder.ciPaciente;
+        this.motivoConsulta = builder.motivoConsulta;
+        this.antecedentesPersonales = builder.antecedentesPersonales;
+        this.antecedentesFamiliares = builder.antecedentesFamiliares;
+        this.enfermedadesActuales = builder.enfermedadesActuales;
+        this.raosOrganosSentidos = builder.raosOrganosSentidos;
+        this.raosRespiratorio = builder.raosRespiratorio;
+        this.raosCardiovascular = builder.raosCardiovascular;
+        this.raosDigestivo = builder.raosDigestivo;
+        this.raosGenital = builder.raosGenital;
+        this.raosUrinario = builder.raosUrinario;
+        this.raosMusculoEsqueletico = builder.raosMusculoEsqueletico;
+        this.raosEndocrino = builder.raosEndocrino;
+        this.raosHemoLinfatico = builder.raosHemoLinfatico;
+        this.raosNervioso = builder.raosNervioso;
+        this.svaFechaMedicion = builder.svaFechaMedicion;
+        this.svaTemperatura = builder.svaTemperatura;
+        this.svaPresionArterial = builder.svaPresionArterial;
+        this.svaPulsoMinFreRespiratoria = builder.svaPulsoMinFreRespiratoria;
+        this.svaPesoKgTallaCm = builder.svaPesoKgTallaCm;
+        this.efrCabeza = builder.efrCabeza;
+        this.efrCuello = builder.efrCuello;
+        this.efrTorax = builder.efrTorax;
+        this.efrAbdomen = builder.efrAbdomen;
+        this.efrPelvs = builder.efrPelvs;
+        this.efrExtremidades = builder.efrExtremidades;
+        this.diagnosticoDesc = builder.diagnosticoDesc;
+        this.diagnosticoCIE = builder.diagnosticoCIE;
     }
 
-    public void setIdHistoriaClinica(String idHistoriaClinica) {
-        this.idHistoriaClinica = idHistoriaClinica;
+    public static class HistoriaClinicaBuilder {
+        private String idHistoriaClinica;
+        private String ciMedico;
+        private String ciPaciente;
+        private String motivoConsulta;
+        private String antecedentesPersonales;
+        private String antecedentesFamiliares;
+        private String enfermedadesActuales;
+        private String raosOrganosSentidos;
+        private String raosRespiratorio;
+        private String raosCardiovascular;
+        private String raosDigestivo;
+        private String raosGenital;
+        private String raosUrinario;
+        private String raosMusculoEsqueletico;
+        private String raosEndocrino;
+        private String raosHemoLinfatico;
+        private String raosNervioso;
+        private String svaFechaMedicion;
+        private String svaTemperatura;
+        private String svaPresionArterial;
+        private String svaPulsoMinFreRespiratoria;
+        private String svaPesoKgTallaCm;
+        private String efrCabeza;
+        private String efrCuello;
+        private String efrTorax;
+        private String efrAbdomen;
+        private String efrPelvs;
+        private String efrExtremidades;
+        private String diagnosticoDesc;
+        private String diagnosticoCIE;
+
+        public HistoriaClinicaBuilder() {
+        }
+
+        public HistoriaClinicaBuilder idHistoriaClinica(String idHistoriaClinica) {
+            this.idHistoriaClinica = idHistoriaClinica;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder ciMedico(String ciMedico) {
+            this.ciMedico = ciMedico;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder ciPaciente(String ciPaciente) {
+            this.ciPaciente = ciPaciente;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder motivoConsulta(String motivoConsulta) {
+            this.motivoConsulta = motivoConsulta;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder antecedentesPersonales(String antecedentesPersonales) {
+            this.antecedentesPersonales = antecedentesPersonales;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder antecedentesFamiliares(String antecedentesFamiliares) {
+            this.antecedentesFamiliares = antecedentesFamiliares;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder enfermedadesActuales(String enfermedadesActuales) {
+            this.enfermedadesActuales = enfermedadesActuales;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosOrganosSentidos(String raosOrganosSentidos) {
+            this.raosOrganosSentidos = raosOrganosSentidos;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosRespiratorio(String raosRespiratorio) {
+            this.raosRespiratorio = raosRespiratorio;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosCardiovascular(String raosCardiovascular) {
+            this.raosCardiovascular = raosCardiovascular;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosDigestivo(String raosDigestivo) {
+            this.raosDigestivo = raosDigestivo;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosGenital(String raosGenital) {
+            this.raosGenital = raosGenital;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosUrinario(String raosUrinario) {
+            this.raosUrinario = raosUrinario;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosMusculoEsqueletico(String raosMusculoEsqueletico) {
+            this.raosMusculoEsqueletico = raosMusculoEsqueletico;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosEndocrino(String raosEndocrino) {
+            this.raosEndocrino = raosEndocrino;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosHemoLinfatico(String raosHemoLinfatico) {
+            this.raosHemoLinfatico = raosHemoLinfatico;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder raosNervioso(String raosNervioso) {
+            this.raosNervioso = raosNervioso;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder svaFechaMedicion(String svaFechaMedicion) {
+            this.svaFechaMedicion = svaFechaMedicion;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder svaTemperatura(String svaTemperatura) {
+            this.svaTemperatura = svaTemperatura;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder svaPresionArterial(String svaPresionArterial) {
+            this.svaPresionArterial = svaPresionArterial;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder svaPulsoMinFreRespiratoria(String svaPulsoMinFreRespiratoria) {
+            this.svaPulsoMinFreRespiratoria = svaPulsoMinFreRespiratoria;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder svaPesoKgTallaCm(String svaPesoKgTallaCm) {
+            this.svaPesoKgTallaCm = svaPesoKgTallaCm;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder efrCabeza(String efrCabeza) {
+            this.efrCabeza = efrCabeza;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder efrCuello(String efrCuello) {
+            this.efrCuello = efrCuello;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder efrTorax(String efrTorax) {
+            this.efrTorax = efrTorax;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder efrAbdomen(String efrAbdomen) {
+            this.efrAbdomen = efrAbdomen;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder efrPelvs(String efrPelvs) {
+            this.efrPelvs = efrPelvs;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder efrExtremidades(String efrExtremidades) {
+            this.efrExtremidades = efrExtremidades;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder diagnosticoDesc(String diagnosticoDesc) {
+            this.diagnosticoDesc = diagnosticoDesc;
+            return this;
+        }
+
+        public HistoriaClinicaBuilder diagnosticoCIE(String diagnosticoCIE) {
+            this.diagnosticoCIE = diagnosticoCIE;
+            return this;
+        }
+
+        public HistoriaClinica build() {
+            return new HistoriaClinica(this);
+        }
+    }
+
+    // Getters for all fields
+    public String getIdHistoriaClinica() {
+        return idHistoriaClinica;
     }
 
     public String getCiMedico() {
         return ciMedico;
     }
 
-    public void setCiMedico(String ciMedico) {
-        this.ciMedico = ciMedico;
-    }
-
     public String getCiPaciente() {
         return ciPaciente;
-    }
-
-    public void setCiPaciente(String ciPaciente) {
-        this.ciPaciente = ciPaciente;
     }
 
     public String getMotivoConsulta() {
         return motivoConsulta;
     }
 
-    public void setMotivoConsulta(String motivoConsulta) {
-        this.motivoConsulta = motivoConsulta;
-    }
-
     public String getAntecedentesPersonales() {
         return antecedentesPersonales;
-    }
-
-    public void setAntecedentesPersonales(String antecedentesPersonales) {
-        this.antecedentesPersonales = antecedentesPersonales;
     }
 
     public String getAntecedentesFamiliares() {
         return antecedentesFamiliares;
     }
 
-    public void setAntecedentesFamiliares(String antecedentesFamiliares) {
-        this.antecedentesFamiliares = antecedentesFamiliares;
-    }
-
     public String getEnfermedadesActuales() {
         return enfermedadesActuales;
-    }
-
-    public void setEnfermedadesActuales(String enfermedadesActuales) {
-        this.enfermedadesActuales = enfermedadesActuales;
     }
 
     public String getRaosOrganosSentidos() {
         return raosOrganosSentidos;
     }
 
-    public void setRaosOrganosSentidos(String raosOrganosSentidos) {
-        this.raosOrganosSentidos = raosOrganosSentidos;
-    }
-
     public String getRaosRespiratorio() {
         return raosRespiratorio;
-    }
-
-    public void setRaosRespiratorio(String raosRespiratorio) {
-        this.raosRespiratorio = raosRespiratorio;
     }
 
     public String getRaosCardiovascular() {
         return raosCardiovascular;
     }
 
-    public void setRaosCardiovascular(String raosCardiovascular) {
-        this.raosCardiovascular = raosCardiovascular;
-    }
-
     public String getRaosDigestivo() {
         return raosDigestivo;
-    }
-
-    public void setRaosDigestivo(String raosDigestivo) {
-        this.raosDigestivo = raosDigestivo;
     }
 
     public String getRaosGenital() {
         return raosGenital;
     }
 
-    public void setRaosGenital(String raosGenital) {
-        this.raosGenital = raosGenital;
-    }
-
     public String getRaosUrinario() {
         return raosUrinario;
-    }
-
-    public void setRaosUrinario(String raosUrinario) {
-        this.raosUrinario = raosUrinario;
     }
 
     public String getRaosMusculoEsqueletico() {
         return raosMusculoEsqueletico;
     }
 
-    public void setRaosMusculoEsqueletico(String raosMusculoEsqueletico) {
-        this.raosMusculoEsqueletico = raosMusculoEsqueletico;
-    }
-
     public String getRaosEndocrino() {
         return raosEndocrino;
-    }
-
-    public void setRaosEndocrino(String raosEndocrino) {
-        this.raosEndocrino = raosEndocrino;
     }
 
     public String getRaosHemoLinfatico() {
         return raosHemoLinfatico;
     }
 
-    public void setRaosHemoLinfatico(String raosHemoLinfatico) {
-        this.raosHemoLinfatico = raosHemoLinfatico;
-    }
-
     public String getRaosNervioso() {
         return raosNervioso;
-    }
-
-    public void setRaosNervioso(String raosNervioso) {
-        this.raosNervioso = raosNervioso;
     }
 
     public String getSvaFechaMedicion() {
         return svaFechaMedicion;
     }
 
-    public void setSvaFechaMedicion(String svaFechaMedicion) {
-        this.svaFechaMedicion = svaFechaMedicion;
-    }
-
     public String getSvaTemperatura() {
         return svaTemperatura;
-    }
-
-    public void setSvaTemperatura(String svaTemperatura) {
-        this.svaTemperatura = svaTemperatura;
     }
 
     public String getSvaPresionArterial() {
         return svaPresionArterial;
     }
 
-    public void setSvaPresionArterial(String svaPresionArterial) {
-        this.svaPresionArterial = svaPresionArterial;
-    }
-
     public String getSvaPulsoMinFreRespiratoria() {
         return svaPulsoMinFreRespiratoria;
-    }
-
-    public void setSvaPulsoMinFreRespiratoria(String svaPulsoMinFreRespiratoria) {
-        this.svaPulsoMinFreRespiratoria = svaPulsoMinFreRespiratoria;
     }
 
     public String getSvaPesoKgTallaCm() {
         return svaPesoKgTallaCm;
     }
 
-    public void setSvaPesoKgTallaCm(String svaPesoKgTallaCm) {
-        this.svaPesoKgTallaCm = svaPesoKgTallaCm;
-    }
-
     public String getEfrCabeza() {
         return efrCabeza;
-    }
-
-    public void setEfrCabeza(String efrCabeza) {
-        this.efrCabeza = efrCabeza;
     }
 
     public String getEfrCuello() {
         return efrCuello;
     }
 
-    public void setEfrCuello(String efrCuello) {
-        this.efrCuello = efrCuello;
-    }
-
     public String getEfrTorax() {
         return efrTorax;
-    }
-
-    public void setEfrTorax(String efrTorax) {
-        this.efrTorax = efrTorax;
     }
 
     public String getEfrAbdomen() {
         return efrAbdomen;
     }
 
-    public void setEfrAbdomen(String efrAbdomen) {
-        this.efrAbdomen = efrAbdomen;
-    }
-
     public String getEfrPelvs() {
         return efrPelvs;
-    }
-
-    public void setEfrPelvs(String efrPelvs) {
-        this.efrPelvs = efrPelvs;
     }
 
     public String getEfrExtremidades() {
         return efrExtremidades;
     }
 
-    public void setEfrExtremidades(String efrExtremidades) {
-        this.efrExtremidades = efrExtremidades;
-    }
-
     public String getDiagnosticoDesc() {
         return diagnosticoDesc;
     }
 
-    public void setDiagnosticoDesc(String diagnosticoDesc) {
-        this.diagnosticoDesc = diagnosticoDesc;
-    }
-
     public String getDiagnosticoCIE() {
         return diagnosticoCIE;
-    }
-
-    public void setDiagnosticoCIE(String diagnosticoCIE) {
-        this.diagnosticoCIE = diagnosticoCIE;
     }
 }
