@@ -30,7 +30,20 @@
    </HBox>
     <TextArea fx:id="motivoField" promptText="Motivo" text="Chequeo general" />
     <TextField fx:id="estadoField" promptText="Estado" text="Pendiente" />
-   <Button mnemonicParsing="false" text="Agregar cita" />
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button mnemonicParsing="false" text="Agregar cita" />
+         <Button fx:id="buttonActualizarCita" onAction="#agregarCita" text="Actualizar">
+            <HBox.margin>
+               <Insets left="200.0" />
+            </HBox.margin></Button>
+         <Button fx:id="buttonEliminarCita" onAction="#agregarCita" text="Eliminar Cita">
+            <HBox.margin>
+               <Insets left="180.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
     <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
         <columns>
             <TableColumn fx:id="idCitaColumn" prefWidth="106.0" text="ID Cita" />
@@ -40,16 +53,6 @@
             <TableColumn fx:id="estadoColumn" prefWidth="110.0" text="Estado" />
         </columns>
     </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Button fx:id="buttonActualizarCita" onAction="#agregarCita" text="Actualizar" />
-         <Button fx:id="buttonEliminarCita" onAction="#agregarCita" text="Eliminar Cita">
-            <HBox.margin>
-               <Insets left="470.0" />
-            </HBox.margin>
-         </Button>
-      </children>
-   </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
          <Label alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;">
