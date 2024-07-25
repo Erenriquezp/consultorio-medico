@@ -66,10 +66,31 @@
 
     <!-- Área de texto para el tratamiento -->
     <TextArea fx:id="tratamientoField" promptText="Tratamiento" />
-    <!-- Área de texto para ingresar el tratamiento -->
-
-    <!-- Botón para agregar una nueva entrada al historial -->
-    <Button onAction="#agregarEntrada" text="Ingresar Paciente" />
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button fx:id="buttonAddHClinic" onAction="#agregarEntrada" text="Agregar Historia Clínica">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="buttonUpdateHistoriC" onAction="#agregarCita" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets left="82.0" />
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="buttonDelateHistoriC" onAction="#agregarCita" text="Eliminar Historia Clínica" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets left="100.0" />
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+      </children>
+   </HBox>
     <!-- text define el texto que aparece en el botón -->
     <!-- onAction especifica el método en el controlador que se llama al hacer clic en el botón -->
 
@@ -85,6 +106,18 @@
             <TableColumn text="ID Paciente" /> <!-- Columna para el ID del paciente -->
         </columns>
     </TableView>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" HBox.hgrow="ALWAYS">
+            <font>
+               <Font name="Symbol" size="19.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="320.0" />
+            </HBox.margin>
+         </Label>
+      </children>
+   </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Regresar">

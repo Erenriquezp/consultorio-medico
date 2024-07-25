@@ -52,18 +52,18 @@
         <TextField fx:id="tipoSeguroField" promptText="Tipo de Seguro" text="Privado" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <SplitMenuButton fx:id="grupoCulturalMenu" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Grupo Cultural" GridPane.columnIndex="4" GridPane.rowIndex="2">
         <items>
-            <MenuItem mnemonicParsing="false" text="Afroecuatoriana" onAction="#handleGrupoCulturalMenuAction"/>
-            <MenuItem mnemonicParsing="false" text="Indigena" onAction="#handleGrupoCulturalMenuAction"/>
-            <MenuItem mnemonicParsing="false" text="Mestiza" onAction="#handleGrupoCulturalMenuAction"/>
-            <MenuItem mnemonicParsing="false" text="Montubia" onAction="#handleGrupoCulturalMenuAction"/>
-            <MenuItem mnemonicParsing="false" text="Blanca" onAction="#handleGrupoCulturalMenuAction"/>
+            <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Afroecuatoriana" />
+            <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Indigena" />
+            <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Mestiza" />
+            <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Montubia" />
+            <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Blanca" />
         </items>
       </SplitMenuButton>
       <SplitMenuButton fx:id="estadoCivilMenu" prefHeight="25.0" prefWidth="149.0" text="Estado Civil" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <items>
-            <MenuItem text="SOL" onAction="#handleEstadoCivilMenuAction"/>
-            <MenuItem text="CAS" onAction="#handleEstadoCivilMenuAction"/>
-            <MenuItem text="VIU" onAction="#handleEstadoCivilMenuAction"/>
+            <MenuItem onAction="#handleEstadoCivilMenuAction" text="SOL" />
+            <MenuItem onAction="#handleEstadoCivilMenuAction" text="CAS" />
+            <MenuItem onAction="#handleEstadoCivilMenuAction" text="VIU" />
         </items>
       </SplitMenuButton>
       <DatePicker fx:id="fechaAdmisionPicker" promptText="Fecha de Admision" GridPane.columnIndex="3" GridPane.rowIndex="3" />
@@ -88,70 +88,77 @@
             <RowConstraints />
         </rowConstraints>
     </GridPane>
-   <GridPane prefHeight="224.0" prefWidth="877.0">
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-     </rowConstraints>
+   <VBox prefHeight="200.0" prefWidth="100.0">
       <children>
-           <TextField fx:id="referenciaField" prefHeight="10.0" prefWidth="424.0" promptText="Referencia" GridPane.rowIndex="1">
-            <GridPane.margin>
-               <Insets right="5.0" />
-            </GridPane.margin>
-         </TextField>
-           <TextField fx:id="contactoEmergenciaParentescoField" promptText="Parentesco del Contacto de Emergencia" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <GridPane.margin>
-               <Insets left="10.0" />
-            </GridPane.margin>
-         </TextField>
-           <TextField fx:id="contactoEmergenciaNombreField" promptText="Nombre del Contacto de Emergencia" GridPane.rowIndex="2">
-            <GridPane.margin>
-               <Insets right="5.0" top="10.0" />
-            </GridPane.margin>
-         </TextField>
-              <TextField fx:id="contactoEmergenciaDireccionField" promptText="Dirección del Contacto de Emergencia" GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <GridPane.margin>
-               <Insets left="10.0" top="10.0" />
-            </GridPane.margin>
-         </TextField>
-           <TextField fx:id="contactoEmergenciaTelefonoField" text="09" promptText="Teléfono del Contacto de Emergencia" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets right="5.0" top="20.0" />
-            </GridPane.margin>
-         </TextField>
-         <Label text="Opcional*">
-            <font>
-               <Font name="System Italic" size="12.0" />
-            </font>
-         </Label>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                 <TextField fx:id="referenciaField" prefHeight="25.0" prefWidth="312.0" promptText="Referencia">
+                  <opaqueInsets>
+                     <Insets bottom="10.0" top="10.0" />
+                  </opaqueInsets>
+               </TextField>
+                 <TextField fx:id="contactoEmergenciaNombreField" prefHeight="25.0" prefWidth="316.0" promptText="Nombre del Contacto de Emergencia" />
+                 <TextField fx:id="contactoEmergenciaParentescoField" prefHeight="25.0" prefWidth="218.0" promptText="Parentesco del Contacto de Emergencia" />
+            </children>
+         </HBox>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                    <TextField fx:id="contactoEmergenciaDireccionField" prefHeight="25.0" prefWidth="313.0" promptText="Dirección del Contacto de Emergencia" />
+                 <TextField fx:id="contactoEmergenciaTelefonoField" prefHeight="25.0" prefWidth="318.0" promptText="Teléfono del Contacto de Emergencia" text="09" />
+               <Label text="Opcional*">
+                  <font>
+                     <Font name="System Italic" size="12.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets left="10.0" />
+                  </HBox.margin>
+               </Label>
+            </children>
+         </HBox>
       </children>
-   </GridPane>
-                <Button fx:id="buttonAgregaPaciente" alignment="CENTER" contentDisplay="CENTER" onAction="#agregarPaciente" prefHeight="45.0" prefWidth="118.0" text="Agregar Paciente">
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-      <VBox.margin>
-         <Insets top="10.0" />
-      </VBox.margin>
-   </Button>
+   </VBox>
+   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <children>
+                      <Button fx:id="buttonAgregaPaciente" alignment="CENTER" contentDisplay="CENTER" onAction="#agregarPaciente" prefHeight="25.0" prefWidth="118.0" text="Agregar Paciente" HBox.hgrow="ALWAYS">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="buttonActualizarPaciente" onAction="#agregarCita" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets left="250.0" />
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Button>
+         <Button fx:id="buttonEliminarPaciente" onAction="#agregarCita" text="Eliminar Paciente" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets left="262.0" />
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+      </children>
+   </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0" />
     <TableView fx:id="tablaPacientes" prefHeight="313.0" prefWidth="482.0" style="-fx-background-color: #E8F5E9;">
         <columns>
-            <TableColumn prefWidth="94.0" fx:id="ciPacienteColumn" text="Cédula" />
-            <TableColumn prefWidth="83.0" fx:id="primerNombreColumn" text="Primer Nombre" />
-            <TableColumn prefWidth="64.0" fx:id="segundoNombreColumn" text="Segundo Nombre" />
-            <TableColumn prefWidth="79.0" fx:id="apellidoPaternoColumn" text="Apellido Paterno" />
-            <TableColumn prefWidth="91.0" fx:id="apellidoMaternoColumn" text="Apellido Materno" />
-            <TableColumn prefWidth="91.0" fx:id="direccionResidenciaColumn" text="Dirección Residencia" />
-            <TableColumn prefWidth="85.0" fx:id="barrioColumn" text="Barrio" />
-            <TableColumn prefWidth="71.0" fx:id="parroquiaColumn" text="Parroquia" />
-            <TableColumn prefWidth="73.0" fx:id="cantonColumn" text="Cantón" />
+            <TableColumn fx:id="ciPacienteColumn" prefWidth="94.0" text="Cédula" />
+            <TableColumn fx:id="primerNombreColumn" prefWidth="83.0" text="Primer Nombre" />
+            <TableColumn fx:id="segundoNombreColumn" prefWidth="64.0" text="Segundo Nombre" />
+            <TableColumn fx:id="apellidoPaternoColumn" prefWidth="79.0" text="Apellido Paterno" />
+            <TableColumn fx:id="apellidoMaternoColumn" prefWidth="91.0" text="Apellido Materno" />
+            <TableColumn fx:id="direccionResidenciaColumn" prefWidth="91.0" text="Dirección Residencia" />
+            <TableColumn fx:id="barrioColumn" prefWidth="85.0" text="Barrio" />
+            <TableColumn fx:id="parroquiaColumn" prefWidth="71.0" text="Parroquia" />
+            <TableColumn fx:id="cantonColumn" prefWidth="73.0" text="Cantón" />
             <TableColumn fx:id="provinciaColumn" text="Provincia" />
             <TableColumn fx:id="telefonoColumn" text="Teléfono" />
             <TableColumn fx:id="fechaNacimientoColumn" text="Fecha de Nacimiento" />
@@ -171,14 +178,26 @@
             <TableColumn fx:id="contactoEmergenciaTelefonoColumn" text="Contacto de Emergencia Teléfono" />
         </columns>
     </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <children>
-         <Button fx:id="buttonRegresar" onAction="#handleRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Regresar">
+         <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" HBox.hgrow="ALWAYS">
+            <font>
+               <Font name="Symbol" size="19.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="575.0" />
+            </HBox.margin>
+         </Label>
+      </children>
+   </HBox>
+   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <children>
+         <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="71.0" text="Regresar" HBox.hgrow="ALWAYS">
             <font>
                <Font name="System Bold Italic" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonSalir" onAction="#handleSalir" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Salir">
+         <Button fx:id="buttonSalir" alignment="CENTER" mnemonicParsing="false" onAction="#handleSalir" prefHeight="25.0" prefWidth="42.0" text="Salir" HBox.hgrow="ALWAYS">
             <HBox.margin>
                <Insets left="767.0" />
             </HBox.margin>

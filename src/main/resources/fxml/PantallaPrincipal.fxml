@@ -34,7 +34,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Button fx:id="buttonGestPaciente" mnemonicParsing="false" onAction="#gestionarPacientes" text="Gestion Pacientes">
@@ -58,15 +57,15 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="System Italic" size="12.0" />
+                        <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label text="En esta sección podrás ver y editar el historial médico de un paciente*" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label prefWidth="360.0" text="En esta sección podrás ver y editar el historial " GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="System Italic" size="12.0" />
+                        <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
                   <Button fx:id="buttonHistorialMed" mnemonicParsing="false" onAction="#gestionarHistorialMedico" text="Historial Medico" GridPane.rowIndex="2">
@@ -82,12 +81,15 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="System Italic" size="12.0" />
+                        <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label text="&quot;Salud y bienestar en cada consulta.&quot;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label prefWidth="360.0" text="médico de un paciente*" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
                      <GridPane.margin>
-                        <Insets left="50.0" />
+                        <Insets left="10.0" top="30.0" />
                      </GridPane.margin>
                   </Label>
                </children>
@@ -95,13 +97,25 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin>
             </GridPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Symbol" size="19.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="290.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefHeight="28.0" prefWidth="598.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonRegresar" onAction="#handleRegresar" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Regresar">
+            <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="75.0" text="Regresar">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -109,7 +123,7 @@
                   <Insets bottom="2.0" top="2.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="buttonSalir" onAction="#handleSalir" mnemonicParsing="false" text="Salir">
+            <Button fx:id="buttonSalir" mnemonicParsing="false" onAction="#handleSalir" text="Salir">
                <HBox.margin>
                   <Insets bottom="2.0" left="475.0" top="2.0" />
                </HBox.margin>
