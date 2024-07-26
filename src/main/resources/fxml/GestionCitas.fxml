@@ -32,12 +32,12 @@
     <TextField fx:id="estadoField" promptText="Estado" text="Pendiente" />
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button mnemonicParsing="false" text="Agregar cita" />
-         <Button fx:id="buttonActualizarCita" onAction="#agregarCita" text="Actualizar">
+         <Button mnemonicParsing="false" onAction="#agregarCita" text="Agregar cita" />
+         <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" text="Actualizar">
             <HBox.margin>
                <Insets left="200.0" />
             </HBox.margin></Button>
-         <Button fx:id="buttonEliminarCita" onAction="#agregarCita" text="Eliminar Cita">
+         <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" text="Eliminar Cita">
             <HBox.margin>
                <Insets left="180.0" />
             </HBox.margin>

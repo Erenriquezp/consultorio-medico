@@ -1,5 +1,6 @@
 package org.uce.app.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Cita;
 import org.uce.app.services.CitaService;
+import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -58,6 +60,22 @@ public class GestionCitasController {
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         loadCitas();
+        setupRowClickListener();
+    }
+    private void setupRowClickListener() {
+        tablaCitas.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                fillForm(newValue);
+            }
+        });
+    }
+
+    private void fillForm(Cita cita) {
+        idCitaField.setText(cita.getIdCita());
+        ciPacienteField.setText(cita.getCiPaciente());
+        fechaCitaField.setValue(cita.getFechaCita().toLocalDate());
+        motivoField.setText(cita.getMotivo());
+        estadoField.setText(cita.getEstado());
     }
 
     private void loadCitas() {
@@ -106,6 +124,76 @@ public class GestionCitasController {
         }
         alert.showAndWait();
     }
+    public void actualizarCita(ActionEvent actionEvent) {
+        Cita selectedCita = tablaCitas.getSelectionModel().getSelectedItem();
+        if (selectedCita == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Cita no seleccionada");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, seleccione una cita.");
+            alert.showAndWait();
+            return;
+        }
+
+        boolean success = citaService.updateCita(new Cita.CitaBuilder()
+                .idCita(idCitaField.getText())
+                .ciPaciente(ciPacienteField.getText())
+                .fechaCita(fechaCitaField.getValue().atStartOfDay())
+                .motivo(motivoField.getText())
+                .estado(estadoField.getText())
+                .build());
+
+        Alert alert;
+        if (success) {
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Éxito");
+            alert.setHeaderText(null);
+            alert.setContentText("Cita actualizada exitosamente.");
+            loadCitas();
+        } else {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Hubo un error al actualizar la cita.");
+        }
+        alert.showAndWait();
+    }
+
+    public void eliminarCita(ActionEvent actionEvent) {
+        Cita selectedCita = tablaCitas.getSelectionModel().getSelectedItem();
+        if (selectedCita == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Cita no seleccionada");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, seleccione una cita.");
+            alert.showAndWait();
+            return;
+        }
+
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Confirmar eliminación");
+        confirmAlert.setHeaderText(null);
+        confirmAlert.setContentText("¿Está seguro de que desea eliminar la cita seleccionada?");
+        confirmAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                boolean success = citaService.deleteCita(selectedCita.getIdCita());
+                Alert alert;
+                if (success) {
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Éxito");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Cita eliminada exitosamente.");
+                    loadCitas();
+                } else {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Hubo un error al eliminar la cita.");
+                }
+                alert.showAndWait();
+            }
+        });
+    }
 
     @FXML
     private void handleRegresar() {
@@ -122,7 +210,7 @@ public class GestionCitasController {
 
     private void cargarPantallaPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Paths.PANTALLA_PRINCIPAL.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
             Stage stage = new Stage();
             stage.setTitle("Pantalla Principal");
             stage.setScene(new Scene(loader.load()));

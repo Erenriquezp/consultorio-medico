@@ -30,7 +30,7 @@ public class PantallaPrincipalController {
     // Método llamado al hacer clic en el botón "Historial Médico"
     @FXML
     private void gestionarHistorialMedico() {
-        cargarPantalla(Paths.historialMedico, "Historial Médico");
+        cargarPantalla(Paths.historialMedico, "Historia Clínica");
     }
     @FXML
     private void handleRegresar() {
@@ -56,6 +56,8 @@ public class PantallaPrincipalController {
             stage.setScene(new Scene(loader.load()));
             // Muestra la ventana
             stage.show();
+            Stage pantallaPrincipal = (Stage) buttonRegresar.getScene().getWindow();
+            pantallaPrincipal.close();
         } catch (IOException e) {
             // Manejo de la excepción en caso de error al cargar el archivo FXML
             e.printStackTrace();

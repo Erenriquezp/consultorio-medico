@@ -44,7 +44,7 @@
         <TextField fx:id="lugarNacimientoField" promptText="Lugar de Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="2" />
         <TextField fx:id="nacionalidadField" promptText="Nacionalidad" text="Ecuatoriana" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
-        <TextField fx:id="edadField" promptText="Edad" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="edadField" promptText="Edad" text="18" GridPane.columnIndex="0" GridPane.rowIndex="3" />
         <TextField fx:id="instruccionField" promptText="Instrucción" text="Bachiller" GridPane.columnIndex="2" GridPane.rowIndex="3" />
         <TextField fx:id="ocupacionField" promptText="Ocupación" GridPane.columnIndex="4" GridPane.rowIndex="3" />
 
@@ -130,14 +130,14 @@
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonActualizarPaciente" onAction="#agregarCita" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonActualizarPaciente" onAction="#actualizarPaciente" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
             <HBox.margin>
                <Insets left="250.0" />
             </HBox.margin>
             <font>
                <Font name="System Bold" size="12.0" />
             </font></Button>
-         <Button fx:id="buttonEliminarPaciente" onAction="#agregarCita" text="Eliminar Paciente" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonEliminarPaciente" onAction="#eliminarPaciente" text="Eliminar Paciente" HBox.hgrow="ALWAYS">
             <HBox.margin>
                <Insets left="262.0" />
             </HBox.margin>

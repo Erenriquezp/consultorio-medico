@@ -1,5 +1,6 @@
 package org.uce.app.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,11 +9,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Paciente;
 import org.uce.app.services.PacienteService;
+import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GestionPacientesController {
 
@@ -70,6 +70,8 @@ public class GestionPacientesController {
     public TableColumn<Paciente, String> contactoEmergenciaDireccionColumn;
     @FXML
     public TableColumn<Paciente, String> contactoEmergenciaTelefonoColumn;
+    public Button buttonActualizarPaciente;
+    public Button buttonEliminarPaciente;
 
     @FXML
     private TextField ciPacienteField;
@@ -169,10 +171,50 @@ public class GestionPacientesController {
         contactoEmergenciaTelefonoColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaTelefono"));
 
         loadPacientes();
+        setupRowClickListener();
     }
     private void loadPacientes() {
         tablaPacientes.getItems().clear();
         tablaPacientes.getItems().addAll(pacienteService.getAllPacientes());
+    }
+    private void setupRowClickListener() {
+        tablaPacientes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                fillForm(newValue);
+            }
+        });
+    }
+
+    private void fillForm(Paciente paciente) {
+        ciPacienteField.setText(paciente.getCiPaciente());
+        primerNombreField.setText(paciente.getPrimerNombre());
+        segundoNombreField.setText(paciente.getSegundoNombre());
+        apellidoPaternoField.setText(paciente.getApellidoPaterno());
+        apellidoMaternoField.setText(paciente.getApellidoMaterno());
+        direccionResidenciaField.setText(paciente.getDireccionResidencia());
+        barrioField.setText(paciente.getBarrio());
+        parroquiaField.setText(paciente.getParroquia());
+        cantonField.setText(paciente.getCanton());
+        provinciaField.setText(paciente.getProvincia());
+        telefonoField.setText(paciente.getTelefono());
+        fechaNacimientoField.setValue(paciente.getFechaNacimiento());
+        lugarNacimientoField.setText(paciente.getLugarNacimiento());
+        nacionalidadField.setText(paciente.getNacionalidad());
+        grupoCulturalMenu.setText(paciente.getGrupoCultural());
+        edadField.setText(paciente.getEdad().toString());
+        estadoCivilMenu.setText(paciente.getEstadoCivil());
+        instruccionField.setText(paciente.getInstruccionUltimoAnio());
+        fechaAdmisionPicker.setValue(paciente.getFechaAdmision());
+        ocupacionField.setText(paciente.getOcupacion());
+        lugarTrabajoField.setText(paciente.getLugarTrabajo());
+        tipoSeguroField.setText(paciente.getTipoSeguro());
+        referenciaField.setText(paciente.getReferencia());
+        contactoEmergenciaParentescoField.setText(paciente.getContactoEmergenciaParentesco());
+        contactoEmergenciaNombreField.setText(paciente.getContactoEmergenciaNombre());
+        contactoEmergenciaDireccionField.setText(paciente.getContactoEmergenciaDireccion());
+        contactoEmergenciaTelefonoField.setText(paciente.getContactoEmergenciaTelefono());
+
+        // Rellenar otros campos...
     }
     @FXML
     private void agregarPaciente() {
@@ -236,7 +278,6 @@ public class GestionPacientesController {
                 .contactoEmergenciaTelefono(contactoEmergenciaTelefono)
                 .build();
 
-
         // Intentar agregar el paciente usando PacienteService
         boolean success = pacienteService.createPaciente(paciente);
 
@@ -283,7 +324,7 @@ public class GestionPacientesController {
 
     private void cargarPantallaPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Paths.PantallaPrincipal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
             Stage stage = new Stage();
             stage.setTitle("Pantalla Principal");
             stage.setScene(new Scene(loader.load()));
@@ -291,5 +332,97 @@ public class GestionPacientesController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void actualizarPaciente(ActionEvent actionEvent) {
+        Paciente selectedPaciente = tablaPacientes.getSelectionModel().getSelectedItem();
+        if (selectedPaciente == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText("No hay paciente seleccionado");
+            alert.setContentText("Por favor, seleccione un paciente de la tabla.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Obtener los datos actualizados de los campos de texto
+        if (pacienteService.updatePaciente(new Paciente.PacienteBuilder()
+                .ciPaciente(ciPacienteField.getText())
+                .primerNombre(primerNombreField.getText())
+                .segundoNombre(segundoNombreField.getText())
+                .apellidoPaterno(apellidoPaternoField.getText())
+                .apellidoMaterno(apellidoMaternoField.getText())
+                .direccionResidencia(direccionResidenciaField.getText())
+                .barrio(barrioField.getText())
+                .parroquia(parroquiaField.getText())
+                .canton(cantonField.getText())
+                .provincia(provinciaField.getText())
+                .telefono(telefonoField.getText())
+                .fechaNacimiento(fechaNacimientoField.getValue())
+                .lugarNacimiento(lugarNacimientoField.getText())
+                .nacionalidad(nacionalidadField.getText())
+                .grupoCultural(grupoCulturalMenu.getText())
+                .edad(Integer.parseInt(edadField.getText()))
+                .estadoCivil(estadoCivilMenu.getText())
+                .instruccionUltimoAnio(instruccionField.getText())
+                .fechaAdmision(fechaAdmisionPicker.getValue())
+                .ocupacion(ocupacionField.getText())
+                .lugarTrabajo(lugarTrabajoField.getText())
+                .tipoSeguro(tipoSeguroField.getText())
+                .referencia(referenciaField.getText())
+                .contactoEmergenciaParentesco(contactoEmergenciaParentescoField.getText())
+                .contactoEmergenciaNombre(contactoEmergenciaNombreField.getText())
+                .contactoEmergenciaDireccion(contactoEmergenciaDireccionField.getText())
+                .contactoEmergenciaTelefono(contactoEmergenciaTelefonoField.getText())
+                .build())){
+            loadPacientes();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Éxito");
+            alert.setHeaderText("Paciente actualizado");
+            alert.setContentText("El paciente ha sido actualizado exitosamente.");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al actualizar paciente");
+            alert.setContentText("Hubo un problema al actualizar el paciente. Por favor, intente de nuevo.");
+            alert.showAndWait();
+        }
+    }
+
+    public void eliminarPaciente(ActionEvent actionEvent) {
+        Paciente selectedPaciente = tablaPacientes.getSelectionModel().getSelectedItem();
+        if (selectedPaciente == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText("No hay paciente seleccionado");
+            alert.setContentText("Por favor, seleccione un paciente de la tabla.");
+            alert.showAndWait();
+            return;
+        }
+
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Confirmación");
+        confirmAlert.setHeaderText("Confirmar eliminación");
+        confirmAlert.setContentText("¿Está seguro de que desea eliminar al paciente seleccionado?");
+        confirmAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+
+                if (pacienteService.deletePaciente(selectedPaciente.getCiPaciente())) {
+                    loadPacientes();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Éxito");
+                    alert.setHeaderText("Paciente eliminado");
+                    alert.setContentText("El paciente ha sido eliminado exitosamente.");
+                    alert.showAndWait();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Error al eliminar paciente");
+                    alert.setContentText("Hubo un problema al eliminar el paciente. Por favor, intente de nuevo.");
+                    alert.showAndWait();
+                }
+            }
+        });
     }
 }

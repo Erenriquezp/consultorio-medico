@@ -2,6 +2,7 @@ package org.uce.app.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -159,5 +160,11 @@ public class HistoriaClinicaController {
         efrExtremidadesField.clear();
         diagnosticoDescField.clear();
         diagnosticoCIEField.clear();
+    }
+
+    public void eliminarHistoria(ActionEvent actionEvent) {
+    }
+
+    public void actualizarHistoria(ActionEvent actionEvent) {
     }
 }

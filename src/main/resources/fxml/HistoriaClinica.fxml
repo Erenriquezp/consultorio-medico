@@ -68,12 +68,12 @@
     <TextArea fx:id="tratamientoField" promptText="Tratamiento" />
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button fx:id="buttonAddHClinic" onAction="#agregarEntrada" text="Agregar Historia Clínica">
+         <Button fx:id="buttonAddHClinic" onAction="#agregarHistoriaClinica" text="Agregar Historia Clínica">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonUpdateHistoriC" onAction="#agregarCita" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonUpdateHistoriC" onAction="#actualizarHistoria" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
             <HBox.margin>
                <Insets left="82.0" />
             </HBox.margin>
@@ -81,7 +81,7 @@
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonDelateHistoriC" onAction="#agregarCita" text="Eliminar Historia Clínica" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonDelateHistoriC" onAction="#eliminarHistoria" text="Eliminar Historia Clínica" HBox.hgrow="ALWAYS">
             <HBox.margin>
                <Insets left="100.0" />
             </HBox.margin>
