@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Cita;
-import org.uce.app.services.CitaService;
 import org.uce.app.services.FacadeService;
 import org.uce.app.utilities.Paths;
 
@@ -39,10 +38,8 @@ public class GestionCitasController {
     private Button buttonRegresar;
     @FXML
     private Button buttonSalir;
-
     @FXML
     private TableView<Cita> tablaCitas;
-
     private final FacadeService facadeService;
 
     public GestionCitasController() {

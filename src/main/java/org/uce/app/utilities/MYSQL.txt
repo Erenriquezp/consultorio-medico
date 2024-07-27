@@ -16,683 +16,344 @@ use consultorio;
 
 ----------------- CREATE TABLES ----------------- 
 
-CREATE TABLE Medico( 
+CREATE TABLE Medico(
+	ci_medico CHAR(10) PRIMARY KEY,
+	apellidos VARCHAR(50) NOT NULL,
+	nombres VARCHAR(50) NOT NULL,
+	telefono VARCHAR(10),
+	email VARCHAR(60) UNIQUE NOT NULL
+);
+
+CREATE TABLE LogIn(
+	med_user VARCHAR(20) PRIMARY KEY,
+	med_password VARCHAR(40) NOT NULL,
+	ci_medico CHAR(10) NOT NULL,
+	FOREIGN KEY (ci_medico) REFERENCES Medico(ci_medico)
+);
+
+CREATE TABLE Paciente(
+	ci_paciente CHAR(10) PRIMARY KEY ,
+	apellido_paterno VARCHAR(25) NOT NULL,
+	apellido_materno VARCHAR(25) NOT NULL,
+	primer_nombre VARCHAR(25) NOT NULL,
+	segundo_nombre VARCHAR(25) NOT NULL,
+	direccion_residencia VARCHAR(60) NOT NULL,
+	barrio VARCHAR(20) NOT NULL,
+	parroquia VARCHAR(20) NOT NULL,
+	canton VARCHAR(20) NOT NULL,
+	provincia VARCHAR(20) NOT NULL,
+	telefono VARCHAR(10) NOT NULL,
+	fecha_nacimiento DATE NOT NULL,
+	lugar_nacimiento VARCHAR(40) NOT NULL,
+	nacionalidad VARCHAR(20) NOT NULL,
+	grupo_cultural VARCHAR(20) NOT NULL,
+	edad INT NOT NULL,
+	estado_civil CHAR(3) NOT NULL,
+	instruccion_ultimo_anio VARCHAR(30),
+	fecha_admision DATE NOT NULL,
+	ocupacion VARCHAR(30) NOT NULL,
+	lugar_trabajo VARCHAR(40) NOT NULL,
+	tipo_seguro VARCHAR(30) NOT NULL,
+	referencia VARCHAR(50) NOT NULL,
+	contacto_emergencia_nombre VARCHAR (100) NOT NULL,
+	contacto_emergencia_parentesco VARCHAR(20) NOT NULL,
+	contacto_emergencia_direccion VARCHAR(60) NOT NULL,
+	contacto_emergencia_telefono VARCHAR(10) NOT NULL
+);
+
+
+CREATE TABLE Cita(
+	id_cita CHAR(10) PRIMARY KEY,
+	ci_paciente CHAR(10) NOT NULL,
+	fecha_cita TIMESTAMP NOT NULL,
+	motivo VARCHAR(50) NOT NULL,
+	estado VARCHAR(20) DEFAULT 'Pendiente',
+	FOREIGN KEY (ci_paciente) REFERENCES Paciente(ci_paciente)
+);
+
+CREATE TABLE Historia_clinica(
+	id_historia_clinica CHAR(10) PRIMARY KEY,
+	ci_medico CHAR(10) NOT NULL,
+	ci_paciente CHAR(10) NOT NULL,
+	motivo_consulta VARCHAR(200) NOT NULL,
+	antecedentes_personales VARCHAR(250) NOT NULL DEFAULT 'Ninguno',
+	antecedentes_familiares VARCHAR(300) NOT NULL DEFAULT 'Ninguno',
+	enfermedades_actuales VARCHAR(200) NOT NULL DEFAULT 'Sin novedades',
+	raos_organos_sentidos VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_respiratorio VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_cardiovascular VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_digestivo VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_genital VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_urinario VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_musculo_esqueletico VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_endocrino VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_hemo_linfatico VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	raos_nervioso VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	sva_fecha_medicion DATE NOT NULL,
+	sva_temperatura CHAR(2) NOT NULL,
+	sva_presion_arterial VARCHAR(8) NOT NULL,
+	sva_pulsomin_fre_respiratoria VARCHAR(8) NOT NULL,
+	sva_pesokg_tallacm VARCHAR(8) NOT NULL,
+	efr_cabeza VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	efr_cuello VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	efr_torax VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	efr_abdomen VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	efr_pelvs VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	efr_extremidades VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',
+	diagnostico_desc VARCHAR(50) NOT NULL,
+	diagnostico_CIE VARCHAR(10) NOT NULL,
+	FOREIGN KEY (ci_paciente) REFERENCES Paciente(ci_paciente),
+	FOREIGN KEY (ci_medico) REFERENCES Medico(ci_medico)
+);
+
+CREATE TABLE Evolucion (
+	id_evolucion INT PRIMARY KEY AUTO_INCREMENT,
+	id_historia_clinica CHAR(10) NOT NULL,
+	fecha DATE NOT NULL,
+	descripcion VARCHAR(600) NOT NULL,
+	FOREIGN KEY (id_historia_clinica) REFERENCES Historia_clinica(id_historia_clinica)
+);
+
+CREATE TABLE Receta(
+	id_receta INT PRIMARY KEY AUTO_INCREMENT,
+	ci_paciente CHAR(10) NOT NULL,
+	ci_medico CHAR(10) NOT NULL,
+	fecha_emision DATE NOT NULL,
+	medicamentos VARCHAR(500) NOT NULL,
+	dosis VARCHAR(300) NOT NULL,
+	FOREIGN KEY (ci_paciente) REFERENCES Paciente(ci_paciente),
+	FOREIGN KEY (ci_medico) REFERENCES Medico(ci_medico)
+);
 
-ci_medico CHAR(10) PRIMARY KEY, 
 
-apellidos VARCHAR(50) NOT NULL, 
 
-nombres VARCHAR(50) NOT NULL, 
 
-telefono VARCHAR(10), 
 
-email VARCHAR(60) UNIQUE NOT NULL 
 
-); 
+----------------- INSERT INTRO - VALUES -----------------
 
- 
-
-CREATE TABLE LogIn( 
-
-med_user VARCHAR(20) PRIMARY KEY, 
-
-med_password VARCHAR(40) NOT NULL, 
-
-ci_medico CHAR(10) NOT NULL, 
-
-FOREIGN KEY (ci_medico) REFERENCES Medico(ci_medico) 
-
-); 
-
- 
-
-CREATE TABLE Paciente( 
-
-ci_paciente CHAR(10) PRIMARY KEY , 
-
-apellido_paterno VARCHAR(25) NOT NULL, 
-
-apellido_materno VARCHAR(25) NOT NULL, 
-
-primer_nombre VARCHAR(25) NOT NULL, 
-
-segundo_nombre VARCHAR(25) NOT NULL, 
-
-direccion_residencia VARCHAR(60) NOT NULL, 
-
-barrio VARCHAR(20) NOT NULL, 
-
-parroquia VARCHAR(20) NOT NULL, 
-
-canton VARCHAR(20) NOT NULL, 
-
-provincia VARCHAR(20) NOT NULL, 
-
-telefono VARCHAR(10) NOT NULL, 
-
-fecha_nacimiento DATE NOT NULL, 
-
-lugar_nacimiento VARCHAR(40) NOT NULL, 
-
-nacionalidad VARCHAR(20) NOT NULL, 
-
-grupo_cultural VARCHAR(20) NOT NULL, 
-
-edad INT NOT NULL, 
-
-estado_civil CHAR(3) NOT NULL, 
-
-instruccion_ultimo_anio VARCHAR(30), 
-
-fecha_admision DATE NOT NULL, 
-
-ocupacion VARCHAR(30) NOT NULL, 
-
-lugar_trabajo VARCHAR(40) NOT NULL, 
-
-tipo_seguro VARCHAR(30) NOT NULL, 
-
-referencia VARCHAR(50) NOT NULL, 
-
-contacto_emergencia_nombre VARCHAR (100) NOT NULL, 
-
-contacto_emergencia_parentesco VARCHAR(20) NOT NULL, 
-
-contacto_emergencia_direccion VARCHAR(60) NOT NULL, 
-
-contacto_emergencia_telefono VARCHAR(10) NOT NULL 
-
-); 
-
- 
-
- 
-
-CREATE TABLE Cita( 
-
-id_cita CHAR(10) PRIMARY KEY, 
-
-ci_paciente CHAR(10) NOT NULL, 
-
-fecha_cita TIMESTAMP NOT NULL, 
-
-motivo VARCHAR(50) NOT NULL, 
-
-estado VARCHAR(20) DEFAULT 'Pendiente', 
-
-FOREIGN KEY (ci_paciente) REFERENCES Paciente(ci_paciente) 
-
-); 
-
- 
-
-CREATE TABLE Historia_clinica( 
-
-id_historia_clinica CHAR(5) PRIMARY KEY, 
-
-ci_medico CHAR(10) NOT NULL, 
-
-ci_paciente CHAR(10) NOT NULL, 
-
-motivo_consulta VARCHAR(200) NOT NULL, 
-
-antecedentes_personales VARCHAR(250) NOT NULL DEFAULT 'Ninguno',	 
-
-antecedentes_familiares VARCHAR(300) NOT NULL DEFAULT 'Ninguno', 
-
-enfermedades_actuales VARCHAR(200) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_organos_sentidos VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_respiratorio VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_cardiovascular VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_digestivo VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_genital VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_urinario VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_musculo_esqueletico VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_endocrino VARCHAR(50) NOT NULL DEFAULT 'Sin novedades',     
-
-raos_hemo_linfatico VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-raos_nervioso VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-sva_fecha_medicion DATE NOT NULL, 
-
-sva_temperatura CHAR(2) NOT NULL, 
-
-sva_presion_arterial VARCHAR(8) NOT NULL, 
-
-sva_pulsomin_fre_respiratoria VARCHAR(8) NOT NULL, 
-
-sva_pesokg_tallacm VARCHAR(8) NOT NULL, 
-
-efr_cabeza VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-efr_cuello VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-efr_torax VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-efr_abdomen VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-efr_pelvs VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-efr_extremidades VARCHAR(50) NOT NULL DEFAULT 'Sin novedades', 
-
-diagnostico_desc VARCHAR(50) NOT NULL, 
-
-diagnostico_CIE VARCHAR(10) NOT NULL, 
-
-FOREIGN KEY (ci_paciente) REFERENCES Paciente(ci_paciente), 
-
-FOREIGN KEY (ci_medico) REFERENCES Medico(ci_medico) 
-
-); 
-
- 
-
-CREATE TABLE Evolucion ( 
-
-id_evolucion INT PRIMARY KEY AUTO_INCREMENT, 
-
-id_historia_clinica CHAR(5) NOT NULL, 
-
-fecha DATE NOT NULL, 
-
-descripcion VARCHAR(600) NOT NULL, 
-
-FOREIGN KEY (id_historia_clinica) REFERENCES Historia_clinica(id_historia_clinica) 
-
-); 
-
- 
-
-CREATE TABLE Receta( 
-
-id_receta INT PRIMARY KEY AUTO_INCREMENT, 
-
-ci_paciente CHAR(10) NOT NULL, 
-
-ci_medico CHAR(10) NOT NULL, 
-
-fecha_emision DATE NOT NULL, 
-
-medicamentos VARCHAR(500) NOT NULL, 
-
-dosis VARCHAR(300) NOT NULL, 
-
-FOREIGN KEY (ci_paciente) REFERENCES Paciente(ci_paciente), 
-
-FOREIGN KEY (ci_medico) REFERENCES Medico(ci_medico) 
-
-); 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
------------------ INSERT INTRO - VALUES ----------------- 
-
- 
-
-INSERT INTO Medico (ci_medico, apellidos, nombres, telefono, email)  
-
-VALUES ('1234567890', 'Perez', 'Juana', '0987654321', 'juana.perez@ejemplo.com'); 
-
- 
+INSERT INTO Medico (ci_medico, apellidos, nombres, telefono, email)
+VALUES ('1234567890', 'Perez', 'Juana', '0987654321', 'juana.perez@ejemplo.com');
 
 INSERT INTO LogIn (med_user, med_password, ci_medico)
-VALUES ('jperez', 'hashedpassword1', '1234567890'); 
-
- 
-
-INSERT INTO Paciente ( 
-
-    ci_paciente, apellido_paterno, apellido_materno, primer_nombre, segundo_nombre,  
-
-    direccion_residencia, barrio, parroquia, canton, provincia,  
-
-    telefono, fecha_nacimiento, lugar_nacimiento, nacionalidad, grupo_cultural,  
-
-    edad, estado_civil, instruccion_ultimo_anio, fecha_admision, ocupacion,  
-
-    lugar_trabajo, tipo_seguro, referencia, contacto_emergencia_nombre,  
-
-    contacto_emergencia_parentesco, contacto_emergencia_direccion, contacto_emergencia_telefono 
-
-) VALUES  
-
-('1111111111', 'Lopez', 'Martinez', 'Maria', 'Josefa',  
-
- 'Av. Siempre Viva 742', 'Centro', 'Central', 'Quito', 'Pichincha',  
-
- '9876543210', '1985-08-12', 'Quito', 'Ecuatoriana', 'Mestiza',  
-
- 36, 'SOL', 'Universitario', '2024-07-10', 'Ingeniera',  
-
- 'ACME Corp', 'Privado', 'Recomendación', 'Juana Lopez',  
-
- 'Madre', 'Calle Falsa 123', '1234567890'), 
-
- 
-
-('2222222222', 'Ramirez', 'Gonzalez', 'Ana', 'Luisa',  
-
- 'Calle 123', 'Norte', 'Norte', 'Guayaquil', 'Guayas',  
-
- '1234567890', '1990-05-15', 'Guayaquil', 'Ecuatoriana', 'Afroecuatoriana',  
-
- 31, 'CAS', 'Secundario', '2024-07-15', 'Profesora',  
-
- 'Escuela XYZ', 'IESS', 'Internet', 'Jose Ramirez',  
-
- 'Padre', 'Avenida Principal 456', '0987654321'), 
-
- 
-
-('3333333333', 'Torres', 'Vega', 'Maria', 'Luisa',  
-
- 'Av. Principal 456', 'Sur', 'Sur', 'Cuenca', 'Azuay',  
-
- '3456781234', '1975-03-25', 'Cuenca', 'Ecuatoriana', 'Indígena',  
-
- 48, 'VIU', 'Bachillerato', '2024-06-18', 'Comerciante',  
-
- 'Mercado Central', 'IESS', 'Amigo', 'Luis Torres',  
-
- 'Hermano', 'Calle Secundaria 789', '9876543210'), 
-
- 
-
-('4444444444', 'Mendez', 'Salazar', 'Ana', 'Maria',  
-
- 'Calle Principal 456', 'Este', 'Este', 'Loja', 'Loja',  
-
- '4567891234', '1980-10-10', 'Loja', 'Ecuatoriana', 'Afroecuatoriana',  
-
- 43, 'DIV', 'Técnico', '2024-05-20', 'Enfermera',  
-
- 'Hospital XYZ', 'IESS', 'Internet', 'Pedro Mendez',  
-
- 'Padre', 'Calle Tercera 456', '1234567890'), 
-
- 
-
-('5555555555', 'Rios', 'Cordero', 'Josefina', 'Antonia',  
-
- 'Calle Secundaria 789', 'Oeste', 'Oeste', 'Esmeraldas', 'Esmeraldas',  
-
- '5678912345', '1995-12-12', 'Esmeraldas', 'Ecuatoriana', 'Montubio',  
-
- 28, 'U-L', 'Universitario', '2024-04-15', 'Abogada',  
-
- 'Bufete XYZ', 'Privado', 'Anuncio', 'Carlos Rios',  
-
- 'Tio', 'Calle Cuarta 456', '9876543210'), 
-
- 
-
-('6666666666', 'Fernandez', 'Mora', 'Claudia', 'Isabel',  
-
- 'Avenida Siempre Viva 789', 'Centro', 'Central', 'Riobamba', 'Chimborazo',  
-
- '6789123456', '1988-07-19', 'Riobamba', 'Ecuatoriana', 'Mestiza',  
-
- 36, 'SOL', 'Universitario', '2024-03-14', 'Ingeniera',  
-
- 'ACME Corp', 'Privado', 'Recomendación', 'Ana Fernandez',  
-
- 'Madre', 'Calle Falsa 456', '1234567890'), 
-
- 
-
-('7777777777', 'Gomez', 'Perez', 'Laura', 'Andrea',  
-
- 'Calle Secundaria 123', 'Norte', 'Norte', 'Ambato', 'Tungurahua',  
-
- '7891234567', '1985-09-23', 'Ambato', 'Ecuatoriana', 'Montubio',  
-
- 39, 'CAS', 'Universitario', '2024-02-25', 'Doctora',  
-
- 'Hospital ABC', 'IESS', 'Internet', 'Pedro Gomez',  
-
- 'Padre', 'Avenida Tercera 456', '1234567890'), 
-
- 
-
-('8888888888', 'Flores', 'Suarez', 'Luisa', 'Fernanda',  
-
- 'Calle Cuarta 789', 'Sur', 'Sur', 'Machala', 'El Oro',  
-
- '8901234567', '1992-11-11', 'Machala', 'Ecuatoriana', 'Afroecuatoriana',  
-
- 31, 'VIU', 'Secundario', '2024-01-30', 'Comerciante',  
-
- 'Mercado Central', 'Privado', 'Amigo', 'Luis Flores',  
-
- 'Hermano', 'Calle Quinta 789', '1234567890'), 
-
- 
-
-('9999999999', 'Bravo', 'Villagomez', 'Isabel', 'Patricia',  
-
- 'Calle Quinta 456', 'Este', 'Este', 'Ibarra', 'Imbabura',  
-
- '9012345678', '1980-05-20', 'Ibarra', 'Ecuatoriana', 'Mestiza',  
-
- 44, 'DIV', 'Técnico', '2024-04-20', 'Enfermera',  
-
- 'Clínica XYZ', 'IESS', 'Internet', 'Pedro Bravo',  
-
- 'Padre', 'Calle Sexta 456', '1234567890'), 
-
- 
-
-('0000000000', 'Moreno', 'Jimenez', 'Gabriela', 'Elena',  
-
- 'Calle Sexta 123', 'Oeste', 'Oeste', 'Latacunga', 'Cotopaxi',  
-
- '0123456789', '1997-03-05', 'Latacunga', 'Ecuatoriana', 'Indígena',  
-
- 27, 'SOL', 'Universitario', '2024-02-14', 'Ingeniera',  
-
- 'Constructora ABC', 'Privado', 'Anuncio', 'Carlos Moreno',  
-
- 'Tio', 'Calle Séptima 456', '1234567890'); 
-
- 
-
-INSERT INTO Cita (id_cita, ci_paciente, fecha_cita, motivo, estado)  
-
-VALUES  
-
-('C001', '1111111111', '2024-07-20 09:00:00', 'Chequeo general', 'Pendiente'), 
-
-('C002', '2222222222', '2024-07-21 10:00:00', 'Consulta especializada', 'Pendiente'), 
-
-('C003', '3333333333', '2024-07-22 11:00:00', 'Revisión anual', 'Pendiente'), 
-
-('C004', '4444444444', '2024-07-23 12:00:00', 'Control de embarazo', 'Pendiente'), 
-
-('C005', '5555555555', '2024-07-24 13:00:00', 'Chequeo postparto', 'Pendiente'), 
-
-('C006', '6666666666', '2024-07-25 14:00:00', 'Consulta de anticoncepción', 'Pendiente'), 
-
-('C007', '7777777777', '2024-07-26 15:00:00', 'Chequeo general', 'Pendiente'), 
-
-('C008', '8888888888', '2024-07-27 16:00:00', 'Consulta especializada', 'Pendiente'), 
-
-('C009', '9999999999', '2024-07-28 17:00:00', 'Revisión anual', 'Pendiente'), 
-
-('C010', '0000000000', '2024-07-29 18:00:00', 'Control de embarazo', 'Pendiente'); 
-
- 
-
- 
-
-INSERT INTO Historia_clinica ( 
-
-    id_historia_clinica, ci_medico, ci_paciente, motivo_consulta,  
-
-    antecedentes_personales, antecedentes_familiares, enfermedades_actuales,  
-
-    raos_organos_sentidos, raos_respiratorio, raos_cardiovascular,  
-
-    raos_digestivo, raos_genital, raos_urinario, raos_musculo_esqueletico,  
-
-    raos_endocrino, raos_hemo_linfatico, raos_nervioso, sva_fecha_medicion,  
-
-    sva_temperatura, sva_presion_arterial, sva_pulsomin_fre_respiratoria,  
-
-    sva_pesokg_tallacm, efr_cabeza, efr_cuello, efr_torax, efr_abdomen,  
-
-    efr_pelvs, efr_extremidades, diagnostico_desc, diagnostico_CIE 
-
-) VALUES  
-
-('H001', '1234567890', '1111111111', 'Dolor abdominal',  
-
- 'Alergia a penicilina', 'Hipertension en la familia', 'Ulcera peptica', 
-
- 'Vision borrosa', 'Dificultad para respirar', 'Arritmias',  
-
- 'Reflujo', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Hipertiroidismo', 'Sin novedades', 'Dolor de cabeza frecuente', '2024-07-20',  
-
- '37', '120/80', '72/16', '70/170', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Gastritis', 'K29.7'), 
-
- 
-
-('H002', '1234567890', '2222222222', 'Dolor pelvico',  
-
- 'Cirugia de apendicitis', 'Diabetes en la familia', 'Quiste ovarico', 
-
- 'Dolor ocular', 'Asma leve', 'Hipertension arterial',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-21',  
-
- '36', '118/78', '70/16', '68/172', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Endometriosis', 'N80.1'), 
-
- 
-
-('H003', '1234567890', '3333333333', 'Chequeo general',  
-
- 'Ninguno', 'Ninguno', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-22',  
-
- '35', '115/75', '68/14', '65/165', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Z00.0'), 
-
- 
-
-('H004', '1234567890', '4444444444', 'Control de embarazo',  
-
- 'Ninguno', 'Ninguno', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-23',  
-
- '36', '110/70', '72/16', '68/168', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Embarazo', 'O09.0'), 
-
- 
-
-('H005', '1234567890', '5555555555', 'Chequeo postparto',  
-
- 'Ninguno', 'Ninguno', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-24',  
-
- '37', '120/80', '72/16', '70/170', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Postparto', 'Z39.2'), 
-
- 
-
-('H006', '1234567890', '6666666666', 'Consulta de anticoncepcion',  
-
- 'Ninguno', 'Ninguno', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-25',  
-
- '36', '115/75', '70/16', '68/165', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Planificacion familiar', 'Z30.0'), 
-
- 
-
-('H007', '1234567890', '7777777777', 'Chequeo general',  
-
- 'Alergia a latex', 'Ninguno', 'Sin novedades', 
-
- 'Sin novedades', 'Tos', 'Palpitaciones', 
-
- 'Sin novedades', 'Dolor menstrual', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Dolor de cabeza ocasional', '2024-07-26',  
-
- '36', '120/80', '72/16', '70/170', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Chequeo general', 'Z00.0'), 
-
- 
-
-('H008', '1234567890', '8888888888', 'Consulta especializada',  
-
- 'Ninguno', 'Cancer de mama en la familia', 'Cancer de mama', 
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-27',  
-
- '37', '118/78', '70/16', '68/172', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Cancer de mama', 'C50.9'), 
-
- 
-
-('H009', '1234567890', '9999999999', 'Revision anual',  
-
- 'Ninguno', 'Hipertension en la familia', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-28',  
-
- '36', '115/75', '70/16', '68/168', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Z00.0'), 
-
- 
-
-('H010', '1234567890', '0000000000', 'Control de embarazo',  
-
- 'Ninguno', 'Diabetes en la familia', 'Hipertension gestacional',  
-
- 'Sin novedades', 'Dificultad para respirar', 'Sin novedades', 
-
- 'Sin novedades', 'Sin novedades', 'Infeccion urinaria', 'Dolor articular',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-29',  
-
- '37', '120/80', '72/16', '70/170', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Sin novedades',  
-
- 'Sin novedades', 'Sin novedades', 'Embarazo', 'O09.0'); 
-
- 
-
- 
-
-INSERT INTO Evolucion (id_historia_clinica, fecha, descripcion)  
-
-VALUES  
-
-('H001', '2024-07-21', 'El paciente se mantiene estable, sin cambios significativos.'), 
-
-('H001', '2024-07-22', 'Se reporta mejoría en el dolor abdominal.'), 
-
-('H002', '2024-07-23', 'El dolor pélvico ha disminuido con el tratamiento.'), 
-
-('H002', '2024-07-24', 'El paciente muestra mejoría, sin nuevos síntomas.'), 
-
-('H003', '2024-07-25', 'Chequeo general completado sin anomalías.'), 
-
-('H004', '2024-07-26', 'El embarazo progresa normalmente, sin complicaciones.'), 
-
-('H004', '2024-07-27', 'Se recomienda continuar con el seguimiento regular.'), 
-
-('H005', '2024-07-28', 'Chequeo postparto sin complicaciones.'), 
-
-('H006', '2024-07-29', 'Consulta de anticoncepción completada.'), 
-
-('H007', '2024-07-30', 'Chequeo general completado sin anomalías.'); 
-
- 
-
- 
-
-INSERT INTO Receta (ci_paciente, ci_medico, fecha_emision, medicamentos, dosis)  
-
-VALUES  
-
-('1111111111', '1234567890', '2024-07-20', 'Paracetamol 500mg', 'Tomar 1 tableta cada 8 horas'), 
-
-('2222222222', '1234567890', '2024-07-21', 'Ibuprofeno 400mg', 'Tomar 1 tableta cada 6 horas'), 
-
-('3333333333', '1234567890', '2024-07-22', 'Omeprazol 20mg', 'Tomar 1 cápsula diaria'), 
-
-('4444444444', '1234567890', '2024-07-23', 'Vitamina Prenatal', 'Tomar 1 tableta diaria'), 
-
-('5555555555', '1234567890', '2024-07-24', 'Acetaminofén 500mg', 'Tomar 1 tableta cada 8 horas'), 
-
-('6666666666', '1234567890', '2024-07-25', 'Anticonceptivo Oral', 'Tomar 1 tableta diaria'), 
-
-('7777777777', '1234567890', '2024-07-26', 'Amoxicilina 500mg', 'Tomar 1 cápsula cada 8 horas'), 
-
-('8888888888', '1234567890', '2024-07-27', 'Tamoxifeno 20mg', 'Tomar 1 tableta diaria'), 
-
-('9999999999', '1234567890', '2024-07-28', 'Ibuprofeno 200mg', 'Tomar 1 tableta cada 6 horas'), 
-
-('0000000000', '1234567890', '2024-07-29', 'Ácido Fólico', 'Tomar 1 tableta diaria'); 
+VALUES ('jperez', 'hashedpassword1', '1234567890');
+
+INSERT INTO Paciente (
+    ci_paciente, apellido_paterno, apellido_materno, primer_nombre, segundo_nombre,
+    direccion_residencia, barrio, parroquia, canton, provincia,
+    telefono, fecha_nacimiento, lugar_nacimiento, nacionalidad, grupo_cultural,
+    edad, estado_civil, instruccion_ultimo_anio, fecha_admision, ocupacion,
+    lugar_trabajo, tipo_seguro, referencia, contacto_emergencia_nombre,
+    contacto_emergencia_parentesco, contacto_emergencia_direccion, contacto_emergencia_telefono
+) VALUES
+('1111111111', 'Lopez', 'Martinez', 'Maria', 'Josefa',
+ 'Av. Siempre Viva 742', 'Centro', 'Central', 'Quito', 'Pichincha',
+ '9876543210', '1985-08-12', 'Quito', 'Ecuatoriana', 'Mestiza',
+ 36, 'SOL', 'Universitario', '2024-07-10', 'Ingeniera',
+ 'ACME Corp', 'Privado', 'Recomendación', 'Juana Lopez',
+ 'Madre', 'Calle Falsa 123', '1234567890'),
+
+('2222222222', 'Ramirez', 'Gonzalez', 'Ana', 'Luisa',
+ 'Calle 123', 'Norte', 'Norte', 'Guayaquil', 'Guayas',
+ '1234567890', '1990-05-15', 'Guayaquil', 'Ecuatoriana', 'Afroecuatoriana',
+ 31, 'CAS', 'Secundario', '2024-07-15', 'Profesora',
+ 'Escuela XYZ', 'IESS', 'Internet', 'Jose Ramirez',
+ 'Padre', 'Avenida Principal 456', '0987654321'),
+
+('3333333333', 'Torres', 'Vega', 'Maria', 'Luisa',
+ 'Av. Principal 456', 'Sur', 'Sur', 'Cuenca', 'Azuay',
+ '3456781234', '1975-03-25', 'Cuenca', 'Ecuatoriana', 'Indígena',
+ 48, 'VIU', 'Bachillerato', '2024-06-18', 'Comerciante',
+ 'Mercado Central', 'IESS', 'Amigo', 'Luis Torres',
+ 'Hermano', 'Calle Secundaria 789', '9876543210'),
+
+('4444444444', 'Mendez', 'Salazar', 'Ana', 'Maria',
+ 'Calle Principal 456', 'Este', 'Este', 'Loja', 'Loja',
+ '4567891234', '1980-10-10', 'Loja', 'Ecuatoriana', 'Afroecuatoriana',
+ 43, 'DIV', 'Técnico', '2024-05-20', 'Enfermera',
+ 'Hospital XYZ', 'IESS', 'Internet', 'Pedro Mendez',
+ 'Padre', 'Calle Tercera 456', '1234567890'),
+
+('5555555555', 'Rios', 'Cordero', 'Josefina', 'Antonia',
+ 'Calle Secundaria 789', 'Oeste', 'Oeste', 'Esmeraldas', 'Esmeraldas',
+ '5678912345', '1995-12-12', 'Esmeraldas', 'Ecuatoriana', 'Montubio',
+ 28, 'U-L', 'Universitario', '2024-04-15', 'Abogada',
+ 'Bufete XYZ', 'Privado', 'Anuncio', 'Carlos Rios',
+ 'Tio', 'Calle Cuarta 456', '9876543210'),
+
+('6666666666', 'Fernandez', 'Mora', 'Claudia', 'Isabel',
+ 'Avenida Siempre Viva 789', 'Centro', 'Central', 'Riobamba', 'Chimborazo',
+ '6789123456', '1988-07-19', 'Riobamba', 'Ecuatoriana', 'Mestiza',
+ 36, 'SOL', 'Universitario', '2024-03-14', 'Ingeniera',
+ 'ACME Corp', 'Privado', 'Recomendación', 'Ana Fernandez',
+ 'Madre', 'Calle Falsa 456', '1234567890'),
+
+('7777777777', 'Gomez', 'Perez', 'Laura', 'Andrea',
+ 'Calle Secundaria 123', 'Norte', 'Norte', 'Ambato', 'Tungurahua',
+ '7891234567', '1985-09-23', 'Ambato', 'Ecuatoriana', 'Montubio',
+ 39, 'CAS', 'Universitario', '2024-02-25', 'Doctora',
+ 'Hospital ABC', 'IESS', 'Internet', 'Pedro Gomez',
+ 'Padre', 'Avenida Tercera 456', '1234567890'),
+
+('8888888888', 'Flores', 'Suarez', 'Luisa', 'Fernanda',
+ 'Calle Cuarta 789', 'Sur', 'Sur', 'Machala', 'El Oro',
+ '8901234567', '1992-11-11', 'Machala', 'Ecuatoriana', 'Afroecuatoriana',
+ 31, 'VIU', 'Secundario', '2024-01-30', 'Comerciante',
+ 'Mercado Central', 'Privado', 'Amigo', 'Luis Flores',
+ 'Hermano', 'Calle Quinta 789', '1234567890'),
+
+('9999999999', 'Bravo', 'Villagomez', 'Isabel', 'Patricia',
+ 'Calle Quinta 456', 'Este', 'Este', 'Ibarra', 'Imbabura',
+ '9012345678', '1980-05-20', 'Ibarra', 'Ecuatoriana', 'Mestiza',
+ 44, 'DIV', 'Técnico', '2024-04-20', 'Enfermera',
+ 'Clínica XYZ', 'IESS', 'Internet', 'Pedro Bravo',
+ 'Padre', 'Calle Sexta 456', '1234567890'),
+
+('0000000000', 'Moreno', 'Jimenez', 'Gabriela', 'Elena',
+ 'Calle Sexta 123', 'Oeste', 'Oeste', 'Latacunga', 'Cotopaxi',
+ '0123456789', '1997-03-05', 'Latacunga', 'Ecuatoriana', 'Indígena',
+ 27, 'SOL', 'Universitario', '2024-02-14', 'Ingeniera',
+ 'Constructora ABC', 'Privado', 'Anuncio', 'Carlos Moreno',
+ 'Tio', 'Calle Séptima 456', '1234567890');
+
+INSERT INTO Cita (id_cita, ci_paciente, fecha_cita, motivo, estado)
+VALUES
+('C001', '1111111111', '2024-07-20 09:00:00', 'Chequeo general', 'Pendiente'),
+('C002', '2222222222', '2024-07-21 10:00:00', 'Consulta especializada', 'Pendiente'),
+('C003', '3333333333', '2024-07-22 11:00:00', 'Revisión anual', 'Pendiente'),
+('C004', '4444444444', '2024-07-23 12:00:00', 'Control de embarazo', 'Pendiente'),
+('C005', '5555555555', '2024-07-24 13:00:00', 'Chequeo postparto', 'Pendiente'),
+('C006', '6666666666', '2024-07-25 14:00:00', 'Consulta de anticoncepción', 'Pendiente'),
+('C007', '7777777777', '2024-07-26 15:00:00', 'Chequeo general', 'Pendiente'),
+('C008', '8888888888', '2024-07-27 16:00:00', 'Consulta especializada', 'Pendiente'),
+('C009', '9999999999', '2024-07-28 17:00:00', 'Revisión anual', 'Pendiente'),
+('C010', '0000000000', '2024-07-29 18:00:00', 'Control de embarazo', 'Pendiente');
+
+
+INSERT INTO Historia_clinica (
+    id_historia_clinica, ci_medico, ci_paciente, motivo_consulta,
+    antecedentes_personales, antecedentes_familiares, enfermedades_actuales,
+    raos_organos_sentidos, raos_respiratorio, raos_cardiovascular,
+    raos_digestivo, raos_genital, raos_urinario, raos_musculo_esqueletico,
+    raos_endocrino, raos_hemo_linfatico, raos_nervioso, sva_fecha_medicion,
+    sva_temperatura, sva_presion_arterial, sva_pulsomin_fre_respiratoria,
+    sva_pesokg_tallacm, efr_cabeza, efr_cuello, efr_torax, efr_abdomen,
+    efr_pelvs, efr_extremidades, diagnostico_desc, diagnostico_CIE
+) VALUES
+('1111111111', '1234567890', '1111111111', 'Dolor abdominal',
+ 'Alergia a penicilina', 'Hipertension en la familia', 'Ulcera peptica',
+ 'Vision borrosa', 'Dificultad para respirar', 'Arritmias',
+ 'Reflujo', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Hipertiroidismo', 'Sin novedades', 'Dolor de cabeza frecuente', '2024-07-20',
+ '37', '120/80', '72/16', '70/170', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Gastritis', 'K29.7'),
+
+('2222222222', '1234567890', '2222222222', 'Dolor pelvico',
+ 'Cirugia de apendicitis', 'Diabetes en la familia', 'Quiste ovarico',
+ 'Dolor ocular', 'Asma leve', 'Hipertension arterial',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-21',
+ '36', '118/78', '70/16', '68/172', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Endometriosis', 'N80.1'),
+
+('3333333333', '1234567890', '3333333333', 'Chequeo general',
+ 'Ninguno', 'Ninguno', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-22',
+ '35', '115/75', '68/14', '65/165', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Z00.0'),
+
+('4444444444', '1234567890', '4444444444', 'Control de embarazo',
+ 'Ninguno', 'Ninguno', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-23',
+ '36', '110/70', '72/16', '68/168', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Embarazo', 'O09.0'),
+
+('5555555555', '1234567890', '5555555555', 'Chequeo postparto',
+ 'Ninguno', 'Ninguno', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-24',
+ '37', '120/80', '72/16', '70/170', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Postparto', 'Z39.2'),
+
+('6666666666', '1234567890', '6666666666', 'Consulta de anticoncepcion',
+ 'Ninguno', 'Ninguno', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-25',
+ '36', '115/75', '70/16', '68/165', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Planificacion familiar', 'Z30.0'),
+
+('7777777777', '1234567890', '7777777777', 'Chequeo general',
+ 'Alergia a latex', 'Ninguno', 'Sin novedades',
+ 'Sin novedades', 'Tos', 'Palpitaciones',
+ 'Sin novedades', 'Dolor menstrual', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Dolor de cabeza ocasional', '2024-07-26',
+ '36', '120/80', '72/16', '70/170', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Chequeo general', 'Z00.0'),
+
+('8888888888', '1234567890', '8888888888', 'Consulta especializada',
+ 'Ninguno', 'Cancer de mama en la familia', 'Cancer de mama',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-27',
+ '37', '118/78', '70/16', '68/172', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Cancer de mama', 'C50.9'),
+
+('9999999999', '1234567890', '9999999999', 'Revision anual',
+ 'Ninguno', 'Hipertension en la familia', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-28',
+ '36', '115/75', '70/16', '68/168', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', 'Z00.0'),
+
+('0000000000', '1234567890', '0000000000', 'Control de embarazo',
+ 'Ninguno', 'Diabetes en la familia', 'Hipertension gestacional',
+ 'Sin novedades', 'Dificultad para respirar', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Infeccion urinaria', 'Dolor articular',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades', '2024-07-29',
+ '37', '120/80', '72/16', '70/170', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Sin novedades',
+ 'Sin novedades', 'Sin novedades', 'Embarazo', 'O09.0');
+
+
+INSERT INTO Evolucion (id_historia_clinica, fecha, descripcion)
+VALUES
+('1111111111', '2024-07-21', 'El paciente se mantiene estable, sin cambios significativos.'),
+('1111111111', '2024-07-22', 'Se reporta mejoría en el dolor abdominal.'),
+('2222222222', '2024-07-23', 'El dolor pélvico ha disminuido con el tratamiento.'),
+('2222222222', '2024-07-24', 'El paciente muestra mejoría, sin nuevos síntomas.'),
+('3333333333', '2024-07-25', 'Chequeo general completado sin anomalías.'),
+('4444444444', '2024-07-26', 'El embarazo progresa normalmente, sin complicaciones.'),
+('4444444444', '2024-07-27', 'Se recomienda continuar con el seguimiento regular.'),
+('5555555555', '2024-07-28', 'Chequeo postparto sin complicaciones.'),
+('6666666666', '2024-07-29', 'Consulta de anticoncepción completada.'),
+('7777777777', '2024-07-30', 'Chequeo general completado sin anomalías.');
+
+
+INSERT INTO Receta (ci_paciente, ci_medico, fecha_emision, medicamentos, dosis)
+VALUES
+('1111111111', '1234567890', '2024-07-20', 'Paracetamol 500mg', 'Tomar 1 tableta cada 8 horas'),
+('2222222222', '1234567890', '2024-07-21', 'Ibuprofeno 400mg', 'Tomar 1 tableta cada 6 horas'),
+('3333333333', '1234567890', '2024-07-22', 'Omeprazol 20mg', 'Tomar 1 cápsula diaria'),
+('4444444444', '1234567890', '2024-07-23', 'Vitamina Prenatal', 'Tomar 1 tableta diaria'),
+('5555555555', '1234567890', '2024-07-24', 'Acetaminofén 500mg', 'Tomar 1 tableta cada 8 horas'),
+('6666666666', '1234567890', '2024-07-25', 'Anticonceptivo Oral', 'Tomar 1 tableta diaria'),
+('7777777777', '1234567890', '2024-07-26', 'Amoxicilina 500mg', 'Tomar 1 cápsula cada 8 horas'),
+('8888888888', '1234567890', '2024-07-27', 'Tamoxifeno 20mg', 'Tomar 1 tableta diaria'),
+('9999999999', '1234567890', '2024-07-28', 'Ibuprofeno 200mg', 'Tomar 1 tableta cada 6 horas'),
+('0000000000', '1234567890', '2024-07-29', 'Ácido Fólico', 'Tomar 1 tableta diaria');

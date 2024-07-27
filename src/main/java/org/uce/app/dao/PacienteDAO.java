@@ -101,22 +101,53 @@ public class PacienteDAO {
             return false;
         }
     }
-
-    // Método para eliminar un paciente
+    // Método para eliminar un paciente y sus citas asociadas
     public boolean deletePaciente(String ciPaciente) {
-        String query = "DELETE FROM Paciente WHERE ci_paciente = ?";
-        try (Connection connection = ConexionDAO.getInstancia().getConexion();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
+        try (Connection connection = ConexionDAO.getInstancia().getConexion()) {
+            connection.setAutoCommit(false);
 
-            stmt.setString(1, ciPaciente);
-            stmt.executeUpdate();
+            // Primero eliminar las citas asociadas al paciente
+            String deleteCitasQuery = "DELETE FROM Cita WHERE ci_paciente = ?";
+            try (PreparedStatement deleteCitasStmt = connection.prepareStatement(deleteCitasQuery)) {
+                deleteCitasStmt.setString(1, ciPaciente);
+                deleteCitasStmt.executeUpdate();
+            }
+
+            // Luego eliminar las evoluciones asociadas a las historias clínicas del paciente
+            String deleteEvolucionQuery = "DELETE FROM Evolucion WHERE id_historia_clinica IN (SELECT id_historia_clinica FROM Historia_clinica WHERE ci_paciente = ?)";
+            try (PreparedStatement deleteEvolucionStmt = connection.prepareStatement(deleteEvolucionQuery)) {
+                deleteEvolucionStmt.setString(1, ciPaciente);
+                deleteEvolucionStmt.executeUpdate();
+            }
+
+            // Luego eliminar las historias clínicas asociadas al paciente
+            String deleteHistoriaClinicaQuery = "DELETE FROM Historia_clinica WHERE ci_paciente = ?";
+            try (PreparedStatement deleteHistoriaClinicaStmt = connection.prepareStatement(deleteHistoriaClinicaQuery)) {
+                deleteHistoriaClinicaStmt.setString(1, ciPaciente);
+                deleteHistoriaClinicaStmt.executeUpdate();
+            }
+
+            // Luego eliminar las recetas asociadas al paciente
+            String deleteRecetasQuery = "DELETE FROM Receta WHERE ci_paciente = ?";
+            try (PreparedStatement deleteRecetasStmt = connection.prepareStatement(deleteRecetasQuery)) {
+                deleteRecetasStmt.setString(1, ciPaciente);
+                deleteRecetasStmt.executeUpdate();
+            }
+
+            // Finalmente eliminar el paciente
+            String deletePacienteQuery = "DELETE FROM Paciente WHERE ci_paciente = ?";
+            try (PreparedStatement deletePacienteStmt = connection.prepareStatement(deletePacienteQuery)) {
+                deletePacienteStmt.setString(1, ciPaciente);
+                deletePacienteStmt.executeUpdate();
+            }
+
+            connection.commit();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
-
     // Método para establecer los parámetros del paciente en el PreparedStatement
     private void setPacienteParameters(PreparedStatement stmt, Paciente paciente) throws SQLException {
         stmt.setString(1, paciente.getCiPaciente());
