@@ -4,29 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Actualizacion funciones avanzadas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthServiceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/CitaServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/CitaServiceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/PacienteServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/PacienteServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_18_2024_7_09_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_18_2024_7_09_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Patron Proxy">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/EvolucionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/EvolucionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistoriaClinicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistoriaClinicaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/MedicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/MedicoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/CitaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/CitaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/PacienteService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +148,7 @@
       <workItem from="1721574484330" duration="8827000" />
       <workItem from="1721778274359" duration="7620000" />
       <workItem from="1721954212522" duration="225000" />
-      <workItem from="1722040978785" duration="7565000" />
+      <workItem from="1722040978785" duration="7845000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
       <option name="closed" value="true" />
@@ -209,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721953267413</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Patron Proxy">
+      <option name="closed" value="true" />
+      <created>1722051076269</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722051076269</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +231,8 @@
     <MESSAGE value="Primera version del proyecto" />
     <MESSAGE value="Actualizacion UML" />
     <MESSAGE value="Actualizacion funciones avanzadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion funciones avanzadas" />
+    <MESSAGE value="Patron Proxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patron Proxy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

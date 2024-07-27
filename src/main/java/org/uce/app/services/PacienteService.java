@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PacienteService implements PacienteServiceInterface {
 
-    private PacienteDAO pacienteDAO;
+    private final PacienteDAO pacienteDAO;
 
     public PacienteService() {
         this.pacienteDAO = new PacienteDAO();

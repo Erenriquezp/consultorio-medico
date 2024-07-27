@@ -46,7 +46,7 @@ public class GestionPacientesController {
     private TableColumn<Paciente, Integer> edadColumn;
 
     @FXML
-    private Button buttonActualizarPaciente, buttonEliminarPaciente, buttonRegresar, buttonSalir;
+    private Button buttonRegresar, buttonSalir;
 
     @FXML
     private DatePicker fechaNacimientoField, fechaAdmisionPicker;

@@ -1,0 +1,31 @@
+@startuml
+class org.uce.app.services.CitaService {
+- CitaDAO citaDAO
++ <<Create>> CitaService()
++ boolean createCita(Cita)
++ List<Cita> getAllCitas()
++ Cita getCitaById(String)
++ boolean updateCita(Cita)
++ boolean deleteCita(String)
+}
+
+
+class org.uce.app.services.AuthService {
+- Connection connection
++ <<Create>> AuthService()
++ boolean authenticate(String,String)
+}
+
+
+class org.uce.app.services.PacienteService {
+- PacienteDAO pacienteDAO
++ <<Create>> PacienteService()
++ boolean createPaciente(Paciente)
++ List<Paciente> getAllPacientes()
++ Paciente getPacienteByCi(String)
++ boolean updatePaciente(Paciente)
++ boolean deletePaciente(String)
+}
+
+
+@enduml

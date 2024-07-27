@@ -1,6 +1,5 @@
 package org.uce.app.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -126,7 +125,7 @@ public class GestionCitasController {
             return;
         }
 
-        Optional<ButtonType> response = showConfirmation("Confirmar eliminación", "¿Está seguro de que desea eliminar la cita seleccionada?");
+        Optional<ButtonType> response = showConfirmation();
         if (response.isPresent() && response.get() == ButtonType.OK) {
             boolean success = citaService.deleteCita(selectedCita.getIdCita());
 
@@ -193,11 +192,11 @@ public class GestionCitasController {
         alert.showAndWait();
     }
 
-    private Optional<ButtonType> showConfirmation(String title, String message) {
+    private Optional<ButtonType> showConfirmation() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle(title);
+        alert.setTitle("Confirmar eliminación");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText("¿Está seguro de que desea eliminar la cita seleccionada?");
         return alert.showAndWait();
     }
 }

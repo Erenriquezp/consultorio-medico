@@ -5,9 +5,6 @@ import org.uce.app.model.Paciente;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class PacienteDAO {
     // Método para crear un nuevo paciente
     public boolean createPaciente(Paciente paciente) {

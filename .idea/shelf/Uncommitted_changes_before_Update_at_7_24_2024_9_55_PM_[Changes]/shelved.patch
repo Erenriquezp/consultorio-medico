@@ -1,0 +1,340 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ /dev/null	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]" date="1721142097863" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 16/07/2024 10:01 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]/shelved.patch	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ /dev/null	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
+@@ -1,144 +0,0 @@
+-Index: src/main/java/org/uce/app/application/App.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package org.uce.app.application;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.stage.Stage;\r\nimport org.uce.app.utilities.Paths;\r\n\r\npublic class App extends Application {\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) throws Exception {\r\n        //-- Me sale error cuando quiero iniciar el login :(\r\n        //FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.Ingresar));\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));\r\n\r\n        VBox root = loader.load();\r\n        Scene scene = new Scene(root);\r\n\r\n        // Cargar el archivo CSS\r\n        scene.getStylesheets().add(getClass().getResource(Paths.stylesheet).toExternalForm());\r\n\r\n\r\n        primaryStage.setTitle(\"Sistema de Gestión de Consultorio Médico\");\r\n        primaryStage.setScene(scene);\r\n        primaryStage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/org/uce/app/application/App.java b/src/main/java/org/uce/app/application/App.java
+---- a/src/main/java/org/uce/app/application/App.java	(revision 8d39ef48971c7b03153a1f9ef97de5c6928c4fe0)
+-+++ b/src/main/java/org/uce/app/application/App.java	(date 1721147418727)
+-@@ -12,8 +12,8 @@
+-     @Override
+-     public void start(Stage primaryStage) throws Exception {
+-         //-- Me sale error cuando quiero iniciar el login :(
+--        //FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.Ingresar));
+--        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+-+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.Ingresar));
+-+        //FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+- 
+-         VBox root = loader.load();
+-         Scene scene = new Scene(root);
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"Primera version del proyecto\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"mariel0503\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Erenriquezp/consultorio-medico.git\",\r\n    \"accountId\": \"01da25ae-dab8-43de-81cc-aba4936ba6c1\"\r\n  }\r\n}]]></component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2j1yA4bvhziT4xtHRCBDE1dvya6\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.ConexionDAO.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\styles\" />\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\fxml\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.App\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.application.App\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;C:\\Program Files\\Java\\javafx-sdk-22.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ConexionDAO\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.dao.ConexionDAO\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.uce.app.dao.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.ConexionDAO\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"\" />\r\n      <created>1720568736617</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1720568736617</updated>\r\n      <workItem from=\"1720568736810\" duration=\"693000\" />\r\n      <workItem from=\"1720570592998\" duration=\"11478000\" />\r\n      <workItem from=\"1720620871294\" duration=\"78000\" />\r\n      <workItem from=\"1720666040497\" duration=\"5755000\" />\r\n      <workItem from=\"1720707609675\" duration=\"1584000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Inicializacion del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720576815185</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720576815185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720670851492</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720670851492</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720977147429</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720977147429</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Inicializacion del proyecto\" />\r\n    <MESSAGE value=\"Primera version del proyecto\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Primera version del proyecto\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 8d39ef48971c7b03153a1f9ef97de5c6928c4fe0)
+-+++ b/.idea/workspace.xml	(date 1721147422815)
+-@@ -5,7 +5,9 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Primera version del proyecto">
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/application/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/application/App.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -23,21 +25,13 @@
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-   </component>
+--  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+--  "lastFilter": {
+--    "state": "OPEN",
+--    "assignee": "mariel0503"
+--  }
+--}]]></component>
+--  <component name="GithubPullRequestsUISettings"><![CDATA[{
+--  "selectedUrlAndAccountId": {
+--    "url": "https://github.com/Erenriquezp/consultorio-medico.git",
+--    "accountId": "01da25ae-dab8-43de-81cc-aba4936ba6c1"
+--  }
+--}]]></component>
+--  <component name="ProjectColorInfo">{
+--  &quot;associatedIndex&quot;: 8
+--}</component>
+-+  <component name="MavenImportPreferences">
+-+    <option name="generalSettings">
+-+      <MavenGeneralSettings>
+-+        <option name="useMavenConfig" value="true" />
+-+      </MavenGeneralSettings>
+-+    </option>
+-+  </component>
+-   <component name="ProjectId" id="2j1yA4bvhziT4xtHRCBDE1dvya6" />
+-   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+-     <ConfirmationsSetting value="2" id="Add" />
+-@@ -48,14 +42,10 @@
+-   </component>
+-   <component name="PropertiesComponent">{
+-   &quot;keyToString&quot;: {
+--    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+--    &quot;Application.ConexionDAO.executor&quot;: &quot;Run&quot;,
+-     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+--    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+--    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-@@ -70,7 +60,7 @@
+-       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\fxml" />
+-     </key>
+-   </component>
+--  <component name="RunManager" selected="Application.App">
+-+  <component name="RunManager">
+-     <configuration name="App" type="Application" factoryName="Application">
+-       <option name="MAIN_CLASS_NAME" value="org.uce.app.application.App" />
+-       <module name="consultorio-medico" />
+-@@ -79,24 +69,6 @@
+-         <option name="Make" enabled="true" />
+-       </method>
+-     </configuration>
+--    <configuration name="ConexionDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+--      <option name="MAIN_CLASS_NAME" value="org.uce.app.dao.ConexionDAO" />
+--      <module name="consultorio-medico" />
+--      <extension name="coverage">
+--        <pattern>
+--          <option name="PATTERN" value="org.uce.app.dao.*" />
+--          <option name="ENABLED" value="true" />
+--        </pattern>
+--      </extension>
+--      <method v="2">
+--        <option name="Make" enabled="true" />
+--      </method>
+--    </configuration>
+--    <recent_temporary>
+--      <list>
+--        <item itemvalue="Application.ConexionDAO" />
+--      </list>
+--    </recent_temporary>
+-   </component>
+-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-@@ -111,6 +83,7 @@
+-       <workItem from="1720620871294" duration="78000" />
+-       <workItem from="1720666040497" duration="5755000" />
+-       <workItem from="1720707609675" duration="1584000" />
+-+      <workItem from="1720973719108" duration="279000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
+-       <option name="closed" value="true" />
+-@@ -128,15 +101,7 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1720670851492</updated>
+-     </task>
+--    <task id="LOCAL-00003" summary="Primera version del proyecto">
+--      <option name="closed" value="true" />
+--      <created>1720977147429</created>
+--      <option name="number" value="00003" />
+--      <option name="presentableId" value="LOCAL-00003" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1720977147429</updated>
+--    </task>
+--    <option name="localTasksCounter" value="4" />
+-+    <option name="localTasksCounter" value="3" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]/shelved.patch	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ /dev/null	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
+@@ -1,24 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"Primera version del proyecto\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2024_12_43_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2024_12_43_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2j1yA4bvhziT4xtHRCBDE1dvya6\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.ConexionDAO.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\styles\" />\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\fxml\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.App\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.application.App\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;C:\\Program Files\\Java\\javafx-sdk-22.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ConexionDAO\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.dao.ConexionDAO\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.uce.app.dao.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.ConexionDAO\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"\" />\r\n      <created>1720568736617</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1720568736617</updated>\r\n      <workItem from=\"1720568736810\" duration=\"693000\" />\r\n      <workItem from=\"1720570592998\" duration=\"11478000\" />\r\n      <workItem from=\"1720620871294\" duration=\"78000\" />\r\n      <workItem from=\"1720666040497\" duration=\"5755000\" />\r\n      <workItem from=\"1720707609675\" duration=\"1584000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Inicializacion del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720576815185</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720576815185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720670851492</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720670851492</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720977147429</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720977147429</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Inicializacion del proyecto\" />\r\n    <MESSAGE value=\"Primera version del proyecto\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Primera version del proyecto\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision b435dffa0174eb60a74c01685d6566b47d0ce365)
+-+++ b/.idea/workspace.xml	(date 1721141559231)
+-@@ -4,12 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Primera version del proyecto">
+--      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2024_12_43_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_13_2024_12_43_PM__Changes_.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--    </list>
+-+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Primera version del proyecto" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM__Changes_.xml	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ /dev/null	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]" date="1721188137244" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 7/16/2024 10:47 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM__Changes_.xml	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ /dev/null	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]" date="1721146967200" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 7/16/2024 11:21 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]/shelved.patch	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ /dev/null	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
+@@ -1,36 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"Primera version del proyecto\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/model/CitaDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/model/HistorialMedicoDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistorialMedicoDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/model/MedicoDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/MedicoDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/model/PacienteDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2j1yA4bvhziT4xtHRCBDE1dvya6\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\styles\" />\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\fxml\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.application.App\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;C:\\Program Files\\Java\\javafx-sdk-22.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"\" />\r\n      <created>1720568736617</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1720568736617</updated>\r\n      <workItem from=\"1720568736810\" duration=\"693000\" />\r\n      <workItem from=\"1720570592998\" duration=\"11478000\" />\r\n      <workItem from=\"1720620871294\" duration=\"78000\" />\r\n      <workItem from=\"1720666040497\" duration=\"5755000\" />\r\n      <workItem from=\"1720707609675\" duration=\"1584000\" />\r\n      <workItem from=\"1720973719108\" duration=\"279000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Inicializacion del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720576815185</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720576815185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720670851492</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720670851492</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Inicializacion del proyecto\" />\r\n    <MESSAGE value=\"Primera version del proyecto\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Primera version del proyecto\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision c90ead0bdccf44dab99a9ab5705774c09addf63f)
+-+++ b/.idea/workspace.xml	(date 1720993356399)
+-@@ -5,16 +5,7 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Primera version del proyecto">
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2024_13_40__Changes_.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistorialMedicoController.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/CitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistorialMedicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistorialMedicoDAO.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/MedicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/MedicoDAO.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/PacienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -91,6 +82,8 @@
+-       <workItem from="1720666040497" duration="5755000" />
+-       <workItem from="1720707609675" duration="1584000" />
+-       <workItem from="1720973719108" duration="279000" />
+-+      <workItem from="1720975592254" duration="477000" />
+-+      <workItem from="1720992840781" duration="515000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
+-       <option name="closed" value="true" />
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"Actualizacion UML\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_16__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_16__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_19__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_19__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/fxml/GestionPacientes.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/fxml/GestionPacientes.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;history&quot;: [\r\n    {\r\n      &quot;state&quot;: &quot;OPEN&quot;,\r\n      &quot;assignee&quot;: &quot;sophiaAndMe&quot;\r\n    }\r\n  ],\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;sophiaAndMe&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"3f484932-cfe5-4c2c-8835-fab1fc30d122\" />\r\n        <option name=\"url\" value=\"https://github.com/Erenriquezp/consultorio-medico.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2j1yA4bvhziT4xtHRCBDE1dvya6\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.ConexionDAO.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\styles\" />\r\n      <recent name=\"C:\\Users\\LENOVO\\IntelliJ_IDEA\\Java\\Design_Patterns\\consultorio-medico\\src\\main\\resources\\fxml\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.App\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.application.App\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;C:\\Program Files\\Java\\javafx-sdk-22.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ConexionDAO\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uce.app.dao.ConexionDAO\" />\r\n      <module name=\"consultorio-medico\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.uce.app.dao.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.ConexionDAO\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c426c162-7663-43f3-9466-7847aa48efac\" name=\"Changes\" comment=\"\" />\r\n      <created>1720568736617</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1720568736617</updated>\r\n      <workItem from=\"1720568736810\" duration=\"693000\" />\r\n      <workItem from=\"1720570592998\" duration=\"11478000\" />\r\n      <workItem from=\"1720620871294\" duration=\"78000\" />\r\n      <workItem from=\"1720666040497\" duration=\"5755000\" />\r\n      <workItem from=\"1720707609675\" duration=\"1584000\" />\r\n      <workItem from=\"1721540114333\" duration=\"161000\" />\r\n      <workItem from=\"1721574484330\" duration=\"8827000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Inicializacion del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720576815185</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720576815185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720670851492</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720670851492</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Primera version del proyecto\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1720977147429</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1720977147429</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Actualizacion UML\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1721539164590</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1721539164590</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ID_ORDER\">\r\n      <list>\r\n        <option value=\"Default.Root\" />\r\n        <option value=\"Default.Author\" />\r\n        <option value=\"Default.Date\" />\r\n        <option value=\"Default.Subject\" />\r\n        <option value=\"Space.CommitStatus\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Inicializacion del proyecto\" />\r\n    <MESSAGE value=\"Primera version del proyecto\" />\r\n    <MESSAGE value=\"Actualizacion UML\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Actualizacion UML\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java</url>\r\n          <line>8</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 26caee27be11a72543dc970abc3cdddd9eb801a5)
++++ b/.idea/workspace.xml	(date 1721832371482)
+@@ -4,21 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Actualizacion UML">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_16__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_7_2024_23_19__Changes_.xml" afterDir="false" />
++    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Correccion controllers">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_07_2024_10_01__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_10_47_PM__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_16_2024_11_21_AM__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/AuthService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GestionPacientes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionPacientes.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -138,7 +131,11 @@
+       <workItem from="1720666040497" duration="5755000" />
+       <workItem from="1720707609675" duration="1584000" />
+       <workItem from="1721540114333" duration="161000" />
+-      <workItem from="1721574484330" duration="8827000" />
++      <workItem from="1721574484330" duration="11806000" />
++      <workItem from="1721670445906" duration="20000" />
++      <workItem from="1721779089678" duration="1942000" />
++      <workItem from="1721829003128" duration="12000" />
++      <workItem from="1721829318506" duration="617000" />
+     </task>
+     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
+       <option name="closed" value="true" />
+@@ -172,7 +169,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1721539164590</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Correccion controllers">
++      <option name="closed" value="true" />
++      <created>1721586981793</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1721586981793</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -204,7 +209,8 @@
+     <MESSAGE value="Inicializacion del proyecto" />
+     <MESSAGE value="Primera version del proyecto" />
+     <MESSAGE value="Actualizacion UML" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion UML" />
++    <MESSAGE value="Correccion controllers" />
++    <option name="LAST_COMMIT_MESSAGE" value="Correccion controllers" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
