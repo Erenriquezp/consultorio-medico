@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Patron Proxy">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/state/CitaCancelada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/state/CitaCompletada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/state/CitaPendiente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/state/CitaState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/PacienteService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,8 +148,7 @@
       <workItem from="1721574484330" duration="8827000" />
       <workItem from="1721778274359" duration="7620000" />
       <workItem from="1721954212522" duration="225000" />
-      <workItem from="1722040978785" duration="8431000" />
-      <workItem from="1722091219873" duration="10746000" />
+      <workItem from="1722040978785" duration="7845000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
       <option name="closed" value="true" />
@@ -204,15 +198,7 @@
       <option name="project" value="LOCAL" />
       <updated>1722051076269</updated>
     </task>
-    <task id="LOCAL-00007" summary="Patron Proxy">
-      <option name="closed" value="true" />
-      <created>1722051207808</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1722051207808</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

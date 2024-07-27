@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import org.uce.app.services.AuthService;
 import org.uce.app.services.AuthServiceInterface;
 import org.uce.app.services.AuthServiceProxy;
+import org.uce.app.services.FacadeService;
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
@@ -23,14 +24,11 @@ public class LoginController {
     private PasswordField passwordField;
 
     // Instancia del Proxy en lugar del servicio concreto
-    private final AuthServiceInterface authService;
+    private final FacadeService facadeService;
 
     // Constructor del controlador
     public LoginController() {
-        // Crear la instancia del servicio real
-        AuthService realAuthService = new AuthService();
-        // Crear la instancia del Proxy con el servicio real
-        this.authService = new AuthServiceProxy(realAuthService);
+        this.facadeService = new FacadeService();
     }
 
     @FXML
@@ -38,7 +36,7 @@ public class LoginController {
         String username = userField.getText();
         String password = passwordField.getText();
 
-        if (authService.authenticate(username, password)) {
+        if (facadeService.authenticate(username, password)) {
             loadMainScreen();
         } else {
             showAlert();
