@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Paciente;
 import org.uce.app.services.PacienteService;
+import org.uce.app.services.PacienteServiceProxy; // Importar el proxy
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
@@ -17,131 +18,63 @@ import java.time.LocalDate;
 public class GestionPacientesController {
 
     @FXML
-    public TextField instruccionField;
-    @FXML
-    public TableColumn<Paciente, String> ciPacienteColumn;
-    @FXML
-    public TableColumn<Paciente, String> primerNombreColumn;
-    @FXML
-    public TableColumn<Paciente, String> segundoNombreColumn;
-    @FXML
-    public TableColumn<Paciente, String> apellidoPaternoColumn;
-    @FXML
-    public TableColumn<Paciente, String> apellidoMaternoColumn;
-    @FXML
-    public TableColumn<Paciente, String> direccionResidenciaColumn;
-    @FXML
-    public TableColumn<Paciente, String> barrioColumn;
-    @FXML
-    public TableColumn<Paciente, String> parroquiaColumn;
-    @FXML
-    public TableColumn<Paciente, String> cantonColumn;
-    @FXML
-    public TableColumn<Paciente, String> provinciaColumn;
-    @FXML
-    public TableColumn<Paciente, String> telefonoColumn;
-    @FXML
-    public TableColumn<Paciente, LocalDate> fechaNacimientoColumn;
-    @FXML
-    public TableColumn<Paciente, String> lugarNacimientoColumn;
-    @FXML
-    public TableColumn<Paciente, String> nacionalidadColumn;
-    @FXML
-    public TableColumn<Paciente, Integer> edadColumn;
-    @FXML
-    public TableColumn<Paciente, String> estadoCivilColumn;
-    @FXML
-    public TableColumn<Paciente, String> instruccionColumn;
-    @FXML
-    public TableColumn<Paciente, LocalDate> fechaAdmisionColumn;
-    @FXML
-    public TableColumn<Paciente, String> lugarTrabajoColumn;
-    @FXML
-    public TableColumn<Paciente, String> referenciaColumn;
-    @FXML
-    public TableColumn<Paciente, String> contactoEmergenciaNombreColumn;
-    @FXML
-    public TableColumn<Paciente, String> tipoSeguroColumn;
-    @FXML
-    public TableColumn<Paciente, String> ocupacionColumn;
-    @FXML
-    public TableColumn<Paciente, String> contactoEmergenciaParentescoColumn;
-    @FXML
-    public TableColumn<Paciente, String> contactoEmergenciaDireccionColumn;
-    @FXML
-    public TableColumn<Paciente, String> contactoEmergenciaTelefonoColumn;
-    public Button buttonActualizarPaciente;
-    public Button buttonEliminarPaciente;
+    private TextField instruccionField, ciPacienteField, primerNombreField, segundoNombreField,
+            apellidoPaternoField, apellidoMaternoField, direccionResidenciaField,
+            barrioField, parroquiaField, cantonField, provinciaField, telefonoField,
+            lugarNacimientoField, nacionalidadField, edadField, ocupacionField,
+            lugarTrabajoField, tipoSeguroField, referenciaField,
+            contactoEmergenciaParentescoField, contactoEmergenciaNombreField,
+            contactoEmergenciaDireccionField, contactoEmergenciaTelefonoField;
 
     @FXML
-    private TextField ciPacienteField;
+    private TableColumn<Paciente, String> ciPacienteColumn, primerNombreColumn, segundoNombreColumn,
+            apellidoPaternoColumn, apellidoMaternoColumn,
+            direccionResidenciaColumn, barrioColumn, parroquiaColumn,
+            cantonColumn, provinciaColumn, telefonoColumn,
+            lugarNacimientoColumn, nacionalidadColumn,
+            estadoCivilColumn, instruccionColumn, lugarTrabajoColumn,
+            referenciaColumn, contactoEmergenciaNombreColumn,
+            tipoSeguroColumn, ocupacionColumn,
+            contactoEmergenciaParentescoColumn,
+            contactoEmergenciaDireccionColumn,
+            contactoEmergenciaTelefonoColumn;
+
     @FXML
-    private TextField primerNombreField;
+    private TableColumn<Paciente, LocalDate> fechaNacimientoColumn, fechaAdmisionColumn;
+
     @FXML
-    private TextField segundoNombreField;
+    private TableColumn<Paciente, Integer> edadColumn;
+
     @FXML
-    private TextField apellidoPaternoField;
+    private Button buttonActualizarPaciente, buttonEliminarPaciente, buttonRegresar, buttonSalir;
+
     @FXML
-    private TextField apellidoMaternoField;
+    private DatePicker fechaNacimientoField, fechaAdmisionPicker;
+
     @FXML
-    private TextField direccionResidenciaField;
-    @FXML
-    private TextField barrioField;
-    @FXML
-    private TextField parroquiaField;
-    @FXML
-    private TextField cantonField;
-    @FXML
-    private TextField provinciaField;
-    @FXML
-    private TextField telefonoField;
-    @FXML
-    private DatePicker fechaNacimientoField;
-    @FXML
-    private TextField lugarNacimientoField;
-    @FXML
-    private TextField nacionalidadField;
-    @FXML
-    private TextField edadField;
-    @FXML
-    private TextField ocupacionField;
-    @FXML
-    private TextField lugarTrabajoField;
-    @FXML
-    private TextField tipoSeguroField;
-    @FXML
-    private TextField referenciaField;
-    @FXML
-    private TextField contactoEmergenciaParentescoField;
-    @FXML
-    private TextField contactoEmergenciaNombreField;
-    @FXML
-    private TextField contactoEmergenciaDireccionField;
-    @FXML
-    private TextField contactoEmergenciaTelefonoField;
-    @FXML
-    private SplitMenuButton grupoCulturalMenu;
-    @FXML
-    private SplitMenuButton estadoCivilMenu;
-    @FXML
-    private DatePicker fechaAdmisionPicker;
-    @FXML
-    private Button buttonRegresar;
-    @FXML
-    private Button buttonSalir;
-    @FXML
-    private Button buttonAgregaPaciente;
+    private SplitMenuButton grupoCulturalMenu, estadoCivilMenu;
 
     @FXML
     private TableView<Paciente> tablaPacientes;
 
-    private final PacienteService pacienteService;
+    private final PacienteServiceProxy pacienteServiceProxy;
 
     public GestionPacientesController() {
-        pacienteService = new PacienteService();
+        // Inicializar el servicio real
+        PacienteService pacienteService = new PacienteService();
+
+        // Inicializar el proxy con el servicio real
+        this.pacienteServiceProxy = new PacienteServiceProxy(pacienteService);
     }
+
     @FXML
     private void initialize() {
+        initializeTableColumns();
+        loadPacientes();
+        setupRowClickListener();
+    }
+
+    private void initializeTableColumns() {
         // Initialize table columns
         ciPacienteColumn.setCellValueFactory(new PropertyValueFactory<>("ciPaciente"));
         primerNombreColumn.setCellValueFactory(new PropertyValueFactory<>("primerNombre"));
@@ -169,14 +102,13 @@ public class GestionPacientesController {
         contactoEmergenciaParentescoColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaParentesco"));
         contactoEmergenciaDireccionColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaDireccion"));
         contactoEmergenciaTelefonoColumn.setCellValueFactory(new PropertyValueFactory<>("contactoEmergenciaTelefono"));
-
-        loadPacientes();
-        setupRowClickListener();
     }
+
     private void loadPacientes() {
         tablaPacientes.getItems().clear();
-        tablaPacientes.getItems().addAll(pacienteService.getAllPacientes());
+        tablaPacientes.getItems().addAll(pacienteServiceProxy.getAllPacientes());
     }
+
     private void setupRowClickListener() {
         tablaPacientes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -213,140 +145,26 @@ public class GestionPacientesController {
         contactoEmergenciaNombreField.setText(paciente.getContactoEmergenciaNombre());
         contactoEmergenciaDireccionField.setText(paciente.getContactoEmergenciaDireccion());
         contactoEmergenciaTelefonoField.setText(paciente.getContactoEmergenciaTelefono());
-
-        // Rellenar otros campos...
     }
+
     @FXML
     private void agregarPaciente() {
-        // Obtener los datos ingresados en los campos de texto
-        String ciPaciente = ciPacienteField.getText();
-        String primerNombre = primerNombreField.getText();
-        String segundoNombre = segundoNombreField.getText();
-        String apellidoPaterno = apellidoPaternoField.getText();
-        String apellidoMaterno = apellidoMaternoField.getText();
-        String direccionResidencia = direccionResidenciaField.getText();
-        String barrio = barrioField.getText();
-        String parroquia = parroquiaField.getText();
-        String canton = cantonField.getText();
-        String provincia = provinciaField.getText();
-        String telefono = telefonoField.getText();
-        LocalDate fechaNacimiento = fechaNacimientoField.getValue();
-        String lugarNacimiento = lugarNacimientoField.getText();
-        String nacionalidad = nacionalidadField.getText();
-        String grupoCultural = grupoCulturalMenu.getText();
-        Integer edad = Integer.parseInt(edadField.getText());
-        String estadoCivil = estadoCivilMenu.getText();
-        String instruccionUltimoAnio = instruccionField.getText();
-        LocalDate fechaAdmision = fechaAdmisionPicker.getValue();
-        String ocupacion = ocupacionField.getText();
-        String lugarTrabajo = lugarTrabajoField.getText();
-        String tipoSeguro = tipoSeguroField.getText();
-        String referencia = referenciaField.getText();
-        String contactoEmergenciaParentesco = contactoEmergenciaParentescoField.getText();
-        String contactoEmergenciaNombre = contactoEmergenciaNombreField.getText();
-        String contactoEmergenciaDireccion = contactoEmergenciaDireccionField.getText();
-        String contactoEmergenciaTelefono = contactoEmergenciaTelefonoField.getText();
-
-        // Crear una instancia de Paciente con los datos ingresados
-        Paciente paciente = new Paciente.PacienteBuilder()
-                .ciPaciente(ciPaciente)
-                .primerNombre(primerNombre)
-                .segundoNombre(segundoNombre)
-                .apellidoPaterno(apellidoPaterno)
-                .apellidoMaterno(apellidoMaterno)
-                .direccionResidencia(direccionResidencia)
-                .barrio(barrio)
-                .parroquia(parroquia)
-                .canton(canton)
-                .provincia(provincia)
-                .telefono(telefono)
-                .fechaNacimiento(fechaNacimiento)
-                .lugarNacimiento(lugarNacimiento)
-                .nacionalidad(nacionalidad)
-                .grupoCultural(grupoCultural)
-                .edad(edad)
-                .estadoCivil(estadoCivil)
-                .instruccionUltimoAnio(instruccionUltimoAnio)
-                .fechaAdmision(fechaAdmision)
-                .ocupacion(ocupacion)
-                .lugarTrabajo(lugarTrabajo)
-                .tipoSeguro(tipoSeguro)
-                .referencia(referencia)
-                .contactoEmergenciaParentesco(contactoEmergenciaParentesco)
-                .contactoEmergenciaNombre(contactoEmergenciaNombre)
-                .contactoEmergenciaDireccion(contactoEmergenciaDireccion)
-                .contactoEmergenciaTelefono(contactoEmergenciaTelefono)
-                .build();
-
-        // Intentar agregar el paciente usando PacienteService
-        boolean success = pacienteService.createPaciente(paciente);
-
-        // Mostrar un mensaje según el resultado de la operación
-        Alert alert;
-        if (success) {
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Éxito");
-            alert.setHeaderText(null);
-            alert.setContentText("Paciente agregado exitosamente.");
-        } else {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Hubo un error al agregar el paciente.");
-        }
-        alert.showAndWait();
-    }
-    // Métodos para manejar la acción de los SplitMenuButton
-    @FXML
-    private void handleGrupoCulturalMenuAction(javafx.event.ActionEvent event) {
-        MenuItem menuItem = (MenuItem) event.getSource();
-        grupoCulturalMenu.setText(menuItem.getText());
-    }
-    @FXML
-    private void handleEstadoCivilMenuAction(javafx.event.ActionEvent event) {
-        MenuItem menuItem = (MenuItem) event.getSource();
-        estadoCivilMenu.setText(menuItem.getText());
-    }
-    @FXML
-    private void handleRegresar() {
-        // Regresar a la pantalla principal
-        Stage stage = (Stage) buttonRegresar.getScene().getWindow();
-        stage.close();
-        cargarPantallaPrincipal();
-    }
-
-    @FXML
-    private void handleSalir() {
-        // Salir de la aplicación
-        Stage stage = (Stage) buttonSalir.getScene().getWindow();
-        stage.close();
-    }
-
-    private void cargarPantallaPrincipal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
-            Stage stage = new Stage();
-            stage.setTitle("Pantalla Principal");
-            stage.setScene(new Scene(loader.load()));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+            Paciente paciente = buildPacienteFromFields();
+            boolean success = pacienteServiceProxy.createPaciente(paciente);
+            showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
+                    success ? "Éxito" : "Error",
+                    success ? "Paciente agregado exitosamente." : "Hubo un error al agregar el paciente.");
+            if (success) {
+                loadPacientes();
+            }
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Error de formato", "Edad debe ser un número entero.");
         }
     }
 
-    public void actualizarPaciente(ActionEvent actionEvent) {
-        Paciente selectedPaciente = tablaPacientes.getSelectionModel().getSelectedItem();
-        if (selectedPaciente == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Advertencia");
-            alert.setHeaderText("No hay paciente seleccionado");
-            alert.setContentText("Por favor, seleccione un paciente de la tabla.");
-            alert.showAndWait();
-            return;
-        }
-
-        // Obtener los datos actualizados de los campos de texto
-        if (pacienteService.updatePaciente(new Paciente.PacienteBuilder()
+    private Paciente buildPacienteFromFields() {
+        return new Paciente.PacienteBuilder()
                 .ciPaciente(ciPacienteField.getText())
                 .primerNombre(primerNombreField.getText())
                 .segundoNombre(segundoNombreField.getText())
@@ -374,55 +192,91 @@ public class GestionPacientesController {
                 .contactoEmergenciaNombre(contactoEmergenciaNombreField.getText())
                 .contactoEmergenciaDireccion(contactoEmergenciaDireccionField.getText())
                 .contactoEmergenciaTelefono(contactoEmergenciaTelefonoField.getText())
-                .build())){
-            loadPacientes();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Éxito");
-            alert.setHeaderText("Paciente actualizado");
-            alert.setContentText("El paciente ha sido actualizado exitosamente.");
-            alert.showAndWait();
+                .build();
+    }
+
+    @FXML
+    private void handleGrupoCulturalMenuAction(ActionEvent event) {
+        MenuItem menuItem = (MenuItem) event.getSource();
+        grupoCulturalMenu.setText(menuItem.getText());
+    }
+
+    @FXML
+    private void handleEstadoCivilMenuAction(ActionEvent event) {
+        MenuItem menuItem = (MenuItem) event.getSource();
+        estadoCivilMenu.setText(menuItem.getText());
+    }
+
+    @FXML
+    private void eliminarPaciente() {
+        Paciente paciente = tablaPacientes.getSelectionModel().getSelectedItem();
+        if (paciente != null) {
+            boolean success = pacienteServiceProxy.deletePaciente(paciente.getCiPaciente());
+            showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
+                    success ? "Éxito" : "Error",
+                    success ? "Paciente eliminado exitosamente." : "Hubo un error al eliminar el paciente.");
+            if (success) {
+                loadPacientes();
+            }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error al actualizar paciente");
-            alert.setContentText("Hubo un problema al actualizar el paciente. Por favor, intente de nuevo.");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.WARNING, "Seleccionar Paciente", "Por favor, seleccione un paciente para eliminar.");
         }
     }
 
-    public void eliminarPaciente(ActionEvent actionEvent) {
+    @FXML
+    private void actualizarPaciente() {
         Paciente selectedPaciente = tablaPacientes.getSelectionModel().getSelectedItem();
-        if (selectedPaciente == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Advertencia");
-            alert.setHeaderText("No hay paciente seleccionado");
-            alert.setContentText("Por favor, seleccione un paciente de la tabla.");
-            alert.showAndWait();
-            return;
-        }
-
-        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setTitle("Confirmación");
-        confirmAlert.setHeaderText("Confirmar eliminación");
-        confirmAlert.setContentText("¿Está seguro de que desea eliminar al paciente seleccionado?");
-        confirmAlert.showAndWait().ifPresent(response -> {
-            if (response == ButtonType.OK) {
-
-                if (pacienteService.deletePaciente(selectedPaciente.getCiPaciente())) {
+        if (selectedPaciente != null) {
+            try {
+                Paciente pacienteActualizado = buildPacienteFromFields();
+                boolean success = pacienteServiceProxy.updatePaciente(pacienteActualizado);
+                showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
+                        success ? "Éxito" : "Error",
+                        success ? "Paciente actualizado exitosamente." : "Hubo un error al actualizar el paciente.");
+                if (success) {
                     loadPacientes();
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Éxito");
-                    alert.setHeaderText("Paciente eliminado");
-                    alert.setContentText("El paciente ha sido eliminado exitosamente.");
-                    alert.showAndWait();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error al eliminar paciente");
-                    alert.setContentText("Hubo un problema al eliminar el paciente. Por favor, intente de nuevo.");
-                    alert.showAndWait();
                 }
+            } catch (NumberFormatException e) {
+                showAlert(Alert.AlertType.ERROR, "Error de formato", "Edad debe ser un número entero.");
             }
-        });
+        } else {
+            showAlert(Alert.AlertType.WARNING, "Seleccionar Paciente", "Por favor, seleccione un paciente para actualizar.");
+        }
+    }
+
+    @FXML
+    private void handleRegresar() {
+        closeStage(buttonRegresar);
+        cargarPantallaPrincipal();
+    }
+
+    @FXML
+    private void handleSalir() {
+        closeStage(buttonSalir);
+    }
+
+    private void closeStage(Button button) {
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
+    }
+
+    private void cargarPantallaPrincipal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+            Stage stage = new Stage();
+            stage.setTitle("Pantalla Principal");
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

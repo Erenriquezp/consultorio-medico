@@ -13,11 +13,7 @@ public class CitaDAO {
         String query = "INSERT INTO Cita (id_cita, ci_paciente, fecha_cita, motivo, estado) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, cita.getIdCita());
-            stmt.setString(2, cita.getCiPaciente());
-            stmt.setTimestamp(3, Timestamp.valueOf(cita.getFechaCita()));
-            stmt.setString(4, cita.getMotivo());
-            stmt.setString(5, cita.getEstado());
+            setCitaParameters(stmt, cita);
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -34,13 +30,7 @@ public class CitaDAO {
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Cita cita = new Cita.CitaBuilder()
-                        .idCita(rs.getString("id_cita"))
-                        .ciPaciente(rs.getString("ci_paciente"))
-                        .fechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime())
-                        .motivo(rs.getString("motivo"))
-                        .estado(rs.getString("estado"))
-                        .build();
+                Cita cita = buildCitaFromResultSet(rs);
                 citas.add(cita);
             }
         } catch (SQLException e) {
@@ -51,26 +41,19 @@ public class CitaDAO {
 
     // Método para obtener una cita por ID
     public Cita getCitaById(String idCita) {
-        Cita cita = null;
         String query = "SELECT * FROM Cita WHERE id_cita = ?";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, idCita);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    cita = new Cita.CitaBuilder()
-                            .idCita(rs.getString("id_cita"))
-                            .ciPaciente(rs.getString("ci_paciente"))
-                            .fechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime())
-                            .motivo(rs.getString("motivo"))
-                            .estado(rs.getString("estado"))
-                            .build();
+                    return buildCitaFromResultSet(rs);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return cita;
+        return null;
     }
 
     // Método para actualizar una cita
@@ -103,5 +86,25 @@ public class CitaDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    // Método para establecer los parámetros de la cita en el PreparedStatement
+    private void setCitaParameters(PreparedStatement stmt, Cita cita) throws SQLException {
+        stmt.setString(1, cita.getIdCita());
+        stmt.setString(2, cita.getCiPaciente());
+        stmt.setTimestamp(3, Timestamp.valueOf(cita.getFechaCita()));
+        stmt.setString(4, cita.getMotivo());
+        stmt.setString(5, cita.getEstado());
+    }
+
+    // Método para construir una cita a partir de un ResultSet
+    private Cita buildCitaFromResultSet(ResultSet rs) throws SQLException {
+        return new Cita.CitaBuilder()
+                .idCita(rs.getString("id_cita"))
+                .ciPaciente(rs.getString("ci_paciente"))
+                .fechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime())
+                .motivo(rs.getString("motivo"))
+                .estado(rs.getString("estado"))
+                .build();
     }
 }

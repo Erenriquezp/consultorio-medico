@@ -9,10 +9,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Cita;
 import org.uce.app.services.CitaService;
+import org.uce.app.services.CitaServiceInterface;
+import org.uce.app.services.CitaServiceProxy;
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class GestionCitasController {
     @FXML
@@ -40,28 +43,30 @@ public class GestionCitasController {
     @FXML
     private Button buttonSalir;
     @FXML
-    private Button buttonAgregaCita;
-
-    @FXML
     private TableView<Cita> tablaCitas;
 
-    private final CitaService citaService;
+    private final CitaServiceInterface citaService;
 
     public GestionCitasController() {
-        citaService = new CitaService();
+        CitaService realService = new CitaService();
+        this.citaService = new CitaServiceProxy(realService);
     }
 
     @FXML
     private void initialize() {
+        configureTableColumns();
+        loadCitas();
+        setupRowClickListener();
+    }
+
+    private void configureTableColumns() {
         idCitaColumn.setCellValueFactory(new PropertyValueFactory<>("idCita"));
         ciPacienteColumn.setCellValueFactory(new PropertyValueFactory<>("ciPaciente"));
         fechaCitaColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCita"));
         motivoColumn.setCellValueFactory(new PropertyValueFactory<>("motivo"));
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
-
-        loadCitas();
-        setupRowClickListener();
     }
+
     private void setupRowClickListener() {
         tablaCitas.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -85,127 +90,63 @@ public class GestionCitasController {
 
     @FXML
     private void agregarCita() {
-        String idCita = idCitaField.getText();
-        String ciPaciente = ciPacienteField.getText();
-        LocalDate fechaCita = fechaCitaField.getValue();
-        String motivo = motivoField.getText();
-        String estado = estadoField.getText();
+        if (!validateFields()) return;
 
-        if (idCita.isEmpty() || ciPaciente.isEmpty() || fechaCita == null || motivo.isEmpty() || estado.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Campos incompletos");
-            alert.setHeaderText(null);
-            alert.setContentText("Por favor, complete todos los campos.");
-            alert.showAndWait();
-            return;
-        }
-
-        Cita cita = new Cita.CitaBuilder()
-                .idCita(idCita)
-                .ciPaciente(ciPaciente)
-                .fechaCita(fechaCita.atStartOfDay())
-                .motivo(motivo)
-                .estado(estado)
-                .build();
+        Cita cita = buildCitaFromFields();
         boolean success = citaService.createCita(cita);
 
-        Alert alert;
-        if (success) {
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Éxito");
-            alert.setHeaderText(null);
-            alert.setContentText("Cita agregada exitosamente.");
-            loadCitas();
-        } else {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Hubo un error al agregar la cita.");
-        }
-        alert.showAndWait();
+        showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
+                success ? "Éxito" : "Error",
+                success ? "Cita agregada exitosamente." : "Hubo un error al agregar la cita.");
+
+        if (success) loadCitas();
     }
-    public void actualizarCita(ActionEvent actionEvent) {
+
+    public void actualizarCita() {
         Cita selectedCita = tablaCitas.getSelectionModel().getSelectedItem();
         if (selectedCita == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Cita no seleccionada");
-            alert.setHeaderText(null);
-            alert.setContentText("Por favor, seleccione una cita.");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.WARNING, "Cita no seleccionada", "Por favor, seleccione una cita.");
             return;
         }
 
-        boolean success = citaService.updateCita(new Cita.CitaBuilder()
-                .idCita(idCitaField.getText())
-                .ciPaciente(ciPacienteField.getText())
-                .fechaCita(fechaCitaField.getValue().atStartOfDay())
-                .motivo(motivoField.getText())
-                .estado(estadoField.getText())
-                .build());
+        Cita citaActualizada = buildCitaFromFields();
+        boolean success = citaService.updateCita(citaActualizada);
 
-        Alert alert;
-        if (success) {
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Éxito");
-            alert.setHeaderText(null);
-            alert.setContentText("Cita actualizada exitosamente.");
-            loadCitas();
-        } else {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Hubo un error al actualizar la cita.");
-        }
-        alert.showAndWait();
+        showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
+                success ? "Éxito" : "Error",
+                success ? "Cita actualizada exitosamente." : "Hubo un error al actualizar la cita.");
+
+        if (success) loadCitas();
     }
 
-    public void eliminarCita(ActionEvent actionEvent) {
+    public void eliminarCita() {
         Cita selectedCita = tablaCitas.getSelectionModel().getSelectedItem();
         if (selectedCita == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Cita no seleccionada");
-            alert.setHeaderText(null);
-            alert.setContentText("Por favor, seleccione una cita.");
-            alert.showAndWait();
+            showAlert(Alert.AlertType.WARNING, "Cita no seleccionada", "Por favor, seleccione una cita.");
             return;
         }
 
-        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setTitle("Confirmar eliminación");
-        confirmAlert.setHeaderText(null);
-        confirmAlert.setContentText("¿Está seguro de que desea eliminar la cita seleccionada?");
-        confirmAlert.showAndWait().ifPresent(response -> {
-            if (response == ButtonType.OK) {
-                boolean success = citaService.deleteCita(selectedCita.getIdCita());
-                Alert alert;
-                if (success) {
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Éxito");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Cita eliminada exitosamente.");
-                    loadCitas();
-                } else {
-                    alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Hubo un error al eliminar la cita.");
-                }
-                alert.showAndWait();
-            }
-        });
+        Optional<ButtonType> response = showConfirmation("Confirmar eliminación", "¿Está seguro de que desea eliminar la cita seleccionada?");
+        if (response.isPresent() && response.get() == ButtonType.OK) {
+            boolean success = citaService.deleteCita(selectedCita.getIdCita());
+
+            showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
+                    success ? "Éxito" : "Error",
+                    success ? "Cita eliminada exitosamente." : "Hubo un error al eliminar la cita.");
+
+            if (success) loadCitas();
+        }
     }
 
     @FXML
     private void handleRegresar() {
-        Stage stage = (Stage) buttonRegresar.getScene().getWindow();
-        stage.close();
+        closeStage(buttonRegresar);
         cargarPantallaPrincipal();
     }
 
     @FXML
     private void handleSalir() {
-        Stage stage = (Stage) buttonSalir.getScene().getWindow();
-        stage.close();
+        closeStage(buttonSalir);
     }
 
     private void cargarPantallaPrincipal() {
@@ -218,5 +159,45 @@ public class GestionCitasController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void closeStage(Button button) {
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
+    }
+
+    private boolean validateFields() {
+        if (idCitaField.getText().isEmpty() || ciPacienteField.getText().isEmpty() || fechaCitaField.getValue() == null ||
+                motivoField.getText().isEmpty() || estadoField.getText().isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Campos incompletos", "Por favor, complete todos los campos.");
+            return false;
+        }
+        return true;
+    }
+
+    private Cita buildCitaFromFields() {
+        return new Cita.CitaBuilder()
+                .idCita(idCitaField.getText())
+                .ciPaciente(ciPacienteField.getText())
+                .fechaCita(fechaCitaField.getValue().atStartOfDay())
+                .motivo(motivoField.getText())
+                .estado(estadoField.getText())
+                .build();
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private Optional<ButtonType> showConfirmation(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        return alert.showAndWait();
     }
 }

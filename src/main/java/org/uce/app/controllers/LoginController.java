@@ -1,6 +1,5 @@
 package org.uce.app.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.uce.app.services.AuthService;
+import org.uce.app.services.AuthServiceInterface;
+import org.uce.app.services.AuthServiceProxy;
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
@@ -21,22 +22,31 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    private AuthService authService = new AuthService();
+    // Instancia del Proxy en lugar del servicio concreto
+    private final AuthServiceInterface authService;
+
+    // Constructor del controlador
+    public LoginController() {
+        // Crear la instancia del servicio real
+        AuthService realAuthService = new AuthService();
+        // Crear la instancia del Proxy con el servicio real
+        this.authService = new AuthServiceProxy(realAuthService);
+    }
 
     @FXML
-    private void handleLogin(ActionEvent event) {
+    private void handleLogin() {
         String username = userField.getText();
         String password = passwordField.getText();
 
         if (authService.authenticate(username, password)) {
             loadMainScreen();
         } else {
-            showAlert("Login Failed", "Invalid username or password.");
+            showAlert();
         }
     }
 
     @FXML
-    private void handleCloseApp(ActionEvent event) {
+    private void handleCloseApp() {
         Stage stage = (Stage) userField.getScene().getWindow();
         stage.close();
     }
@@ -57,11 +67,11 @@ public class LoginController {
         }
     }
 
-    private void showAlert(String title, String message) {
+    private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle("Login Failed");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText("Invalid username or password.");
         alert.showAndWait();
     }
 }

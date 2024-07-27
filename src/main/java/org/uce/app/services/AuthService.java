@@ -1,33 +1,24 @@
 package org.uce.app.services;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import org.uce.app.dao.ConexionDAO;
 import org.uce.app.dao.UsuarioDAO;
 import org.uce.app.model.Usuario;
 
-public class AuthService {
+public class AuthService implements AuthServiceInterface {
 
-    private Connection connection;
+    private final UsuarioDAO usuarioDAO;
 
     public AuthService() {
-        try {
-            connection = ConexionDAO.getInstancia().getConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        this.usuarioDAO = new UsuarioDAO();
     }
 
+    @Override
     public boolean authenticate(String username, String password) {
-        UsuarioDAO userAut = new UsuarioDAO();
-        if (userAut.findByUsername(username) == null) {
+        Usuario user = usuarioDAO.findByUsername(username);
+
+        if (user == null) {
             return false;
-        } else {
-            Usuario user = userAut.findByUsername(username);
-            System.out.println(user.getUsername());
-            return username.equals(user.getUsername()) && password.equals(user.getPassword());
         }
+
+        return username.equals(user.getUsername()) && password.equals(user.getPassword());
     }
 }
