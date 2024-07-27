@@ -8,13 +8,14 @@ public class ConexionDAO {
 
     private static ConexionDAO instancia;
     private Connection conexion;
-    private String url = "jdbc:mysql://localhost:3306/consultorio";
-    private String username = "root";
-    private String password = "patrones123";
 
     private ConexionDAO() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/consultorio";
+            String username = "root";
+            String password = "patrones123";
+
             this.conexion = DriverManager.getConnection(url, username, password);
             System.out.println("Conexión a la base de datos exitosa.");
         } catch (ClassNotFoundException ex) {
@@ -35,7 +36,6 @@ public class ConexionDAO {
         } else if (instancia.getConexion().isClosed()) {
             instancia = new ConexionDAO();
         }
-
         return instancia;
     }
 
