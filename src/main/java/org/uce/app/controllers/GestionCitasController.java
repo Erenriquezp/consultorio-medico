@@ -8,8 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Cita;
 import org.uce.app.services.CitaService;
-import org.uce.app.services.CitaServiceInterface;
-import org.uce.app.services.CitaServiceProxy;
+import org.uce.app.services.FacadeService;
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
@@ -44,11 +43,10 @@ public class GestionCitasController {
     @FXML
     private TableView<Cita> tablaCitas;
 
-    private final CitaServiceInterface citaService;
+    private final FacadeService facadeService;
 
     public GestionCitasController() {
-        CitaService realService = new CitaService();
-        this.citaService = new CitaServiceProxy(realService);
+        this.facadeService = new FacadeService();
     }
 
     @FXML
@@ -84,7 +82,7 @@ public class GestionCitasController {
 
     private void loadCitas() {
         tablaCitas.getItems().clear();
-        tablaCitas.getItems().addAll(citaService.getAllCitas());
+        tablaCitas.getItems().addAll(facadeService.getAllCitas());
     }
 
     @FXML
@@ -92,7 +90,7 @@ public class GestionCitasController {
         if (!validateFields()) return;
 
         Cita cita = buildCitaFromFields();
-        boolean success = citaService.createCita(cita);
+        boolean success = facadeService.createCita(cita);
 
         showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
                 success ? "Éxito" : "Error",
@@ -109,7 +107,7 @@ public class GestionCitasController {
         }
 
         Cita citaActualizada = buildCitaFromFields();
-        boolean success = citaService.updateCita(citaActualizada);
+        boolean success = facadeService.updateCita(citaActualizada);
 
         showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
                 success ? "Éxito" : "Error",
@@ -127,7 +125,7 @@ public class GestionCitasController {
 
         Optional<ButtonType> response = showConfirmation();
         if (response.isPresent() && response.get() == ButtonType.OK) {
-            boolean success = citaService.deleteCita(selectedCita.getIdCita());
+            boolean success = facadeService.deleteCita(selectedCita.getIdCita());
 
             showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
                     success ? "Éxito" : "Error",
@@ -200,3 +198,5 @@ public class GestionCitasController {
         return alert.showAndWait();
     }
 }
+
+

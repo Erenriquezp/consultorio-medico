@@ -8,8 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.uce.app.model.Paciente;
-import org.uce.app.services.PacienteService;
-import org.uce.app.services.PacienteServiceProxy; // Importar el proxy
+import org.uce.app.services.FacadeService;
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException;
@@ -57,14 +56,10 @@ public class GestionPacientesController {
     @FXML
     private TableView<Paciente> tablaPacientes;
 
-    private final PacienteServiceProxy pacienteServiceProxy;
+    private final FacadeService facadeService;
 
     public GestionPacientesController() {
-        // Inicializar el servicio real
-        PacienteService pacienteService = new PacienteService();
-
-        // Inicializar el proxy con el servicio real
-        this.pacienteServiceProxy = new PacienteServiceProxy(pacienteService);
+        this.facadeService= new FacadeService();
     }
 
     @FXML
@@ -106,7 +101,7 @@ public class GestionPacientesController {
 
     private void loadPacientes() {
         tablaPacientes.getItems().clear();
-        tablaPacientes.getItems().addAll(pacienteServiceProxy.getAllPacientes());
+        tablaPacientes.getItems().addAll(facadeService.getAllPacientes());
     }
 
     private void setupRowClickListener() {
@@ -151,7 +146,7 @@ public class GestionPacientesController {
     private void agregarPaciente() {
         try {
             Paciente paciente = buildPacienteFromFields();
-            boolean success = pacienteServiceProxy.createPaciente(paciente);
+            boolean success = facadeService.createPaciente(paciente);
             showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
                     success ? "Éxito" : "Error",
                     success ? "Paciente agregado exitosamente." : "Hubo un error al agregar el paciente.");
@@ -211,7 +206,7 @@ public class GestionPacientesController {
     private void eliminarPaciente() {
         Paciente paciente = tablaPacientes.getSelectionModel().getSelectedItem();
         if (paciente != null) {
-            boolean success = pacienteServiceProxy.deletePaciente(paciente.getCiPaciente());
+            boolean success = facadeService.deletePaciente(paciente.getCiPaciente());
             showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
                     success ? "Éxito" : "Error",
                     success ? "Paciente eliminado exitosamente." : "Hubo un error al eliminar el paciente.");
@@ -229,7 +224,7 @@ public class GestionPacientesController {
         if (selectedPaciente != null) {
             try {
                 Paciente pacienteActualizado = buildPacienteFromFields();
-                boolean success = pacienteServiceProxy.updatePaciente(pacienteActualizado);
+                boolean success = facadeService.updatePaciente(pacienteActualizado);
                 showAlert(success ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR,
                         success ? "Éxito" : "Error",
                         success ? "Paciente actualizado exitosamente." : "Hubo un error al actualizar el paciente.");
