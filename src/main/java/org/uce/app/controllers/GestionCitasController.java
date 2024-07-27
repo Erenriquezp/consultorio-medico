@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public class GestionCitasController {
+    public SplitMenuButton estadoField;
     @FXML
     private TableColumn<Cita, String> idCitaColumn;
     @FXML
@@ -36,11 +37,10 @@ public class GestionCitasController {
     @FXML
     private TextArea motivoField;
     @FXML
-    private TextField estadoField;
-    @FXML
     private Button buttonRegresar;
     @FXML
     private Button buttonSalir;
+
     @FXML
     private TableView<Cita> tablaCitas;
 
@@ -138,6 +138,33 @@ public class GestionCitasController {
     }
 
     @FXML
+    private void cambiarEstadoProgramada() {
+        cambiarEstado("Programada");
+    }
+
+    @FXML
+    private void cambiarEstadoCompletada() {
+        cambiarEstado("Completada");
+    }
+
+    @FXML
+    private void cambiarEstadoCancelada() {
+        cambiarEstado("Cancelada");
+    }
+
+    private void cambiarEstado(String nuevoEstado) {
+        Cita citaSeleccionada = tablaCitas.getSelectionModel().getSelectedItem();
+        if (citaSeleccionada != null) {
+            citaSeleccionada.setEstado(nuevoEstado);
+            tablaCitas.refresh();
+            tablaCitas.getSelectionModel().clearSelection();
+        } else {
+            showAlert(Alert.AlertType.WARNING, "Sin selección", "Por favor, seleccione una cita de la tabla.");
+        }
+        estadoField.setText("Programada");
+    }
+
+    @FXML
     private void handleRegresar() {
         closeStage(buttonRegresar);
         cargarPantallaPrincipal();
@@ -180,7 +207,7 @@ public class GestionCitasController {
                 .ciPaciente(ciPacienteField.getText())
                 .fechaCita(fechaCitaField.getValue().atStartOfDay())
                 .motivo(motivoField.getText())
-                .estado(estadoField.getText())
+                .estado(estadoField.getText().isEmpty() ? "Programada" : estadoField.getText()) // Establecer "Programada" por defecto
                 .build();
     }
 

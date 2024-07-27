@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -12,38 +14,48 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.SplitMenuButton?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionCitasController">
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-   <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; GESTION CITAS &lt;&lt;" textFill="#1a237e">
-      <font>
-         <Font name="Yu Gothic Light" size="20.0" />
-      </font>
-   </Label>
+    <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; GESTION CITAS &lt;&lt;" textFill="#1a237e">
+        <font>
+            <Font name="Yu Gothic Light" size="20.0" />
+        </font>
+    </Label>
     <TextField fx:id="idCitaField" promptText="ID Cita" />
     <TextField fx:id="ciPacienteField" promptText="Cédula Paciente" />
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-          <DatePicker fx:id="fechaCitaField" promptText="Fecha de Cita" />
-      </children>
-   </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <children>
+            <DatePicker fx:id="fechaCitaField" promptText="Fecha de Cita" />
+        </children>
+    </HBox>
     <TextArea fx:id="motivoField" promptText="Motivo" text="Chequeo general" />
-    <TextField fx:id="estadoField" promptText="Estado" text="Pendiente" />
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Button mnemonicParsing="false" onAction="#agregarCita" text="Agregar cita" />
-         <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" text="Actualizar">
-            <HBox.margin>
-               <Insets left="200.0" />
-            </HBox.margin></Button>
-         <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" text="Eliminar Cita">
-            <HBox.margin>
-               <Insets left="180.0" />
-            </HBox.margin>
-         </Button>
-      </children>
-   </HBox>
+    <HBox spacing="10">
+        <SplitMenuButton fx:id="estadoField" text="Programada">
+            <items>
+                <MenuItem text="Programada" onAction="#cambiarEstadoProgramada" />
+                <MenuItem text="Completada" onAction="#cambiarEstadoCompletada" />
+                <MenuItem text="Cancelada" onAction="#cambiarEstadoCancelada" />
+            </items>
+        </SplitMenuButton>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <children>
+            <Button mnemonicParsing="false" onAction="#agregarCita" text="Agregar cita" />
+            <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" text="Actualizar">
+                <HBox.margin>
+                    <Insets left="200.0" />
+                </HBox.margin>
+            </Button>
+            <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" text="Eliminar Cita">
+                <HBox.margin>
+                    <Insets left="180.0" />
+                </HBox.margin>
+            </Button>
+        </children>
+    </HBox>
     <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
         <columns>
             <TableColumn fx:id="idCitaColumn" prefWidth="106.0" text="ID Cita" />
@@ -53,17 +65,18 @@
             <TableColumn fx:id="estadoColumn" prefWidth="110.0" text="Estado" />
         </columns>
     </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Label alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;">
-            <font>
-               <Font name="Symbol" size="19.0" />
-            </font>
-            <HBox.margin>
-               <Insets left="320.0" />
-            </HBox.margin>
-         </Label>
-      </children></HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+        <children>
+            <Label alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;">
+                <font>
+                    <Font name="Symbol" size="19.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="320.0" />
+                </HBox.margin>
+            </Label>
+        </children>
+    </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
         <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="72.0" text="Regresar">
             <font>

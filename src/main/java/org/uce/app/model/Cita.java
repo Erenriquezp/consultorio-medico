@@ -1,20 +1,24 @@
 package org.uce.app.model;
 
 import java.time.LocalDateTime;
+import org.uce.app.model.state.CitaState;
+import org.uce.app.model.state.CitaPendiente;
+import org.uce.app.model.state.CitaCompletada;
+import org.uce.app.model.state.CitaCancelada;
 
 public class Cita {
     private final String idCita;
     private final String ciPaciente;
     private final LocalDateTime fechaCita;
     private final String motivo;
-    private final String estado;
+    private CitaState estado;
 
     public Cita(CitaBuilder builder) {
         this.idCita = builder.idCita;
         this.ciPaciente = builder.ciPaciente;
         this.fechaCita = builder.fechaCita;
         this.motivo = builder.motivo;
-        this.estado = builder.estado;
+        this.setEstado(builder.estado); // Ajustar el estado inicial
     }
 
     public static class CitaBuilder {
@@ -24,7 +28,7 @@ public class Cita {
         private String motivo;
         private String estado;
 
-        public CitaBuilder(){}
+        public CitaBuilder() {}
 
         public CitaBuilder idCita(String idCita) {
             this.idCita = idCita;
@@ -51,28 +55,54 @@ public class Cita {
             return this;
         }
 
-        public Cita build(){
+        public Cita build() {
             return new Cita(this);
         }
     }
 
-    public String getEstado() {
-        return estado;
+    public void setEstado(CitaState estado) {
+        this.estado = estado;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public void setEstado(String estado) {
+        switch (estado) {
+            case "Programada" -> this.estado = new CitaPendiente();
+            case "Completada" -> this.estado = new CitaCompletada();
+            case "Cancelada" -> this.estado = new CitaCancelada();
+            default -> throw new IllegalArgumentException("Estado desconocido: " + estado);
+        }
     }
 
-    public LocalDateTime getFechaCita() {
-        return fechaCita;
+    public void programar() {
+        estado.programar(this);
+    }
+
+    public void completar() {
+        estado.completar(this);
+    }
+
+    public void cancelar() {
+        estado.cancelar(this);
+    }
+
+    // Getters
+    public String getIdCita() {
+        return idCita;
     }
 
     public String getCiPaciente() {
         return ciPaciente;
     }
 
-    public String getIdCita() {
-        return idCita;
+    public LocalDateTime getFechaCita() {
+        return fechaCita;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public String getEstado() {
+        return estado.getEstado();
     }
 }
