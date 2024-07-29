@@ -51,17 +51,17 @@
                     <Insets left="160.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="buttonActualizarReceta" onAction="#actualizarReceta" text="Editar">
+            <Button onAction="#actualizarReceta" text="Editar">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="buttonEliminarReceta" onAction="#eliminarReceta" text="Eliminar">
+            <Button onAction="#eliminarReceta" text="Eliminar">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="buttonBuscarReceta" onAction="#buscarReceta" text="Buscar">
+            <Button onAction="#buscarReceta" text="Buscar">
                 <HBox.margin>
                     <Insets left="25.0" />
                 </HBox.margin>

@@ -8,7 +8,6 @@ import javafx.stage.Stage; // Importa la clase Stage para representar la ventana
 import org.uce.app.utilities.Paths;
 
 import java.io.IOException; // Importa la clase IOException para manejar errores de entrada/salida
-import java.nio.file.Path;
 
 public class PantallaPrincipalController {
     public Button buttonRegresar;
