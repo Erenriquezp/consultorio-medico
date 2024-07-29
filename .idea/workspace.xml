@@ -4,35 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Actualizacion UML">
-      <change afterPath="$PROJECT_DIR$/clases.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/MedicalFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml_dao.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_21_2024_12_18_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_21_2024_12_18_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_24_2024_9_55_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_24_2024_9_55_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_25_2024_5_28_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_25_2024_5_28_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionPacientesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistoriaClinicaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistoriaClinicaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/CitaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/EvolucionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/EvolucionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistoriaClinicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistoriaClinicaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/MedicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/MedicoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/PacienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Evolucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Evolucion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistoriaClinica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Medico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Receta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Receta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Usuario.java" afterDir="false" />
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Correccion logica DAO - Controllers">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +15,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,7 +64,7 @@
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/Proyectos Intellij/consultorio-medico/src/main/resources/fxml&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kelly/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -109,9 +83,6 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HP\Proyectos Intellij\consultorio-medico\src\main\resources\fxml" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\styles" />
       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\fxml" />
@@ -173,6 +144,9 @@
       <workItem from="1721540114333" duration="161000" />
       <workItem from="1721574484330" duration="8827000" />
       <workItem from="1721778274359" duration="7620000" />
+      <workItem from="1721954212522" duration="225000" />
+      <workItem from="1722040978785" duration="8431000" />
+      <workItem from="1722091219873" duration="10746000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
       <option name="closed" value="true" />
@@ -206,7 +180,39 @@
       <option name="project" value="LOCAL" />
       <updated>1721539164590</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Actualizacion funciones avanzadas">
+      <option name="closed" value="true" />
+      <created>1721953267413</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721953267413</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Patron Proxy">
+      <option name="closed" value="true" />
+      <created>1722051076269</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722051076269</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Patron Proxy">
+      <option name="closed" value="true" />
+      <created>1722051207808</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722051207808</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Correccion logica DAO - Controllers">
+      <option name="closed" value="true" />
+      <created>1722122810739</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722122810739</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +244,10 @@
     <MESSAGE value="Inicializacion del proyecto" />
     <MESSAGE value="Primera version del proyecto" />
     <MESSAGE value="Actualizacion UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion UML" />
+    <MESSAGE value="Actualizacion funciones avanzadas" />
+    <MESSAGE value="Patron Proxy" />
+    <MESSAGE value="Correccion logica DAO - Controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion logica DAO - Controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
