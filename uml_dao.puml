@@ -1,0 +1,72 @@
+@startuml
+class org.uce.app.dao.CitaDAO {
++ boolean createCita(Cita)
++ List<Cita> getAllCitas()
++ Cita getCitaById(String)
++ boolean updateCita(Cita)
++ boolean deleteCita(String)
+}
+
+class org.uce.app.dao.EvolucionDAO {
+- Connection conexion
++ <<Create>> EvolucionDAO()
++ void crearEvolucion(Evolucion)
++ Evolucion obtenerEvolucionPorId(int)
++ List<Evolucion> obtenerTodasLasEvoluciones()
++ void actualizarEvolucion(Evolucion)
++ void eliminarEvolucion(int)
+}
+
+
+class org.uce.app.dao.ConexionDAO {
+- {static} ConexionDAO instancia
+- Connection conexion
+- String url
+- String username
+- String password
+- <<Create>> ConexionDAO()
++ Connection getConexion()
++ {static} ConexionDAO getInstancia()
+}
+
+
+class org.uce.app.dao.MedicoDAO {
++ boolean createMedico(Medico)
++ List<Medico> getAllMedicos()
++ Medico getMedicoByCi(String)
++ boolean updateMedico(Medico)
++ boolean deleteMedico(String)
+}
+
+class org.uce.app.dao.UsuarioDAO {
++ Usuario findByUsername(String)
+}
+
+class org.uce.app.dao.HistoriaClinicaDAO {
+- Connection conexion
++ <<Create>> HistoriaClinicaDAO()
++ void crearHistoriaClinica(HistoriaClinica)
++ HistoriaClinica obtenerHistoriaClinicaPorId(String)
++ List<HistoriaClinica> obtenerTodasLasHistoriasClinicas()
++ void actualizarHistoriaClinica(HistoriaClinica)
++ void eliminarHistoriaClinica(String)
+}
+
+
+class org.uce.app.dao.PacienteDAO {
++ boolean createPaciente(Paciente)
++ List<Paciente> getAllPacientes()
++ Paciente getPacienteByCi(String)
++ boolean updatePaciente(Paciente)
++ boolean deletePaciente(String)
+}
+
+class org.uce.app.dao.RecetaDAO {
++ boolean createReceta(Receta)
++ List<Receta> getAllRecetas()
++ Receta getRecetaById(int)
++ boolean updateReceta(Receta)
++ boolean deleteReceta(int)
+}
+
+@enduml

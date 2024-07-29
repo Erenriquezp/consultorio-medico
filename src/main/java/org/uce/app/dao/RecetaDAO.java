@@ -100,7 +100,7 @@ public class RecetaDAO {
 
     // Método auxiliar para construir un objeto Receta a partir de un ResultSet
     private Receta buildRecetaFromResultSet(ResultSet rs) throws SQLException {
-        return new Receta.RecetaBuilder()
+        return new Receta.Builder()
                 .idReceta(rs.getInt("id_receta"))
                 .ciPaciente(rs.getString("ci_paciente"))
                 .ciMedico(rs.getString("ci_medico"))

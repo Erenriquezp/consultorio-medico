@@ -8,38 +8,38 @@ public class Evolucion {
     private final Date fecha;
     private final String descripcion;
 
-    private Evolucion(EvolutionBuilder builder) {
+    private Evolucion(Builder builder) {
         this.idEvolucion = builder.idEvolucion;
         this.idHistoriaClinica = builder.idHistoriaClinica;
         this.fecha = builder.fecha;
         this.descripcion = builder.descripcion;
     }
 
-    public static class EvolutionBuilder {
+    public static class Builder {
         private int idEvolucion;
         private String idHistoriaClinica;
         private Date fecha;
         private String descripcion;
 
-        public EvolutionBuilder() {
+        public Builder() {
         }
 
-        public EvolutionBuilder idEvolucion(int idEvolucion) {
+        public Builder idEvolucion(int idEvolucion) {
             this.idEvolucion = idEvolucion;
             return this;
         }
 
-        public EvolutionBuilder idHistoriaClinica(String idHistoriaClinica) {
+        public Builder idHistoriaClinica(String idHistoriaClinica) {
             this.idHistoriaClinica = idHistoriaClinica;
             return this;
         }
 
-        public EvolutionBuilder fecha(Date fecha) {
+        public Builder fecha(Date fecha) {
             this.fecha = fecha;
             return this;
         }
 
-        public EvolutionBuilder descripcion(String descripcion) {
+        public Builder descripcion(String descripcion) {
             this.descripcion = descripcion;
             return this;
         }

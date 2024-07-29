@@ -89,7 +89,7 @@ public class HistoriaClinicaController {
 
     @FXML
     private void agregarHistoriaClinica() throws SQLException {
-        HistoriaClinica historiaClinica = new HistoriaClinica.HistoriaClinicaBuilder()
+        HistoriaClinica historiaClinica = new HistoriaClinica.Builder()
                 .idHistoriaClinica(idHistoriaClinicaField.getText())
                 .ciMedico(ciMedicoField.getText())
                 .ciPaciente(ciPacienteField.getText())

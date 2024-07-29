@@ -31,7 +31,7 @@ public class Paciente {
     private final String contactoEmergenciaDireccion;
     private final String contactoEmergenciaTelefono;
 
-    private Paciente(PacienteBuilder builder) {
+    private Paciente(Builder builder) {
         this.ciPaciente = builder.ciPaciente;
         this.primerNombre = builder.primerNombre;
         this.segundoNombre = builder.segundoNombre;
@@ -61,7 +61,7 @@ public class Paciente {
         this.contactoEmergenciaTelefono = builder.contactoEmergenciaTelefono;
     }
 
-    public static class PacienteBuilder {
+    public static class Builder {
         private String ciPaciente;
         private String primerNombre;
         private String segundoNombre;
@@ -90,137 +90,137 @@ public class Paciente {
         private String contactoEmergenciaDireccion;
         private String contactoEmergenciaTelefono;
 
-        public PacienteBuilder ciPaciente(String ciPaciente) {
+        public Builder ciPaciente(String ciPaciente) {
             this.ciPaciente = ciPaciente;
             return this;
         }
 
-        public PacienteBuilder primerNombre(String primerNombre) {
+        public Builder primerNombre(String primerNombre) {
             this.primerNombre = primerNombre;
             return this;
         }
 
-        public PacienteBuilder segundoNombre(String segundoNombre) {
+        public Builder segundoNombre(String segundoNombre) {
             this.segundoNombre = segundoNombre;
             return this;
         }
 
-        public PacienteBuilder apellidoPaterno(String apellidoPaterno) {
+        public Builder apellidoPaterno(String apellidoPaterno) {
             this.apellidoPaterno = apellidoPaterno;
             return this;
         }
 
-        public PacienteBuilder apellidoMaterno(String apellidoMaterno) {
+        public Builder apellidoMaterno(String apellidoMaterno) {
             this.apellidoMaterno = apellidoMaterno;
             return this;
         }
 
-        public PacienteBuilder direccionResidencia(String direccionResidencia) {
+        public Builder direccionResidencia(String direccionResidencia) {
             this.direccionResidencia = direccionResidencia;
             return this;
         }
 
-        public PacienteBuilder barrio(String barrio) {
+        public Builder barrio(String barrio) {
             this.barrio = barrio;
             return this;
         }
 
-        public PacienteBuilder parroquia(String parroquia) {
+        public Builder parroquia(String parroquia) {
             this.parroquia = parroquia;
             return this;
         }
 
-        public PacienteBuilder canton(String canton) {
+        public Builder canton(String canton) {
             this.canton = canton;
             return this;
         }
 
-        public PacienteBuilder provincia(String provincia) {
+        public Builder provincia(String provincia) {
             this.provincia = provincia;
             return this;
         }
 
-        public PacienteBuilder telefono(String telefono) {
+        public Builder telefono(String telefono) {
             this.telefono = telefono;
             return this;
         }
 
-        public PacienteBuilder fechaNacimiento(LocalDate fechaNacimiento) {
+        public Builder fechaNacimiento(LocalDate fechaNacimiento) {
             this.fechaNacimiento = fechaNacimiento;
             return this;
         }
 
-        public PacienteBuilder lugarNacimiento(String lugarNacimiento) {
+        public Builder lugarNacimiento(String lugarNacimiento) {
             this.lugarNacimiento = lugarNacimiento;
             return this;
         }
 
-        public PacienteBuilder nacionalidad(String nacionalidad) {
+        public Builder nacionalidad(String nacionalidad) {
             this.nacionalidad = nacionalidad;
             return this;
         }
 
-        public PacienteBuilder grupoCultural(String grupoCultural) {
+        public Builder grupoCultural(String grupoCultural) {
             this.grupoCultural = grupoCultural;
             return this;
         }
 
-        public PacienteBuilder edad(Integer edad) {
+        public Builder edad(Integer edad) {
             this.edad = edad;
             return this;
         }
 
-        public PacienteBuilder estadoCivil(String estadoCivil) {
+        public Builder estadoCivil(String estadoCivil) {
             this.estadoCivil = estadoCivil;
             return this;
         }
 
-        public PacienteBuilder instruccionUltimoAnio(String instruccionUltimoAnio) {
+        public Builder instruccionUltimoAnio(String instruccionUltimoAnio) {
             this.instruccionUltimoAnio = instruccionUltimoAnio;
             return this;
         }
 
-        public PacienteBuilder fechaAdmision(LocalDate fechaAdmision) {
+        public Builder fechaAdmision(LocalDate fechaAdmision) {
             this.fechaAdmision = fechaAdmision;
             return this;
         }
 
-        public PacienteBuilder ocupacion(String ocupacion) {
+        public Builder ocupacion(String ocupacion) {
             this.ocupacion = ocupacion;
             return this;
         }
 
-        public PacienteBuilder lugarTrabajo(String lugarTrabajo) {
+        public Builder lugarTrabajo(String lugarTrabajo) {
             this.lugarTrabajo = lugarTrabajo;
             return this;
         }
 
-        public PacienteBuilder tipoSeguro(String tipoSeguro) {
+        public Builder tipoSeguro(String tipoSeguro) {
             this.tipoSeguro = tipoSeguro;
             return this;
         }
 
-        public PacienteBuilder referencia(String referencia) {
+        public Builder referencia(String referencia) {
             this.referencia = referencia;
             return this;
         }
 
-        public PacienteBuilder contactoEmergenciaParentesco(String contactoEmergenciaParentesco) {
+        public Builder contactoEmergenciaParentesco(String contactoEmergenciaParentesco) {
             this.contactoEmergenciaParentesco = contactoEmergenciaParentesco;
             return this;
         }
 
-        public PacienteBuilder contactoEmergenciaNombre(String contactoEmergenciaNombre) {
+        public Builder contactoEmergenciaNombre(String contactoEmergenciaNombre) {
             this.contactoEmergenciaNombre = contactoEmergenciaNombre;
             return this;
         }
 
-        public PacienteBuilder contactoEmergenciaDireccion(String contactoEmergenciaDireccion) {
+        public Builder contactoEmergenciaDireccion(String contactoEmergenciaDireccion) {
             this.contactoEmergenciaDireccion = contactoEmergenciaDireccion;
             return this;
         }
 
-        public PacienteBuilder contactoEmergenciaTelefono(String contactoEmergenciaTelefono) {
+        public Builder contactoEmergenciaTelefono(String contactoEmergenciaTelefono) {
             this.contactoEmergenciaTelefono = contactoEmergenciaTelefono;
             return this;
         }

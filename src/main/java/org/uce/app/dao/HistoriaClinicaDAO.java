@@ -114,7 +114,7 @@ public class HistoriaClinicaDAO {
 
     // Método para construir una historia clínica a partir de un ResultSet
     private HistoriaClinica buildHistoriaClinicaFromResultSet(ResultSet rs) throws SQLException {
-        return new HistoriaClinica.HistoriaClinicaBuilder()
+        return new HistoriaClinica.Builder()
                 .idHistoriaClinica(rs.getString("id_historia_clinica"))
                 .ciMedico(rs.getString("ci_medico"))
                 .ciPaciente(rs.getString("ci_paciente"))

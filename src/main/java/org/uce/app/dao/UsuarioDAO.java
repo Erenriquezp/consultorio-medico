@@ -23,7 +23,7 @@ public class UsuarioDAO {
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    Usuario usuario = new Usuario.UsuarioBuilder()
+                    Usuario usuario = new Usuario.Builder()
                             .username(rs.getString("med_user"))
                             .password(rs.getString("med_password"))
                             .ci(rs.getString("ci_medico"))

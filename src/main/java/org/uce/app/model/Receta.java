@@ -10,7 +10,7 @@ public class Receta {
     private final String medicamentos;
     private final String dosis;
 
-    private Receta(RecetaBuilder builder) {
+    private Receta(Builder builder) {
         this.idReceta = builder.idReceta;
         this.ciPaciente = builder.ciPaciente;
         this.ciMedico = builder.ciMedico;
@@ -19,7 +19,7 @@ public class Receta {
         this.dosis = builder.dosis;
     }
 
-    public static class RecetaBuilder {
+    public static class Builder {
         private int idReceta;
         private String ciPaciente;
         private String ciMedico;
@@ -27,32 +27,32 @@ public class Receta {
         private String medicamentos;
         private String dosis;
 
-        public RecetaBuilder idReceta(int idReceta) {
+        public Builder idReceta(int idReceta) {
             this.idReceta = idReceta;
             return this;
         }
 
-        public RecetaBuilder ciPaciente(String ciPaciente) {
+        public Builder ciPaciente(String ciPaciente) {
             this.ciPaciente = ciPaciente;
             return this;
         }
 
-        public RecetaBuilder ciMedico(String ciMedico) {
+        public Builder ciMedico(String ciMedico) {
             this.ciMedico = ciMedico;
             return this;
         }
 
-        public RecetaBuilder fechaEmision(LocalDate fechaEmision) {
+        public Builder fechaEmision(LocalDate fechaEmision) {
             this.fechaEmision = fechaEmision;
             return this;
         }
 
-        public RecetaBuilder medicamentos(String medicamentos) {
+        public Builder medicamentos(String medicamentos) {
             this.medicamentos = medicamentos;
             return this;
         }
 
-        public RecetaBuilder dosis(String dosis) {
+        public Builder dosis(String dosis) {
             this.dosis = dosis;
             return this;
         }

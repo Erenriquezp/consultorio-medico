@@ -32,7 +32,7 @@ public class HistoriaClinica {
     private final String diagnosticoDesc;
     private final String diagnosticoCIE;
 
-    private HistoriaClinica(HistoriaClinicaBuilder builder) {
+    private HistoriaClinica(Builder builder) {
         this.idHistoriaClinica = builder.idHistoriaClinica;
         this.ciMedico = builder.ciMedico;
         this.ciPaciente = builder.ciPaciente;
@@ -65,7 +65,7 @@ public class HistoriaClinica {
         this.diagnosticoCIE = builder.diagnosticoCIE;
     }
 
-    public static class HistoriaClinicaBuilder {
+    public static class Builder {
         private String idHistoriaClinica;
         private String ciMedico;
         private String ciPaciente;
@@ -97,155 +97,155 @@ public class HistoriaClinica {
         private String diagnosticoDesc;
         private String diagnosticoCIE;
 
-        public HistoriaClinicaBuilder() {
+        public Builder() {
         }
 
-        public HistoriaClinicaBuilder idHistoriaClinica(String idHistoriaClinica) {
+        public Builder idHistoriaClinica(String idHistoriaClinica) {
             this.idHistoriaClinica = idHistoriaClinica;
             return this;
         }
 
-        public HistoriaClinicaBuilder ciMedico(String ciMedico) {
+        public Builder ciMedico(String ciMedico) {
             this.ciMedico = ciMedico;
             return this;
         }
 
-        public HistoriaClinicaBuilder ciPaciente(String ciPaciente) {
+        public Builder ciPaciente(String ciPaciente) {
             this.ciPaciente = ciPaciente;
             return this;
         }
 
-        public HistoriaClinicaBuilder motivoConsulta(String motivoConsulta) {
+        public Builder motivoConsulta(String motivoConsulta) {
             this.motivoConsulta = motivoConsulta;
             return this;
         }
 
-        public HistoriaClinicaBuilder antecedentesPersonales(String antecedentesPersonales) {
+        public Builder antecedentesPersonales(String antecedentesPersonales) {
             this.antecedentesPersonales = antecedentesPersonales;
             return this;
         }
 
-        public HistoriaClinicaBuilder antecedentesFamiliares(String antecedentesFamiliares) {
+        public Builder antecedentesFamiliares(String antecedentesFamiliares) {
             this.antecedentesFamiliares = antecedentesFamiliares;
             return this;
         }
 
-        public HistoriaClinicaBuilder enfermedadesActuales(String enfermedadesActuales) {
+        public Builder enfermedadesActuales(String enfermedadesActuales) {
             this.enfermedadesActuales = enfermedadesActuales;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosOrganosSentidos(String raosOrganosSentidos) {
+        public Builder raosOrganosSentidos(String raosOrganosSentidos) {
             this.raosOrganosSentidos = raosOrganosSentidos;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosRespiratorio(String raosRespiratorio) {
+        public Builder raosRespiratorio(String raosRespiratorio) {
             this.raosRespiratorio = raosRespiratorio;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosCardiovascular(String raosCardiovascular) {
+        public Builder raosCardiovascular(String raosCardiovascular) {
             this.raosCardiovascular = raosCardiovascular;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosDigestivo(String raosDigestivo) {
+        public Builder raosDigestivo(String raosDigestivo) {
             this.raosDigestivo = raosDigestivo;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosGenital(String raosGenital) {
+        public Builder raosGenital(String raosGenital) {
             this.raosGenital = raosGenital;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosUrinario(String raosUrinario) {
+        public Builder raosUrinario(String raosUrinario) {
             this.raosUrinario = raosUrinario;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosMusculoEsqueletico(String raosMusculoEsqueletico) {
+        public Builder raosMusculoEsqueletico(String raosMusculoEsqueletico) {
             this.raosMusculoEsqueletico = raosMusculoEsqueletico;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosEndocrino(String raosEndocrino) {
+        public Builder raosEndocrino(String raosEndocrino) {
             this.raosEndocrino = raosEndocrino;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosHemoLinfatico(String raosHemoLinfatico) {
+        public Builder raosHemoLinfatico(String raosHemoLinfatico) {
             this.raosHemoLinfatico = raosHemoLinfatico;
             return this;
         }
 
-        public HistoriaClinicaBuilder raosNervioso(String raosNervioso) {
+        public Builder raosNervioso(String raosNervioso) {
             this.raosNervioso = raosNervioso;
             return this;
         }
 
-        public HistoriaClinicaBuilder svaFechaMedicion(String svaFechaMedicion) {
+        public Builder svaFechaMedicion(String svaFechaMedicion) {
             this.svaFechaMedicion = svaFechaMedicion;
             return this;
         }
 
-        public HistoriaClinicaBuilder svaTemperatura(String svaTemperatura) {
+        public Builder svaTemperatura(String svaTemperatura) {
             this.svaTemperatura = svaTemperatura;
             return this;
         }
 
-        public HistoriaClinicaBuilder svaPresionArterial(String svaPresionArterial) {
+        public Builder svaPresionArterial(String svaPresionArterial) {
             this.svaPresionArterial = svaPresionArterial;
             return this;
         }
 
-        public HistoriaClinicaBuilder svaPulsoMinFreRespiratoria(String svaPulsoMinFreRespiratoria) {
+        public Builder svaPulsoMinFreRespiratoria(String svaPulsoMinFreRespiratoria) {
             this.svaPulsoMinFreRespiratoria = svaPulsoMinFreRespiratoria;
             return this;
         }
 
-        public HistoriaClinicaBuilder svaPesoKgTallaCm(String svaPesoKgTallaCm) {
+        public Builder svaPesoKgTallaCm(String svaPesoKgTallaCm) {
             this.svaPesoKgTallaCm = svaPesoKgTallaCm;
             return this;
         }
 
-        public HistoriaClinicaBuilder efrCabeza(String efrCabeza) {
+        public Builder efrCabeza(String efrCabeza) {
             this.efrCabeza = efrCabeza;
             return this;
         }
 
-        public HistoriaClinicaBuilder efrCuello(String efrCuello) {
+        public Builder efrCuello(String efrCuello) {
             this.efrCuello = efrCuello;
             return this;
         }
 
-        public HistoriaClinicaBuilder efrTorax(String efrTorax) {
+        public Builder efrTorax(String efrTorax) {
             this.efrTorax = efrTorax;
             return this;
         }
 
-        public HistoriaClinicaBuilder efrAbdomen(String efrAbdomen) {
+        public Builder efrAbdomen(String efrAbdomen) {
             this.efrAbdomen = efrAbdomen;
             return this;
         }
 
-        public HistoriaClinicaBuilder efrPelvs(String efrPelvs) {
+        public Builder efrPelvs(String efrPelvs) {
             this.efrPelvs = efrPelvs;
             return this;
         }
 
-        public HistoriaClinicaBuilder efrExtremidades(String efrExtremidades) {
+        public Builder efrExtremidades(String efrExtremidades) {
             this.efrExtremidades = efrExtremidades;
             return this;
         }
 
-        public HistoriaClinicaBuilder diagnosticoDesc(String diagnosticoDesc) {
+        public Builder diagnosticoDesc(String diagnosticoDesc) {
             this.diagnosticoDesc = diagnosticoDesc;
             return this;
         }
 
-        public HistoriaClinicaBuilder diagnosticoCIE(String diagnosticoCIE) {
+        public Builder diagnosticoCIE(String diagnosticoCIE) {
             this.diagnosticoCIE = diagnosticoCIE;
             return this;
         }

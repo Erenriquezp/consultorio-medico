@@ -99,7 +99,7 @@ public class MedicoDAO {
 
     // Método auxiliar para construir un objeto Medico a partir de un ResultSet
     private Medico buildMedicoFromResultSet(ResultSet rs) throws SQLException {
-        return new Medico.MedicoBuilder()
+        return new Medico.Builder()
                 .ciMedico(rs.getString("ci_medico"))
                 .apellidos(rs.getString("apellidos"))
                 .nombres(rs.getString("nombres"))

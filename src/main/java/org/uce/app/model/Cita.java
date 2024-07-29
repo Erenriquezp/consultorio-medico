@@ -13,7 +13,7 @@ public class Cita {
     private final String motivo;
     private CitaState estado;
 
-    public Cita(CitaBuilder builder) {
+    public Cita(Builder builder) {
         this.idCita = builder.idCita;
         this.ciPaciente = builder.ciPaciente;
         this.fechaCita = builder.fechaCita;
@@ -21,36 +21,36 @@ public class Cita {
         this.setEstado(builder.estado); // Ajustar el estado inicial
     }
 
-    public static class CitaBuilder {
+    public static class Builder {
         private String idCita;
         private String ciPaciente;
         private LocalDateTime fechaCita;
         private String motivo;
         private String estado;
 
-        public CitaBuilder() {}
+        public Builder() {}
 
-        public CitaBuilder idCita(String idCita) {
+        public Builder idCita(String idCita) {
             this.idCita = idCita;
             return this;
         }
 
-        public CitaBuilder ciPaciente(String ciPaciente) {
+        public Builder ciPaciente(String ciPaciente) {
             this.ciPaciente = ciPaciente;
             return this;
         }
 
-        public CitaBuilder fechaCita(LocalDateTime fechaCita) {
+        public Builder fechaCita(LocalDateTime fechaCita) {
             this.fechaCita = fechaCita;
             return this;
         }
 
-        public CitaBuilder motivo(String motivo) {
+        public Builder motivo(String motivo) {
             this.motivo = motivo;
             return this;
         }
 
-        public CitaBuilder estado(String estado) {
+        public Builder estado(String estado) {
             this.estado = estado;
             return this;
         }

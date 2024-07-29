@@ -99,7 +99,7 @@ public class CitaDAO {
 
     // Método para construir una cita a partir de un ResultSet
     private Cita buildCitaFromResultSet(ResultSet rs) throws SQLException {
-        return new Cita.CitaBuilder()
+        return new Cita.Builder()
                 .idCita(rs.getString("id_cita"))
                 .ciPaciente(rs.getString("ci_paciente"))
                 .fechaCita(rs.getTimestamp("fecha_cita").toLocalDateTime())

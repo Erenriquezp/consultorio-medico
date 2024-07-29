@@ -181,7 +181,7 @@ public class PacienteDAO {
 
     // Método para construir un paciente a partir de un ResultSet
     private Paciente buildPacienteFromResultSet(ResultSet rs) throws SQLException {
-        return new Paciente.PacienteBuilder()
+        return new Paciente.Builder()
                 .ciPaciente(rs.getString("ci_paciente"))
                 .primerNombre(rs.getString("primer_nombre"))
                 .segundoNombre(rs.getString("segundo_nombre"))

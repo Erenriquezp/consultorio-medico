@@ -7,7 +7,7 @@ public class Medico {
     private final String telefono;
     private final String email;
 
-    private Medico(MedicoBuilder builder) {
+    private Medico(Builder builder) {
         this.ciMedico = builder.ciMedico;
         this.apellidos = builder.apellidos;
         this.nombres = builder.nombres;
@@ -15,37 +15,37 @@ public class Medico {
         this.email = builder.email;
     }
 
-    public static class MedicoBuilder {
+    public static class Builder {
         private String ciMedico;
         private String apellidos;
         private String nombres;
         private String telefono;
         private String email;
 
-        public MedicoBuilder() {
+        public Builder() {
         }
 
-        public MedicoBuilder ciMedico(String ciMedico) {
+        public Builder ciMedico(String ciMedico) {
             this.ciMedico = ciMedico;
             return this;
         }
 
-        public MedicoBuilder apellidos(String apellidos) {
+        public Builder apellidos(String apellidos) {
             this.apellidos = apellidos;
             return this;
         }
 
-        public MedicoBuilder nombres(String nombres) {
+        public Builder nombres(String nombres) {
             this.nombres = nombres;
             return this;
         }
 
-        public MedicoBuilder telefono(String telefono) {
+        public Builder telefono(String telefono) {
             this.telefono = telefono;
             return this;
         }
 
-        public MedicoBuilder email(String email) {
+        public Builder email(String email) {
             this.email = email;
             return this;
         }

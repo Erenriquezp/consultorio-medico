@@ -159,7 +159,7 @@ public class GestionPacientesController {
     }
 
     private Paciente buildPacienteFromFields() {
-        return new Paciente.PacienteBuilder()
+        return new Paciente.Builder()
                 .ciPaciente(ciPacienteField.getText())
                 .primerNombre(primerNombreField.getText())
                 .segundoNombre(segundoNombreField.getText())

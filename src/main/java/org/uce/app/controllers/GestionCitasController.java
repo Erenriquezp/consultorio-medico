@@ -197,7 +197,7 @@ public class GestionCitasController {
     }
 
     private Cita buildCitaFromFields() {
-        return new Cita.CitaBuilder()
+        return new Cita.Builder()
                 .idCita(idCitaField.getText())
                 .ciPaciente(ciPacienteField.getText())
                 .fechaCita(fechaCitaField.getValue().atStartOfDay())

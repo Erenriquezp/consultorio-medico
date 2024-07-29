@@ -5,28 +5,28 @@ public class Usuario {
     private final String password;
     private final String ci;
 
-    private Usuario(UsuarioBuilder builder) {
+    private Usuario(Builder builder) {
         this.username = builder.username;
         this.password = builder.password;
         this.ci = builder.ci;
     }
 
-    public static class UsuarioBuilder {
+    public static class Builder {
         private String username;
         private String password;
         private String ci;
 
-        public UsuarioBuilder username(String username) {
+        public Builder username(String username) {
             this.username = username;
             return this;
         }
 
-        public UsuarioBuilder password(String password) {
+        public Builder password(String password) {
             this.password = password;
             return this;
         }
 
-        public UsuarioBuilder ci(String ci) {
+        public Builder ci(String ci) {
             this.ci = ci;
             return this;
         }

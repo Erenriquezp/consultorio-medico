@@ -77,7 +77,7 @@ public class EvolucionDAO {
 
     // Método para construir una evolución a partir de un ResultSet
     private Evolucion buildEvolucionFromResultSet(ResultSet rs) throws SQLException {
-        return new Evolucion.EvolutionBuilder()
+        return new Evolucion.Builder()
                 .idEvolucion(rs.getInt("id_evolucion"))
                 .idHistoriaClinica(rs.getString("id_historia_clinica"))
                 .fecha(rs.getDate("fecha"))
