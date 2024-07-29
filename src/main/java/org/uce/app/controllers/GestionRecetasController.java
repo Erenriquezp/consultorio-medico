@@ -187,7 +187,7 @@ public class GestionRecetasController {
     }
 
     private Receta buildRecetaFromFields() {
-        return new Receta.RecetaBuilder()
+        return new Receta.Builder()
                 .idReceta(Integer.parseInt(numeroRecetaField.getText()))
                 .ciPaciente(ciPacienteField.getText())
                 .ciMedico(ciMedicoField.getText())

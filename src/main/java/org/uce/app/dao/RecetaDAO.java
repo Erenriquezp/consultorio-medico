@@ -15,7 +15,7 @@ public class RecetaDAO {
 
     // Método para crear una nueva receta
     public boolean createReceta(Receta receta) {
-        String query = "INSERT INTO receta (ci_paciente, ci_medico, fecha_emision, medicamentos, dosis) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Receta (ci_paciente, ci_medico, fecha_emision, medicamentos, dosis) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             setRecetaParameters(stmt, receta);
@@ -30,7 +30,7 @@ public class RecetaDAO {
     // Método para obtener todas las recetas
     public List<Receta> getAllRecetas() {
         List<Receta> recetas = new ArrayList<>();
-        String query = "SELECT * FROM receta";
+        String query = "SELECT * FROM Receta";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -45,7 +45,7 @@ public class RecetaDAO {
 
     // Método para obtener una receta por ID
     public Receta getRecetaById(int idReceta) {
-        String query = "SELECT * FROM receta WHERE id_receta = ?";
+        String query = "SELECT * FROM Receta WHERE id_receta = ?";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, idReceta);
@@ -62,7 +62,7 @@ public class RecetaDAO {
 
     // Método para actualizar una receta
     public boolean updateReceta(Receta receta) {
-        String query = "UPDATE receta SET ci_paciente = ?, ci_medico = ?, fecha_emision = ?, medicamentos = ?, dosis = ? WHERE id_receta = ?";
+        String query = "UPDATE Receta SET ci_paciente = ?, ci_medico = ?, fecha_emision = ?, medicamentos = ?, dosis = ? WHERE id_receta = ?";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             setRecetaParameters(stmt, receta);
@@ -77,7 +77,7 @@ public class RecetaDAO {
 
     // Método para eliminar una receta por ID
     public boolean deleteReceta(int idReceta) {
-        String query = "DELETE FROM receta WHERE id_receta = ?";
+        String query = "DELETE FROM Receta WHERE id_receta = ?";
         try (Connection connection = ConexionDAO.getInstancia().getConexion();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, idReceta);
