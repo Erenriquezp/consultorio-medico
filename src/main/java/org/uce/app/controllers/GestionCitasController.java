@@ -1,5 +1,6 @@
 package org.uce.app.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -40,6 +41,7 @@ public class GestionCitasController {
     private Button buttonSalir;
     @FXML
     private TableView<Cita> tablaCitas;
+
     private final FacadeService facadeService;
 
     public GestionCitasController() {
@@ -111,6 +113,7 @@ public class GestionCitasController {
                 success ? "Cita actualizada exitosamente." : "Hubo un error al actualizar la cita.");
 
         if (success) loadCitas();
+        estadoField.setText("Programada");
     }
 
     public void eliminarCita() {
@@ -221,6 +224,7 @@ public class GestionCitasController {
         alert.setContentText("¿Está seguro de que desea eliminar la cita seleccionada?");
         return alert.showAndWait();
     }
+
+    public void buscarCita(ActionEvent actionEvent) {
+    }
 }
-
-

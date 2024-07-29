@@ -2,7 +2,7 @@ package org.uce.app.services;
 
 import org.uce.app.model.Cita;
 import org.uce.app.model.Paciente;
-
+import org.uce.app.model.Receta;
 
 import java.util.List;
 
@@ -11,11 +11,13 @@ public class FacadeService {
     private final AuthServiceInterface authService;
     private final CitaServiceInterface citaService;
     private final PacienteServiceInterface pacienteService;
+    private final RecetaServiceInterface recetaService;
 
     public FacadeService() {
         this.authService = new AuthServiceProxy(new AuthService());
         this.citaService = new CitaServiceProxy(new CitaService());
         this.pacienteService = new PacienteServiceProxy(new PacienteService());
+        this.recetaService = new RecetaServiceProxy(new RecetaService());
     }
 
     // AuthService methods
@@ -64,5 +66,25 @@ public class FacadeService {
     public boolean deletePaciente(String ciPaciente) {
         return pacienteService.deletePaciente(ciPaciente);
     }
-}
 
+    // RecetaService methods
+    public boolean createReceta(Receta receta) {
+        return recetaService.createReceta(receta);
+    }
+
+    public List<Receta> getAllRecetas() {
+        return recetaService.getAllRecetas();
+    }
+
+    public Receta getRecetaById(int id) {
+        return recetaService.getRecetaById(id);
+    }
+
+    public boolean updateReceta(Receta receta) {
+        return recetaService.updateReceta(receta);
+    }
+
+    public boolean deleteReceta(int id) {
+        return recetaService.deleteReceta(id);
+    }
+}

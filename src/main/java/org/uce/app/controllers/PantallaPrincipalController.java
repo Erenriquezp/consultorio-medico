@@ -29,8 +29,12 @@ public class PantallaPrincipalController {
 
     // Método llamado al hacer clic en el botón "Historial Médico"
     @FXML
-    private void gestionarHistorialMedico() {
-        cargarPantalla(Paths.historialMedico, "Historia Clínica");
+    private void gestionarHistoriaClinica() {
+        cargarPantalla(Paths.historiaClinica, "Historia Clínica");
+    }
+    @FXML
+    private void gestionarRecetaMedica() {
+        cargarPantalla(Paths.recetaMedica, "Receta Médica");
     }
     @FXML
     private void handleRegresar() {

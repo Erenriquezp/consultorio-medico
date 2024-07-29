@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionCitasController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionRecetasController">
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
@@ -21,59 +21,61 @@
         </font>
     </Label>
    <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-          <TextField fx:id="ciPacienteField" promptText="Numero de Receta">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-          <TextField fx:id="idCitaField" promptText="Cedula Paciente">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-         <TextField fx:id="idCitaField1" promptText="Cedula Medico">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-         <TextField fx:id="idCitaField11" promptText="Fecha Emision" />
-      </children>
+       <children>
+           <TextField fx:id="numeroRecetaField" promptText="Numero de Receta">
+               <HBox.margin>
+                   <Insets right="5.0" />
+               </HBox.margin>
+           </TextField>
+           <TextField fx:id="ciPacienteField" promptText="Cedula Paciente">
+               <HBox.margin>
+                   <Insets right="5.0" />
+               </HBox.margin>
+           </TextField>
+           <TextField fx:id="ciMedicoField" promptText="Cedula Medico">
+               <HBox.margin>
+                   <Insets right="5.0" />
+               </HBox.margin>
+           </TextField>
+           <TextField fx:id="fechaEmisionField" promptText="Fecha Emision" />
+       </children>
    </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0" />
-    <TextArea fx:id="motivoField" promptText="Medicamentos" />
-   <TextField fx:id="ciPacienteField1" promptText="Dosis" />
+    <TextArea fx:id="medicamentosField" promptText="Medicamentos" />
+    <TextField fx:id="dosisField" promptText="Dosis" />
     <HBox spacing="10" />
     <HBox prefHeight="100.0" prefWidth="200.0">
         <children>
-            <Button mnemonicParsing="false" onAction="#agregarCita" text="Agregar">
-            <HBox.margin>
-               <Insets left="160.0" />
-            </HBox.margin></Button>
-            <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" text="Editar">
+            <Button mnemonicParsing="false" onAction="#agregarReceta" text="Agregar">
+                <HBox.margin>
+                    <Insets left="160.0" />
+                </HBox.margin>
+            </Button>
+            <Button fx:id="buttonActualizarReceta" onAction="#actualizarReceta" text="Editar">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" text="Eliminar">
+            <Button fx:id="buttonEliminarReceta" onAction="#eliminarReceta" text="Eliminar">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
             </Button>
-         <Button fx:id="buttonEliminarCita1" onAction="#eliminarCita" text="Buscar ">
-            <HBox.margin>
-               <Insets left="25.0" />
-            </HBox.margin>
-         </Button>
+            <Button fx:id="buttonBuscarReceta" onAction="#buscarReceta" text="Buscar">
+                <HBox.margin>
+                    <Insets left="25.0" />
+                </HBox.margin>
+            </Button>
         </children>
     </HBox>
-    <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
+    <TableView fx:id="tablaRecetas" prefHeight="313.0" prefWidth="482.0">
         <columns>
-            <TableColumn fx:id="idCitaColumn" prefWidth="132.0" text="Cedula de Paciente" />
-            <TableColumn fx:id="ciPacienteColumn" prefWidth="127.0" text="Numero de Receta" />
-            <TableColumn fx:id="fechaCitaColumn" prefWidth="111.0" text="Cedula Medico" />
-            <TableColumn fx:id="motivoColumn" prefWidth="124.0" text="Fecha Emision" />
-            <TableColumn fx:id="estadoColumn" prefWidth="205.0" text="Medicamentos" />
+            <TableColumn fx:id="idRecetaColumn" prefWidth="132.0" text="Numero de Receta" />
+            <TableColumn fx:id="ciPacienteColumn" prefWidth="127.0" text="Cedula Paciente" />
+            <TableColumn fx:id="ciMedicoColumn" prefWidth="111.0" text="Cedula Medico" />
+            <TableColumn fx:id="fechaEmisionColumn" prefWidth="124.0" text="Fecha Emision" />
+            <TableColumn fx:id="medicamentosColumn" prefWidth="205.0" text="Medicamentos" />
+            <TableColumn fx:id="dosisColumn" prefWidth="205.0" text="Dosis" />
         </columns>
     </TableView>
     <HBox prefHeight="100.0" prefWidth="200.0">

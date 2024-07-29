@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Correccion logica DAO - Controllers">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionRecetasController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/RecetaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/RecetaServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/RecetaServiceProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/PantallaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/PantallaPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/Cita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/FacadeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/FacadeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/utilities/Paths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/utilities/Paths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinicaV2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinicaV2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PantallaPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/RecetaMedica.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/RecetaMedica.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

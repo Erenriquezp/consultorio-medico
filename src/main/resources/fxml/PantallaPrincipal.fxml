@@ -37,7 +37,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="buttonGestPaciente" mnemonicParsing="false" onAction="#gestionarPacientes" text="Gestion Pacientes">
+                  <Button mnemonicParsing="false" onAction="#gestionarPacientes" text="Gestion Pacientes">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -45,7 +45,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="buttonGestCitas" mnemonicParsing="false" onAction="#gestionarCitas" text="Gestion Citas" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#gestionarCitas" text="Gestion Citas" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -69,7 +69,7 @@
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="buttonHistorialMed" mnemonicParsing="false" onAction="#gestionarHistorialMedico" text="Historial Medico" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#gestionarHistoriaClinica" text="Historia Clinica" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -93,7 +93,7 @@
                         <Insets left="10.0" top="30.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button fx:id="buttonGestCitas1" mnemonicParsing="false" onAction="#gestionarCitas" text="Generar receta" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#gestionarRecetaMedica" text="Generar receta" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
