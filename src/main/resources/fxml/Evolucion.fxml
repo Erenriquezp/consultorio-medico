@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,30 +11,43 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionCitasController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionCitasController">
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-    <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; GESTION CITAS &lt;&lt;" textFill="#1a237e">
+    <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; EVOLUCION&lt;&lt;" textFill="#1a237e">
         <font>
             <Font name="Yu Gothic Light" size="20.0" />
         </font>
     </Label>
-    <TextField fx:id="idCitaField" promptText="Numero de Cita" />
-    <TextField fx:id="ciPacienteField" promptText="Cédula de Paciente" />
-    <HBox prefHeight="100.0" prefWidth="200.0">
-        <children>
-            <DatePicker fx:id="fechaCitaField" promptText="Fecha de Cita" />
-        </children>
-    </HBox>
-    <TextArea fx:id="motivoField" promptText="Motivo de Consulta" />
-   <TextField fx:id="ciPacienteField1" promptText="Estado" />
-    <HBox spacing="10" />
-    <HBox prefHeight="100.0" prefWidth="200.0">
-        <children>
-            <Button mnemonicParsing="false" onAction="#agregarCita" text="Agregar">
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+          <TextField fx:id="ciPacienteField" promptText="ID Evolucion">
             <HBox.margin>
-               <Insets left="160.0" />
+               <Insets right="5.0" />
+            </HBox.margin>
+         </TextField>
+          <TextField fx:id="idCitaField" promptText="ID Historia Clinica">
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="idCitaField1" promptText="Cedula Paciente">
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
+         </TextField>
+         <TextField fx:id="idCitaField11" promptText="Fecha Emision" />
+      </children>
+   </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0" />
+    <TextArea fx:id="motivoField" maxHeight="60.0" minHeight="100.0" prefHeight="80.0" prefWidth="750.0" promptText="Diagnostico de la Evolucion" />
+    <HBox spacing="10" />
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+        <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#agregarCita" text="Agregar">
+            <HBox.margin>
+               <Insets />
             </HBox.margin></Button>
             <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" text="Editar">
                 <HBox.margin>
@@ -56,34 +68,34 @@
     </HBox>
     <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
         <columns>
-            <TableColumn fx:id="idCitaColumn" prefWidth="106.0" text="ID Cita" />
-            <TableColumn fx:id="ciPacienteColumn" prefWidth="85.0" text="Cédula Paciente" />
-            <TableColumn fx:id="fechaCitaColumn" prefWidth="108.0" text="Fecha de Cita" />
-            <TableColumn fx:id="motivoColumn" prefWidth="130.0" text="Motivo" />
-            <TableColumn fx:id="estadoColumn" prefWidth="110.0" text="Estado" />
+            <TableColumn fx:id="idCitaColumn" prefWidth="132.0" text="ID Evolucion" />
+            <TableColumn fx:id="ciPacienteColumn" prefWidth="127.0" text="ID Historia Clinica" />
+            <TableColumn fx:id="fechaCitaColumn" prefWidth="111.0" text="Cedula Medico" />
+            <TableColumn fx:id="motivoColumn" prefWidth="124.0" text="Fecha Emision" />
+            <TableColumn fx:id="estadoColumn" prefWidth="205.0" text="Diagnostico" />
         </columns>
     </TableView>
-    <HBox prefHeight="100.0" prefWidth="200.0">
+    <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
         <children>
             <Label alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;">
                 <font>
                     <Font name="Symbol" size="19.0" />
                 </font>
                 <HBox.margin>
-                    <Insets left="320.0" />
+                    <Insets left="395.0" />
                 </HBox.margin>
             </Label>
         </children>
     </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
-        <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="72.0" text="Regresar">
+        <Button fx:id="buttonRegresar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="72.0" text="Regresar">
             <font>
                 <Font name="System Bold Italic" size="12.0" />
             </font>
         </Button>
         <Button fx:id="buttonSalir" mnemonicParsing="false" onAction="#handleSalir" text="Salir">
             <HBox.margin>
-                <Insets left="506.0" />
+                <Insets left="585.0" />
             </HBox.margin>
             <font>
                 <Font name="System Bold Italic" size="12.0" />

@@ -3,13 +3,16 @@
 <!-- Define la versión XML y la codificación utilizada -->
 <!-- Importa clases necesarias para el diseño de la interfaz -->
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -23,7 +26,7 @@
 <!-- Para usar el layout VBox -->
 <!-- Define un VBox como contenedor principal con propiedades específicas -->
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.HistoriaClinicaController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="651.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.HistoriaClinicaController">
     <!-- xmlns:fx define el espacio de nombres para FXML -->
     <!-- fx:controller especifica el controlador asociado a esta vista -->
     <!-- spacing define el espacio entre los elementos del VBox -->
@@ -38,53 +41,155 @@
          <Font name="Yu Gothic Light" size="22.0" />
       </font>
    </Label>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <ScrollPane prefHeight="301.0" prefWidth="595.0">
+      <content>
+         <AnchorPane maxHeight="1000.0" maxWidth="596.0" minHeight="10.0" minWidth="10.0" prefHeight="471.0" prefWidth="596.0">
+            <children>
+               <HBox layoutX="14.0" layoutY="14.0" prefHeight="44.0" prefWidth="644.0">
+                  <children>
+                     <TextField floatText="ID_Historia Clinica">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Cedula Medico">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Cedula Paciente">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Apellido Parteno">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Apellido Materno">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                  </children>
+               </HBox>
+               <VBox layoutX="14.0" layoutY="58.0" prefHeight="153.0" prefWidth="636.0">
+                  <children>
+                     <TextField floatText="Motivo de Consulta" />
+                     <TextField floatText="Antecedentes Personales" />
+                     <TextField floatText="Antecedentes Familiares" />
+                     <TextField floatText="Revision Organos de los Sentidos" />
+                  </children>
+               </VBox>
+               <VBox layoutX="14.0" layoutY="214.0" prefHeight="35.0" prefWidth="606.0">
+                  <children>
+                     <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="141.0" text="Revision">
+                        <items>
+                           <MenuItem mnemonicParsing="false" text="Organos de los Sentidos" />
+                           <MenuItem mnemonicParsing="false" text="Sistema Respiratorio" />
+                           <MenuItem mnemonicParsing="false" text="Sistema Cardiovascular" />
+                           <MenuItem mnemonicParsing="false" text="Sistema Disgestivo" />
+                           <MenuItem mnemonicParsing="false" text="Organos Genitales" />
+                           <MenuItem mnemonicParsing="false" text="Sistema Urinario" />
+                           <MenuItem mnemonicParsing="false" text="Musculos Esqueletico " />
+                           <MenuItem mnemonicParsing="false" text="Sistema Endocrino" />
+                           <MenuItem mnemonicParsing="false" text="Sistema Hemo Linfatico" />
+                           <MenuItem mnemonicParsing="false" text="Sistema Sistema Nervioso" />
+                        </items>
+                        <padding>
+                           <Insets left="35.0" />
+                        </padding>
+                     </MenuButton>
+                  </children>
+               </VBox>
+               <HBox layoutX="14.0" layoutY="258.0" prefHeight="40.0" prefWidth="654.0">
+                  <children>
+                     <TextField floatText="Fecha de Medicion" prefHeight="31.0" prefWidth="130.0">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Temperatura ">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Presion Arterial">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Pulso/min Fre. Resp">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <TextField floatText="Peso/kg/Talla/cm">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </TextField>
+                  </children>
+               </HBox>
+               <VBox layoutX="14.0" layoutY="317.0" prefHeight="93.0" prefWidth="606.0">
+                  <children>
+                     <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="166.0" text="Examen Fisico">
+                        <items>
+                           <MenuItem mnemonicParsing="false" text="Cabeza" />
+                           <MenuItem mnemonicParsing="false" text="Cuello" />
+                           <MenuItem mnemonicParsing="false" text="Torax" />
+                           <MenuItem mnemonicParsing="false" text="Abdomen" />
+                           <MenuItem mnemonicParsing="false" text="Pelvis" />
+                           <MenuItem mnemonicParsing="false" text="Extremidades" />
+                        </items>
+                        <padding>
+                           <Insets left="30.0" />
+                        </padding>
+                     </MenuButton>
+                     <TextField floatText="Diagnostico Descripcion">
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
+                     </TextField>
+                     <TextField floatText="Diagnostico CIE">
+                        <VBox.margin>
+                           <Insets bottom="20.0" top="5.0" />
+                        </VBox.margin>
+                     </TextField>
+                  </children>
+               </VBox>
+            </children>
+         </AnchorPane>
+      </content>
+   </ScrollPane>
+   <HBox prefHeight="37.0" prefWidth="630.0">
       <children>
-      
-          <!-- Campo de texto para el ID del paciente -->
-          <TextField fx:id="idPacienteField" prefHeight="25.0" prefWidth="202.0" promptText="ID Paciente" />
-         <Label text="campo obligatorio*" textFill="RED">
+         <Button fx:id="buttonAddHClinic" onAction="#agregarHistoriaClinica" prefWidth="100.0" text="Agregar">
             <font>
-               <Font name="System Italic" size="12.0" />
+               <Font name="System Bold" size="12.0" />
             </font>
             <HBox.margin>
-               <Insets left="10.0" />
+               <Insets left="100.0" right="5.0" />
             </HBox.margin>
-         </Label>
-      </children>
-   </HBox>
-    <!-- fx:id asigna un identificador al campo para ser referenciado en el controlador -->
-    <!-- promptText muestra un texto de sugerencia dentro del campo -->
-
-    <!-- Campo de texto para la fecha -->
-    <TextField fx:id="fechaField" promptText="Fecha" />
-    <!-- Igual que el campo anterior, pero para la fecha -->
-
-    <!-- Área de texto para el diagnóstico -->
-    <TextArea fx:id="diagnosticoField" prefHeight="300.0" promptText="Diagnóstico" />
-    <!-- Área de texto para ingresar el diagnóstico -->
-
-    <!-- Área de texto para el tratamiento -->
-    <TextArea fx:id="tratamientoField" promptText="Tratamiento" />
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <children>
-         <Button fx:id="buttonAddHClinic" onAction="#agregarHistoriaClinica" text="Agregar Historia Clínica">
+         </Button>
+         <Button fx:id="buttonUpdateHistoriC" onAction="#actualizarHistoria" prefHeight="25.0" prefWidth="100.0" text="Actualizar" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonUpdateHistoriC" onAction="#actualizarHistoria" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonDelateHistoriC" onAction="#eliminarHistoria" prefWidth="100.0" text="Eliminar" HBox.hgrow="ALWAYS">
             <HBox.margin>
-               <Insets left="82.0" />
+               <Insets right="5.0" />
             </HBox.margin>
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonDelateHistoriC" onAction="#eliminarHistoria" text="Eliminar Historia Clínica" HBox.hgrow="ALWAYS">
-            <HBox.margin>
-               <Insets left="100.0" />
-            </HBox.margin>
+         <Button fx:id="buttonDelateHistoriC1" onAction="#eliminarHistoria" prefWidth="100.0" text="Eliminar">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
@@ -95,7 +200,7 @@
     <!-- onAction especifica el método en el controlador que se llama al hacer clic en el botón -->
 
     <!-- Tabla para mostrar el historial médico -->
-    <TableView fx:id="tablaHistorial">
+    <TableView fx:id="tablaHistorial" prefHeight="169.0" prefWidth="659.0">
         <!-- fx:id asigna un identificador a la tabla para ser referenciada en el controlador -->
         <columns>
             <!-- Define las columnas de la tabla -->
@@ -106,7 +211,7 @@
             <TableColumn text="ID Paciente" /> <!-- Columna para el ID del paciente -->
         </columns>
     </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox prefHeight="20.0" prefWidth="631.0">
       <children>
          <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" HBox.hgrow="ALWAYS">
             <font>
@@ -118,7 +223,7 @@
          </Label>
       </children>
    </HBox>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox prefHeight="30.0" prefWidth="631.0">
       <children>
          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Regresar">
             <font>

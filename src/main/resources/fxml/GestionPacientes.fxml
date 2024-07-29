@@ -92,25 +92,34 @@
       <children>
          <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                 <TextField fx:id="referenciaField" prefHeight="25.0" prefWidth="312.0" promptText="Referencia">
+                 <TextField fx:id="referenciaField" prefHeight="25.0" prefWidth="230.0" promptText="Referencia">
                   <opaqueInsets>
                      <Insets bottom="10.0" top="10.0" />
                   </opaqueInsets>
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
                </TextField>
-                 <TextField fx:id="contactoEmergenciaNombreField" prefHeight="25.0" prefWidth="316.0" promptText="Nombre del Contacto de Emergencia" />
+                 <TextField fx:id="contactoEmergenciaNombreField" prefHeight="25.0" prefWidth="316.0" promptText="Nombre del Contacto de Emergencia">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin></TextField>
                  <TextField fx:id="contactoEmergenciaParentescoField" prefHeight="25.0" prefWidth="218.0" promptText="Parentesco del Contacto de Emergencia" />
             </children>
          </HBox>
          <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                    <TextField fx:id="contactoEmergenciaDireccionField" prefHeight="25.0" prefWidth="313.0" promptText="Dirección del Contacto de Emergencia" />
-                 <TextField fx:id="contactoEmergenciaTelefonoField" prefHeight="25.0" prefWidth="318.0" promptText="Teléfono del Contacto de Emergencia" text="09" />
+                    <TextField fx:id="contactoEmergenciaDireccionField" prefHeight="25.0" prefWidth="231.0" promptText="Dirección del Contacto de Emergencia" />
+                 <TextField fx:id="contactoEmergenciaTelefonoField" prefHeight="25.0" prefWidth="315.0" promptText="Cedula de Identidad">
+                  <HBox.margin>
+                     <Insets left="10.0" />
+                  </HBox.margin></TextField>
                <Label text="Opcional*">
                   <font>
                      <Font name="System Italic" size="12.0" />
                   </font>
                   <HBox.margin>
-                     <Insets left="10.0" />
+                     <Insets left="10.0" top="5.0" />
                   </HBox.margin>
                </Label>
             </children>
@@ -119,31 +128,39 @@
    </VBox>
    <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <children>
-                      <Button fx:id="buttonAgregaPaciente" alignment="CENTER" contentDisplay="CENTER" onAction="#agregarPaciente" prefHeight="25.0" prefWidth="118.0" text="Agregar Paciente" HBox.hgrow="ALWAYS">
+                      <Button fx:id="buttonAgregaPaciente" alignment="CENTER" contentDisplay="CENTER" onAction="#agregarPaciente" prefHeight="25.0" prefWidth="118.0" text="Agregar" HBox.hgrow="ALWAYS">
             <opaqueInsets>
                <Insets />
             </opaqueInsets>
             <HBox.margin>
-               <Insets />
+               <Insets left="180.0" />
             </HBox.margin>
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonActualizarPaciente" onAction="#actualizarPaciente" prefHeight="25.0" prefWidth="136.0" text="Actualizar" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonActualizarPaciente" onAction="#actualizarPaciente" prefHeight="25.0" prefWidth="118.0" text="Actualizar" HBox.hgrow="ALWAYS">
             <HBox.margin>
-               <Insets left="250.0" />
+               <Insets left="10.0" />
             </HBox.margin>
             <font>
                <Font name="System Bold" size="12.0" />
             </font></Button>
-         <Button fx:id="buttonEliminarPaciente" onAction="#eliminarPaciente" text="Eliminar Paciente" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonEliminarPaciente" onAction="#eliminarPaciente" prefWidth="118.0" text="Eliminar" HBox.hgrow="ALWAYS">
             <HBox.margin>
-               <Insets left="262.0" />
+               <Insets left="10.0" />
             </HBox.margin>
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
+         </Button>
+         <Button fx:id="buttonEliminarPaciente1" onAction="#eliminarPaciente" prefWidth="118.0" text="Eliminar Paciente">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
          </Button>
       </children>
    </HBox>

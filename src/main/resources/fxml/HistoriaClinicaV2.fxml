@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="528.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.HistoriaClinicaV2">
+   <children>
+      <ScrollPane layoutX="18.0" layoutY="26.0" prefHeight="256.0" prefWidth="682.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="683.0">
+               <children>
+                  <HBox layoutX="14.0" layoutY="14.0" prefHeight="44.0" prefWidth="644.0">
+                     <children>
+                        <TextField floatText="ID_Historia Clinica">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField floatText="Cedula Medico">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField floatText="Cedula Paciente">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField floatText="Apellido Parteno">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField floatText="Apellido Materno">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="14.0" layoutY="58.0" prefHeight="153.0" prefWidth="636.0">
+                     <children>
+                        <TextField floatText="Motivo de Consulta" />
+                        <TextField floatText="Antecedentes Personales" />
+                        <TextField floatText="Antecedentes Familiares" />
+                        <TextField floatText="Revision Organos de los Sentidos" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="14.0" layoutY="214.0" prefHeight="35.0" prefWidth="606.0">
+                     <children>
+                        <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="141.0" text="Revision">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Organos de los Sentidos" />
+                            <MenuItem mnemonicParsing="false" text="Sistema Respiratorio" />
+                              <MenuItem mnemonicParsing="false" text="Sistema Cardiovascular" />
+                              <MenuItem mnemonicParsing="false" text="Sistema Disgestivo" />
+                              <MenuItem mnemonicParsing="false" text="Organos Genitales" />
+                              <MenuItem mnemonicParsing="false" text="Sistema Urinario" />
+                              <MenuItem mnemonicParsing="false" text="Musculos Esqueletico " />
+                              <MenuItem mnemonicParsing="false" text="Sistema Endocrino" />
+                              <MenuItem mnemonicParsing="false" text="Sistema Hemo Linfatico" />
+                              <MenuItem mnemonicParsing="false" text="Sistema Sistema Nervioso" />
+                          </items>
+                           <padding>
+                              <Insets left="35.0" />
+                           </padding>
+                        </MenuButton>
+                     </children>
+                  </VBox>
+                  <HBox layoutX="14.0" layoutY="258.0" prefHeight="40.0" prefWidth="654.0">
+                     <children>
+                        <TextField floatText="Fecha de Medicion" prefHeight="31.0" prefWidth="130.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                        <TextField floatText="Temperatura ">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                        <TextField floatText="Presion Arterial">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                        <TextField floatText="Pulso/min Fre. Resp">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                        <TextField floatText="Peso/kg/Talla/cm">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="14.0" layoutY="317.0" prefHeight="93.0" prefWidth="606.0">
+                     <children>
+                        <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="166.0" text="Examen Fisico">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Cabeza" />
+                              <MenuItem mnemonicParsing="false" text="Cuello" />
+                              <MenuItem mnemonicParsing="false" text="Torax" />
+                              <MenuItem mnemonicParsing="false" text="Abdomen" />
+                              <MenuItem mnemonicParsing="false" text="Pelvis" />
+                              <MenuItem mnemonicParsing="false" text="Extremidades" />
+                           </items>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </MenuButton>
+                        <TextField floatText="Diagnostico Descripcion">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField floatText="Diagnostico CIE">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
