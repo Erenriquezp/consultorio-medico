@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Controllers y patrones para Receta">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_7_2024_15_36_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_7_2024_15_36__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_7_2024_0_16_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_7_2024_0_16__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_7_2024_1_29_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_7_2024_1_29__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionCitasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/ConexionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/RecetaMedica.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/RecetaMedica.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +44,6 @@
     &quot;accountId&quot;: &quot;b5e48ec2-11f0-44fd-9252-59dd262842e3&quot;
   }
 }</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/target/classes/fxml/GestionCitas.fxml" root0="SKIP_INSPECTION" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -104,7 +94,7 @@
     <configuration name="App" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.uce.app.application.App" />
       <module name="consultorio-medico" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Kelly\Documents\Workspace\IntellijIDEA\javafx-sdk-22.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\LENOVO\Downloads\openjfx-22.0.1_windows-x64_bin-sdk\javafx-sdk-22.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -275,9 +265,9 @@
     <MESSAGE value="Actualizacion funciones avanzadas" />
     <MESSAGE value="Patron Proxy" />
     <MESSAGE value="Correccion logica DAO - Controllers" />
-    <MESSAGE value="Controllers y patrones para Receta" />
     <MESSAGE value="Controllers y patrones Historia Clinica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers y patrones Historia Clinica" />
+    <MESSAGE value="Controllers y patrones para Receta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controllers y patrones para Receta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
