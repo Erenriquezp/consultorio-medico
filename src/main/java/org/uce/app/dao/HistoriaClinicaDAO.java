@@ -14,7 +14,7 @@ public class HistoriaClinicaDAO {
                 "antecedentes_personales, antecedentes_familiares, enfermedades_actuales, raos_organos_sentidos, " +
                 "raos_respiratorio, raos_cardiovascular, raos_digestivo, raos_genital, raos_urinario, raos_musculo_esqueletico, " +
                 "raos_endocrino, raos_hemo_linfatico, raos_nervioso, sva_fecha_medicion, sva_temperatura, sva_presion_arterial, " +
-                "sva_pulso_min_fre_respiratoria, sva_peso_kg_talla_cm, efr_cabeza, efr_cuello, efr_torax, efr_abdomen, efr_pelvs, " +
+                "sva_pulsomin_fre_respiratoria, sva_pesokg_tallacm, efr_cabeza, efr_cuello, efr_torax, efr_abdomen, efr_pelvs, " +
                 "efr_extremidades, diagnostico_desc, diagnostico_cie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conexion = ConexionDAO.getInstancia().getConexion();
@@ -57,7 +57,7 @@ public class HistoriaClinicaDAO {
 
     // Método para actualizar una historia clínica existente
     public void actualizarHistoriaClinica(HistoriaClinica historiaClinica) throws SQLException {
-        String query = "UPDATE Historia_clinica SET ci_medico = ?, ci_paciente = ?, motivo_consulta = ?, antecedentes_personales = ?, antecedentes_familiares = ?, enfermedades_actuales = ?, raos_organos_sentidos = ?, raos_respiratorio = ?, raos_cardiovascular = ?, raos_digestivo = ?, raos_genital = ?, raos_urinario = ?, raos_musculo_esqueletico = ?, raos_endocrino = ?, raos_hemo_linfatico = ?, raos_nervioso = ?, sva_fecha_medicion = ?, sva_temperatura = ?, sva_presion_arterial = ?, sva_pulso_min_fre_respiratoria = ?, sva_peso_kg_talla_cm = ?, efr_cabeza = ?, efr_cuello = ?, efr_torax = ?, efr_abdomen = ?, efr_pelvs = ?, efr_extremidades = ?, diagnostico_desc = ?, diagnostico_cie = ? WHERE id_historia_clinica = ?";
+        String query = "UPDATE Historia_clinica SET ci_medico = ?, ci_paciente = ?, motivo_consulta = ?, antecedentes_personales = ?, antecedentes_familiares = ?, enfermedades_actuales = ?, raos_organos_sentidos = ?, raos_respiratorio = ?, raos_cardiovascular = ?, raos_digestivo = ?, raos_genital = ?, raos_urinario = ?, raos_musculo_esqueletico = ?, raos_endocrino = ?, raos_hemo_linfatico = ?, raos_nervioso = ?, sva_fecha_medicion = ?, sva_temperatura = ?, sva_presion_arterial = ?, sva_pulsomin_fre_respiratoria = ?, sva_pesokg_tallacm = ?, efr_cabeza = ?, efr_cuello = ?, efr_torax = ?, efr_abdomen = ?, efr_pelvs = ?, efr_extremidades = ?, diagnostico_desc = ?, diagnostico_cie = ? WHERE id_historia_clinica = ?";
 
         try (Connection conexion = ConexionDAO.getInstancia().getConexion();
              PreparedStatement pstmt = conexion.prepareStatement(query)) {
@@ -97,7 +97,7 @@ public class HistoriaClinicaDAO {
         pstmt.setString(15, historiaClinica.getRaosEndocrino());
         pstmt.setString(16, historiaClinica.getRaosHemoLinfatico());
         pstmt.setString(17, historiaClinica.getRaosNervioso());
-        pstmt.setString(18, historiaClinica.getSvaFechaMedicion());
+        pstmt.setDate(18, historiaClinica.getSvaFechaMedicion()); // Corregido
         pstmt.setString(19, historiaClinica.getSvaTemperatura());
         pstmt.setString(20, historiaClinica.getSvaPresionArterial());
         pstmt.setString(21, historiaClinica.getSvaPulsoMinFreRespiratoria());
@@ -106,7 +106,7 @@ public class HistoriaClinicaDAO {
         pstmt.setString(24, historiaClinica.getEfrCuello());
         pstmt.setString(25, historiaClinica.getEfrTorax());
         pstmt.setString(26, historiaClinica.getEfrAbdomen());
-        pstmt.setString(27, historiaClinica.getEfrPelvs());
+        pstmt.setString(27, historiaClinica.getEfrPelvis());
         pstmt.setString(28, historiaClinica.getEfrExtremidades());
         pstmt.setString(29, historiaClinica.getDiagnosticoDesc());
         pstmt.setString(30, historiaClinica.getDiagnosticoCIE());
@@ -132,16 +132,16 @@ public class HistoriaClinicaDAO {
                 .raosEndocrino(rs.getString("raos_endocrino"))
                 .raosHemoLinfatico(rs.getString("raos_hemo_linfatico"))
                 .raosNervioso(rs.getString("raos_nervioso"))
-                .svaFechaMedicion(rs.getString("sva_fecha_medicion"))
+                .svaFechaMedicion(rs.getDate("sva_fecha_medicion")) // Corregido
                 .svaTemperatura(rs.getString("sva_temperatura"))
                 .svaPresionArterial(rs.getString("sva_presion_arterial"))
-                .svaPulsoMinFreRespiratoria(rs.getString("sva_pulso_min_fre_respiratoria"))
-                .svaPesoKgTallaCm(rs.getString("sva_peso_kg_talla_cm"))
+                .svaPulsoMinFreRespiratoria(rs.getString("sva_pulsomin_fre_respiratoria"))
+                .svaPesoKgTallaCm(rs.getString("sva_pesokg_tallacm"))
                 .efrCabeza(rs.getString("efr_cabeza"))
                 .efrCuello(rs.getString("efr_cuello"))
                 .efrTorax(rs.getString("efr_torax"))
                 .efrAbdomen(rs.getString("efr_abdomen"))
-                .efrPelvs(rs.getString("efr_pelvs"))
+                .efrPelvis(rs.getString("efr_pelvs"))
                 .efrExtremidades(rs.getString("efr_extremidades"))
                 .diagnosticoDesc(rs.getString("diagnostico_desc"))
                 .diagnosticoCIE(rs.getString("diagnostico_cie"))

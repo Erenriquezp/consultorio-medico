@@ -1,5 +1,7 @@
 package org.uce.app.model;
 
+import java.sql.Date;
+
 public class HistoriaClinica {
     private final String idHistoriaClinica;
     private final String ciMedico;
@@ -18,7 +20,7 @@ public class HistoriaClinica {
     private final String raosEndocrino;
     private final String raosHemoLinfatico;
     private final String raosNervioso;
-    private final String svaFechaMedicion;
+    private final Date svaFechaMedicion;
     private final String svaTemperatura;
     private final String svaPresionArterial;
     private final String svaPulsoMinFreRespiratoria;
@@ -27,7 +29,7 @@ public class HistoriaClinica {
     private final String efrCuello;
     private final String efrTorax;
     private final String efrAbdomen;
-    private final String efrPelvs;
+    private final String efrPelvis;
     private final String efrExtremidades;
     private final String diagnosticoDesc;
     private final String diagnosticoCIE;
@@ -59,7 +61,7 @@ public class HistoriaClinica {
         this.efrCuello = builder.efrCuello;
         this.efrTorax = builder.efrTorax;
         this.efrAbdomen = builder.efrAbdomen;
-        this.efrPelvs = builder.efrPelvs;
+        this.efrPelvis = builder.efrPelvs;
         this.efrExtremidades = builder.efrExtremidades;
         this.diagnosticoDesc = builder.diagnosticoDesc;
         this.diagnosticoCIE = builder.diagnosticoCIE;
@@ -83,7 +85,7 @@ public class HistoriaClinica {
         private String raosEndocrino;
         private String raosHemoLinfatico;
         private String raosNervioso;
-        private String svaFechaMedicion;
+        private Date svaFechaMedicion;
         private String svaTemperatura;
         private String svaPresionArterial;
         private String svaPulsoMinFreRespiratoria;
@@ -185,7 +187,7 @@ public class HistoriaClinica {
             return this;
         }
 
-        public Builder svaFechaMedicion(String svaFechaMedicion) {
+        public Builder svaFechaMedicion(Date svaFechaMedicion) {
             this.svaFechaMedicion = svaFechaMedicion;
             return this;
         }
@@ -230,7 +232,7 @@ public class HistoriaClinica {
             return this;
         }
 
-        public Builder efrPelvs(String efrPelvs) {
+        public Builder efrPelvis(String efrPelvs) {
             this.efrPelvs = efrPelvs;
             return this;
         }
@@ -324,7 +326,7 @@ public class HistoriaClinica {
         return raosNervioso;
     }
 
-    public String getSvaFechaMedicion() {
+    public Date getSvaFechaMedicion() {
         return svaFechaMedicion;
     }
 
@@ -360,8 +362,8 @@ public class HistoriaClinica {
         return efrAbdomen;
     }
 
-    public String getEfrPelvs() {
-        return efrPelvs;
+    public String getEfrPelvis() {
+        return efrPelvis;
     }
 
     public String getEfrExtremidades() {

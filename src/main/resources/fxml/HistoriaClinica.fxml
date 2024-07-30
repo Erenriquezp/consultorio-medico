@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Importa clases necesarias para el diseño de la interfaz -->
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,48 +13,36 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="651.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionRecetasController">
-   <!-- Define el padding (espacio interno) del VBox -->
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="651.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionHistoriaClinicaController">
    <padding>
       <Insets bottom="10" left="10" right="10" top="10" />
    </padding>
 
    <!-- Título de la sección -->
-   <Label style="-fx-border-color: #1a237e;" text=">> HISTORIA CLINICA<<" textFill="#1a237e">
+   <Label style="-fx-border-color: #1a237e;" text="HISTORIA CLINICA" textFill="#1a237e">
       <font>
          <Font name="Yu Gothic Light" size="22.0" />
       </font>
    </Label>
 
-   <!-- Sección de formulario para ingresar datos -->
    <ScrollPane prefHeight="301.0" prefWidth="595.0">
       <content>
          <AnchorPane maxHeight="1000.0" maxWidth="596.0" minHeight="10.0" minWidth="10.0" prefHeight="471.0" prefWidth="596.0">
             <children>
-               <!-- Primer HBox: Identificadores y datos básicos -->
+               <!-- Identificadores y datos básicos -->
                <HBox layoutX="14.0" layoutY="14.0" prefHeight="44.0" prefWidth="644.0">
                   <children>
-                     <TextField promptText="ID_Historia Clinica">
+                     <TextField fx:id="idHistoriaClinicaField" promptText="ID Historia Clinica">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
                      </TextField>
-                     <TextField promptText="Cedula Medico">
+                     <TextField fx:id="cedulaMedicoField" promptText="Cédula Médico">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
                      </TextField>
-                     <TextField promptText="Cedula Paciente">
-                        <HBox.margin>
-                           <Insets right="5.0" />
-                        </HBox.margin>
-                     </TextField>
-                     <TextField promptText="Apellido Paterno">
-                        <HBox.margin>
-                           <Insets right="5.0" />
-                        </HBox.margin>
-                     </TextField>
-                     <TextField promptText="Apellido Materno">
+                     <TextField fx:id="cedulaPacienteField" promptText="Cédula Paciente">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
@@ -64,60 +50,56 @@
                   </children>
                </HBox>
 
-               <!-- Segunda VBox: Antecedentes y revisión -->
+               <!-- Antecedentes y motivo de consulta -->
                <VBox layoutX="14.0" layoutY="58.0" prefHeight="153.0" prefWidth="636.0">
                   <children>
-                     <TextField promptText="Motivo de Consulta" />
-                     <TextField promptText="Antecedentes Personales" />
-                     <TextField promptText="Antecedentes Familiares" />
-                     <TextField promptText="Revision Organos de los Sentidos" />
+                     <TextField fx:id="motivoConsultaField" promptText="Motivo de Consulta" />
+                     <TextField fx:id="antecedentesPersonalesField" promptText="Antecedentes Personales" />
+                     <TextField fx:id="antecedentesFamiliaresField" promptText="Antecedentes Familiares" />
+                     <TextField fx:id="enfermedadesActualesField" promptText="Enfermedades Actuales" />
                   </children>
                </VBox>
 
-               <!-- Menú de selección de sistemas revisados -->
-               <VBox layoutX="14.0" layoutY="214.0" prefHeight="35.0" prefWidth="606.0">
+               <!-- Revisiones -->
+               <VBox layoutX="14.0" layoutY="214.0" prefHeight="150.0" prefWidth="606.0">
                   <children>
-                     <MenuButton mnemonicParsing="false" text="Revision">
-                        <items>
-                           <MenuItem mnemonicParsing="false" text="Organos de los Sentidos" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Respiratorio" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Cardiovascular" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Digestivo" />
-                           <MenuItem mnemonicParsing="false" text="Organos Genitales" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Urinario" />
-                           <MenuItem mnemonicParsing="false" text="Musculos Esqueletico" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Endocrino" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Hemo Linfatico" />
-                           <MenuItem mnemonicParsing="false" text="Sistema Nervioso" />
-                        </items>
-                     </MenuButton>
+                     <TextField fx:id="revisionSentidosField" promptText="Revisión Órganos de los Sentidos" />
+                     <TextField fx:id="revisionRespiratorioField" promptText="Revisión Sistema Respiratorio" />
+                     <TextField fx:id="revisionCardiovascularField" promptText="Revisión Sistema Cardiovascular" />
+                     <TextField fx:id="revisionDigestivoField" promptText="Revisión Sistema Digestivo" />
+                     <TextField fx:id="revisionGenitalesField" promptText="Revisión Órganos Genitales" />
+                     <TextField fx:id="revisionUrinarioField" promptText="Revisión Sistema Urinario" />
+                     <TextField fx:id="revisionMuscularField" promptText="Revisión Músculo Esquelético" />
+                     <TextField fx:id="revisionEndocrinoField" promptText="Revisión Sistema Endocrino" />
+                     <TextField fx:id="revisionHemoLinfaField" promptText="Revisión Sistema Hemo Linfático" />
+                     <TextField fx:id="revisionNerviosoField" promptText="Revisión Sistema Nervioso" />
                   </children>
                </VBox>
 
                <!-- Medición de signos vitales -->
-               <HBox layoutX="14.0" layoutY="258.0" prefHeight="40.0" prefWidth="654.0">
+               <HBox layoutX="14.0" layoutY="374.0" prefHeight="40.0" prefWidth="654.0">
                   <children>
-                     <TextField promptText="Fecha de Medicion" prefHeight="31.0" prefWidth="130.0">
+                     <DatePicker fx:id="fechaMedicionField" promptText="Fecha de Medición" prefHeight="31.0" prefWidth="130.0">
+                        <HBox.margin>
+                           <Insets right="5.0" />
+                        </HBox.margin>
+                     </DatePicker>
+                     <TextField fx:id="temperaturaField" promptText="Temperatura">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
                      </TextField>
-                     <TextField promptText="Temperatura">
+                     <TextField fx:id="presionArterialField" promptText="Presión Arterial">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
                      </TextField>
-                     <TextField promptText="Presion Arterial">
+                     <TextField fx:id="pulsoFrecuenciaField" promptText="Pulso/min y Frec. Respiratoria">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
                      </TextField>
-                     <TextField promptText="Pulso/min Fre. Resp">
-                        <HBox.margin>
-                           <Insets right="5.0" />
-                        </HBox.margin>
-                     </TextField>
-                     <TextField promptText="Peso/kg/Talla/cm">
+                     <TextField fx:id="pesoTallaField" promptText="Peso(kg)/Talla(cm)">
                         <HBox.margin>
                            <Insets right="5.0" />
                         </HBox.margin>
@@ -126,24 +108,20 @@
                </HBox>
 
                <!-- Examen físico y diagnóstico -->
-               <VBox layoutX="14.0" layoutY="317.0" prefHeight="93.0" prefWidth="606.0">
+               <VBox layoutX="14.0" layoutY="424.0" prefHeight="93.0" prefWidth="606.0">
                   <children>
-                     <MenuButton mnemonicParsing="false" text="Examen Fisico">
-                        <items>
-                           <MenuItem mnemonicParsing="false" text="Cabeza" />
-                           <MenuItem mnemonicParsing="false" text="Cuello" />
-                           <MenuItem mnemonicParsing="false" text="Torax" />
-                           <MenuItem mnemonicParsing="false" text="Abdomen" />
-                           <MenuItem mnemonicParsing="false" text="Pelvis" />
-                           <MenuItem mnemonicParsing="false" text="Extremidades" />
-                        </items>
-                     </MenuButton>
-                     <TextField promptText="Diagnostico Descripcion">
+                     <TextField fx:id="examenCabezaField" promptText="Examen Físico Cabeza" />
+                     <TextField fx:id="examenCuelloField" promptText="Examen Físico Cuello" />
+                     <TextField fx:id="examenToraxField" promptText="Examen Físico Tórax" />
+                     <TextField fx:id="examenAbdomenField" promptText="Examen Físico Abdomen" />
+                     <TextField fx:id="examenPelvisField" promptText="Examen Físico Pelvis" />
+                     <TextField fx:id="examenExtremidadesField" promptText="Examen Físico Extremidades" />
+                     <TextField fx:id="descripcionDiagnosticoField" promptText="Descripción del Diagnóstico">
                         <VBox.margin>
                            <Insets top="10.0" />
                         </VBox.margin>
                      </TextField>
-                     <TextField promptText="Diagnostico CIE">
+                     <TextField fx:id="codigoCIEField" promptText="Código CIE del Diagnóstico">
                         <VBox.margin>
                            <Insets bottom="20.0" top="5.0" />
                         </VBox.margin>
@@ -163,12 +141,12 @@
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonUpdateHistoriC" onAction="#actualizarHistoria" prefHeight="25.0" prefWidth="100.0" text="Actualizar" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonUpdateHistoriC" onAction="#actualizarHistoriaClinica" prefHeight="25.0" prefWidth="100.0" text="Actualizar" HBox.hgrow="ALWAYS">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="buttonDelateHistoriC" onAction="#eliminarHistoria" prefWidth="100.0" text="Eliminar" HBox.hgrow="ALWAYS">
+         <Button fx:id="buttonDelateHistoriC" onAction="#eliminarHistoriaClinica" prefWidth="100.0" text="Eliminar" HBox.hgrow="ALWAYS">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
@@ -179,11 +157,11 @@
    <!-- Tabla para mostrar el historial médico -->
    <TableView fx:id="tablaHistorial" prefHeight="169.0" prefWidth="659.0">
       <columns>
-         <TableColumn text="ID" />
-         <TableColumn text="Fecha" />
-         <TableColumn text="Diagnóstico" />
-         <TableColumn text="Tratamiento" />
-         <TableColumn text="ID Paciente" />
+         <TableColumn fx:id="columnIdHistoriaClinica" text="ID Historia Clinica" />
+         <TableColumn fx:id="columnCedulaMedico" text="Cédula Médico" />
+         <TableColumn fx:id="columnCedulaPaciente" text="Cédula Paciente" />
+         <TableColumn fx:id="columnFechaMedicion" text="Fecha Medición" />
+         <TableColumn fx:id="columnDiagnostico" text="Diagnóstico" />
       </columns>
    </TableView>
 

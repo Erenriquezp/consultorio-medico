@@ -51,7 +51,7 @@
             <TableColumn fx:id="idCitaColumn" prefWidth="106.0" text="ID Cita" />
             <TableColumn fx:id="ciPacienteColumn" prefWidth="115.0" text="Cédula Paciente" />
             <TableColumn fx:id="fechaCitaColumn" prefWidth="128.0" text="Fecha de Cita" />
-            <TableColumn fx:id="motivoColumn" prefWidth="146" text="Motivo" />
+            <TableColumn fx:id="motivoColumn" prefWidth="144" text="Motivo" />
             <TableColumn fx:id="estadoColumn" prefWidth="110.0" text="Estado" />
         </columns>
     </TableView>
