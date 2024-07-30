@@ -1,6 +1,7 @@
 package org.uce.app.services;
 
 import org.uce.app.model.Cita;
+import org.uce.app.model.HistoriaClinica;
 import org.uce.app.model.Paciente;
 import org.uce.app.model.Receta;
 
@@ -12,12 +13,14 @@ public class FacadeService {
     private final CitaServiceInterface citaService;
     private final PacienteServiceInterface pacienteService;
     private final RecetaServiceInterface recetaService;
+    private final HistoriaClinicaServiceInterface historiaClinicaService;
 
     public FacadeService() {
         this.authService = new AuthServiceProxy(new AuthService());
         this.citaService = new CitaServiceProxy(new CitaService());
         this.pacienteService = new PacienteServiceProxy(new PacienteService());
         this.recetaService = new RecetaServiceProxy(new RecetaService());
+        this.historiaClinicaService = new HistoriaClinicaServiceProxy(new HistoriaClinicaService());
     }
 
     // AuthService methods
@@ -86,5 +89,26 @@ public class FacadeService {
 
     public boolean deleteReceta(int id) {
         return recetaService.deleteReceta(id);
+    }
+
+    // HistoriaClinicaService methods
+    public boolean createHistoriaClinica(HistoriaClinica historiaClinica) {
+        return historiaClinicaService.createHistoriaClinica(historiaClinica);
+    }
+
+    public List<HistoriaClinica> getAllHistoriasClinicas() {
+        return historiaClinicaService.getAllHistoriasClinicas();
+    }
+
+    public HistoriaClinica getHistoriaClinicaById(String idHistoriaClinica) {
+        return historiaClinicaService.getHistoriaClinicaById(idHistoriaClinica);
+    }
+
+    public boolean updateHistoriaClinica(HistoriaClinica historiaClinica) {
+        return historiaClinicaService.updateHistoriaClinica(historiaClinica);
+    }
+
+    public boolean deleteHistoriaClinica(String idHistoriaClinica) {
+        return historiaClinicaService.deleteHistoriaClinica(idHistoriaClinica);
     }
 }
