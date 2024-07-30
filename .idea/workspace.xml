@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Controllers y patrones para Receta">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" beforeDir="false" />
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Actualizacion UML">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_7_2024_3_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_7_2024_3_12__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_7_2024_11_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_7_2024_11_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionRecetasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionRecetasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/MedicalFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/MedicalFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -43,12 +38,12 @@
     &quot;assignee&quot;: &quot;sophiaAndMe&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Erenriquezp/consultorio-medico.git&quot;,
-    &quot;accountId&quot;: &quot;b5e48ec2-11f0-44fd-9252-59dd262842e3&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Erenriquezp/consultorio-medico.git",
+    "accountId": "aab48faf-a4e1-4ba1-8c94-e20212b8d9d8"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -71,7 +66,7 @@
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kelly/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/Proyectos Intellij/consultorio-medico/src/main/resources/fxml&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,6 +85,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Proyectos Intellij\consultorio-medico\src\main\resources\fxml" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\styles" />
       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\fxml" />
@@ -127,14 +125,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -151,9 +141,6 @@
       <workItem from="1721540114333" duration="161000" />
       <workItem from="1721574484330" duration="8827000" />
       <workItem from="1721778274359" duration="7620000" />
-      <workItem from="1721954212522" duration="225000" />
-      <workItem from="1722040978785" duration="8431000" />
-      <workItem from="1722091219873" duration="10746000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
       <option name="closed" value="true" />
@@ -187,55 +174,7 @@
       <option name="project" value="LOCAL" />
       <updated>1721539164590</updated>
     </task>
-    <task id="LOCAL-00005" summary="Actualizacion funciones avanzadas">
-      <option name="closed" value="true" />
-      <created>1721953267413</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1721953267413</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Patron Proxy">
-      <option name="closed" value="true" />
-      <created>1722051076269</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1722051076269</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Patron Proxy">
-      <option name="closed" value="true" />
-      <created>1722051207808</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1722051207808</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Correccion logica DAO - Controllers">
-      <option name="closed" value="true" />
-      <created>1722122810739</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1722122810739</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Controllers y patrones para Receta">
-      <option name="closed" value="true" />
-      <created>1722284636978</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1722284636978</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Controllers y patrones para Receta">
-      <option name="closed" value="true" />
-      <created>1722284750512</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1722284750512</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,11 +206,7 @@
     <MESSAGE value="Inicializacion del proyecto" />
     <MESSAGE value="Primera version del proyecto" />
     <MESSAGE value="Actualizacion UML" />
-    <MESSAGE value="Actualizacion funciones avanzadas" />
-    <MESSAGE value="Patron Proxy" />
-    <MESSAGE value="Correccion logica DAO - Controllers" />
-    <MESSAGE value="Controllers y patrones para Receta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers y patrones para Receta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
