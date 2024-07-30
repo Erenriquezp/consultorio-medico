@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,21 +13,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="600.0" style="-fx-background-color: #E0F7FA; -fx-border-color: #000080;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.PantallaPrincipalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: #E0F7FA; -fx-border-color: #000080;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.PantallaPrincipalController">
    <top>
-      <Label alignment="CENTER" prefHeight="71.0" prefWidth="648.0" style="-fx-border-color: #B2EBF2;" text="PRINCIPAL(consultorio medico)" textFill="#1a237e" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" prefHeight="71.0" prefWidth="648.0" text="MENU PRINCIPAL" textFill="#6e98c3" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </BorderPane.margin>
          <font>
             <Font name="Yu Gothic Light" size="35.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/consultorioLogo.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Label>
    </top>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefHeight="317.0" prefWidth="634.0" style="-fx-border-color: #B2EBF2;">
+            <GridPane prefHeight="317.0" prefWidth="634.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="154.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.0" minWidth="10.0" prefWidth="440.0" />
@@ -38,7 +47,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#gestionarPacientes" text="Gestion Pacientes">
+                  <Button mnemonicParsing="false" onAction="#gestionarPacientes" prefHeight="20.0" prefWidth="120.0" text="Gestion Pacientes" translateX="75.0">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -46,7 +55,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#gestionarCitas" text="Gestion Citas" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#gestionarCitas" prefHeight="20.0" prefWidth="120.0" text="Gestion Citas" translateX="75.0" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -54,7 +63,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label prefHeight="33.0" prefWidth="440.0" text="Podrás crear, editar, eliminar y buscar pacientes*" GridPane.columnIndex="1">
+                  <Label prefHeight="33.0" prefWidth="440.0" text="Podrás crear, editar, eliminar y buscar pacientes*" translateX="75.0" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -62,7 +71,7 @@
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="360.0" text="En esta sección podrás ver y editar el historial " GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label prefHeight="33.0" prefWidth="440.0" text="En esta sección podrás ver y editar el historial " translateX="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -70,7 +79,7 @@
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#gestionarHistoriaClinica" text="Historia Clinica" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#gestionarHistoriaClinica" prefHeight="20.0" prefWidth="120.0" text="Historia Clinica" translateX="75.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -78,7 +87,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label text="Podrás crear, editar, eliminar y buscar citas*" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label prefHeight="33.0" prefWidth="440.0" text="Podrás crear, editar, eliminar y buscar citas*" translateX="75.0" translateY="-10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -86,7 +95,7 @@
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="360.0" text="médico de un paciente*" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label prefWidth="360.0" text="médico de un paciente*" translateX="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
@@ -94,7 +103,7 @@
                         <Insets left="10.0" top="30.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#gestionarRecetaMedica" text="Generar receta" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#gestionarRecetaMedica" prefHeight="20.0" prefWidth="120.0" text="Generar receta" translateX="75.0" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -102,7 +111,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Label prefWidth="360.0" text="Podras recetar en base al diagnostico " GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label prefWidth="360.0" text="Podras recetar en base al diagnostico " translateX="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
@@ -110,7 +119,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#gestionarRecetaMedica" text="Evolución" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#gestionarRecetaMedica" prefHeight="20.0" prefWidth="120.0" text="Evolución" translateX="75.0" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -118,7 +127,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Label prefWidth="360.0" text="Podras ver la evolución del diagnostico " GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label prefWidth="360.0" text="Podras ver la evolución del diagnostico " translateX="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
@@ -133,9 +142,9 @@
             </GridPane>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" HBox.hgrow="ALWAYS">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" text="&quot;Salud y bienestar en cada consulta.&quot;" textAlignment="CENTER" textFill="#6e98c3" translateX="-70.0" translateY="25.0" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="Symbol" size="19.0" />
+                        <Font name="Yu Gothic UI Semilight" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="290.0" />
@@ -149,7 +158,7 @@
    <bottom>
       <HBox prefHeight="28.0" prefWidth="598.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="75.0" text="Regresar">
+            <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="75.0" text="Regresar" translateX="30.0" translateY="-15.0">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -157,7 +166,7 @@
                   <Insets bottom="2.0" top="2.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="buttonSalir" mnemonicParsing="false" onAction="#handleSalir" text="Salir">
+            <Button fx:id="buttonSalir" mnemonicParsing="false" onAction="#handleSalir" text="Salir" translateX="80.0" translateY="-15.0">
                <HBox.margin>
                   <Insets bottom="2.0" left="475.0" top="2.0" />
                </HBox.margin>

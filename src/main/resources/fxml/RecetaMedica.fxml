@@ -18,7 +18,7 @@
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-    <Label text="RECETA MEDICA" textFill="#1a237e">
+    <Label text="RECETA MEDICA" textFill="#6e98c3">
         <font>
             <Font name="Yu Gothic Light" size="22.0" />
         </font>
