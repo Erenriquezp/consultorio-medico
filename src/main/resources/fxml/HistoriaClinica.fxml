@@ -22,7 +22,7 @@
    </padding>
 
    <!-- Título de la sección -->
-   <Label text="HISTORIA CLINICA" textAlignment="CENTER" textFill="#1a237e">
+   <Label text="HISTORIA CLINICA" textAlignment="CENTER" textFill="#6e98c3">
       <font>
          <Font name="Yu Gothic Light" size="22.0" />
       </font>

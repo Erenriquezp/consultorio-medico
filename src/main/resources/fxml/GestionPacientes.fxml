@@ -9,6 +9,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -20,37 +22,44 @@
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-   <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; GESTION DE PACIENTES &lt;&lt;">
+   <Label prefHeight="21.0" prefWidth="337.0" text="GESTION DE PACIENTES" textFill="#6e98c3">
       <font>
-         <Font name="Yu Gothic Light" size="20.0" />
-      </font></Label>
+         <Font name="Yu Gothic Light" size="22.0" />
+      </font>
+      <graphic>
+         <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../imagenes/consultorioLogo.png" />
+            </image>
+         </ImageView>
+      </graphic></Label>
 
     <!-- Pacientes Section -->
-    <GridPane hgap="10" prefHeight="175.0" prefWidth="883.0" vgap="10">
-        <TextField fx:id="ciPacienteField" promptText="Cédula de Identidad" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <TextField fx:id="primerNombreField" promptText="Primer Nombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <GridPane hgap="10" prefHeight="175.0" prefWidth="883.0" translateX="6.0" vgap="10">
+        <TextField fx:id="ciPacienteField" prefHeight="26.0" prefWidth="160.0" promptText="Cédula de Identidad" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="primerNombreField" prefHeight="26.0" prefWidth="160.0" promptText="Primer Nombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <TextField fx:id="segundoNombreField" promptText="Segundo Nombre" GridPane.columnIndex="2" GridPane.rowIndex="0" />
         <TextField fx:id="apellidoPaternoField" promptText="Apellido Paterno" GridPane.columnIndex="3" GridPane.rowIndex="0" />
         <TextField fx:id="apellidoMaternoField" promptText="Apellido Materno" GridPane.columnIndex="4" GridPane.rowIndex="0" />
 
         <TextField fx:id="direccionResidenciaField" promptText="Dirección de Residencia" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <TextField fx:id="barrioField" promptText="Barrio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField fx:id="parroquiaField" promptText="Parroquia" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-        <TextField fx:id="cantonField" promptText="Cantón" text="Quito" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <TextField fx:id="provinciaField" promptText="Provincia" text="Pichincha" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <TextField fx:id="parroquiaField" prefHeight="26.0" prefWidth="160.0" promptText="Parroquia" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <TextField fx:id="cantonField" prefHeight="26.0" prefWidth="160.0" promptText="Cantón" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <TextField fx:id="provinciaField" prefHeight="26.0" prefWidth="160.0" promptText="Provincia" GridPane.columnIndex="4" GridPane.rowIndex="1" />
 
-        <TextField fx:id="telefonoField" promptText="Teléfono" text="09" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="telefonoField" promptText="Teléfono" GridPane.columnIndex="0" GridPane.rowIndex="2" />
         <DatePicker fx:id="fechaNacimientoField" promptText="Fecha de Nacimiento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <TextField fx:id="lugarNacimientoField" promptText="Lugar de Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-        <TextField fx:id="nacionalidadField" promptText="Nacionalidad" text="Ecuatoriana" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <TextField fx:id="nacionalidadField" promptText="Nacionalidad" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
-        <TextField fx:id="edadField" promptText="Edad" text="18" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <TextField fx:id="instruccionField" promptText="Instrucción" text="Bachiller" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <TextField fx:id="edadField" promptText="Edad" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="instruccionField" promptText="Instrucción" GridPane.columnIndex="2" GridPane.rowIndex="3" />
         <TextField fx:id="ocupacionField" promptText="Ocupación" GridPane.columnIndex="4" GridPane.rowIndex="3" />
 
         <TextField fx:id="lugarTrabajoField" promptText="Lugar de Trabajo" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <TextField fx:id="tipoSeguroField" promptText="Tipo de Seguro" text="Privado" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <SplitMenuButton fx:id="grupoCulturalMenu" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Grupo Cultural" GridPane.columnIndex="4" GridPane.rowIndex="2">
+        <TextField fx:id="tipoSeguroField" promptText="Tipo de Seguro" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <SplitMenuButton fx:id="grupoCulturalMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Grupo Cultural" GridPane.columnIndex="4" GridPane.rowIndex="2">
         <items>
             <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Afroecuatoriana" />
             <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Indigena" />
@@ -59,7 +68,7 @@
             <MenuItem mnemonicParsing="false" onAction="#handleGrupoCulturalMenuAction" text="Blanca" />
         </items>
       </SplitMenuButton>
-      <SplitMenuButton fx:id="estadoCivilMenu" prefHeight="25.0" prefWidth="149.0" text="Estado Civil" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <SplitMenuButton fx:id="estadoCivilMenu" prefHeight="26.0" prefWidth="175.0" text="Estado Civil" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <items>
             <MenuItem onAction="#handleEstadoCivilMenuAction" text="SOL" />
             <MenuItem onAction="#handleEstadoCivilMenuAction" text="CAS" />
@@ -75,8 +84,8 @@
         <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
+            <ColumnConstraints maxWidth="164.00005493164065" minWidth="155.2000671386719" prefWidth="162.4000183105469" />
+            <ColumnConstraints maxWidth="169.59993286132806" minWidth="160.7999450683593" prefWidth="162.39998168945306" />
             <ColumnConstraints />
         </columnConstraints>
         <rowConstraints>
@@ -92,7 +101,7 @@
       <children>
          <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                 <TextField fx:id="referenciaField" prefHeight="25.0" prefWidth="230.0" promptText="Referencia">
+                 <TextField fx:id="referenciaField" prefHeight="25.0" prefWidth="230.0" promptText="Referencia" translateX="6.0" translateY="-5.0">
                   <opaqueInsets>
                      <Insets bottom="10.0" top="10.0" />
                   </opaqueInsets>
@@ -100,21 +109,21 @@
                      <Insets right="10.0" />
                   </HBox.margin>
                </TextField>
-                 <TextField fx:id="contactoEmergenciaNombreField" prefHeight="25.0" prefWidth="316.0" promptText="Nombre del Contacto de Emergencia">
+                 <TextField fx:id="contactoEmergenciaNombreField" prefHeight="25.0" prefWidth="316.0" promptText="Nombre del Contacto de Emergencia" translateX="6.0" translateY="-5.0">
                   <HBox.margin>
                      <Insets right="10.0" />
                   </HBox.margin></TextField>
-                 <TextField fx:id="contactoEmergenciaParentescoField" prefHeight="25.0" prefWidth="218.0" promptText="Parentesco del Contacto de Emergencia" />
+                 <TextField fx:id="contactoEmergenciaParentescoField" prefHeight="25.0" prefWidth="218.0" promptText="Parentesco del Contacto de Emergencia" translateX="6.0" translateY="-5.0" />
             </children>
          </HBox>
          <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                    <TextField fx:id="contactoEmergenciaDireccionField" prefHeight="25.0" prefWidth="231.0" promptText="Dirección del Contacto de Emergencia" />
-                 <TextField fx:id="contactoEmergenciaTelefonoField" prefHeight="25.0" prefWidth="315.0" promptText="Cedula de Identidad">
+                    <TextField fx:id="contactoEmergenciaDireccionField" prefHeight="25.0" prefWidth="231.0" promptText="Dirección del Contacto de Emergencia" translateX="6.0" />
+                 <TextField fx:id="contactoEmergenciaTelefonoField" prefHeight="25.0" prefWidth="315.0" promptText="Cedula de Identidad" translateX="6.0">
                   <HBox.margin>
                      <Insets left="10.0" />
                   </HBox.margin></TextField>
-               <Label text="Opcional*">
+               <Label text="Opcional*" translateX="6.0">
                   <font>
                      <Font name="System Italic" size="12.0" />
                   </font>
@@ -165,7 +174,7 @@
       </children>
    </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0" />
-    <TableView fx:id="tablaPacientes" prefHeight="313.0" prefWidth="482.0" style="-fx-background-color: #E8F5E9;">
+    <TableView fx:id="tablaPacientes" prefHeight="850.0" prefWidth="870.0" style="-fx-background-color: FFFFFF;">
         <columns>
             <TableColumn fx:id="ciPacienteColumn" prefWidth="94.0" text="Cédula" />
             <TableColumn fx:id="primerNombreColumn" prefWidth="83.0" text="Primer Nombre" />
@@ -195,18 +204,7 @@
             <TableColumn fx:id="contactoEmergenciaTelefonoColumn" text="Contacto de Emergencia Teléfono" />
         </columns>
     </TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-      <children>
-         <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;" HBox.hgrow="ALWAYS">
-            <font>
-               <Font name="Symbol" size="19.0" />
-            </font>
-            <HBox.margin>
-               <Insets left="575.0" />
-            </HBox.margin>
-         </Label>
-      </children>
-   </HBox>
+   <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
    <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
       <children>
          <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="71.0" text="Regresar" HBox.hgrow="ALWAYS">
