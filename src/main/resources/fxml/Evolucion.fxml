@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionCitasController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" spacing="10" style="-fx-background-color: #E0F7FA;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uce.app.controllers.GestionEvolucionController">
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
@@ -21,79 +21,76 @@
         <font>
             <Font name="Yu Gothic Light" size="22.0" />
         </font>
-      <graphic>
-         <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../imagenes/consultorioLogo.png" />
-            </image>
-         </ImageView>
-      </graphic>
+        <graphic>
+            <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../imagenes/consultorioLogo.png" />
+                </image>
+            </ImageView>
+        </graphic>
     </Label>
-   <HBox prefHeight="26.0" prefWidth="614.0" translateX="60.0">
-      <children>
-          <TextField fx:id="ciPacienteField" promptText="ID Evolucion">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-          <TextField fx:id="idCitaField" promptText="ID Historia Clinica">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-         <TextField fx:id="idCitaField1" promptText="Cedula Paciente">
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </TextField>
-         <TextField fx:id="idCitaField11" promptText="Fecha Emision" />
-      </children>
-   </HBox>
-    <HBox prefHeight="100.0" prefWidth="200.0" />
-    <TextArea fx:id="motivoField" maxHeight="60.0" minHeight="100.0" prefHeight="80.0" prefWidth="750.0" promptText="Diagnostico de la Evolucion" />
+    <HBox prefHeight="26.0" prefWidth="614.0" translateX="60.0">
+        <children>
+            <TextField fx:id="idEvolucionField" promptText="ID Evolución">
+                <HBox.margin>
+                    <Insets right="5.0" />
+                </HBox.margin>
+            </TextField>
+            <TextField fx:id="idHistoriaClinicaField" promptText="ID Historia Clinica">
+                <HBox.margin>
+                    <Insets right="5.0" />
+                </HBox.margin>
+            </TextField>
+            <TextField fx:id="fechaField" promptText="Fecha">
+                <HBox.margin>
+                    <Insets right="5.0" />
+                </HBox.margin>
+            </TextField>
+        </children>
+    </HBox>
+    <TextArea fx:id="descripcionField" maxHeight="60.0" minHeight="100.0" prefHeight="80.0" prefWidth="750.0" promptText="Descripción" />
     <HBox spacing="10" />
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
         <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#agregarCita" prefWidth="100.0" text="Agregar" translateX="55.0">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font></Button>
-            <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" prefWidth="100.0" text="Editar" translateX="35.0">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#agregarEvolucion" prefWidth="100.0" text="Agregar" translateX="55.0">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font></Button>
+            <Button fx:id="buttonActualizarEvolucion" onAction="#actualizarEvolucion" prefWidth="100.0" text="Editar" translateX="35.0">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
             </Button>
-            <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" prefWidth="100.0" text="Eliminar" translateX="15.0">
+            <Button fx:id="buttonEliminarEvolucion" onAction="#eliminarEvolucion" prefWidth="100.0" text="Eliminar" translateX="15.0">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
             </Button>
-         <Button fx:id="buttonEliminarCita1" alignment="CENTER" contentDisplay="CENTER" onAction="#eliminarCita" prefWidth="100.0" text="Buscar " translateX="-10.0">
-            <HBox.margin>
-               <Insets left="25.0" />
-            </HBox.margin>
-            <font>
-               <Font name="System Bold" size="12.0" />
-            </font>
-         </Button>
+            <Button fx:id="buttonBuscarEvolucion" alignment="CENTER" contentDisplay="CENTER" onAction="#buscarEvolucion" prefWidth="100.0" text="Buscar " translateX="-10.0">
+                <HBox.margin>
+                    <Insets left="25.0" />
+                </HBox.margin>
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Button>
         </children>
     </HBox>
-    <TableView fx:id="tablaCitas" prefHeight="313.0" prefWidth="482.0">
+    <TableView fx:id="tablaEvoluciones" prefHeight="313.0" prefWidth="482.0">
         <columns>
-            <TableColumn fx:id="idCitaColumn" prefWidth="132.0" text="ID Evolucion" />
-            <TableColumn fx:id="ciPacienteColumn" prefWidth="127.0" text="ID Historia Clinica" />
-            <TableColumn fx:id="fechaCitaColumn" prefWidth="111.0" text="Cedula Medico" />
-            <TableColumn fx:id="motivoColumn" prefWidth="124.0" text="Fecha Emision" />
-            <TableColumn fx:id="estadoColumn" prefWidth="205.0" text="Diagnostico" />
+            <TableColumn fx:id="idEvolucionColumn" prefWidth="132.0" text="ID Evolución" />
+            <TableColumn fx:id="idHistoriaClinicaColumn" prefWidth="127.0" text="ID Historia Clinica" />
+            <TableColumn fx:id="fechaColumn" prefWidth="111.0" text="Fecha" />
+            <TableColumn fx:id="descripcionColumn" prefWidth="205.0" text="Descripción" />
         </columns>
     </TableView>
     <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" />

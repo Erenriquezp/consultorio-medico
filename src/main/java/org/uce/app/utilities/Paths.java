@@ -7,5 +7,6 @@ public class Paths {
     public static final String historiaClinica = "/fxml/HistoriaClinica.fxml";
     public static final String loginScreen = "/fxml/Login.fxml";
     public static final String recetaMedica = "/fxml/RecetaMedica.fxml";
+    public static final String evolucion = "/fxml/Evolucion.fxml";
     public static final String stylesheet = "/styles/styles.css";
 }

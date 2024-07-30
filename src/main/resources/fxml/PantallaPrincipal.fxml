@@ -119,7 +119,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#gestionarRecetaMedica" prefHeight="20.0" prefWidth="120.0" text="Evolución" translateX="75.0" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#gestionarEvolucion" prefHeight="20.0" prefWidth="120.0" text="Evolución" translateX="75.0" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

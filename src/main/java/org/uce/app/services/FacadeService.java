@@ -1,6 +1,7 @@
 package org.uce.app.services;
 
 import org.uce.app.model.Cita;
+import org.uce.app.model.Evolucion;
 import org.uce.app.model.HistoriaClinica;
 import org.uce.app.model.Paciente;
 import org.uce.app.model.Receta;
@@ -14,6 +15,7 @@ public class FacadeService {
     private final PacienteServiceInterface pacienteService;
     private final RecetaServiceInterface recetaService;
     private final HistoriaClinicaServiceInterface historiaClinicaService;
+    private final EvolucionServiceInterface evolucionService;
 
     public FacadeService() {
         this.authService = new AuthServiceProxy(new AuthService());
@@ -21,6 +23,7 @@ public class FacadeService {
         this.pacienteService = new PacienteServiceProxy(new PacienteService());
         this.recetaService = new RecetaServiceProxy(new RecetaService());
         this.historiaClinicaService = new HistoriaClinicaServiceProxy(new HistoriaClinicaService());
+        this.evolucionService = new EvolucionServiceProxy(new EvolucionService());
     }
 
     // AuthService methods
@@ -110,5 +113,26 @@ public class FacadeService {
 
     public boolean deleteHistoriaClinica(String idHistoriaClinica) {
         return historiaClinicaService.deleteHistoriaClinica(idHistoriaClinica);
+    }
+
+    // EvolucionService methods
+    public boolean createEvolucion(Evolucion evolucion) {
+        return evolucionService.createEvolucion(evolucion);
+    }
+
+    public List<Evolucion> getAllEvoluciones() {
+        return evolucionService.getAllEvoluciones();
+    }
+
+    public Evolucion getEvolucionById(int id) {
+        return evolucionService.getEvolucionById(id);
+    }
+
+    public boolean updateEvolucion(Evolucion evolucion) {
+        return evolucionService.updateEvolucion(evolucion);
+    }
+
+    public boolean deleteEvolucion(int id) {
+        return evolucionService.deleteEvolucion(id);
     }
 }

@@ -218,19 +218,32 @@ public class GestionHistoriaClinicaController {
     }
 
     @FXML
-    private void regresar(ActionEvent event) throws IOException {
-        Stage stage = (Stage) buttonRegresar.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
+    private void handleRegresar() {
+        closeStage(buttonRegresar);
+        cargarPantallaPrincipal();
     }
 
     @FXML
-    private void salir() {
-        Stage stage = (Stage) buttonSalir.getScene().getWindow();
-        stage.close();
+    private void handleSalir() {
+        closeStage(buttonSalir);
     }
 
+    private void cargarPantallaPrincipal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.pantallaPrincipal));
+            Stage stage = new Stage();
+            stage.setTitle("Pantalla Principal");
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeStage(Button button) {
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
+    }
     private boolean validateFields() {
         return !idHistoriaClinicaField.getText().isEmpty() &&
                 !cedulaMedicoField.getText().isEmpty() &&
@@ -310,7 +323,6 @@ public class GestionHistoriaClinicaController {
                 .build();
     }
 
-
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
@@ -319,9 +331,4 @@ public class GestionHistoriaClinicaController {
         alert.showAndWait();
     }
 
-    public void handleRegresar(ActionEvent actionEvent) {
-    }
-
-    public void handleSalir(ActionEvent actionEvent) {
-    }
 }

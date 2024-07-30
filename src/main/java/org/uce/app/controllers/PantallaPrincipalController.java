@@ -1,5 +1,6 @@
 package org.uce.app.controllers; // Paquete en el que se encuentra esta clase
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML; // Importa la anotación FXML para marcar métodos y campos
 import javafx.fxml.FXMLLoader; // Importa la clase FXMLLoader para cargar archivos FXML
 import javafx.scene.Scene; // Importa la clase Scene para representar la escena de JavaFX
@@ -65,5 +66,10 @@ public class PantallaPrincipalController {
             // Manejo de la excepción en caso de error al cargar el archivo FXML
             e.printStackTrace();
         }
+    }
+
+    public void gestionarEvolucion(ActionEvent actionEvent) {
+        cargarPantalla(Paths.evolucion, "Evolucion");
+
     }
 }
