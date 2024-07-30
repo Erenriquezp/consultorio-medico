@@ -318,4 +318,10 @@ public class GestionHistoriaClinicaController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    public void handleRegresar(ActionEvent actionEvent) {
+    }
+
+    public void handleSalir(ActionEvent actionEvent) {
+    }
 }
