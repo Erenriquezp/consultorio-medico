@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistoriaClinicaDAO {
-
     // Método para crear una nueva historia clínica
     public void crearHistoriaClinica(HistoriaClinica historiaClinica) throws SQLException {
         String query = "INSERT INTO Historia_clinica (id_historia_clinica, ci_medico, ci_paciente, motivo_consulta, " +
@@ -61,8 +60,36 @@ public class HistoriaClinicaDAO {
 
         try (Connection conexion = ConexionDAO.getInstancia().getConexion();
              PreparedStatement pstmt = conexion.prepareStatement(query)) {
-            setHistoriaClinicaParameters(pstmt, historiaClinica);
-            pstmt.setString(30, historiaClinica.getIdHistoriaClinica());
+            pstmt.setString(1, historiaClinica.getIdHistoriaClinica());
+            pstmt.setString(2, historiaClinica.getCiMedico());
+            pstmt.setString(3, historiaClinica.getCiPaciente());
+            pstmt.setString(4, historiaClinica.getMotivoConsulta());
+            pstmt.setString(5, historiaClinica.getAntecedentesPersonales());
+            pstmt.setString(6, historiaClinica.getAntecedentesFamiliares());
+            pstmt.setString(7, historiaClinica.getEnfermedadesActuales());
+            pstmt.setString(8, historiaClinica.getRaosOrganosSentidos());
+            pstmt.setString(9, historiaClinica.getRaosRespiratorio());
+            pstmt.setString(10, historiaClinica.getRaosCardiovascular());
+            pstmt.setString(11, historiaClinica.getRaosDigestivo());
+            pstmt.setString(12, historiaClinica.getRaosGenital());
+            pstmt.setString(13, historiaClinica.getRaosUrinario());
+            pstmt.setString(14, historiaClinica.getRaosMusculoEsqueletico());
+            pstmt.setString(15, historiaClinica.getRaosEndocrino());
+            pstmt.setString(16, historiaClinica.getRaosHemoLinfatico());
+            pstmt.setString(17, historiaClinica.getRaosNervioso());
+            pstmt.setDate(18, historiaClinica.getSvaFechaMedicion()); // Corregido
+            pstmt.setString(19, historiaClinica.getSvaTemperatura());
+            pstmt.setString(20, historiaClinica.getSvaPresionArterial());
+            pstmt.setString(21, historiaClinica.getSvaPulsoMinFreRespiratoria());
+            pstmt.setString(22, historiaClinica.getSvaPesoKgTallaCm());
+            pstmt.setString(23, historiaClinica.getEfrCabeza());
+            pstmt.setString(24, historiaClinica.getEfrCuello());
+            pstmt.setString(25, historiaClinica.getEfrTorax());
+            pstmt.setString(26, historiaClinica.getEfrAbdomen());
+            pstmt.setString(27, historiaClinica.getEfrPelvis());
+            pstmt.setString(28, historiaClinica.getEfrExtremidades());
+            pstmt.setString(29, historiaClinica.getDiagnosticoDesc());
+            pstmt.setString(30, historiaClinica.getDiagnosticoCIE());
             pstmt.executeUpdate();
         }
     }
