@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Actualizacion Pom">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Controllers y patrones para Receta" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,35 +50,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.ConexionDAO.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Program Files/Java/jdk-22.0.1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConexionDAO.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kelly/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\IntelliJ_IDEA\Java\Design_Patterns\consultorio-medico\src\main\resources\styles" />
@@ -228,37 +225,8 @@
       <option name="project" value="LOCAL" />
       <updated>1722284750512</updated>
     </task>
-    <task id="LOCAL-00011" summary="Controllers y patrones Historia Clinica">
-      <option name="closed" value="true" />
-      <created>1722313626588</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1722313626588</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Controllers y patrones Historia Clinica">
-      <option name="closed" value="true" />
-      <created>1722316879167</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1722316879167</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Actualizacion Pom">
-      <option name="closed" value="true" />
-      <created>1722320015960</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1722320015960</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="11" />
     <servers />
-  </component>
-  <component name="TerminalProjectNonSharedOptionsProvider">
-    <envs>
-      <env key="MAVEN_HOME" value="C:\Program Files\Apache\apache-maven-3.9.8" />
-    </envs>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -294,8 +262,7 @@
     <MESSAGE value="Correccion logica DAO - Controllers" />
     <MESSAGE value="Controllers y patrones para Receta" />
     <MESSAGE value="Controllers y patrones Historia Clinica" />
-    <MESSAGE value="Actualizacion Pom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion Pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controllers y patrones Historia Clinica" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

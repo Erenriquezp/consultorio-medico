@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,56 +18,78 @@
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-    <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; RECETA MEDICA &lt;&lt;" textFill="#1a237e">
+    <Label text="RECETA MEDICA" textFill="#1a237e">
         <font>
-            <Font name="Yu Gothic Light" size="20.0" />
+            <Font name="Yu Gothic Light" size="22.0" />
         </font>
+      <graphic>
+         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true">
+            <image>
+               <Image url="@../imagenes/consultorioLogo.png" />
+            </image>
+            <viewport>
+               <Rectangle2D />
+            </viewport>
+         </ImageView>
+      </graphic>
     </Label>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox prefHeight="100.0" prefWidth="200.0" translateX="40.0">
        <children>
-           <TextField fx:id="numeroRecetaField" promptText="Numero de Receta">
+           <TextField fx:id="numeroRecetaField" promptText="Numero de Receta" translateX="15.0">
                <HBox.margin>
                    <Insets right="5.0" />
                </HBox.margin>
            </TextField>
-           <TextField fx:id="ciPacienteField" promptText="Cedula Paciente">
+           <TextField fx:id="ciPacienteField" promptText="Cedula Paciente" translateX="15.0">
                <HBox.margin>
                    <Insets right="5.0" />
                </HBox.margin>
            </TextField>
-           <TextField fx:id="ciMedicoField" promptText="Cedula Medico">
+           <TextField fx:id="ciMedicoField" promptText="Cedula Medico" translateX="15.0">
                <HBox.margin>
                    <Insets right="5.0" />
                </HBox.margin>
            </TextField>
-           <TextField fx:id="fechaEmisionField" promptText="Fecha Emision" />
+           <TextField fx:id="fechaEmisionField" promptText="Fecha Emision" translateX="15.0" />
        </children>
    </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0" />
-    <TextArea fx:id="medicamentosField" promptText="Medicamentos" />
+    <TextArea fx:id="medicamentosField" prefHeight="38.0" prefWidth="619.0" promptText="Medicamentos" translateY="-5.0" />
     <TextField fx:id="dosisField" promptText="Dosis" />
     <HBox spacing="10" />
     <HBox prefHeight="100.0" prefWidth="200.0">
         <children>
-            <Button mnemonicParsing="false" onAction="#agregarReceta" text="Agregar">
+            <Button mnemonicParsing="false" onAction="#agregarReceta" prefWidth="100.0" text="Agregar">
                 <HBox.margin>
                     <Insets left="160.0" />
                 </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
             </Button>
-            <Button onAction="#actualizarReceta" text="Editar">
+            <Button onAction="#actualizarReceta" prefHeight="25.0" prefWidth="100.0" text="Editar" translateX="-20.0">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
             </Button>
-            <Button onAction="#eliminarReceta" text="Eliminar">
+            <Button onAction="#eliminarReceta" prefWidth="100.0" text="Eliminar" translateX="-40.0">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
             </Button>
-            <Button onAction="#buscarReceta" text="Buscar">
+            <Button onAction="#buscarReceta" prefWidth="100.0" text="Buscar" translateX="-65.0">
                 <HBox.margin>
                     <Insets left="25.0" />
                 </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
             </Button>
         </children>
     </HBox>
@@ -78,18 +103,7 @@
             <TableColumn fx:id="dosisColumn" prefWidth="205.0" text="Dosis" />
         </columns>
     </TableView>
-    <HBox prefHeight="100.0" prefWidth="200.0">
-        <children>
-            <Label alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;">
-                <font>
-                    <Font name="Symbol" size="19.0" />
-                </font>
-                <HBox.margin>
-                    <Insets left="395.0" />
-                </HBox.margin>
-            </Label>
-        </children>
-    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0" />
     <HBox prefHeight="100.0" prefWidth="200.0">
         <Button fx:id="buttonRegresar" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="72.0" text="Regresar">
             <font>
