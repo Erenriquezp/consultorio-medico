@@ -41,6 +41,8 @@ public class GestionCitasController {
     private Button buttonSalir;
     @FXML
     private TableView<Cita> tablaCitas;
+    @FXML
+    private TextField buscarIdCitaField;
 
     private final FacadeService facadeService;
 
@@ -225,6 +227,20 @@ public class GestionCitasController {
         return alert.showAndWait();
     }
 
+    @FXML
     public void buscarCita(ActionEvent actionEvent) {
+        String idCita = buscarIdCitaField.getText();
+        if (idCita.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "ID vacío", "Por favor, ingrese un ID de cita.");
+            return;
+        }
+
+        Cita cita = facadeService.getCitaById(idCita);
+        if (cita == null) {
+            showAlert(Alert.AlertType.WARNING, "Cita no encontrada", "No se encontró ninguna cita con el ID proporcionado.");
+        } else {
+            tablaCitas.getItems().clear();
+            tablaCitas.getItems().add(cita);
+        }
     }
 }

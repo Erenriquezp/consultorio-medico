@@ -12,7 +12,7 @@ public class ConexionDAO {
     private ConexionDAO() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/consultorio";
+            String url = "jdbc:mysql://localhost:3307/consultorio";
             String username = "root";
             String password = "patrones123";
 
