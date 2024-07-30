@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Controllers y patrones Historia Clinica">
+    <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Actualizacion Pom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -64,13 +64,13 @@
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Kelly/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar",
+    "last_opened_file_path": "C:/Program Files/Java/jdk-22.0.1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "configurable.group.appearance",
@@ -244,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722316879167</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Actualizacion Pom">
+      <option name="closed" value="true" />
+      <created>1722320015960</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722320015960</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -286,7 +294,8 @@
     <MESSAGE value="Correccion logica DAO - Controllers" />
     <MESSAGE value="Controllers y patrones para Receta" />
     <MESSAGE value="Controllers y patrones Historia Clinica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers y patrones Historia Clinica" />
+    <MESSAGE value="Actualizacion Pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion Pom" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
