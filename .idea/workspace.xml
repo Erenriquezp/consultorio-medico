@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c426c162-7663-43f3-9466-7847aa48efac" name="Changes" comment="Controllers y patrones para Receta">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionHistoriaClinicaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/HistoriaClinicaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/HistoriaClinicaServiceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/HistoriaClinicaServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/655d47b3-e247-4584-815a-68b638ef6e05.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_7_2024_3_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_7_2024_3_12__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_7_2024_11_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_7_2024_11_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/HistoriaClinicaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistoriaClinicaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/HistoriaClinicaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/model/HistoriaClinica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/FacadeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/FacadeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GestionCitas.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/HistoriaClinica.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionRecetasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/controllers/GestionRecetasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/dao/RecetaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/uce/app/services/MedicalFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/uce/app/services/MedicalFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,14 +43,12 @@
     &quot;assignee&quot;: &quot;sophiaAndMe&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="3f484932-cfe5-4c2c-8835-fab1fc30d122" />
-        <option name="url" value="https://github.com/Erenriquezp/consultorio-medico.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Erenriquezp/consultorio-medico.git&quot;,
+    &quot;accountId&quot;: &quot;b5e48ec2-11f0-44fd-9252-59dd262842e3&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -160,8 +154,6 @@
       <workItem from="1721954212522" duration="225000" />
       <workItem from="1722040978785" duration="8431000" />
       <workItem from="1722091219873" duration="10746000" />
-      <workItem from="1722286277922" duration="271000" />
-      <workItem from="1722306311877" duration="6766000" />
     </task>
     <task id="LOCAL-00001" summary="Inicializacion del proyecto">
       <option name="closed" value="true" />
@@ -243,15 +235,7 @@
       <option name="project" value="LOCAL" />
       <updated>1722284750512</updated>
     </task>
-    <task id="LOCAL-00011" summary="Controllers y patrones para Receta">
-      <option name="closed" value="true" />
-      <created>1722285318279</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1722285318279</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
