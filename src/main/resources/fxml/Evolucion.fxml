@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,12 +17,19 @@
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-    <Label style="-fx-border-color: #1a237e;" text="&gt;&gt; EVOLUCION&lt;&lt;" textFill="#1a237e">
+    <Label text="EVOLUCION" textFill="#6e98c3">
         <font>
-            <Font name="Yu Gothic Light" size="20.0" />
+            <Font name="Yu Gothic Light" size="22.0" />
         </font>
+      <graphic>
+         <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../imagenes/consultorioLogo.png" />
+            </image>
+         </ImageView>
+      </graphic>
     </Label>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox prefHeight="26.0" prefWidth="614.0" translateX="60.0">
       <children>
           <TextField fx:id="ciPacienteField" promptText="ID Evolucion">
             <HBox.margin>
@@ -45,24 +54,36 @@
     <HBox spacing="10" />
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
         <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#agregarCita" text="Agregar">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#agregarCita" prefWidth="100.0" text="Agregar" translateX="55.0">
             <HBox.margin>
                <Insets />
-            </HBox.margin></Button>
-            <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" text="Editar">
+            </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Button>
+            <Button fx:id="buttonActualizarCita" onAction="#actualizarCita" prefWidth="100.0" text="Editar" translateX="35.0">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
             </Button>
-            <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" text="Eliminar">
+            <Button fx:id="buttonEliminarCita" onAction="#eliminarCita" prefWidth="100.0" text="Eliminar" translateX="15.0">
                 <HBox.margin>
                     <Insets left="20.0" />
                 </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
             </Button>
-         <Button fx:id="buttonEliminarCita1" onAction="#eliminarCita" text="Buscar ">
+         <Button fx:id="buttonEliminarCita1" alignment="CENTER" contentDisplay="CENTER" onAction="#eliminarCita" prefWidth="100.0" text="Buscar " translateX="-10.0">
             <HBox.margin>
                <Insets left="25.0" />
             </HBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
          </Button>
         </children>
     </HBox>
@@ -75,20 +96,9 @@
             <TableColumn fx:id="estadoColumn" prefWidth="205.0" text="Diagnostico" />
         </columns>
     </TableView>
-    <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
-        <children>
-            <Label alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="25.0" prefWidth="304.0" style="-fx-underline: true;" text="&quot;Salud y bienestar en cada consulta.&quot;">
-                <font>
-                    <Font name="Symbol" size="19.0" />
-                </font>
-                <HBox.margin>
-                    <Insets left="395.0" />
-                </HBox.margin>
-            </Label>
-        </children>
-    </HBox>
+    <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" />
     <HBox prefHeight="100.0" prefWidth="200.0">
-        <Button fx:id="buttonRegresar" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="72.0" text="Regresar">
+        <Button fx:id="buttonRegresar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRegresar" prefHeight="25.0" prefWidth="72.0" text="Regresar" textAlignment="CENTER">
             <font>
                 <Font name="System Bold Italic" size="12.0" />
             </font>
